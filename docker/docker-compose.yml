@@ -1,0 +1,24 @@
+services:
+  sqa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sqa-d4j:latest
+    container_name: sqa_d4j
+    # Mac ชิป M (Apple Silicon): เอา comment บรรทัดล่างออกเพื่อรันแบบ amd64
+    # platform: linux/amd64
+    working_dir: /workspace
+    environment:
+      - TZ=America/Los_Angeles
+    env_file:
+      - path: ../.env
+        required: false
+    volumes:
+      - ..:/workspace        # โค้ดใน repo (แก้ในเครื่องได้ เห็นใน container ทันที)
+      - d4j_work:/work       # ที่ checkout บั๊ก แยกออกจาก repo ไม่ให้ไป commit
+    tty: true
+    stdin_open: true
+    command: tail -f /dev/null
+
+volumes:
+  d4j_work:
