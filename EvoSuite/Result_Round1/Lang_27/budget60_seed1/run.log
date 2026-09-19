@@ -1,0 +1,407 @@
+
+$ defects4j checkout -p Lang -v 27f -w /work/Lang_27f
+Checking out 50c1fdec to /work/Lang_27f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Lang_27f/maven-build.xml...................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 50c1fdec:bbcba273..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-27f........................................ OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Lang_27f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=6.1s]
+
+$ defects4j checkout -p Lang -v 27b -w /work/Lang_27b
+Checking out 50c1fdec to /work/Lang_27b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Lang_27b/maven-build.xml...................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 50c1fdec:bbcba273..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-27b........................................ OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Lang_27b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=6.0s]
+
+$ java -jar /opt/evosuite/evosuite-1.2.0.jar -generateSuite -class org.apache.commons.lang3.math.NumberUtils -projectCP /work/Lang_27f/target/classes:/work/Lang_27f/target/classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Lang_27f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Lang_27f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.lang3.math.NumberUtils
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /work/Lang_27f/target/classes
+  - /work/Lang_27f/target/classes
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.lang3.math.NumberUtils
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 358
+  - Branch 377
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:===>                               10%]
+[Progress:>                             0%] [Cov:=====>                             17%]
+[Progress:>                             0%] [Cov:=================>                 51%]
+[Progress:>                             0%] [Cov:==================>                53%]
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:==>                                6%]
+[Progress:>                             1%] [Cov:=============>                     39%]
+[Progress:>                             1%] [Cov:===============>                   44%]
+[Progress:>                             1%] [Cov:===============>                   45%]
+[Progress:>                             1%] [Cov:================>                  46%]
+[Progress:>                             1%] [Cov:================>                  48%]
+[Progress:>                             1%] [Cov:==================>                53%]
+[Progress:>                             1%] [Cov:==================>                53%]
+[Progress:>                             3%] [Cov:================>                  47%]
+[Progress:>                             3%] [Cov:================>                  48%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:==================>                53%]
+[Progress:>                             3%] [Cov:=============================>     84%]
+[Progress:>                             3%] [Cov:=============================>     84%]
+[Progress:>                             3%] [Cov:=============================>     84%]
+[Progress:>                             3%] [Cov:=============================>     84%]
+[Progress:>                             3%] [Cov:=============================>     85%]
+[Progress:=>                            5%] [Cov:=============================>     84%]
+[Progress:=>                            5%] [Cov:=============================>     85%]
+[Progress:=>                            5%] [Cov:=============================>     85%]
+[Progress:=>                            5%] [Cov:=============================>     85%]
+[Progress:=>                            6%] [Cov:=============================>     85%]
+[Progress:=>                            6%] [Cov:==============================>    86%]
+[Progress:=>                            6%] [Cov:==============================>    86%]
+[Progress:=>                            6%] [Cov:==============================>    87%]
+[Progress:=>                            6%] [Cov:==============================>    87%]
+[Progress:==>                           8%] [Cov:==============================>    87%]
+[Progress:==>                           8%] [Cov:==============================>    87%]
+[Progress:==>                           8%] [Cov:==============================>    87%]
+[Progress:==>                           8%] [Cov:==============================>    87%]
+[Progress:===>                          10%] [Cov:==============================>    87%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          11%] [Cov:==============================>    88%]
+[Progress:===>                          11%] [Cov:==============================>    88%]
+[Progress:===>                          11%] [Cov:==============================>    88%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   91%]
+[Progress:=======>                      25%] [Cov:===============================>   91%]
+[Progress:=======>                      26%] [Cov:===============================>   91%]
+[Progress:=======>                      26%] [Cov:===============================>   91%]
+[Progress:=======>                      26%] [Cov:===============================>   91%]
+[Progress:=======>                      26%] [Cov:===============================>   91%]
+[Progress:========>                     28%] [Cov:===============================>   91%]
+[Progress:========>                     28%] [Cov:===============================>   91%]
+[Progress:========>                     28%] [Cov:===============================>   91%]
+[Progress:========>                     28%] [Cov:===============================>   91%]
+[Progress:=========>                    30%] [Cov:===============================>   91%]
+[Progress:=========>                    30%] [Cov:===============================>   91%]
+[Progress:=========>                    30%] [Cov:===============================>   91%]
+[Progress:=========>                    31%] [Cov:===============================>   91%]
+[Progress:=========>                    31%] [Cov:===============================>   91%]
+[Progress:=========>                    31%] [Cov:===============================>   91%]
+[Progress:=========>                    33%] [Cov:===============================>   91%]
+[Progress:=========>                    33%] [Cov:===============================>   91%]
+[Progress:=========>                    33%] [Cov:===============================>   91%]
+[Progress:=========>                    33%] [Cov:===============================>   91%]
+[Progress:==========>                   35%] [Cov:===============================>   91%]
+[Progress:==========>                   35%] [Cov:===============================>   91%]
+[Progress:==========>                   35%] [Cov:===============================>   91%]
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:============>                 40%] [Cov:===============================>   91%]
+[Progress:============>                 40%] [Cov:===============================>   91%]
+[Progress:============>                 41%] [Cov:===============================>   91%]
+[Progress:============>                 41%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%]
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:==============>               48%] [Cov:===============================>   91%]
+[Progress:==============>               48%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          66%] [Cov:===============================>   91%]
+[Progress:===================>          66%] [Cov:===============================>   91%]
+[Progress:===================>          66%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        71%] [Cov:===============================>   91%]
+[Progress:=====================>        71%] [Cov:===============================>   91%]
+[Progress:=====================>        71%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:================================>  92%]
+[Progress:======================>       75%] [Cov:================================>  92%]
+[Progress:======================>       75%] [Cov:================================>  92%]
+[Progress:======================>       76%] [Cov:================================>  92%]
+[Progress:======================>       76%] [Cov:================================>  92%]
+[Progress:======================>       76%] [Cov:================================>  92%]
+[Progress:=======================>      78%] [Cov:================================>  92%]
+[Progress:=======================>      78%] [Cov:================================>  92%]
+[Progress:=======================>      78%] [Cov:================================>  92%]
+[Progress:========================>     80%] [Cov:================================>  92%]
+[Progress:========================>     80%] [Cov:================================>  92%]
+[Progress:========================>     80%] [Cov:================================>  92%]
+[Progress:========================>     81%] [Cov:================================>  92%]
+[Progress:========================>     81%] [Cov:================================>  92%]
+[Progress:========================>     81%] [Cov:================================>  92%]
+[Progress:========================>     83%] [Cov:================================>  92%]
+[Progress:========================>     83%] [Cov:================================>  92%]
+[Progress:========================>     83%] [Cov:================================>  92%]
+[Progress:=========================>    85%] [Cov:================================>  92%]
+[Progress:=========================>    85%] [Cov:================================>  92%]
+[Progress:=========================>    86%] [Cov:================================>  92%]
+[Progress:=========================>    86%] [Cov:================================>  92%]
+[Progress:=========================>    86%] [Cov:================================>  92%]
+[Progress:==========================>   88%] [Cov:================================>  92%]
+[Progress:==========================>   88%] [Cov:================================>  92%]
+[Progress:==========================>   88%] [Cov:================================>  92%]
+[Progress:===========================>  90%] [Cov:================================>  92%]
+[Progress:===========================>  90%] [Cov:================================>  92%]
+[Progress:===========================>  90%] [Cov:================================>  92%]
+[Progress:===========================>  91%] [Cov:================================>  92%]
+[Progress:===========================>  91%] [Cov:================================>  92%]
+[Progress:===========================>  91%] [Cov:================================>  92%]
+[Progress:===========================>  93%] [Cov:================================>  92%]
+[Progress:===========================>  93%] [Cov:================================>  92%]
+[Progress:===========================>  93%] [Cov:================================>  92%]
+[Progress:============================> 95%] [Cov:================================>  92%]
+[Progress:============================> 95%] [Cov:================================>  92%]
+[Progress:============================> 96%] [Cov:================================>  92%]
+[Progress:============================> 96%] [Cov:================================>  92%]
+[Progress:============================> 96%] [Cov:================================>  92%]
+[Progress:=============================>98%] [Cov:================================>  92%]
+[Progress:=============================>98%] [Cov:================================>  92%]
+[Progress:==============================100%] [Cov:================================>  92%]
+[Progress:==============================100%] [Cov:================================>  92%]
+[Progress:==============================100%] [Cov:================================>  92%]
+[Progress:==============================100%] [Cov:================================>  92%]
+* Search finished after 61s and 131 generations, 74165 statements, best individual has fitness: 100.5312470138557
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 94%
+* Total number of goals: 358
+* Number of covered goals: 336
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 84%
+* Total number of goals: 377
+* Number of covered goals: 318
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 20
+* Number of covered goals: 20
+* Generated 127 tests with total length 174
+* Resulting test suite's coverage: 93% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 56%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'NumberUtils_ESTest' to /work/evo_out/Lang_27f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=84.4s]
+
+$ javac -nowarn -cp /work/Lang_27f/target/classes:/opt/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/opt/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/work/Lang_27f/target/classes:/work/Lang_27f/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Lang_27f/budget60_seed1/classes /work/evo_out/Lang_27f/budget60_seed1/tests/org/apache/commons/lang3/math/NumberUtils_ESTest.java /work/evo_out/Lang_27f/budget60_seed1/tests/org/apache/commons/lang3/math/NumberUtils_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Lang_27f/target/classes --dest /work/evo_out/Lang_27f/budget60_seed1/instrumented
+[INFO] 140 classes instrumented to /work/evo_out/Lang_27f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Lang_27/budget60_seed1/jacoco.exec -cp /work/evo_out/Lang_27f/budget60_seed1/instrumented:/work/evo_out/Lang_27f/budget60_seed1/classes:/opt/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/opt/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/work/Lang_27f/target/classes:/work/Lang_27f/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.lang3.math.NumberUtils_ESTest
+JUnit version 4.7
+.E
+Time: 0.002
+There was 1 failure:
+1) initializationError(org.apache.commons.lang3.math.NumberUtils_ESTest)
+java.lang.Exception: Field nfr must implement MethodRule
+	at org.junit.runners.BlockJUnit4ClassRunner.validateRuleField(BlockJUnit4ClassRunner.java:181)
+	at org.junit.runners.BlockJUnit4ClassRunner.validateFields(BlockJUnit4ClassRunner.java:176)
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:116)
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:269)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:66)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:59)
+	at org.evosuite.runtime.EvoRunner.<init>(EvoRunner.java:76)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:31)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:24)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:29)
+	at org.junit.runner.Computer.getRunner(Computer.java:38)
+	at org.junit.runner.Computer$1.runnerForClass(Computer.java:29)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.runners.model.RunnerBuilder.runners(RunnerBuilder.java:93)
+	at org.junit.runners.model.RunnerBuilder.runners(RunnerBuilder.java:84)
+	at org.junit.runners.Suite.<init>(Suite.java:79)
+	at org.junit.runner.Computer.getSuite(Computer.java:26)
+	at org.junit.runner.Request.classes(Request.java:69)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:117)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:98)
+	at org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:53)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:45)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
+[exit=1 timeout=False time=0.2s]
+
+$ java -cp /work/evo_out/Lang_27f/budget60_seed1/classes:/opt/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/opt/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/work/Lang_27b/target/classes:/work/Lang_27b/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.lang3.math.NumberUtils_ESTest
+JUnit version 4.7
+.E
+Time: 0.001
+There was 1 failure:
+1) initializationError(org.apache.commons.lang3.math.NumberUtils_ESTest)
+java.lang.Exception: Field nfr must implement MethodRule
+	at org.junit.runners.BlockJUnit4ClassRunner.validateRuleField(BlockJUnit4ClassRunner.java:181)
+	at org.junit.runners.BlockJUnit4ClassRunner.validateFields(BlockJUnit4ClassRunner.java:176)
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:116)
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:269)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:66)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:59)
+	at org.evosuite.runtime.EvoRunner.<init>(EvoRunner.java:76)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:31)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:24)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:29)
+	at org.junit.runner.Computer.getRunner(Computer.java:38)
+	at org.junit.runner.Computer$1.runnerForClass(Computer.java:29)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
+	at org.junit.runners.model.RunnerBuilder.runners(RunnerBuilder.java:93)
+	at org.junit.runners.model.RunnerBuilder.runners(RunnerBuilder.java:84)
+	at org.junit.runners.Suite.<init>(Suite.java:79)
+	at org.junit.runner.Computer.getSuite(Computer.java:26)
+	at org.junit.runner.Request.classes(Request.java:69)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:117)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:98)
+	at org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:53)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:45)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
+[exit=1 timeout=False time=0.2s]
