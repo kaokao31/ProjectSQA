@@ -1,0 +1,141 @@
+
+$ defects4j compile -w /work/Lang_4f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=0.9s]
+
+$ defects4j compile -w /work/Lang_4b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/evosuite/evosuite-1.2.0.jar -generateSuite -class org.apache.commons.lang3.text.translate.LookupTranslator -projectCP /work/Lang_4f/target/classes:/work/Lang_4f/target/classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=120 -seed 1 -Dtest_dir=/work/evo_out/Lang_4f/budget120_seed1/tests -Dreport_dir=/work/evo_out/Lang_4f/budget120_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.lang3.text.translate.LookupTranslator
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /work/Lang_4f/target/classes
+  - /work/Lang_4f/target/classes
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.lang3.text.translate.LookupTranslator
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 25
+  - Branch 14
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:======>                            18%]
+[Progress:>                             0%] [Cov:==========>                        30%]
+[Progress:>                             0%] [Cov:======================>            63%]
+[Progress:>                             0%] [Cov:==============================>    88%]
+[Progress:>                             0%] [Cov:===============================>   91%]
+[Progress:>                             0%] [Cov:=================================> 95%]
+[Progress:>                             0%] [Cov:===================================100%]
+[Progress:>                             0%] [Cov:===================================100%]
+* Search finished after 1s and 0 generations, 4032 statements, best individual has fitness: 0.2
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 100%
+* Total number of goals: 25
+* Number of covered goals: 25
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 100%
+* Total number of goals: 14
+* Number of covered goals: 14
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 4
+* Number of covered goals: 4
+* Generated 8 tests with total length 53
+* Resulting test suite's coverage: 100% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 52%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'LookupTranslator_ESTest' to /work/evo_out/Lang_4f/budget120_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=6.9s]
+
+$ javac -nowarn -cp /work/Lang_4f/target/classes:/work/Lang_4f/target/classes:/work/Lang_4f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Lang_4f/budget120_seed1/classes /work/evo_out/Lang_4f/budget120_seed1/tests/org/apache/commons/lang3/text/translate/LookupTranslator_ESTest.java /work/evo_out/Lang_4f/budget120_seed1/tests/org/apache/commons/lang3/text/translate/LookupTranslator_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Lang_4f/target/classes --dest /work/evo_out/Lang_4f/budget120_seed1/instrumented
+[INFO] 170 classes instrumented to /work/evo_out/Lang_4f/budget120_seed1/instrumented.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round2/Lang_4/budget120_seed1/jacoco.exec -cp /work/evo_out/Lang_4f/budget120_seed1/instrumented:/work/evo_out/Lang_4f/budget120_seed1/classes:/work/Lang_4f/target/classes:/work/Lang_4f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.lang3.text.translate.LookupTranslator_ESTest
+JUnit version 4.12
+........
+Time: 0.378
+
+OK (8 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round2/Lang_4/budget120_seed1/jacoco.exec --classfiles /work/Lang_4f/target/classes --csv /workspace/EvoSuite/Result_Round2/Lang_4/budget120_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round2/Lang_4/budget120_seed1/jacoco.exec.
+[INFO] Analyzing 158 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -cp /work/evo_out/Lang_4f/budget120_seed1/classes:/work/Lang_4b/target/classes:/work/Lang_4b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.lang3.text.translate.LookupTranslator_ESTest
+JUnit version 4.12
+.E.......
+Time: 0.374
+There was 1 failure:
+1) test1(org.apache.commons.lang3.text.translate.LookupTranslator_ESTest)
+org.junit.ComparisonFailure: expected:<[979]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at org.apache.commons.lang3.text.translate.LookupTranslator_ESTest.test1(LookupTranslator_ESTest.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 8,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=0.6s]
