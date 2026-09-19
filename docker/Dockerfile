@@ -43,4 +43,10 @@ RUN pip3 install --no-cache-dir pandas python-dotenv
 # โฟลเดอร์ checkout ของ Defects4J (ใช้ named volume ใน compose)
 RUN mkdir -p /work /workspace
 WORKDIR /workspace
+# ---- JaCoCo (ตัววัด coverage กลางของทั้งทีม) ----
+ARG JACOCO_VERSION=0.8.12
+ENV JACOCO_HOME=/opt/jacoco
+RUN curl -fsSL -o /tmp/jacoco.zip https://github.com/jacoco/jacoco/releases/download/v${JACOCO_VERSION}/jacoco-${JACOCO_VERSION}.zip \
+ && mkdir -p ${JACOCO_HOME} && unzip -q /tmp/jacoco.zip -d ${JACOCO_HOME} && rm /tmp/jacoco.zip
+
 CMD ["bash"]
