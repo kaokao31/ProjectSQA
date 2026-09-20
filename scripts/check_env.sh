@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# ตรวจสภาพแวดล้อม + ทดสอบ Lang 1b (รันใน container)
+# ตรวจสภาพแวดล้อม + ทดสอบ Lang 1b (สำหรับ jqwik)
 set -u
 echo "== Java =="; java -version 2>&1 | head -1; echo "JAVA_HOME=$JAVA_HOME"
 echo "== Timezone =="; date +"%Z (%z)"
 echo "== Defects4J =="; defects4j info -p Lang -b 1 | head -15
-echo "== EvoSuite jars =="; ls -lh "$EVOSUITE_JAR" "$EVOSUITE_RT"
 echo "== Python =="; python3 --version
 
 W=/work/Lang_1b
