@@ -1,0 +1,380 @@
+
+$ defects4j checkout -p Time -v 11f -w /work/Time_11f
+Checking out 57eb4cbb to /work/Time_11f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Time_11f/maven-build.xml...................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 57eb4cbb:6d510475..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-11f........................................ OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Time_11f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=10.3s]
+
+$ defects4j checkout -p Time -v 11b -w /work/Time_11b
+Checking out 57eb4cbb to /work/Time_11b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Time_11b/maven-build.xml...................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 57eb4cbb:6d510475..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-11b........................................ OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Time_11b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=10.2s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Time_11f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.joda.time.tz.ZoneInfoCompiler -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_11f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Time_11f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Time_11f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.joda.time.tz.ZoneInfoCompiler
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Time_11f/target/classes
+  - /opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar
+  - /work/Time_11f/target/test-classes
+[MASTER] 01:58:33.746 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 01:58:34.017 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+* Finished analyzing classpath
+* Generating tests for class org.joda.time.tz.ZoneInfoCompiler
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 391
+  - Branch 232
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 01:58:34.767 [logback-1] WARN  TestCluster - Failed to check cache for java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V> : Type points to itself
+
+[Progress:>                             0%] [Cov:=>                                 5%]
+[Progress:>                             0%] [Cov:==>                                8%]
+[Progress:>                             0%] [Cov:==============>                    41%]
+[Progress:>                             1%] [Cov:=>                                 3%]
+[Progress:>                             1%] [Cov:==>                                7%]
+[Progress:>                             1%] [Cov:==============>                    41%]
+[Progress:>                             1%] [Cov:===============>                   43%]
+[Progress:>                             3%] [Cov:=>                                 5%]
+[Progress:>                             3%] [Cov:===>                               9%]
+[Progress:>                             3%] [Cov:===============>                   43%]
+[Progress:>                             3%] [Cov:==============>                    42%]
+[Progress:>                             3%] [Cov:===============>                   43%]
+[Progress:>                             3%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:==================>                53%]
+[Progress:=>                            5%] [Cov:==================>                54%]
+[Progress:=>                            5%] [Cov:==================>                54%]
+[Progress:=>                            5%] [Cov:==================>                54%]
+[Progress:=>                            5%] [Cov:===================>               55%]
+[Progress:=>                            6%] [Cov:==================>                54%]
+[Progress:=>                            6%] [Cov:===================>               55%]
+[Progress:=>                            6%] [Cov:===================>               55%]
+[Progress:=>                            6%] [Cov:===================>               55%]
+[Progress:=>                            6%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               56%]
+[Progress:===>                          10%] [Cov:====================>              58%]
+[Progress:===>                          10%] [Cov:====================>              58%]
+[Progress:===>                          11%] [Cov:====================>              58%]
+[Progress:===>                          11%] [Cov:====================>              58%]
+[Progress:======>                       20%] [Cov:====================>              58%]
+[Progress:======>                       20%] [Cov:====================>              58%]
+[Progress:======>                       20%] [Cov:====================>              58%]
+[Progress:======>                       21%] [Cov:====================>              58%]
+[Progress:======>                       21%] [Cov:====================>              58%]
+[Progress:======>                       21%] [Cov:====================>              58%]
+[Progress:======>                       21%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              59%]
+[Progress:=========>                    31%] [Cov:====================>              59%]
+[Progress:=========>                    33%] [Cov:====================>              59%]
+[Progress:=========>                    33%] [Cov:====================>              59%]
+[Progress:=========>                    33%] [Cov:====================>              59%]
+[Progress:=========>                    33%] [Cov:====================>              59%]
+[Progress:============>                 41%] [Cov:====================>              59%]
+[Progress:============>                 43%] [Cov:====================>              59%]
+[Progress:============>                 43%] [Cov:====================>              59%]
+[Progress:============>                 43%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                46%] [Cov:====================>              59%]
+[Progress:================>             55%] [Cov:====================>              59%]
+[Progress:================>             55%] [Cov:====================>              59%]
+[Progress:================>             55%] [Cov:====================>              59%]
+[Progress:================>             56%] [Cov:====================>              59%]
+[Progress:================>             56%] [Cov:=====================>             61%]
+[Progress:================>             56%] [Cov:=====================>             62%]
+[Progress:================>             56%] [Cov:=====================>             62%]
+[Progress:================>             56%] [Cov:======================>            63%]
+[Progress:=================>            58%] [Cov:======================>            63%]
+[Progress:=================>            58%] [Cov:======================>            63%]
+[Progress:=================>            58%] [Cov:======================>            63%]
+[Progress:==================>           60%] [Cov:======================>            63%]
+[Progress:====================>         68%] [Cov:======================>            63%]
+[Progress:====================>         68%] [Cov:======================>            63%]
+[Progress:====================>         68%] [Cov:======================>            63%]
+[Progress:=====================>        70%] [Cov:======================>            63%]
+[Progress:=======================>      78%] [Cov:======================>            63%]
+[Progress:=======================>      78%] [Cov:======================>            63%]
+[Progress:=======================>      78%] [Cov:======================>            64%]
+[Progress:=======================>      78%] [Cov:======================>            64%]
+[Progress:========================>     80%] [Cov:======================>            64%]
+[Progress:========================>     80%] [Cov:======================>            64%]
+[Progress:========================>     80%] [Cov:======================>            64%]
+[Progress:========================>     80%] [Cov:======================>            64%]
+[Progress:========================>     81%] [Cov:======================>            64%]
+[Progress:========================>     81%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:=============================>98%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+* Search finished after 61s and 60 generations, 21409 statements, best individual has fitness: 214.91110596608775
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 46%
+* Total number of goals: 391
+* Number of covered goals: 179
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 47%
+* Total number of goals: 232
+* Number of covered goals: 110
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 20
+* Number of covered goals: 20
+* Generated 45 tests with total length 132
+* Resulting test suite's coverage: 64% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 18%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 2
+* Writing tests to file
+* Writing JUnit test case 'ZoneInfoCompiler_ESTest' to /work/evo_out/Time_11f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=81.5s]
+
+$ javac -nowarn -cp /work/Time_11f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11f/target/classes:/work/Time_11f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Time_11f/budget60_seed1/classes /work/evo_out/Time_11f/budget60_seed1/tests/org/joda/time/tz/ZoneInfoCompiler_ESTest.java /work/evo_out/Time_11f/budget60_seed1/tests/org/joda/time/tz/ZoneInfoCompiler_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Time_11f/target/classes --dest /work/evo_out/Time_11f/budget60_seed1/instrumented
+[INFO] 230 classes instrumented to /work/evo_out/Time_11f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Time_11/budget60_seed1/jacoco.exec -cp /work/evo_out/Time_11f/budget60_seed1/instrumented:/work/evo_out/Time_11f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11f/target/classes:/work/Time_11f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.joda.time.tz.ZoneInfoCompiler_ESTest
+JUnit version 4.12
+........Writing zoneinfo files
+Writing ZoneInfoMap
+.......Unknown line: MonthOfYear: 1
+Unknown line: DayOfMonth: 1
+Unknown line: DayOfWeek: 0
+Unknown line: AdvanceDayOfWeek: false
+Unknown line: MillisOfDay: 0
+Unknown line: ZoneChar: w
+Unknown line: MonthOfYear: 1
+Unknown line: DayOfMonth: 1
+Unknown line: DayOfWeek: 0
+Unknown line: AdvanceDayOfWeek: false
+Unknown line: MillisOfDay: 0
+Unknown line: ZoneChar: w
+Unknown line: MonthOfYear: 1
+Unknown line: DayOfMonth: 1
+Unknown line: DayOfWeek: 0
+Unknown line: AdvanceDayOfWeek: false
+Unknown line: MillisOfDay: 0
+Unknown line: ZoneChar: w
+Unknown line: MonthOfYear: 1
+Unknown line: DayOfMonth: 1
+Unknown line: DayOfWeek: 0
+Unknown line: AdvanceDayOfWeek: false
+Unknown line: MillisOfDay: 0
+Unknown line: ZoneChar: w
+Unknown line: MonthOfYear: 1
+Unknown line: DayOfMonth: 1
+Unknown line: DayOfWeek: 0
+Unknown line: AdvanceDayOfWeek: false
+Unknown line: MillisOfDay: 0
+Unknown line: ZoneChar: w
+.Usage: java org.joda.time.tz.ZoneInfoCompiler <options> <source files>
+where possible options include:
+  -src <directory>    Specify where to read source files
+  -dst <directory>    Specify where to write generated files
+  -verbose            Output verbosely (default false)
+.Writing zoneinfo files
+....Usage: java org.joda.time.tz.ZoneInfoCompiler <options> <source files>
+where possible options include:
+  -src <directory>    Specify where to read source files
+  -dst <directory>    Specify where to write generated files
+  -verbose            Output verbosely (default false)
+........................
+Time: 1.305
+
+OK (45 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Time_11/budget60_seed1/jacoco.exec --classfiles /work/Time_11f/target/classes --csv /workspace/EvoSuite/Result_Round1/Time_11/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Time_11/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 206 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -cp /work/evo_out/Time_11f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11b/target/classes:/work/Time_11b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.joda.time.tz.ZoneInfoCompiler_ESTest
+JUnit version 4.12
+........E........Usage: java org.joda.time.tz.ZoneInfoCompiler <options> <source files>
+where possible options include:
+  -src <directory>    Specify where to read source files
+  -dst <directory>    Specify where to write generated files
+  -verbose            Output verbosely (default false)
+.Writing zoneinfo files
+....Usage: java org.joda.time.tz.ZoneInfoCompiler <options> <source files>
+where possible options include:
+  -src <directory>    Specify where to read source files
+  -dst <directory>    Specify where to write generated files
+  -verbose            Output verbosely (default false)
+.E......................E.
+Time: 1.183
+There were 3 failures:
+1) test33(org.joda.time.tz.ZoneInfoCompiler_ESTest)
+org.evosuite.runtime.mock.java.io.MockIOException: Destination is not a directory: 
+Rules: 
+	at org.joda.time.tz.ZoneInfoCompiler.compile(ZoneInfoCompiler.java:382)
+	at org.joda.time.tz.ZoneInfoCompiler_ESTest.test33(ZoneInfoCompiler_ESTest.java:454)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test40(org.joda.time.tz.ZoneInfoCompiler_ESTest)
+java.lang.NullPointerException
+	at org.joda.time.tz.ZoneInfoCompiler.verbose(ZoneInfoCompiler.java:78)
+	at org.joda.time.tz.ZoneInfoCompiler_ESTest.test40(ZoneInfoCompiler_ESTest.java:537)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test09(org.joda.time.tz.ZoneInfoCompiler_ESTest)
+java.lang.AssertionError: Exception was not thrown in org.evosuite.runtime.vfs.VirtualFileSystem but in org.evosuite.runtime.mock.java.io.MockFileInputStream.<init>(MockFileInputStream.java:86): java.io.FileNotFoundException
+	at org.evosuite.runtime.EvoAssertions.assertThrownBy(EvoAssertions.java:111)
+	at org.evosuite.runtime.EvoAssertions.verifyException(EvoAssertions.java:48)
+	at org.joda.time.tz.ZoneInfoCompiler_ESTest.test09(ZoneInfoCompiler_ESTest.java:190)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 45,  Failures: 3
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=1.5s]

@@ -1,0 +1,321 @@
+
+$ defects4j checkout -p Closure -v 32f -w /work/Closure_32f
+Checking out 66c8c695 to /work/Closure_32f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_32f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_32f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 66c8c695:116e0d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-32f..................................... OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Closure_32f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.0s]
+
+$ defects4j checkout -p Closure -v 32b -w /work/Closure_32b
+Checking out 66c8c695 to /work/Closure_32b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_32b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_32b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 66c8c695:116e0d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-32b..................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_32b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.parsing.JsDocInfoParser -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_32f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_32f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.parsing.JsDocInfoParser
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_32f/build/classes
+  - /work/Closure_32f/lib/args4j.jar
+  - /work/Closure_32f/lib/guava.jar
+  - /work/Closure_32f/lib/json.jar
+  - /work/Closure_32f/lib/jsr305.jar
+  - /work/Closure_32f/lib/protobuf-java.jar
+  - /work/Closure_32f/build/lib/rhino.jar
+  - /work/Closure_32f/lib/ant.jar
+  - /work/Closure_32f/lib/ant-launcher.jar
+  - /work/Closure_32f/lib/caja-r4314.jar
+  - /work/Closure_32f/lib/jarjar.jar
+  - /work/Closure_32f/build/test
+[MASTER] 14:16:08.756 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 14:16:09.004 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.parsing.JsDocInfoParser
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 1037
+  - Branch 753
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:============>                      37%][MASTER] 14:16:10.961 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:>                             1%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:=>                                 4%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:==============>                    40%]
+[Progress:>                             3%] [Cov:==============>                    40%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:=============>                     39%]
+[Progress:=>                            5%] [Cov:==============>                    40%]
+[Progress:=>                            5%] [Cov:==============>                    41%]
+[Progress:=>                            5%] [Cov:===============>                   44%]
+[Progress:=>                            6%] [Cov:===============>                   44%]
+[Progress:=>                            6%] [Cov:===============>                   44%]
+[Progress:=>                            6%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          11%] [Cov:===============>                   44%]
+[Progress:===>                          13%] [Cov:===============>                   44%]
+[Progress:===>                          13%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         16%] [Cov:===============>                   44%]
+[Progress:====>                         16%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       21%] [Cov:===============>                   44%]
+[Progress:======>                       21%] [Cov:===============>                   44%]
+[Progress:======>                       23%] [Cov:===============>                   44%]
+[Progress:======>                       23%] [Cov:===============>                   45%]
+[Progress:=======>                      25%] [Cov:===============>                   45%]
+[Progress:=======>                      26%] [Cov:===============>                   45%]
+[Progress:=======>                      26%] [Cov:===============>                   45%]
+[Progress:========>                     28%] [Cov:===============>                   45%]
+[Progress:========>                     28%] [Cov:===============>                   45%]
+[Progress:=========>                    30%] [Cov:===============>                   45%]
+[Progress:=========>                    30%] [Cov:================>                  46%]
+[Progress:=========>                    31%] [Cov:================>                  46%]
+[Progress:=========>                    33%] [Cov:================>                  46%]
+[Progress:=========>                    33%] [Cov:================>                  46%]
+[Progress:==========>                   35%] [Cov:================>                  46%]
+[Progress:==========>                   35%] [Cov:================>                  46%]
+[Progress:==========>                   36%] [Cov:================>                  46%]
+[Progress:==========>                   36%] [Cov:================>                  46%]
+[Progress:===========>                  38%] [Cov:================>                  46%]
+[Progress:===========>                  38%] [Cov:================>                  46%]
+[Progress:============>                 40%] [Cov:================>                  46%]
+[Progress:============>                 40%] [Cov:================>                  46%]
+[Progress:============>                 41%] [Cov:================>                  46%]
+[Progress:============>                 41%] [Cov:================>                  46%]
+[Progress:============>                 43%] [Cov:================>                  46%]
+[Progress:============>                 43%] [Cov:================>                  46%]
+[Progress:=============>                45%] [Cov:================>                  46%]
+[Progress:=============>                45%] [Cov:================>                  46%]
+[Progress:=============>                46%] [Cov:================>                  46%]
+[Progress:==============>               48%] [Cov:================>                  46%]
+[Progress:===============>              50%] [Cov:================>                  46%]
+[Progress:===============>              50%] [Cov:================>                  46%]
+[Progress:===============>              51%] [Cov:================>                  46%]
+[Progress:===============>              53%] [Cov:================>                  46%]
+[Progress:================>             55%] [Cov:================>                  46%]
+[Progress:================>             55%] [Cov:================>                  46%]
+[Progress:================>             56%] [Cov:================>                  46%]
+[Progress:================>             56%] [Cov:================>                  46%]
+[Progress:=================>            58%] [Cov:================>                  46%]
+[Progress:==================>           60%] [Cov:================>                  46%]
+[Progress:==================>           61%] [Cov:================>                  46%]
+[Progress:==================>           63%] [Cov:================>                  46%]
+[Progress:==================>           63%] [Cov:================>                  46%]
+[Progress:===================>          65%] [Cov:================>                  46%]
+[Progress:===================>          65%] [Cov:================>                  46%]
+[Progress:===================>          66%] [Cov:================>                  46%]
+[Progress:====================>         68%] [Cov:================>                  46%]
+[Progress:=====================>        70%] [Cov:================>                  46%]
+[Progress:=====================>        70%] [Cov:================>                  46%]
+[Progress:=====================>        71%] [Cov:================>                  46%]
+[Progress:=====================>        71%] [Cov:================>                  46%]
+[Progress:=====================>        73%] [Cov:================>                  46%]
+[Progress:=====================>        73%] [Cov:================>                  46%]
+[Progress:======================>       75%] [Cov:================>                  46%]
+[Progress:======================>       76%] [Cov:================>                  46%]
+[Progress:======================>       76%] [Cov:================>                  46%]
+[Progress:=======================>      78%] [Cov:================>                  46%]
+[Progress:=======================>      78%] [Cov:================>                  46%]
+[Progress:========================>     80%] [Cov:================>                  46%]
+[Progress:========================>     83%] [Cov:================>                  46%]
+[Progress:=========================>    85%] [Cov:================>                  46%]
+[Progress:=========================>    85%] [Cov:================>                  46%]
+[Progress:=========================>    86%] [Cov:================>                  46%]
+[Progress:==========================>   88%] [Cov:================>                  46%]
+[Progress:==========================>   88%] [Cov:================>                  46%]
+[Progress:===========================>  90%] [Cov:================>                  46%]
+[Progress:===========================>  90%] [Cov:================>                  47%]
+[Progress:===========================>  93%] [Cov:================>                  47%]
+[Progress:============================> 95%] [Cov:================>                  47%]
+[Progress:============================> 95%] [Cov:================>                  47%]
+[Progress:============================> 96%] [Cov:================>                  47%]
+[Progress:=============================>98%] [Cov:================>                  47%]
+[Progress:=============================>98%] [Cov:================>                  47%]
+[Progress:==============================100%] [Cov:================>                  47%]
+[Progress:==============================100%] [Cov:================>                  47%][MASTER] 14:17:10.021 [logback-1] WARN  TestUsageChecker - class com.google.javascript.rhino.head.ContextFactory$1GlobalSetterImpl looks like an anonymous class, ignoring it (although reflection says false) GlobalSetterImpl
+
+[Progress:==============================100%] [Cov:================>                  47%]
+[Progress:==============================100%] [Cov:================>                  47%]
+* Search finished after 61s and 47 generations, 28459 statements, best individual has fitness: 990.2821123257016
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 21%
+* Total number of goals: 1037
+* Number of covered goals: 216
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 20%
+* Total number of goals: 753
+* Number of covered goals: 153
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 5
+* Number of covered goals: 5
+* Generated 19 tests with total length 128
+* Resulting test suite's coverage: 47% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 13%
+* Compiling and checking tests
+[MASTER] 14:17:24.149 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 14:17:24.150 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JsDocTokenStream jsDocTokenStream0 = new JsDocTokenStream("j&y", 1338, 1338);
+Node node0 = Node.newNumber((double) 0);
+Locale locale0 = Locale.ITALY;
+Set<String> set0 = locale0.getUnicodeLocaleKeys();
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT5;
+Config config0 = new Config(set0, set0, false, config_LanguageMode0, false);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+JsDocInfoParser jsDocInfoParser0 = new JsDocInfoParser(jsDocTokenStream0, (Comment) null, node0, config0, errorReporter0);
+jsDocInfoParser0.retrieveAndResetParsedJSDocInfo();
+
+[MASTER] 14:17:27.362 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 14:17:27.362 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JsDocTokenStream jsDocTokenStream0 = new JsDocTokenStream("", 2723);
+Token.CommentType token_CommentType0 = Token.CommentType.HTML;
+Comment comment0 = new Comment(2723, 2723, token_CommentType0, "AJ");
+Node node0 = Node.newNumber((-116.479));
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+JsDocInfoParser jsDocInfoParser0 = new JsDocInfoParser(jsDocTokenStream0, comment0, node0, (Config) null, errorReporter0);
+
+[MASTER] 14:17:27.661 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 14:17:27.661 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JsDocTokenStream jsDocTokenStream0 = new JsDocTokenStream("j&y", 1338, 1338);
+Node node0 = Node.newNumber((double) 0);
+Locale locale0 = Locale.ITALY;
+Set<String> set0 = locale0.getUnicodeLocaleKeys();
+jsDocTokenStream0.sourceCursor = 10;
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT5;
+Config config0 = new Config(set0, set0, false, config_LanguageMode0, false);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+JsDocInfoParser jsDocInfoParser0 = new JsDocInfoParser(jsDocTokenStream0, (Comment) null, node0, config0, errorReporter0);
+jsDocInfoParser0.parse();
+
+* Writing tests to file
+* Writing JUnit test case 'JsDocInfoParser_ESTest' to /work/evo_out/Closure_32f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=85.2s]
+
+$ javac -nowarn -cp /work/Closure_32f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_32f/budget60_seed1/classes /work/evo_out/Closure_32f/budget60_seed1/tests/com/google/javascript/jscomp/parsing/JsDocInfoParser_ESTest.java /work/evo_out/Closure_32f/budget60_seed1/tests/com/google/javascript/jscomp/parsing/JsDocInfoParser_ESTest_scaffolding.java
+Note: /work/evo_out/Closure_32f/budget60_seed1/tests/com/google/javascript/jscomp/parsing/JsDocInfoParser_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_32f/build/classes --dest /work/evo_out/Closure_32f/budget60_seed1/instrumented
+[INFO] 1341 classes instrumented to /work/evo_out/Closure_32f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_32/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_32f/budget60_seed1/instrumented:/work/evo_out/Closure_32f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.parsing.JsDocInfoParser_ESTest
+JUnit version 4.12
+................
+Time: 1.308
+
+OK (16 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+js: warning: line 8: Unexpected end of file
+
+[exit=0 timeout=False time=1.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_32/budget60_seed1/jacoco.exec --classfiles /work/Closure_32f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_32/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_32/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1144 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -cp /work/evo_out/Closure_32f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_32b/build/classes:/work/Closure_32b/lib/args4j.jar:/work/Closure_32b/lib/guava.jar:/work/Closure_32b/lib/json.jar:/work/Closure_32b/lib/jsr305.jar:/work/Closure_32b/lib/protobuf-java.jar:/work/Closure_32b/build/lib/rhino.jar:/work/Closure_32b/lib/ant.jar:/work/Closure_32b/lib/ant-launcher.jar:/work/Closure_32b/lib/caja-r4314.jar:/work/Closure_32b/lib/jarjar.jar:/work/Closure_32b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.parsing.JsDocInfoParser_ESTest
+JUnit version 4.12
+................
+Time: 1.176
+
+OK (16 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+js: warning: line 8: Unexpected end of file
+
+[exit=0 timeout=False time=1.4s]

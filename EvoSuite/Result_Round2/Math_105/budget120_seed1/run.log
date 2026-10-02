@@ -1,0 +1,142 @@
+
+$ defects4j compile -w /work/Math_105f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=2.9s]
+
+$ defects4j compile -w /work/Math_105b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Math_105f/target/classes:/opt/defects4j/framework/projects/Math/lib/commons-discovery-0.5.jar:/work/Math_105f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.apache.commons.math.stat.regression.SimpleRegression -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_105f/target/classes:/opt/defects4j/framework/projects/Math/lib/commons-discovery-0.5.jar:/work/Math_105f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=120 -seed 1 -Dtest_dir=/work/evo_out/Math_105f/budget120_seed1/tests -Dreport_dir=/work/evo_out/Math_105f/budget120_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.math.stat.regression.SimpleRegression
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Math_105f/target/classes
+  - /opt/defects4j/framework/projects/Math/lib/commons-discovery-0.5.jar
+  - /work/Math_105f/target/test-classes
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.math.stat.regression.SimpleRegression
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 71
+
+[Progress:>                             0%] [Cov:>                                  0%]  - Branch 33
+  - Exception 0
+* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:=======>                           21%]
+[Progress:>                             0%] [Cov:============>                      36%]
+[Progress:>                             0%] [Cov:========================>          70%]
+[Progress:>                             0%] [Cov:=========================>         74%]
+[Progress:>                             0%] [Cov:============================>      81%]
+[Progress:>                             0%] [Cov:=============================>     84%]
+[Progress:>                             0%] [Cov:=============================>     85%]
+[Progress:>                             0%] [Cov:=============================>     85%]
+[Progress:>                             0%] [Cov:==================================>98%]
+[Progress:>                             0%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             1%] [Cov:==================================>98%]
+[Progress:>                             2%] [Cov:==================================>98%]
+[Progress:>                             2%] [Cov:==================================>98%]
+[Progress:>                             2%] [Cov:==================================>98%]
+[Progress:>                             2%] [Cov:==================================>98%]
+[Progress:>                             2%] [Cov:==================================>98%]
+[Progress:>                             2%] [Cov:==================================>98%]
+[Progress:>                             2%] [Cov:===================================100%]
+[Progress:>                             2%] [Cov:===================================100%]
+* Search finished after 4s and 15 generations, 12983 statements, best individual has fitness: 0.14285714285714285
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 100%
+* Total number of goals: 71
+* Number of covered goals: 71
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 100%
+* Total number of goals: 33
+* Number of covered goals: 33
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 6
+* Number of covered goals: 6
+* Generated 17 tests with total length 57
+* Resulting test suite's coverage: 100% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 33%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'SimpleRegression_ESTest' to /work/evo_out/Math_105f/budget120_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=14.9s]
+
+$ javac -nowarn -cp /work/Math_105f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_105f/target/test-classes:/work/Math_105f/target/classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Math_105f/budget120_seed1/classes /work/evo_out/Math_105f/budget120_seed1/tests/org/apache/commons/math/stat/regression/SimpleRegression_ESTest.java /work/evo_out/Math_105f/budget120_seed1/tests/org/apache/commons/math/stat/regression/SimpleRegression_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Math_105f/target/classes --dest /work/evo_out/Math_105f/budget120_seed1/instrumented
+[INFO] 149 classes instrumented to /work/evo_out/Math_105f/budget120_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round2/Math_105/budget120_seed1/jacoco.exec -cp /work/evo_out/Math_105f/budget120_seed1/instrumented:/work/evo_out/Math_105f/budget120_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_105f/target/test-classes:/work/Math_105f/target/classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.math.stat.regression.SimpleRegression_ESTest
+JUnit version 4.12
+.................
+Time: 0.592
+
+OK (17 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round2/Math_105/budget120_seed1/jacoco.exec --classfiles /work/Math_105f/target/classes --csv /workspace/EvoSuite/Result_Round2/Math_105/budget120_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round2/Math_105/budget120_seed1/jacoco.exec.
+[INFO] Analyzing 113 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -cp /work/evo_out/Math_105f/budget120_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_105b/target/test-classes:/work/Math_105b/target/classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.math.stat.regression.SimpleRegression_ESTest
+JUnit version 4.12
+.................
+Time: 0.532
+
+OK (17 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.7s]

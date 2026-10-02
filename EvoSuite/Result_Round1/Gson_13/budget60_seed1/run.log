@@ -1,0 +1,250 @@
+
+$ defects4j checkout -p Gson -v 13f -w /work/Gson_13f
+Checking out 9a242199 to /work/Gson_13f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9a242199:41e48f7a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-13f........................................ OK
+
+[exit=0 timeout=False time=0.5s]
+
+$ defects4j compile -w /work/Gson_13f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ defects4j checkout -p Gson -v 13b -w /work/Gson_13b
+Checking out 9a242199 to /work/Gson_13b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9a242199:41e48f7a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-13b........................................ OK
+
+[exit=0 timeout=False time=0.4s]
+
+$ defects4j compile -w /work/Gson_13b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Gson_13f/target/classes:/work/Gson_13f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar org.evosuite.EvoSuite -generateSuite -class com.google.gson.stream.JsonReader -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13f/target/classes:/work/Gson_13f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Gson_13f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Gson_13f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.gson.stream.JsonReader
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Gson_13f/target/classes
+  - /work/Gson_13f/target/test-classes
+  - /opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar
+* Finished analyzing classpath
+* Generating tests for class com.google.gson.stream.JsonReader
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 678
+  - Branch 677
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:=>                                 5%]
+[Progress:>                             0%] [Cov:===>                               9%]
+[Progress:>                             0%] [Cov:===============>                   43%]
+[Progress:>                             0%] [Cov:===============>                   45%]
+[Progress:>                             1%] [Cov:=>                                 5%]
+[Progress:>                             1%] [Cov:===>                               9%]
+[Progress:>                             1%] [Cov:===============>                   43%]
+[Progress:>                             1%] [Cov:===============>                   45%]
+[Progress:>                             3%] [Cov:=>                                 4%]
+[Progress:>                             3%] [Cov:===>                               9%]
+[Progress:>                             3%] [Cov:==============>                    42%]
+[Progress:>                             3%] [Cov:===============>                   44%]
+[Progress:>                             3%] [Cov:===============>                   45%]
+[Progress:>                             3%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:==================>                54%]
+[Progress:=>                            6%] [Cov:==================>                54%]
+[Progress:=>                            6%] [Cov:==================>                54%]
+[Progress:==>                           8%] [Cov:==================>                54%]
+[Progress:===>                          10%] [Cov:==================>                54%]
+[Progress:===>                          11%] [Cov:==================>                54%]
+[Progress:===>                          11%] [Cov:==================>                54%]
+[Progress:===>                          13%] [Cov:==================>                54%]
+[Progress:===>                          13%] [Cov:==================>                54%]
+[Progress:====>                         15%] [Cov:==================>                54%]
+[Progress:====>                         15%] [Cov:==================>                54%]
+[Progress:====>                         16%] [Cov:==================>                54%]
+[Progress:====>                         16%] [Cov:==================>                54%]
+[Progress:=====>                        18%] [Cov:==================>                54%]
+[Progress:======>                       20%] [Cov:==================>                54%]
+[Progress:======>                       21%] [Cov:==================>                54%]
+[Progress:======>                       21%] [Cov:==================>                54%]
+[Progress:======>                       23%] [Cov:==================>                54%]
+[Progress:======>                       23%] [Cov:==================>                54%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:=======>                      25%] [Cov:==================>                54%]
+[Progress:=======>                      26%] [Cov:===================>               55%]
+[Progress:=======>                      26%] [Cov:===================>               56%]
+[Progress:========>                     28%] [Cov:===================>               56%]
+[Progress:=========>                    30%] [Cov:===================>               56%]
+[Progress:=========>                    31%] [Cov:===================>               56%]
+[Progress:=========>                    33%] [Cov:===================>               56%]
+[Progress:==========>                   35%] [Cov:===================>               56%]
+[Progress:==========>                   36%] [Cov:===================>               56%]
+[Progress:==========>                   36%] [Cov:===================>               56%]
+[Progress:===========>                  38%] [Cov:===================>               56%]
+[Progress:===========>                  38%] [Cov:===================>               56%]
+[Progress:============>                 40%] [Cov:===================>               56%]
+[Progress:============>                 41%] [Cov:===================>               56%]
+[Progress:============>                 43%] [Cov:===================>               56%]
+[Progress:============>                 43%] [Cov:===================>               56%]
+[Progress:=============>                45%] [Cov:===================>               56%]
+[Progress:=============>                45%] [Cov:===================>               56%]
+[Progress:=============>                45%] [Cov:===================>               57%]
+[Progress:=============>                46%] [Cov:===================>               56%]
+[Progress:==============>               48%] [Cov:===================>               57%]
+[Progress:===============>              50%] [Cov:===================>               57%]
+[Progress:===============>              50%] [Cov:===================>               57%]
+[Progress:===============>              51%] [Cov:===================>               57%]
+[Progress:===============>              53%] [Cov:===================>               57%]
+[Progress:================>             55%] [Cov:===================>               57%]
+[Progress:================>             56%] [Cov:===================>               57%]
+[Progress:=================>            58%] [Cov:===================>               57%]
+[Progress:=================>            58%] [Cov:===================>               57%]
+[Progress:==================>           60%] [Cov:===================>               57%]
+[Progress:==================>           60%] [Cov:===================>               57%]
+[Progress:==================>           61%] [Cov:===================>               57%]
+[Progress:==================>           63%] [Cov:===================>               57%]
+[Progress:===================>          65%] [Cov:===================>               57%]
+[Progress:===================>          65%] [Cov:====================>              58%]
+[Progress:===================>          66%] [Cov:====================>              58%]
+[Progress:====================>         68%] [Cov:====================>              58%]
+[Progress:=====================>        70%] [Cov:====================>              58%]
+[Progress:=====================>        71%] [Cov:====================>              58%]
+[Progress:=====================>        73%] [Cov:====================>              58%]
+[Progress:=====================>        73%] [Cov:====================>              58%]
+[Progress:======================>       75%] [Cov:====================>              58%]
+[Progress:======================>       75%] [Cov:====================>              58%]
+[Progress:======================>       75%] [Cov:====================>              59%]
+[Progress:======================>       76%] [Cov:====================>              58%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:========================>     80%] [Cov:====================>              59%]
+[Progress:========================>     81%] [Cov:====================>              59%]
+[Progress:========================>     83%] [Cov:====================>              59%]
+[Progress:========================>     83%] [Cov:====================>              59%]
+[Progress:=========================>    85%] [Cov:====================>              59%]
+[Progress:=========================>    85%] [Cov:====================>              59%]
+[Progress:=========================>    86%] [Cov:====================>              59%]
+[Progress:=========================>    86%] [Cov:=====================>             60%]
+[Progress:==========================>   88%] [Cov:=====================>             60%]
+[Progress:===========================>  90%] [Cov:=====================>             60%]
+[Progress:===========================>  90%] [Cov:=====================>             60%]
+[Progress:===========================>  91%] [Cov:=====================>             60%]
+[Progress:===========================>  93%] [Cov:=====================>             60%]
+[Progress:============================> 95%] [Cov:=====================>             60%]
+[Progress:============================> 96%] [Cov:=====================>             60%]
+[Progress:=============================>98%] [Cov:=====================>             60%]
+[Progress:==============================100%] [Cov:=====================>             60%]
+[Progress:==============================100%] [Cov:=====================>             60%]
+[Progress:==============================100%] [Cov:=====================>             60%]
+[Progress:==============================100%] [Cov:=====================>             60%]
+* Search finished after 61s and 41 generations, 8238 statements, best individual has fitness: 647.677563028389
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 42%
+* Total number of goals: 678
+* Number of covered goals: 287
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 39%
+* Total number of goals: 677
+* Number of covered goals: 261
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 62
+* Number of covered goals: 62
+* Generated 74 tests with total length 257
+* Resulting test suite's coverage: 60% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 6%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'JsonReader_ESTest' to /work/evo_out/Gson_13f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=81.9s]
+
+$ javac -nowarn -cp /work/Gson_13f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13f/target/classes:/work/Gson_13f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Gson_13f/budget60_seed1/classes /work/evo_out/Gson_13f/budget60_seed1/tests/com/google/gson/stream/JsonReader_ESTest.java /work/evo_out/Gson_13f/budget60_seed1/tests/com/google/gson/stream/JsonReader_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Gson_13f/target/classes --dest /work/evo_out/Gson_13f/budget60_seed1/instrumented
+[INFO] 177 classes instrumented to /work/evo_out/Gson_13f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Gson_13/budget60_seed1/jacoco.exec -cp /work/evo_out/Gson_13f/budget60_seed1/instrumented:/work/evo_out/Gson_13f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13f/target/classes:/work/Gson_13f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.gson.stream.JsonReader_ESTest
+JUnit version 4.12
+..........................................................................
+Time: 0.44
+
+OK (74 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Gson_13/budget60_seed1/jacoco.exec --classfiles /work/Gson_13f/target/classes --csv /workspace/EvoSuite/Result_Round1/Gson_13/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Gson_13/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 156 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/Gson_13f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13b/target/classes:/work/Gson_13b/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.gson.stream.JsonReader_ESTest
+JUnit version 4.12
+..........................................................................
+Time: 0.413
+
+OK (74 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.6s]

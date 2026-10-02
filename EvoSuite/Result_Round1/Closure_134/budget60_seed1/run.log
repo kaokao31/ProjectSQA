@@ -1,0 +1,887 @@
+
+$ defects4j checkout -p Closure -v 134f -w /work/Closure_134f
+Checking out 6d374c3e to /work/Closure_134f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_134f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_134f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_134f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_134f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6d374c3e:86860111..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-134f.................................... OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Closure_134f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.7s]
+
+$ defects4j checkout -p Closure -v 134b -w /work/Closure_134b
+Checking out 6d374c3e to /work/Closure_134b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_134b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_134b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_134b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_134b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6d374c3e:86860111..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-134b.................................... OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Closure_134b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.4s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_134f/build/classes:/work/Closure_134f/lib/google_common_deploy.jar:/work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_134f/lib/protobuf_deploy.jar:/work/Closure_134f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.AmbiguateProperties -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_134f/build/classes:/work/Closure_134f/lib/google_common_deploy.jar:/work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_134f/lib/protobuf_deploy.jar:/work/Closure_134f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_134f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_134f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.AmbiguateProperties
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_134f/build/classes
+  - /work/Closure_134f/lib/google_common_deploy.jar
+  - /work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar
+  - /work/Closure_134f/lib/protobuf_deploy.jar
+  - /work/Closure_134f/build/test
+[MASTER] 10:02:33.549 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 10:02:33.572 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 10:02:33.747 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.AmbiguateProperties
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 257
+  - Branch 154
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 10:02:34.449 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Stack<E> : Type points to itself
+
+[Progress:>                             1%] [Cov:=>                                 3%]
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:============>                      37%][MASTER] 10:02:35.915 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:>                             1%] [Cov:===============>                   45%]
+[Progress:>                             3%] [Cov:==>                                8%]
+[Progress:>                             3%] [Cov:====>                              12%]
+[Progress:>                             3%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:=>                                 4%]
+[Progress:=>                            5%] [Cov:=>                                 5%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:===============>                   45%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:====>                         15%] [Cov:================>                  46%]
+[Progress:====>                         15%] [Cov:================>                  46%]
+[Progress:====>                         15%] [Cov:================>                  47%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:==================>                54%]
+[Progress:======>                       21%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:=================>                 49%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    33%] [Cov:====================>              58%]
+[Progress:=========>                    33%] [Cov:====================>              58%]
+[Progress:=========>                    33%] [Cov:====================>              59%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             61%]
+[Progress:==========>                   36%] [Cov:=====================>             61%]
+[Progress:==========>                   36%] [Cov:=====================>             61%]
+[Progress:==========>                   36%] [Cov:=====================>             61%]
+[Progress:==========>                   36%] [Cov:=====================>             61%]
+[Progress:===========>                  38%] [Cov:=====================>             61%]
+[Progress:===========>                  38%] [Cov:=====================>             61%]
+[Progress:===========>                  38%] [Cov:=====================>             61%]
+[Progress:===========>                  38%] [Cov:=====================>             61%]
+[Progress:===========>                  38%] [Cov:=====================>             61%]
+[Progress:============>                 40%] [Cov:=====================>             61%]
+[Progress:============>                 40%] [Cov:=====================>             61%]
+[Progress:============>                 40%] [Cov:=====================>             61%]
+[Progress:==============>               48%] [Cov:=====================>             61%]
+[Progress:==============>               48%] [Cov:=====================>             61%]
+[Progress:==============>               48%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:========================>     80%] [Cov:=====================>             61%]
+[Progress:========================>     80%] [Cov:=====================>             61%]
+[Progress:========================>     80%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:===========================>  90%] [Cov:=====================>             61%]
+[Progress:===========================>  90%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:==============================100%] [Cov:=====================>             61%]
+[Progress:==============================100%] [Cov:=====================>             61%]
+[Progress:==============================100%] [Cov:=====================>             61%]
+[Progress:==============================100%] [Cov:=====================>             61%]
+[Progress:==============================100%] [Cov:=====================>             61%]
+* Search finished after 61s and 142 generations, 64586 statements, best individual has fitness: 167.97091886055
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 49%
+* Total number of goals: 257
+* Number of covered goals: 126
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 36%
+* Total number of goals: 154
+* Number of covered goals: 55
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 40%
+* Total number of goals: 5
+* Number of covered goals: 2
+* Generated 7 tests with total length 40
+* Resulting test suite's coverage: 62% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 5%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+         writeFileDescriptor: 4
+* Writing tests to file
+* Writing JUnit test case 'AmbiguateProperties_ESTest' to /work/evo_out/Closure_134f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=74.1s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_134f/build/classes:/work/Closure_134f/lib/google_common_deploy.jar:/work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_134f/lib/protobuf_deploy.jar:/work/Closure_134f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.TypedScopeCreator -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_134f/build/classes:/work/Closure_134f/lib/google_common_deploy.jar:/work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_134f/lib/protobuf_deploy.jar:/work/Closure_134f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_134f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_134f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.TypedScopeCreator
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_134f/build/classes
+  - /work/Closure_134f/lib/google_common_deploy.jar
+  - /work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar
+  - /work/Closure_134f/lib/protobuf_deploy.jar
+  - /work/Closure_134f/build/test
+[MASTER] 10:03:47.579 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 10:03:47.620 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 10:03:47.828 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.TypedScopeCreator
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 576
+  - Branch 477
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 10:03:48.511 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Stack<E> : Type points to itself
+[MASTER] 10:03:49.858 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:>                             1%] [Cov:>                                  0%]
+[Progress:>                             1%] [Cov:===========>                       33%]
+[Progress:>                             1%] [Cov:============>                      35%][MASTER] 10:03:50.091 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:============>                      36%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:>                                  0%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:============>                      35%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:==============>                    40%]
+[Progress:=>                            6%] [Cov:==============>                    40%]
+[Progress:=>                            6%] [Cov:==============>                    40%]
+[Progress:=>                            6%] [Cov:==============>                    40%]
+[Progress:=>                            6%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:===>                          10%] [Cov:==============>                    40%]
+[Progress:===>                          10%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:========>                     28%] [Cov:==============>                    40%]
+[Progress:========>                     28%] [Cov:==============>                    40%]
+[Progress:=========>                    30%] [Cov:==============>                    40%]
+[Progress:=========>                    30%] [Cov:==============>                    40%]
+[Progress:=========>                    30%] [Cov:==============>                    40%]
+[Progress:=========>                    30%] [Cov:==============>                    40%]
+[Progress:=========>                    31%] [Cov:==============>                    40%]
+[Progress:=========>                    31%] [Cov:==============>                    40%]
+[Progress:=========>                    31%] [Cov:==============>                    40%]
+[Progress:=========>                    33%] [Cov:==============>                    40%]
+[Progress:=========>                    33%] [Cov:==============>                    40%]
+[Progress:=========>                    33%] [Cov:==============>                    40%]
+[Progress:=========>                    33%] [Cov:==============>                    40%]
+[Progress:==========>                   35%] [Cov:==============>                    40%]
+[Progress:==========>                   35%] [Cov:==============>                    40%]
+[Progress:==========>                   35%] [Cov:==============>                    40%]
+[Progress:==========>                   36%] [Cov:==============>                    40%]
+[Progress:==========>                   36%] [Cov:==============>                    40%]
+[Progress:==========>                   36%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 41%] [Cov:==============>                    40%]
+[Progress:============>                 41%] [Cov:==============>                    40%]
+[Progress:============>                 41%] [Cov:==============>                    40%]
+[Progress:============>                 43%] [Cov:==============>                    40%]
+[Progress:============>                 43%] [Cov:==============>                    40%]
+[Progress:============>                 43%] [Cov:==============>                    40%]
+[Progress:============>                 43%] [Cov:==============>                    40%]
+[Progress:=============>                45%] [Cov:==============>                    40%]
+[Progress:=============>                45%] [Cov:==============>                    40%]
+[Progress:=============>                45%] [Cov:==============>                    40%]
+[Progress:=============>                46%] [Cov:==============>                    40%]
+[Progress:=============>                46%] [Cov:==============>                    40%]
+[Progress:=============>                46%] [Cov:==============>                    40%]
+[Progress:==============>               48%] [Cov:==============>                    40%]
+[Progress:==============>               48%] [Cov:==============>                    40%]
+[Progress:==============>               48%] [Cov:==============>                    40%]
+[Progress:==============>               48%] [Cov:==============>                    40%]
+[Progress:===============>              50%] [Cov:==============>                    40%]
+[Progress:===============>              50%] [Cov:==============>                    40%]
+[Progress:===============>              50%] [Cov:==============>                    40%]
+[Progress:===============>              51%] [Cov:==============>                    40%]
+[Progress:===============>              51%] [Cov:==============>                    40%]
+[Progress:===============>              51%] [Cov:==============>                    40%]
+[Progress:===============>              53%] [Cov:==============>                    40%]
+[Progress:===============>              53%] [Cov:==============>                    40%]
+[Progress:===============>              53%] [Cov:==============>                    40%]
+[Progress:================>             55%] [Cov:==============>                    40%]
+[Progress:================>             55%] [Cov:==============>                    40%]
+[Progress:================>             55%] [Cov:==============>                    40%]
+[Progress:================>             55%] [Cov:==============>                    40%]
+[Progress:================>             56%] [Cov:==============>                    40%]
+[Progress:================>             56%] [Cov:==============>                    40%]
+[Progress:================>             56%] [Cov:==============>                    40%]
+[Progress:=================>            58%] [Cov:==============>                    40%]
+[Progress:=================>            58%] [Cov:==============>                    40%]
+[Progress:=================>            58%] [Cov:==============>                    40%]
+[Progress:==================>           60%] [Cov:==============>                    40%]
+[Progress:==================>           60%] [Cov:==============>                    40%]
+[Progress:==================>           60%] [Cov:==============>                    40%]
+[Progress:==================>           61%] [Cov:==============>                    40%]
+[Progress:==================>           61%] [Cov:==============>                    40%]
+[Progress:==================>           61%] [Cov:==============>                    40%]
+[Progress:==================>           63%] [Cov:==============>                    40%]
+[Progress:==================>           63%] [Cov:==============>                    40%]
+[Progress:==================>           63%] [Cov:==============>                    40%]
+[Progress:===================>          65%] [Cov:==============>                    40%]
+[Progress:===================>          65%] [Cov:==============>                    40%]
+[Progress:===================>          65%] [Cov:==============>                    40%]
+[Progress:===================>          66%] [Cov:==============>                    40%]
+[Progress:===================>          66%] [Cov:==============>                    40%][MASTER] 10:04:28.424 [logback-1] WARN  TestCluster - Failed to check cache for java.util.HashSet<E> : Type points to itself
+
+[Progress:===================>          66%] [Cov:==============>                    40%]
+[Progress:====================>         68%] [Cov:==============>                    40%]
+[Progress:====================>         68%] [Cov:==============>                    40%]
+[Progress:====================>         68%] [Cov:==============>                    40%]
+[Progress:=====================>        70%] [Cov:==============>                    40%]
+[Progress:=====================>        70%] [Cov:==============>                    40%]
+[Progress:=====================>        71%] [Cov:==============>                    40%]
+[Progress:=====================>        71%] [Cov:==============>                    40%]
+[Progress:=====================>        71%] [Cov:==============>                    40%]
+[Progress:=====================>        73%] [Cov:==============>                    40%]
+[Progress:=====================>        73%] [Cov:==============>                    40%]
+[Progress:=====================>        73%] [Cov:==============>                    40%]
+[Progress:======================>       75%] [Cov:==============>                    40%]
+[Progress:======================>       75%] [Cov:==============>                    40%]
+[Progress:======================>       75%] [Cov:==============>                    40%]
+[Progress:======================>       76%] [Cov:==============>                    40%]
+[Progress:======================>       76%] [Cov:==============>                    40%]
+[Progress:======================>       76%] [Cov:==============>                    40%]
+[Progress:======================>       76%] [Cov:==============>                    40%]
+[Progress:=======================>      78%] [Cov:==============>                    40%]
+[Progress:=======================>      78%] [Cov:==============>                    40%]
+[Progress:=======================>      78%] [Cov:==============>                    40%]
+[Progress:========================>     80%] [Cov:==============>                    40%]
+[Progress:========================>     80%] [Cov:==============>                    40%]
+[Progress:========================>     80%] [Cov:==============>                    40%]
+[Progress:========================>     81%] [Cov:==============>                    40%]
+[Progress:========================>     81%] [Cov:==============>                    40%]
+[Progress:========================>     81%] [Cov:==============>                    40%]
+[Progress:========================>     81%] [Cov:==============>                    40%]
+[Progress:========================>     83%] [Cov:==============>                    40%]
+[Progress:========================>     83%] [Cov:==============>                    40%]
+[Progress:========================>     83%] [Cov:==============>                    40%]
+[Progress:=========================>    85%] [Cov:==============>                    40%]
+[Progress:=========================>    85%] [Cov:==============>                    40%]
+[Progress:=========================>    85%] [Cov:==============>                    40%]
+[Progress:=========================>    86%] [Cov:==============>                    40%]
+[Progress:=========================>    86%] [Cov:==============>                    40%]
+[Progress:=========================>    86%] [Cov:==============>                    40%]
+[Progress:==========================>   88%] [Cov:==============>                    40%]
+[Progress:==========================>   88%] [Cov:==============>                    40%][MASTER] 10:04:41.716 [logback-1] WARN  TestCluster - Failed to check cache for java.util.PriorityQueue<E> : Type points to itself
+
+[Progress:==========================>   88%] [Cov:==============>                    40%]
+[Progress:===========================>  90%] [Cov:==============>                    40%]
+[Progress:===========================>  90%] [Cov:==============>                    40%]
+[Progress:===========================>  90%] [Cov:==============>                    40%]
+[Progress:===========================>  91%] [Cov:==============>                    40%]
+[Progress:===========================>  91%] [Cov:==============>                    40%]
+[Progress:===========================>  91%] [Cov:==============>                    40%]
+[Progress:===========================>  93%] [Cov:==============>                    40%]
+[Progress:===========================>  93%] [Cov:==============>                    40%]
+[Progress:===========================>  93%] [Cov:==============>                    40%]
+[Progress:============================> 95%] [Cov:==============>                    40%]
+[Progress:============================> 95%] [Cov:==============>                    40%]
+[Progress:============================> 95%] [Cov:==============>                    40%]
+[Progress:============================> 96%] [Cov:==============>                    40%]
+[Progress:============================> 96%] [Cov:==============>                    40%]
+[Progress:============================> 96%] [Cov:==============>                    40%]
+[Progress:=============================>98%] [Cov:==============>                    40%]
+[Progress:=============================>98%] [Cov:==============>                    40%]
+[Progress:=============================>98%] [Cov:==============>                    40%]
+[Progress:==============================100%] [Cov:==============>                    40%]
+[Progress:==============================100%] [Cov:==============>                    40%]
+[Progress:==============================100%] [Cov:==============>                    40%]
+[Progress:==============================100%] [Cov:==============>                    40%]
+* Search finished after 61s and 110 generations, 46066 statements, best individual has fitness: 784.366290726817
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 14%
+* Total number of goals: 576
+* Number of covered goals: 83
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 8%
+* Total number of goals: 477
+* Number of covered goals: 36
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 5
+* Number of covered goals: 5
+* Generated 8 tests with total length 51
+* Resulting test suite's coverage: 41% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 1%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+* Writing tests to file
+* Writing JUnit test case 'TypedScopeCreator_ESTest' to /work/evo_out/Closure_134f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=74.2s]
+
+$ javac -nowarn -cp /work/Closure_134f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_134f/build/classes:/work/Closure_134f/lib/google_common_deploy.jar:/work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_134f/lib/protobuf_deploy.jar:/work/Closure_134f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_134f/budget60_seed1/classes /work/evo_out/Closure_134f/budget60_seed1/tests/com/google/javascript/jscomp/AmbiguateProperties_ESTest.java /work/evo_out/Closure_134f/budget60_seed1/tests/com/google/javascript/jscomp/AmbiguateProperties_ESTest_scaffolding.java /work/evo_out/Closure_134f/budget60_seed1/tests/com/google/javascript/jscomp/TypedScopeCreator_ESTest.java /work/evo_out/Closure_134f/budget60_seed1/tests/com/google/javascript/jscomp/TypedScopeCreator_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_134f/build/classes --dest /work/evo_out/Closure_134f/budget60_seed1/instrumented
+[INFO] 968 classes instrumented to /work/evo_out/Closure_134f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_134/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_134f/budget60_seed1/instrumented:/work/evo_out/Closure_134f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_134f/build/classes:/work/Closure_134f/lib/google_common_deploy.jar:/work/Closure_134f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_134f/lib/protobuf_deploy.jar:/work/Closure_134f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.AmbiguateProperties_ESTest com.google.javascript.jscomp.TypedScopeCreator_ESTest
+JUnit version 4.12
+..E.E.E..E.........
+Time: 2.425
+There were 4 failures:
+1) test1(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.ExceptionInInitializerError
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:245)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test1(AmbiguateProperties_ESTest.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.SecurityException: Security manager blocks ("java.lang.RuntimePermission" "getStackWalkerWithClassReference")
+java.base/java.lang.Thread.getStackTrace(Thread.java:1602)
+org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:424)
+java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+java.base/java.security.AccessController.doPrivileged(Native Method)
+java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+java.logging/java.util.logging.Logger.log(Logger.java:979)
+java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+java.logging/java.util.logging.Logger.log(Logger.java:1029)
+java.logging/java.util.logging.Logger.info(Logger.java:1802)
+com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:245)
+com.google.javascript.jscomp.AmbiguateProperties_ESTest.test1(AmbiguateProperties_ESTest.java:53)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:566)
+org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+java.base/java.lang.Thread.run(Thread.java:829)
+
+	at org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:436)
+	at java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+	... 23 more
+2) test6(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class java.util.logging.LogRecord$CallerFinder
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:245)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test6(AmbiguateProperties_ESTest.java:113)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test2(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class java.util.logging.LogRecord$CallerFinder
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:245)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test2(AmbiguateProperties_ESTest.java:68)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test4(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class java.util.logging.LogRecord$CallerFinder
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:245)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test4(AmbiguateProperties_ESTest.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 15,  Failures: 4
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=3.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_134/budget60_seed1/jacoco.exec --classfiles /work/Closure_134f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_134/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_134/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 820 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -cp /work/evo_out/Closure_134f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_134b/build/classes:/work/Closure_134b/lib/google_common_deploy.jar:/work/Closure_134b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_134b/lib/protobuf_deploy.jar:/work/Closure_134b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.AmbiguateProperties_ESTest com.google.javascript.jscomp.TypedScopeCreator_ESTest
+JUnit version 4.12
+..E.E.E..E.........
+Time: 2.229
+There were 4 failures:
+1) test1(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.ExceptionInInitializerError
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:246)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test1(AmbiguateProperties_ESTest.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.SecurityException: Security manager blocks ("java.lang.RuntimePermission" "getStackWalkerWithClassReference")
+java.base/java.lang.Thread.getStackTrace(Thread.java:1602)
+org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:424)
+java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+java.base/java.security.AccessController.doPrivileged(Native Method)
+java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+java.logging/java.util.logging.Logger.log(Logger.java:979)
+java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+java.logging/java.util.logging.Logger.log(Logger.java:1029)
+java.logging/java.util.logging.Logger.info(Logger.java:1802)
+com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:246)
+com.google.javascript.jscomp.AmbiguateProperties_ESTest.test1(AmbiguateProperties_ESTest.java:53)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:566)
+org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+java.base/java.lang.Thread.run(Thread.java:829)
+
+	at org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:436)
+	at java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+	... 23 more
+2) test6(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class java.util.logging.LogRecord$CallerFinder
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:246)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test6(AmbiguateProperties_ESTest.java:113)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test2(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class java.util.logging.LogRecord$CallerFinder
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:246)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test2(AmbiguateProperties_ESTest.java:68)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test4(com.google.javascript.jscomp.AmbiguateProperties_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class java.util.logging.LogRecord$CallerFinder
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.info(Logger.java:1802)
+	at com.google.javascript.jscomp.AmbiguateProperties.process(AmbiguateProperties.java:246)
+	at com.google.javascript.jscomp.AmbiguateProperties_ESTest.test4(AmbiguateProperties_ESTest.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 15,  Failures: 4
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=2.6s]

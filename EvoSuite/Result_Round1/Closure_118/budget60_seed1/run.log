@@ -1,0 +1,300 @@
+
+$ defects4j checkout -p Closure -v 118f -w /work/Closure_118f
+Checking out f17961ae to /work/Closure_118f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_118f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_118f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f17961ae:046e0b22..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-118f.................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_118f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.6s]
+
+$ defects4j checkout -p Closure -v 118b -w /work/Closure_118b
+Checking out f17961ae to /work/Closure_118b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_118b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_118b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f17961ae:046e0b22..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-118b.................................... OK
+
+[exit=0 timeout=False time=3.4s]
+
+$ defects4j compile -w /work/Closure_118b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_118f/build/classes:/work/Closure_118f/lib/args4j.jar:/work/Closure_118f/lib/guava.jar:/work/Closure_118f/lib/json.jar:/work/Closure_118f/lib/jsr305.jar:/work/Closure_118f/lib/protobuf-java.jar:/work/Closure_118f/build/lib/rhino.jar:/work/Closure_118f/lib/ant.jar:/work/Closure_118f/lib/ant-launcher.jar:/work/Closure_118f/lib/caja-r4314.jar:/work/Closure_118f/lib/jarjar.jar:/work/Closure_118f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.DisambiguateProperties -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_118f/build/classes:/work/Closure_118f/lib/args4j.jar:/work/Closure_118f/lib/guava.jar:/work/Closure_118f/lib/json.jar:/work/Closure_118f/lib/jsr305.jar:/work/Closure_118f/lib/protobuf-java.jar:/work/Closure_118f/build/lib/rhino.jar:/work/Closure_118f/lib/ant.jar:/work/Closure_118f/lib/ant-launcher.jar:/work/Closure_118f/lib/caja-r4314.jar:/work/Closure_118f/lib/jarjar.jar:/work/Closure_118f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_118f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_118f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.DisambiguateProperties
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_118f/build/classes
+  - /work/Closure_118f/lib/args4j.jar
+  - /work/Closure_118f/lib/guava.jar
+  - /work/Closure_118f/lib/json.jar
+  - /work/Closure_118f/lib/jsr305.jar
+  - /work/Closure_118f/lib/protobuf-java.jar
+  - /work/Closure_118f/build/lib/rhino.jar
+  - /work/Closure_118f/lib/ant.jar
+  - /work/Closure_118f/lib/ant-launcher.jar
+  - /work/Closure_118f/lib/caja-r4314.jar
+  - /work/Closure_118f/lib/jarjar.jar
+  - /work/Closure_118f/build/test
+[MASTER] 08:41:37.274 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 08:41:37.293 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 08:41:37.768 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.DisambiguateProperties
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 456
+  - Branch 373
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 08:41:38.360 [logback-1] WARN  TestCluster - Failed to check cache for java.util.LinkedHashSet<E> : Type points to itself
+[MASTER] 08:41:38.360 [logback-1] WARN  TestCluster - Failed to check cache for java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V> : Type points to itself
+
+[Progress:===>                          11%] [Cov:>                                  0%]
+[Progress:===>                          11%] [Cov:===========>                       33%][MASTER] 08:41:46.075 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:===>                          13%] [Cov:>                                  0%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       34%][MASTER] 08:41:46.885 [logback-1] WARN  TestCluster - Failed to check cache for java.util.function.Function<T, R> : Type points to itself
+
+[Progress:===>                          13%] [Cov:============>                      35%]
+[Progress:======>                       21%] [Cov:>                                  0%]
+[Progress:======>                       21%] [Cov:===========>                       33%]
+[Progress:======>                       21%] [Cov:===========>                       34%]
+[Progress:======>                       23%] [Cov:>                                  0%]
+[Progress:======>                       23%] [Cov:===========>                       33%]
+[Progress:======>                       23%] [Cov:===========>                       34%][MASTER] 08:41:52.192 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:======>                       23%] [Cov:===========>                       34%]
+[Progress:======>                       23%] [Cov:============>                      35%]
+[Progress:======>                       23%] [Cov:============>                      35%]
+[Progress:======>                       23%] [Cov:============>                      35%]
+[Progress:======>                       23%] [Cov:============>                      35%]
+[Progress:=======>                      25%] [Cov:============>                      35%]
+[Progress:=======>                      25%] [Cov:============>                      35%]
+[Progress:=========>                    33%] [Cov:============>                      35%]
+[Progress:=========>                    33%] [Cov:============>                      35%]
+[Progress:=========>                    33%] [Cov:============>                      35%]
+[Progress:=========>                    33%] [Cov:============>                      35%]
+[Progress:==========>                   35%] [Cov:============>                      35%]
+[Progress:==========>                   35%] [Cov:============>                      35%]
+[Progress:==========>                   35%] [Cov:============>                      35%]
+[Progress:==========>                   35%] [Cov:============>                      35%]
+[Progress:============>                 43%] [Cov:============>                      35%]
+[Progress:=============>                45%] [Cov:============>                      35%]
+[Progress:=============>                45%] [Cov:============>                      35%]
+[Progress:=============>                45%] [Cov:============>                      35%]
+[Progress:===============>              53%] [Cov:============>                      35%]
+[Progress:===============>              53%] [Cov:============>                      35%]
+[Progress:================>             55%] [Cov:============>                      35%]
+[Progress:================>             55%] [Cov:============>                      35%]
+[Progress:================>             55%] [Cov:============>                      35%]
+[Progress:================>             56%] [Cov:============>                      35%]
+[Progress:================>             56%] [Cov:============>                      35%]
+[Progress:================>             56%] [Cov:============>                      35%]
+[Progress:=================>            58%] [Cov:============>                      35%]
+[Progress:=================>            58%] [Cov:============>                      35%]
+[Progress:=================>            58%] [Cov:============>                      35%]
+[Progress:=================>            58%] [Cov:============>                      35%]
+[Progress:==================>           60%] [Cov:============>                      35%]
+[Progress:==================>           60%] [Cov:============>                      35%]
+[Progress:==================>           60%] [Cov:============>                      35%]
+[Progress:==================>           60%] [Cov:============>                      35%]
+[Progress:==================>           61%] [Cov:============>                      35%]
+[Progress:==================>           61%] [Cov:============>                      35%]
+[Progress:=====================>        70%] [Cov:============>                      35%]
+[Progress:=======================>      78%] [Cov:============>                      35%]
+[Progress:=======================>      78%] [Cov:============>                      35%]
+[Progress:=======================>      78%] [Cov:============>                      35%]
+[Progress:========================>     80%] [Cov:============>                      35%]
+[Progress:========================>     80%] [Cov:============>                      35%]
+[Progress:========================>     80%] [Cov:============>                      35%]
+[Progress:========================>     80%] [Cov:============>                      35%]
+[Progress:========================>     81%] [Cov:============>                      35%]
+[Progress:========================>     81%] [Cov:============>                      35%]
+[Progress:========================>     81%] [Cov:============>                      35%]
+[Progress:========================>     81%] [Cov:============>                      35%]
+[Progress:========================>     83%] [Cov:============>                      35%]
+[Progress:========================>     83%] [Cov:============>                      35%]
+[Progress:========================>     83%] [Cov:============>                      36%]
+[Progress:===========================>  91%] [Cov:============>                      35%]
+[Progress:===========================>  91%] [Cov:============>                      36%]
+[Progress:===========================>  91%] [Cov:============>                      36%]
+[Progress:===========================>  93%] [Cov:============>                      36%]
+[Progress:===========================>  93%] [Cov:============>                      37%]
+[Progress:===========================>  93%] [Cov:============>                      37%]
+[Progress:===========================>  93%] [Cov:============>                      37%]
+[Progress:============================> 95%] [Cov:============>                      37%]
+[Progress:============================> 95%] [Cov:============>                      37%]
+[Progress:==============================100%] [Cov:============>                      37%]
+[Progress:==============================100%] [Cov:============>                      37%]
+* Search finished after 62s and 38 generations, 12107 statements, best individual has fitness: 706.0809294871794
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 9%
+* Total number of goals: 456
+* Number of covered goals: 41
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 3%
+* Total number of goals: 373
+* Number of covered goals: 10
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 3
+* Number of covered goals: 3
+* Generated 7 tests with total length 44
+* Resulting test suite's coverage: 37% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 0%
+* Compiling and checking tests
+[MASTER] 08:42:46.948 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:42:46.948 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+denormalizeTest0.testForIn();
+Compiler compiler0 = denormalizeTest0.getLastCompiler();
+TightenTypes tightenTypes0 = new TightenTypes(compiler0);
+CheckLevel checkLevel0 = CheckLevel.WARNING;
+ImmutableMap<String, CheckLevel> immutableMap0 = ImmutableMap.of("TightenTypes pass appears to be stuck in an infinite loop.", checkLevel0);
+DisambiguateProperties<ConcreteType> disambiguateProperties0 = DisambiguateProperties.forConcreteTypeSystem(compiler0, tightenTypes0, immutableMap0);
+Compiler.IntermediateState compiler_IntermediateState0 = compiler0.getState();
+Node node0 = compiler_IntermediateState0.externsRoot;
+disambiguateProperties0.process(node0, node0);
+
+[MASTER] 08:42:48.177 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:42:48.177 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+denormalizeTest0.testForIn();
+Compiler compiler0 = denormalizeTest0.getLastCompiler();
+TightenTypes tightenTypes0 = new TightenTypes(compiler0);
+CheckLevel checkLevel0 = CheckLevel.WARNING;
+ImmutableMap<String, CheckLevel> immutableMap0 = ImmutableMap.of("TightenTypes pass appears to be stuck in an infinite loop.", checkLevel0);
+DisambiguateProperties<ConcreteType> disambiguateProperties0 = DisambiguateProperties.forConcreteTypeSystem(compiler0, tightenTypes0, immutableMap0);
+disambiguateProperties0.renameProperties();
+
+[MASTER] 08:42:48.788 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:42:48.789 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+denormalizeTest0.testForIn();
+Compiler compiler0 = denormalizeTest0.getLastCompiler();
+TightenTypes tightenTypes0 = new TightenTypes(compiler0);
+CheckLevel checkLevel0 = CheckLevel.WARNING;
+ImmutableMap<String, CheckLevel> immutableMap0 = ImmutableMap.of("TightenTypes pass appears to be stuck in an infinite loop.", checkLevel0);
+DisambiguateProperties<ConcreteType> disambiguateProperties0 = DisambiguateProperties.forConcreteTypeSystem(compiler0, tightenTypes0, immutableMap0);
+Multimap<String, Collection<ConcreteType>> multimap0 = disambiguateProperties0.getRenamedTypesForTesting();
+assertNotNull(multimap0);
+
+
+[MASTER] 08:42:50.110 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:42:50.110 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+denormalizeTest0.testForIn();
+Compiler compiler0 = denormalizeTest0.getLastCompiler();
+CheckLevel checkLevel0 = CheckLevel.WARNING;
+ImmutableMap<String, CheckLevel> immutableMap0 = ImmutableMap.of("TightenTypes pass appears to be stuck in an infinite loop.", checkLevel0);
+DisambiguateProperties<JSType> disambiguateProperties0 = DisambiguateProperties.forJSTypeSystem(compiler0, immutableMap0);
+assertNotNull(disambiguateProperties0);
+
+
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+         writeFileDescriptor: 1
+* Writing tests to file
+* Writing JUnit test case 'DisambiguateProperties_ESTest' to /work/evo_out/Closure_118f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=78.7s]
+
+$ javac -nowarn -cp /work/Closure_118f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_118f/build/classes:/work/Closure_118f/lib/args4j.jar:/work/Closure_118f/lib/guava.jar:/work/Closure_118f/lib/json.jar:/work/Closure_118f/lib/jsr305.jar:/work/Closure_118f/lib/protobuf-java.jar:/work/Closure_118f/build/lib/rhino.jar:/work/Closure_118f/lib/ant.jar:/work/Closure_118f/lib/ant-launcher.jar:/work/Closure_118f/lib/caja-r4314.jar:/work/Closure_118f/lib/jarjar.jar:/work/Closure_118f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_118f/budget60_seed1/classes /work/evo_out/Closure_118f/budget60_seed1/tests/com/google/javascript/jscomp/DisambiguateProperties_ESTest.java /work/evo_out/Closure_118f/budget60_seed1/tests/com/google/javascript/jscomp/DisambiguateProperties_ESTest_scaffolding.java
+Note: /work/evo_out/Closure_118f/budget60_seed1/tests/com/google/javascript/jscomp/DisambiguateProperties_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_118f/build/classes --dest /work/evo_out/Closure_118f/budget60_seed1/instrumented
+[INFO] 1427 classes instrumented to /work/evo_out/Closure_118f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_118/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_118f/budget60_seed1/instrumented:/work/evo_out/Closure_118f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_118f/build/classes:/work/Closure_118f/lib/args4j.jar:/work/Closure_118f/lib/guava.jar:/work/Closure_118f/lib/json.jar:/work/Closure_118f/lib/jsr305.jar:/work/Closure_118f/lib/protobuf-java.jar:/work/Closure_118f/build/lib/rhino.jar:/work/Closure_118f/lib/ant.jar:/work/Closure_118f/lib/ant-launcher.jar:/work/Closure_118f/lib/caja-r4314.jar:/work/Closure_118f/lib/jarjar.jar:/work/Closure_118f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.DisambiguateProperties_ESTest
+JUnit version 4.12
+...
+Time: 1.828
+
+OK (3 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=3.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_118/budget60_seed1/jacoco.exec --classfiles /work/Closure_118f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_118/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_118/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1225 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -cp /work/evo_out/Closure_118f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_118b/build/classes:/work/Closure_118b/lib/args4j.jar:/work/Closure_118b/lib/guava.jar:/work/Closure_118b/lib/json.jar:/work/Closure_118b/lib/jsr305.jar:/work/Closure_118b/lib/protobuf-java.jar:/work/Closure_118b/build/lib/rhino.jar:/work/Closure_118b/lib/ant.jar:/work/Closure_118b/lib/ant-launcher.jar:/work/Closure_118b/lib/caja-r4314.jar:/work/Closure_118b/lib/jarjar.jar:/work/Closure_118b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.DisambiguateProperties_ESTest
+JUnit version 4.12
+...
+Time: 1.678
+
+OK (3 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.0s]

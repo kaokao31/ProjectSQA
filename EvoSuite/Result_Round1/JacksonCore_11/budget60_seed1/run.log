@@ -1,0 +1,404 @@
+
+$ defects4j checkout -p JacksonCore -v 11f -w /work/JacksonCore_11f
+Checking out be438672 to /work/JacksonCore_11f............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /work/JacksonCore_11f/maven-build.xml............... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff be438672:7ca3d1cb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-11f................................. OK
+
+[exit=0 timeout=False time=1.4s]
+
+$ defects4j compile -w /work/JacksonCore_11f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.0s]
+
+$ defects4j checkout -p JacksonCore -v 11b -w /work/JacksonCore_11b
+Checking out be438672 to /work/JacksonCore_11b............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /work/JacksonCore_11b/maven-build.xml............... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff be438672:7ca3d1cb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-11b................................. OK
+
+[exit=0 timeout=False time=1.4s]
+
+$ defects4j compile -w /work/JacksonCore_11b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JacksonCore_11f/target/classes:/work/JacksonCore_11f/target/test-classes org.evosuite.EvoSuite -generateSuite -class com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_11f/target/classes:/work/JacksonCore_11f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JacksonCore_11f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JacksonCore_11f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JacksonCore_11f/target/classes
+  - /work/JacksonCore_11f/target/test-classes
+* Finished analyzing classpath
+* Generating tests for class com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 469
+  - Branch 297
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:===>                               10%]
+[Progress:>                             0%] [Cov:=====>                             15%]
+[Progress:>                             0%] [Cov:================>                  48%]
+[Progress:>                             0%] [Cov:=================>                 50%]
+[Progress:>                             0%] [Cov:==================>                52%]
+[Progress:>                             1%] [Cov:===>                               10%]
+[Progress:>                             1%] [Cov:=====>                             15%]
+[Progress:>                             1%] [Cov:================>                  48%]
+[Progress:>                             1%] [Cov:=================>                 50%]
+[Progress:>                             1%] [Cov:=================>                 49%]
+[Progress:>                             1%] [Cov:=================>                 50%]
+[Progress:>                             1%] [Cov:====================>              59%]
+[Progress:>                             3%] [Cov:====================>              59%]
+[Progress:>                             3%] [Cov:====================>              59%]
+[Progress:>                             3%] [Cov:====================>              59%]
+[Progress:>                             3%] [Cov:====================>              59%]
+[Progress:=>                            5%] [Cov:====================>              59%]
+[Progress:=>                            5%] [Cov:====================>              59%]
+[Progress:=>                            5%] [Cov:====================>              59%]
+[Progress:=>                            6%] [Cov:====================>              59%]
+[Progress:=>                            6%] [Cov:====================>              59%]
+[Progress:==>                           8%] [Cov:====================>              59%]
+[Progress:==>                           8%] [Cov:====================>              59%]
+[Progress:==>                           8%] [Cov:====================>              59%]
+[Progress:===>                          10%] [Cov:====================>              59%]
+[Progress:===>                          10%] [Cov:====================>              59%]
+[Progress:===>                          10%] [Cov:====================>              59%]
+[Progress:===>                          11%] [Cov:====================>              59%]
+[Progress:===>                          11%] [Cov:====================>              59%]
+[Progress:===>                          11%] [Cov:====================>              59%]
+[Progress:===>                          13%] [Cov:====================>              59%]
+[Progress:===>                          13%] [Cov:====================>              59%]
+[Progress:===>                          13%] [Cov:=====================>             60%]
+[Progress:====>                         15%] [Cov:====================>              59%]
+[Progress:====>                         15%] [Cov:=====================>             60%]
+[Progress:====>                         16%] [Cov:=====================>             60%]
+[Progress:====>                         16%] [Cov:=====================>             60%]
+[Progress:====>                         16%] [Cov:=====================>             60%]
+[Progress:=====>                        18%] [Cov:=====================>             60%]
+[Progress:=====>                        18%] [Cov:=====================>             60%]
+[Progress:======>                       20%] [Cov:=====================>             60%]
+[Progress:======>                       20%] [Cov:=====================>             60%]
+[Progress:======>                       21%] [Cov:=====================>             60%]
+[Progress:======>                       21%] [Cov:=====================>             60%]
+[Progress:======>                       23%] [Cov:=====================>             60%]
+[Progress:======>                       23%] [Cov:=====================>             60%]
+[Progress:=======>                      25%] [Cov:=====================>             60%]
+[Progress:=======>                      25%] [Cov:=====================>             60%]
+[Progress:=======>                      25%] [Cov:=====================>             60%]
+[Progress:=======>                      26%] [Cov:=====================>             60%]
+[Progress:=======>                      26%] [Cov:=====================>             60%]
+[Progress:========>                     28%] [Cov:=====================>             60%]
+[Progress:========>                     28%] [Cov:=====================>             60%]
+[Progress:========>                     28%] [Cov:=====================>             60%]
+[Progress:=========>                    30%] [Cov:=====================>             60%]
+[Progress:=========>                    30%] [Cov:=====================>             60%]
+[Progress:=========>                    30%] [Cov:=====================>             60%]
+[Progress:=========>                    31%] [Cov:=====================>             60%]
+[Progress:=========>                    31%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             62%]
+[Progress:==========>                   36%] [Cov:======================>            63%]
+[Progress:===========>                  38%] [Cov:=====================>             60%]
+[Progress:===========>                  38%] [Cov:======================>            63%]
+[Progress:============>                 40%] [Cov:======================>            63%]
+[Progress:============>                 40%] [Cov:======================>            63%]
+[Progress:============>                 41%] [Cov:======================>            63%]
+[Progress:============>                 41%] [Cov:======================>            63%]
+[Progress:============>                 41%] [Cov:======================>            63%]
+[Progress:============>                 43%] [Cov:======================>            63%]
+[Progress:============>                 43%] [Cov:======================>            63%]
+[Progress:============>                 43%] [Cov:======================>            63%]
+[Progress:=============>                45%] [Cov:======================>            63%]
+[Progress:=============>                45%] [Cov:======================>            63%]
+[Progress:=============>                45%] [Cov:======================>            63%]
+[Progress:=============>                46%] [Cov:======================>            63%]
+[Progress:=============>                46%] [Cov:======================>            63%]
+[Progress:=============>                46%] [Cov:======================>            63%]
+[Progress:==============>               48%] [Cov:======================>            63%]
+[Progress:==============>               48%] [Cov:======================>            63%]
+[Progress:==============>               48%] [Cov:======================>            63%]
+[Progress:===============>              50%] [Cov:======================>            63%]
+[Progress:===============>              50%] [Cov:======================>            63%]
+[Progress:===============>              50%] [Cov:======================>            63%]
+[Progress:===============>              51%] [Cov:======================>            63%]
+[Progress:===============>              51%] [Cov:======================>            63%]
+[Progress:===============>              53%] [Cov:======================>            63%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           63%] [Cov:======================>            64%]
+[Progress:==================>           63%] [Cov:======================>            65%]
+[Progress:==================>           63%] [Cov:======================>            65%]
+[Progress:===================>          65%] [Cov:======================>            65%]
+[Progress:===================>          65%] [Cov:======================>            65%]
+[Progress:===================>          66%] [Cov:======================>            65%]
+[Progress:===================>          66%] [Cov:======================>            65%]
+[Progress:====================>         68%] [Cov:======================>            65%]
+[Progress:====================>         68%] [Cov:======================>            65%]
+[Progress:====================>         68%] [Cov:======================>            65%]
+[Progress:=====================>        70%] [Cov:======================>            65%]
+[Progress:=====================>        70%] [Cov:======================>            65%]
+[Progress:=====================>        70%] [Cov:======================>            65%]
+[Progress:=====================>        71%] [Cov:======================>            65%]
+[Progress:=====================>        71%] [Cov:======================>            65%]
+[Progress:=====================>        71%] [Cov:======================>            65%]
+[Progress:=====================>        73%] [Cov:======================>            65%]
+[Progress:=====================>        73%] [Cov:======================>            65%]
+[Progress:=====================>        73%] [Cov:======================>            65%]
+[Progress:======================>       75%] [Cov:======================>            65%]
+[Progress:======================>       75%] [Cov:======================>            65%]
+[Progress:======================>       76%] [Cov:======================>            65%]
+[Progress:======================>       76%] [Cov:======================>            65%]
+[Progress:=======================>      78%] [Cov:======================>            65%]
+[Progress:=======================>      78%] [Cov:======================>            65%]
+[Progress:=======================>      78%] [Cov:======================>            65%]
+[Progress:========================>     80%] [Cov:======================>            65%]
+[Progress:========================>     80%] [Cov:=======================>           66%]
+[Progress:========================>     80%] [Cov:=======================>           67%]
+[Progress:========================>     80%] [Cov:=======================>           67%]
+[Progress:========================>     80%] [Cov:=======================>           67%]
+[Progress:========================>     81%] [Cov:=======================>           67%]
+[Progress:========================>     81%] [Cov:=======================>           67%]
+[Progress:========================>     81%] [Cov:=======================>           67%]
+[Progress:========================>     83%] [Cov:=======================>           67%]
+[Progress:========================>     83%] [Cov:=======================>           67%]
+[Progress:========================>     83%] [Cov:=======================>           67%]
+[Progress:=========================>    85%] [Cov:=======================>           67%]
+[Progress:=========================>    85%] [Cov:=======================>           67%]
+[Progress:=========================>    85%] [Cov:=======================>           67%]
+[Progress:=========================>    86%] [Cov:=======================>           67%]
+[Progress:=========================>    86%] [Cov:=======================>           67%]
+[Progress:=========================>    86%] [Cov:=======================>           67%]
+[Progress:==========================>   88%] [Cov:=======================>           67%]
+[Progress:==========================>   88%] [Cov:=======================>           67%]
+[Progress:===========================>  90%] [Cov:=======================>           67%]
+[Progress:===========================>  90%] [Cov:=======================>           67%]
+[Progress:===========================>  91%] [Cov:=======================>           67%]
+[Progress:===========================>  91%] [Cov:=======================>           67%]
+[Progress:===========================>  91%] [Cov:=======================>           67%]
+[Progress:===========================>  93%] [Cov:=======================>           67%]
+[Progress:===========================>  93%] [Cov:=======================>           67%]
+[Progress:===========================>  93%] [Cov:=======================>           67%]
+[Progress:============================> 95%] [Cov:=======================>           67%]
+[Progress:============================> 95%] [Cov:=======================>           67%]
+[Progress:============================> 96%] [Cov:=======================>           67%]
+[Progress:============================> 96%] [Cov:=======================>           67%]
+[Progress:=============================>98%] [Cov:=======================>           67%]
+[Progress:=============================>98%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+* Search finished after 62s and 103 generations, 55335 statements, best individual has fitness: 349.0997525245369
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 65%
+* Total number of goals: 469
+* Number of covered goals: 303
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 39%
+* Total number of goals: 297
+* Number of covered goals: 115
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 32
+* Number of covered goals: 32
+* Generated 57 tests with total length 192
+* Resulting test suite's coverage: 67% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 5%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'ByteQuadsCanonicalizer_ESTest' to /work/evo_out/JacksonCore_11f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=80.8s]
+
+$ javac -nowarn -cp /work/JacksonCore_11f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_11f/target/classes:/work/JacksonCore_11f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/JacksonCore_11f/budget60_seed1/classes /work/evo_out/JacksonCore_11f/budget60_seed1/tests/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer_ESTest.java /work/evo_out/JacksonCore_11f/budget60_seed1/tests/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/JacksonCore_11f/target/classes --dest /work/evo_out/JacksonCore_11f/budget60_seed1/instrumented
+[INFO] 100 classes instrumented to /work/evo_out/JacksonCore_11f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/JacksonCore_11/budget60_seed1/jacoco.exec -cp /work/evo_out/JacksonCore_11f/budget60_seed1/instrumented:/work/evo_out/JacksonCore_11f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_11f/target/classes:/work/JacksonCore_11f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest
+JUnit version 4.12
+.........................................................
+Time: 0.409
+
+OK (57 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/JacksonCore_11/budget60_seed1/jacoco.exec --classfiles /work/JacksonCore_11f/target/classes --csv /workspace/EvoSuite/Result_Round1/JacksonCore_11/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/JacksonCore_11/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 83 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/JacksonCore_11f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_11b/target/classes:/work/JacksonCore_11b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest
+JUnit version 4.12
+......................E.E..........E.....E.E..................
+Time: 0.39
+There were 5 failures:
+1) test17(com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest)
+java.lang.AssertionError: Expecting exception: IllegalStateException
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest.test17(ByteQuadsCanonicalizer_ESTest.java:315)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test19(com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest)
+java.lang.AssertionError: Expecting exception: IllegalStateException
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest.test19(ByteQuadsCanonicalizer_ESTest.java:351)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test16(com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest)
+java.lang.AssertionError: Expecting exception: IllegalStateException
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest.test16(ByteQuadsCanonicalizer_ESTest.java:297)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test29(com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest)
+org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer.calcHash(ByteQuadsCanonicalizer.java:1032)
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer.addName(ByteQuadsCanonicalizer.java:846)
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest.test29(ByteQuadsCanonicalizer_ESTest.java:469)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+5) test28(com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest)
+java.lang.ArrayIndexOutOfBoundsException: Index 2003814403 out of bounds for length 512
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer._findOffsetForAdd(ByteQuadsCanonicalizer.java:896)
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer.addName(ByteQuadsCanonicalizer.java:801)
+	at com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer_ESTest.test28(ByteQuadsCanonicalizer_ESTest.java:450)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 57,  Failures: 5
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=0.6s]

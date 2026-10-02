@@ -1,0 +1,284 @@
+
+$ defects4j checkout -p Collections -v 28f -w /work/Collections_28f
+Checking out a270ff62 to /work/Collections_28f............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a270ff62:796114ea..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Collections-28f................................. OK
+
+[exit=0 timeout=False time=1.5s]
+
+$ defects4j compile -w /work/Collections_28f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.0s]
+
+$ defects4j checkout -p Collections -v 28b -w /work/Collections_28b
+Checking out a270ff62 to /work/Collections_28b............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a270ff62:796114ea..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Collections-28b................................. OK
+
+[exit=0 timeout=False time=1.6s]
+
+$ defects4j compile -w /work/Collections_28b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=6.8s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Collections_28f/target/classes:/work/Collections_28f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar org.evosuite.EvoSuite -generateSuite -class org.apache.commons.collections4.trie.AbstractPatriciaTrie -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_28f/target/classes:/work/Collections_28f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Collections_28f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Collections_28f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.collections4.trie.AbstractPatriciaTrie
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Collections_28f/target/classes
+  - /work/Collections_28f/target/tests
+  - /opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.collections4.trie.AbstractPatriciaTrie
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 828
+  - Branch 608
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 18:43:03.678 [logback-1] WARN  TestCluster - Failed to check cache for java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V> : Type points to itself
+[MASTER] 18:43:07.485 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:=>                            6%] [Cov:==>                                8%]
+[Progress:=>                            6%] [Cov:====>                              14%]
+[Progress:=>                            6%] [Cov:================>                  47%]
+[Progress:=>                            6%] [Cov:================>                  48%]
+[Progress:==>                           8%] [Cov:==>                                7%]
+[Progress:==>                           8%] [Cov:===>                               11%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:================>                  48%]
+[Progress:==>                           8%] [Cov:================>                  48%]
+[Progress:==>                           8%] [Cov:=================>                 49%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   45%]
+[Progress:===>                          10%] [Cov:================>                  47%]
+[Progress:===>                          10%] [Cov:================>                  48%]
+[Progress:===>                          10%] [Cov:=================>                 49%]
+[Progress:===>                          10%] [Cov:======================>            63%]
+[Progress:===>                          11%] [Cov:======================>            63%]
+[Progress:===>                          13%] [Cov:======================>            63%]
+[Progress:===>                          13%] [Cov:======================>            63%]
+[Progress:====>                         15%] [Cov:======================>            63%]
+[Progress:====>                         15%] [Cov:======================>            63%]
+[Progress:====>                         16%] [Cov:======================>            63%]
+[Progress:====>                         16%] [Cov:======================>            63%]
+[Progress:=====>                        18%] [Cov:======================>            63%]
+[Progress:=====>                        18%] [Cov:======================>            63%]
+[Progress:======>                       20%] [Cov:======================>            63%]
+[Progress:======>                       20%] [Cov:======================>            63%]
+[Progress:======>                       21%] [Cov:======================>            63%]
+[Progress:======>                       23%] [Cov:======================>            63%]
+[Progress:=======>                      25%] [Cov:======================>            63%]
+[Progress:=======>                      25%] [Cov:======================>            64%]
+[Progress:=======>                      26%] [Cov:======================>            64%]
+[Progress:========>                     28%] [Cov:======================>            64%]
+[Progress:========>                     28%] [Cov:======================>            64%]
+[Progress:=========>                    30%] [Cov:======================>            64%]
+[Progress:=========>                    30%] [Cov:======================>            64%]
+[Progress:=========>                    31%] [Cov:======================>            64%]
+[Progress:=========>                    31%] [Cov:======================>            64%]
+[Progress:=========>                    33%] [Cov:======================>            64%]
+[Progress:=========>                    33%] [Cov:======================>            64%]
+[Progress:==========>                   35%] [Cov:======================>            64%]
+[Progress:==========>                   36%] [Cov:======================>            64%]
+[Progress:==========>                   36%] [Cov:======================>            65%]
+[Progress:===========>                  38%] [Cov:======================>            64%]
+[Progress:============>                 40%] [Cov:======================>            65%]
+[Progress:============>                 41%] [Cov:======================>            65%]
+[Progress:============>                 41%] [Cov:======================>            65%]
+[Progress:============>                 43%] [Cov:======================>            65%]
+[Progress:============>                 43%] [Cov:======================>            65%]
+[Progress:=============>                45%] [Cov:======================>            65%]
+[Progress:=============>                45%] [Cov:======================>            65%]
+[Progress:=============>                46%] [Cov:======================>            65%]
+[Progress:=============>                46%] [Cov:======================>            65%]
+[Progress:==============>               48%] [Cov:======================>            65%][MASTER] 18:43:32.710 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {T=java.util.Map.Entry<java.lang.String, java.util.AbstractMap<java.lang.String, java.lang.Integer>.SimpleImmutableEntry<java.lang.Integer, java.lang.String>>}
+
+[Progress:===============>              50%] [Cov:======================>            65%]
+[Progress:===============>              51%] [Cov:======================>            65%]
+[Progress:===============>              51%] [Cov:======================>            65%]
+[Progress:===============>              53%] [Cov:======================>            65%]
+[Progress:================>             55%] [Cov:======================>            65%]
+[Progress:================>             56%] [Cov:======================>            65%]
+[Progress:================>             56%] [Cov:======================>            65%]
+[Progress:=================>            58%] [Cov:======================>            65%][MASTER] 18:43:38.749 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {K=class java.lang.Object, V=java.lang.Comparable<java.lang.Integer>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Integer>, K=class java.lang.Object}
+[MASTER] 18:43:38.751 [logback-1] WARN  CastClassManager - Nothing is assignable after adding class java.lang.Integer for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=java.lang.Comparable<java.lang.Integer>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Integer>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Integer, K=java.lang.Comparable<java.lang.Comparable<T>>}
+
+[Progress:==================>           60%] [Cov:======================>            65%]
+[Progress:==================>           60%] [Cov:======================>            65%]
+[Progress:==================>           61%] [Cov:======================>            65%]
+[Progress:==================>           61%] [Cov:======================>            65%]
+[Progress:==================>           63%] [Cov:======================>            65%]
+[Progress:==================>           63%] [Cov:======================>            65%]
+[Progress:===================>          65%] [Cov:======================>            65%]
+[Progress:===================>          66%] [Cov:======================>            65%]
+[Progress:====================>         68%] [Cov:======================>            65%]
+[Progress:====================>         68%] [Cov:======================>            65%]
+[Progress:=====================>        70%] [Cov:======================>            65%]
+[Progress:=====================>        70%] [Cov:======================>            65%][MASTER] 18:43:46.377 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object}
+[MASTER] 18:43:46.378 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object, K=java.lang.Comparable<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>}
+[MASTER] 18:43:46.380 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object, K=java.lang.Comparable<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>, V=java.util.AbstractMap<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>.SimpleImmutableEntry<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>}
+[MASTER] 18:43:46.381 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object, K=java.lang.Comparable<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>, V=java.util.AbstractMap<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>.SimpleImmutableEntry<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>}
+[MASTER] 18:43:46.386 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object, K=java.lang.Comparable<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>, V=java.util.AbstractMap<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>.SimpleImmutableEntry<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>}
+[MASTER] 18:43:46.387 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object, K=java.lang.Comparable<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>, V=java.util.AbstractMap<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>.SimpleImmutableEntry<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>}
+[MASTER] 18:43:46.392 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object, K=java.lang.Comparable<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>, V=java.util.AbstractMap<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>.SimpleImmutableEntry<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>}
+[MASTER] 18:43:46.393 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>, K=class java.lang.Object, K=java.lang.Comparable<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>, V=java.util.AbstractMap<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>.SimpleImmutableEntry<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Comparable<T>>}
+
+[Progress:=====================>        71%] [Cov:======================>            65%]
+[Progress:=====================>        73%] [Cov:======================>            65%]
+[Progress:======================>       75%] [Cov:======================>            65%]
+[Progress:======================>       76%] [Cov:======================>            65%]
+[Progress:======================>       76%] [Cov:======================>            65%][MASTER] 18:43:50.197 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {K=java.lang.Comparable<java.lang.String>, V=java.util.AbstractMap<java.lang.String, java.lang.String>.SimpleImmutableEntry<java.lang.String, java.lang.String>, K=java.lang.Comparable<java.lang.String>, V=java.util.AbstractMap<java.lang.String, java.lang.String>.SimpleImmutableEntry<java.lang.String, java.lang.String>, K=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:50.198 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.String>, V=java.util.AbstractMap<java.lang.String, java.lang.String>.SimpleImmutableEntry<java.lang.String, java.lang.String>, K=java.lang.Comparable<java.lang.String>, V=java.util.AbstractMap<java.lang.String, java.lang.String>.SimpleImmutableEntry<java.lang.String, java.lang.String>, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.lang.Comparable<java.lang.Comparable<T>>, K=java.util.AbstractMap<java.lang.Comparable<T>, java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>.SimpleImmutableEntry<java.lang.Comparable<T>, java.lang.Comparable<T>>}
+
+[Progress:=======================>      78%] [Cov:======================>            65%]
+[Progress:========================>     80%] [Cov:======================>            65%]
+[Progress:========================>     81%] [Cov:======================>            65%]
+[Progress:========================>     83%] [Cov:======================>            65%]
+[Progress:========================>     83%] [Cov:======================>            65%]
+[Progress:=========================>    85%] [Cov:======================>            65%]
+[Progress:=========================>    86%] [Cov:======================>            65%][MASTER] 18:43:55.760 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {T=java.util.Map.Entry<java.lang.String, java.lang.Integer>}
+[MASTER] 18:43:55.760 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {T=java.util.Map.Entry<java.lang.String, java.lang.Integer>, K=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:56.091 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {T=java.util.Map.Entry<java.util.AbstractMap<java.util.AbstractMap<java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>, java.lang.Integer>.SimpleImmutableEntry<java.lang.Integer, java.lang.String>, java.util.AbstractMap<java.lang.String, java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>.SimpleImmutableEntry<java.lang.Integer, java.lang.String>>.SimpleImmutableEntry<java.lang.Integer, java.lang.String>, java.lang.Integer>, K=class java.lang.Object}
+
+[Progress:==========================>   88%] [Cov:======================>            65%][MASTER] 18:43:56.711 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.String>, V=java.util.AbstractMap<java.lang.Integer, java.lang.Integer>.SimpleImmutableEntry<java.lang.Integer, java.lang.String>, K=java.lang.Comparable<java.lang.String>, V=java.util.AbstractMap<java.lang.Integer, java.lang.Integer>.SimpleImmutableEntry<java.lang.Integer, java.lang.String>, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=class java.lang.Object, V=java.util.AbstractMap<java.lang.Comparable<T>, java.lang.Object>.SimpleImmutableEntry<java.lang.Comparable<T>, java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V>>, K=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object}
+
+[Progress:==========================>   88%] [Cov:======================>            65%][MASTER] 18:43:57.000 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.003 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.014 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.017 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.020 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.026 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.030 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Object>.SimpleImmutableEntry<java.lang.Object, java.lang.Object>, K=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>}
+[MASTER] 18:43:57.032 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.039 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Object>, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Object>.SimpleImmutableEntry<java.lang.Object, java.lang.Object>, K=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.040 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.044 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+[MASTER] 18:43:57.047 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object, V=class java.lang.Object, K=class java.lang.Object, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Object>, V=class java.lang.Object, K=java.lang.Comparable<java.lang.Comparable<T>>, V=java.util.AbstractMap<java.lang.Object, java.lang.Comparable<T>>.SimpleImmutableEntry<java.lang.Object, java.lang.Comparable<T>>, K=class java.lang.Object, K=class java.lang.Object, V=java.lang.Comparable<java.lang.Comparable<T>>}
+
+[Progress:===========================>  90%] [Cov:======================>            65%]
+[Progress:===========================>  90%] [Cov:=======================>           66%]
+[Progress:===========================>  90%] [Cov:=======================>           67%]
+[Progress:===========================>  91%] [Cov:======================>            65%]
+[Progress:===========================>  93%] [Cov:=======================>           67%]
+[Progress:============================> 95%] [Cov:=======================>           67%]
+[Progress:============================> 95%] [Cov:=======================>           67%]
+[Progress:============================> 96%] [Cov:=======================>           67%]
+[Progress:=============================>98%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+* Search finished after 61s and 42 generations, 27501 statements, best individual has fitness: 596.6721224721225
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 55%
+* Total number of goals: 828
+* Number of covered goals: 459
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 47%
+* Total number of goals: 608
+* Number of covered goals: 285
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 25
+* Number of covered goals: 25
+* Generated 88 tests with total length 287
+* Resulting test suite's coverage: 67% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 20%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'AbstractPatriciaTrie_ESTest' to /work/evo_out/Collections_28f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=87.9s]
+
+$ javac -nowarn -cp /work/Collections_28f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_28f/target/classes:/work/Collections_28f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Collections_28f/budget60_seed1/classes /work/evo_out/Collections_28f/budget60_seed1/tests/org/apache/commons/collections4/trie/AbstractPatriciaTrie_ESTest.java /work/evo_out/Collections_28f/budget60_seed1/tests/org/apache/commons/collections4/trie/AbstractPatriciaTrie_ESTest_scaffolding.java
+Note: /work/evo_out/Collections_28f/budget60_seed1/tests/org/apache/commons/collections4/trie/AbstractPatriciaTrie_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Collections_28f/target/classes --dest /work/evo_out/Collections_28f/budget60_seed1/instrumented
+[INFO] 536 classes instrumented to /work/evo_out/Collections_28f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Collections_28/budget60_seed1/jacoco.exec -cp /work/evo_out/Collections_28f/budget60_seed1/instrumented:/work/evo_out/Collections_28f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_28f/target/classes:/work/Collections_28f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.collections4.trie.AbstractPatriciaTrie_ESTest
+JUnit version 4.12
+........................................................................................
+Time: 0.537
+
+OK (88 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Collections_28/budget60_seed1/jacoco.exec --classfiles /work/Collections_28f/target/classes --csv /workspace/EvoSuite/Result_Round1/Collections_28/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Collections_28/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 467 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -cp /work/evo_out/Collections_28f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_28b/target/classes:/work/Collections_28b/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.collections4.trie.AbstractPatriciaTrie_ESTest
+JUnit version 4.12
+........................................................................................
+Time: 0.509
+
+OK (88 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.7s]

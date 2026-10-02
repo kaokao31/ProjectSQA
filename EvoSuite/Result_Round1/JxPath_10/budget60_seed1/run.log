@@ -1,0 +1,1041 @@
+
+$ defects4j checkout -p JxPath -v 10f -w /work/JxPath_10f
+Checking out 3b3e58d3 to /work/JxPath_10f.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3b3e58d3:1860d750..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-10f...................................... OK
+
+[exit=0 timeout=False time=0.5s]
+
+$ defects4j compile -w /work/JxPath_10f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.4s]
+
+$ defects4j checkout -p JxPath -v 10b -w /work/JxPath_10b
+Checking out 3b3e58d3 to /work/JxPath_10b.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3b3e58d3:1860d750..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-10b...................................... OK
+
+[exit=0 timeout=False time=0.5s]
+
+$ defects4j compile -w /work/JxPath_10b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.2s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JxPath_10f/target/classes:/work/JxPath_10f/src/java:/work/JxPath_10f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_10f/target/lib/commons-collections-2.0.jar:/work/JxPath_10f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_10f/target/lib/jdom-1.0.jar:/work/JxPath_10f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_10f/target/lib/servletapi-2.2.jar:/work/JxPath_10f/target/lib/xerces-2.4.0.jar:/work/JxPath_10f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_10f/src/test:/work/JxPath_10f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_10f/target/classes:/work/JxPath_10f/src/java:/work/JxPath_10f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_10f/target/lib/commons-collections-2.0.jar:/work/JxPath_10f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_10f/target/lib/jdom-1.0.jar:/work/JxPath_10f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_10f/target/lib/servletapi-2.2.jar:/work/JxPath_10f/target/lib/xerces-2.4.0.jar:/work/JxPath_10f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_10f/src/test:/work/JxPath_10f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JxPath_10f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JxPath_10f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JxPath_10f/target/classes
+  - /work/JxPath_10f/src/java
+  - /work/JxPath_10f/target/lib/commons-beanutils-1.4.jar
+  - /work/JxPath_10f/target/lib/commons-collections-2.0.jar
+  - /work/JxPath_10f/target/lib/commons-logging-1.0.4.jar
+  - /work/JxPath_10f/target/lib/jdom-1.0.jar
+  - /work/JxPath_10f/target/lib/mockrunner-0.4.1.jar
+  - /work/JxPath_10f/target/lib/servletapi-2.2.jar
+  - /work/JxPath_10f/target/lib/xerces-2.4.0.jar
+  - /work/JxPath_10f/target/lib/xml-apis-2.0.2.jar
+  - /work/JxPath_10f/src/test
+  - /work/JxPath_10f/target/test-classes
+[MASTER] 03:00:06.689 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 43
+  - Branch 39
+  - Exception 0
+* Using seed 1
+
+[Progress:>                             0%] [Cov:>                                  0%]* Starting evolution
+[MASTER] 03:00:06.903 [logback-1] WARN  TestCluster - Failed to check cache for java.util.LinkedList<E> : Type points to itself
+
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:=>                                 3%]
+[Progress:>                             1%] [Cov:============>                      36%]
+[Progress:>                             1%] [Cov:=============>                     38%]
+[Progress:>                             1%] [Cov:=============>                     39%]
+[Progress:>                             1%] [Cov:====================>              58%]
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:=>                                 4%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:=====================>             61%]
+[Progress:=>                            5%] [Cov:=>                                 3%]
+[Progress:=>                            5%] [Cov:=>                                 5%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:====================>              59%]
+[Progress:=>                            5%] [Cov:=====================>             60%]
+[Progress:=>                            5%] [Cov:=====================>             60%]
+[Progress:=>                            5%] [Cov:=====================>             61%]
+[Progress:=>                            5%] [Cov:======================>            65%]
+[Progress:=>                            6%] [Cov:======================>            65%]
+[Progress:=>                            6%] [Cov:======================>            65%]
+[Progress:=>                            6%] [Cov:======================>            65%]
+[Progress:=>                            6%] [Cov:=======================>           67%]
+[Progress:=>                            6%] [Cov:=======================>           67%]
+[Progress:=>                            6%] [Cov:=======================>           67%]
+[Progress:=>                            6%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           68%]
+[Progress:===>                          13%] [Cov:=======================>           68%]
+[Progress:===>                          13%] [Cov:=======================>           68%]
+[Progress:===>                          13%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         15%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:====>                         16%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:=====>                        18%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       20%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       21%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:======>                       23%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=========================>         72%]
+[Progress:========>                     28%] [Cov:==========================>        75%]
+[Progress:========>                     28%] [Cov:==========================>        75%]
+[Progress:========>                     28%] [Cov:==========================>        75%]
+[Progress:========>                     28%] [Cov:==========================>        75%][MASTER] 03:00:24.771 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:========>                     28%] [Cov:==========================>        75%]
+[Progress:=========>                    30%] [Cov:==========================>        75%]
+[Progress:=========>                    30%] [Cov:==========================>        75%][MASTER] 03:00:25.047 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    30%] [Cov:==========================>        75%][MASTER] 03:00:25.077 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.082 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:25.103 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.113 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.158 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    30%] [Cov:==========================>        75%][MASTER] 03:00:25.182 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.218 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.236 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.258 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.279 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.330 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.347 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    30%] [Cov:==========================>        75%][MASTER] 03:00:25.442 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.446 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.axes.InitialContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:25.478 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    30%] [Cov:==========================>        75%][MASTER] 03:00:25.539 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.560 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.609 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.625 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.635 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    30%] [Cov:==========================>        75%][MASTER] 03:00:25.657 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.700 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.701 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.712 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.750 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    30%] [Cov:==========================>        75%][MASTER] 03:00:25.806 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.820 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.835 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    31%] [Cov:==========================>        75%][MASTER] 03:00:25.871 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.885 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.axes.AncestorContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:25.907 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    31%] [Cov:==========================>        75%][MASTER] 03:00:25.956 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:25.998 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.048 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.076 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.138 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    31%] [Cov:==========================>        75%][MASTER] 03:00:26.187 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.196 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.213 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.axes.AttributeContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:26.226 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.256 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.compiler.NodeNameTest due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.262 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.269 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.278 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.296 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    31%] [Cov:==========================>        75%][MASTER] 03:00:26.425 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.445 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.456 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.464 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.488 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.500 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    31%] [Cov:==========================>        75%][MASTER] 03:00:26.550 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.578 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.596 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.609 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.621 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.624 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    31%] [Cov:==========================>        75%][MASTER] 03:00:26.703 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.758 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.791 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.791 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.804 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    31%] [Cov:==========================>        75%][MASTER] 03:00:26.820 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    33%] [Cov:==========================>        75%][MASTER] 03:00:26.860 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.877 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.878 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.890 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.898 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.compiler.NodeNameTest due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.898 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:26.922 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.compiler.NodeNameTest due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    33%] [Cov:==========================>        75%][MASTER] 03:00:26.975 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.022 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.035 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.axes.InitialContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:27.044 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.056 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.072 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    33%] [Cov:==========================>        75%][MASTER] 03:00:27.172 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.172 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.185 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.198 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.218 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.230 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.230 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.251 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.258 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.284 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    33%] [Cov:==========================>        75%][MASTER] 03:00:27.318 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.325 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.341 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.350 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:27.363 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.363 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.axes.ChildContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:27.377 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.384 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.model.VariablePointer due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.402 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.415 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.437 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    33%] [Cov:==========================>        75%][MASTER] 03:00:27.555 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.565 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.580 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.585 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.608 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.621 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    33%] [Cov:==========================>        75%][MASTER] 03:00:27.661 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.708 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.axes.UnionContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:27.711 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.793 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.821 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    33%] [Cov:==========================>        75%]
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:27.852 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.859 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.axes.SelfContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:27.907 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.930 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.938 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:27.973 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:27.997 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.029 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.047 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.106 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:28.129 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.133 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 03:00:28.176 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.184 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.185 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.compiler.CoreOperationGreaterThanOrEqual due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.190 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:28.282 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.291 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.351 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:28.400 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.413 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.452 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:28.528 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.605 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.641 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:28.716 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.compiler.NodeNameTest due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:==========================>        75%][MASTER] 03:00:28.838 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   36%] [Cov:==========================>        75%]
+[Progress:==========>                   36%] [Cov:==========================>        75%][MASTER] 03:00:28.985 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:28.990 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.063 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.104 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   36%] [Cov:==========================>        75%][MASTER] 03:00:29.119 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.139 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.153 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.226 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.230 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   36%] [Cov:==========================>        75%][MASTER] 03:00:29.284 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.316 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.316 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   36%] [Cov:==========================>        75%][MASTER] 03:00:29.455 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   36%] [Cov:==========================>        75%][MASTER] 03:00:29.607 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:29.632 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   36%] [Cov:==========================>        75%]
+[Progress:==========>                   36%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:===========>                  38%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 40%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%][MASTER] 03:00:32.544 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 41%] [Cov:==========================>        75%]
+[Progress:============>                 43%] [Cov:==========================>        75%]
+[Progress:============>                 43%] [Cov:==========================>        75%]
+[Progress:============>                 43%] [Cov:==========================>        77%]
+[Progress:============>                 43%] [Cov:===========================>       79%]
+[Progress:============>                 43%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%][MASTER] 03:00:34.481 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:34.856 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:34.936 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:35.080 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%]
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:35.261 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:35.332 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:35.355 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:35.434 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:35.446 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:35.475 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:35.503 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:35.576 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:35.635 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:35.717 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=============>                46%] [Cov:===========================>       79%][MASTER] 03:00:35.766 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==============>               48%] [Cov:===========================>       79%]
+[Progress:==============>               48%] [Cov:===========================>       79%][MASTER] 03:00:35.886 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:==============>               48%] [Cov:===========================>       79%][MASTER] 03:00:36.033 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:36.045 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:36.091 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:36.110 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.RootContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:36.118 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==============>               48%] [Cov:===========================>       79%]
+[Progress:==============>               48%] [Cov:===========================>       79%][MASTER] 03:00:36.330 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:36.347 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==============>               48%] [Cov:===========================>       79%][MASTER] 03:00:36.454 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:36.455 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==============>               48%] [Cov:===========================>       79%][MASTER] 03:00:36.557 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==============>               48%] [Cov:===========================>       79%][MASTER] 03:00:36.626 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AncestorContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 03:00:36.706 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.AttributeContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PrecedingOrFollowingContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==============>               48%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%][MASTER] 03:00:37.553 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.NamespaceResolver due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%][MASTER] 03:00:40.671 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:============================>      80%]
+[Progress:================>             55%] [Cov:============================>      82%]
+[Progress:================>             56%] [Cov:===========================>       79%]
+[Progress:================>             56%] [Cov:============================>      82%]
+[Progress:================>             56%] [Cov:============================>      82%]
+[Progress:================>             56%] [Cov:============================>      82%]
+[Progress:=================>            58%] [Cov:============================>      82%]
+[Progress:=================>            58%] [Cov:============================>      82%]
+[Progress:=================>            58%] [Cov:============================>      82%]
+[Progress:=================>            58%] [Cov:============================>      82%]
+[Progress:=================>            58%] [Cov:============================>      82%]
+[Progress:=================>            58%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           60%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           61%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:==================>           63%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          65%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:===================>          66%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:====================>         68%] [Cov:============================>      82%]
+[Progress:=====================>        70%] [Cov:============================>      82%]
+[Progress:=====================>        70%] [Cov:============================>      82%]
+[Progress:=====================>        70%] [Cov:============================>      82%]
+[Progress:=====================>        70%] [Cov:============================>      82%]
+[Progress:=====================>        70%] [Cov:============================>      82%]
+[Progress:=====================>        70%] [Cov:============================>      82%]
+[Progress:=====================>        71%] [Cov:============================>      82%]
+[Progress:=====================>        71%] [Cov:============================>      82%]
+[Progress:=====================>        71%] [Cov:============================>      82%]
+[Progress:=====================>        71%] [Cov:============================>      82%]
+[Progress:=====================>        71%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:=====================>        73%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       75%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:======================>       76%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:=======================>      78%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     80%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     81%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:========================>     83%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    85%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%][MASTER] 03:00:59.386 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NamespaceContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%]
+[Progress:=========================>    86%] [Cov:============================>      82%][MASTER] 03:00:59.823 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.InitialContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.NodeSetContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.PredicateContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:==========================>   88%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%][MASTER] 03:01:01.014 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.JXPathContextReferenceImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.SelfContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.UnionContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  90%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%][MASTER] 03:01:01.869 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ChildContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.ParentContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.apache.commons.jxpath.ri.axes.DescendantContext due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  91%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:===========================>  93%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 95%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:============================> 96%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:=============================>98%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+[Progress:==============================100%] [Cov:============================>      82%]
+* Search finished after 61s and 588 generations, 274936 statements, best individual has fitness: 16.083333333333332
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 74%
+* Total number of goals: 43
+* Number of covered goals: 32
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 72%
+* Total number of goals: 39
+* Number of covered goals: 28
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 5
+* Number of covered goals: 5
+* Generated 12 tests with total length 91
+* Resulting test suite's coverage: 82% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 51%
+* Compiling and checking tests
+[MASTER] 03:01:15.761 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 03:01:15.762 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Expression[] expressionArray0 = new Expression[4];
+QName qName0 = new QName("org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression");
+ExtensionFunction extensionFunction0 = new ExtensionFunction(qName0, expressionArray0);
+expressionArray0[0] = (Expression) extensionFunction0;
+CoreOperationLessThanOrEqual coreOperationLessThanOrEqual0 = new CoreOperationLessThanOrEqual(extensionFunction0, expressionArray0[0]);
+Constant constant0 = new Constant("w;l$Ifbr\"npO@<DyFq'");
+CoreOperationEqual coreOperationEqual0 = new CoreOperationEqual(coreOperationLessThanOrEqual0, constant0);
+CoreOperationGreaterThan coreOperationGreaterThan0 = new CoreOperationGreaterThan(coreOperationEqual0, coreOperationLessThanOrEqual0);
+NodeNameTest nodeNameTest0 = new NodeNameTest(qName0);
+SelfContext selfContext0 = new SelfContext((EvalContext) null, nodeNameTest0);
+coreOperationGreaterThan0.computeValue(selfContext0);
+
+[MASTER] 03:01:15.993 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 03:01:15.994 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ QName qName0 = new QName("8|,3`{J.[");
+Expression[] expressionArray0 = new Expression[3];
+CoreOperationAdd coreOperationAdd0 = new CoreOperationAdd(expressionArray0);
+expressionArray0[0] = (Expression) coreOperationAdd0;
+CoreOperationAnd coreOperationAnd0 = new CoreOperationAnd(expressionArray0);
+ExtensionFunction extensionFunction0 = new ExtensionFunction(qName0, expressionArray0);
+CoreOperationGreaterThan coreOperationGreaterThan0 = new CoreOperationGreaterThan(extensionFunction0, coreOperationAnd0);
+JXPathContextReferenceImpl jXPathContextReferenceImpl0 = (JXPathContextReferenceImpl)JXPathContext.newContext((Object) expressionArray0[2]);
+InitialContext initialContext0 = (InitialContext)jXPathContextReferenceImpl0.getAbsoluteRootContext();
+coreOperationGreaterThan0.computeValue(initialContext0);
+
+* Writing tests to file
+* Writing JUnit test case 'CoreOperationRelationalExpression_ESTest' to /work/evo_out/JxPath_10f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=74.6s]
+
+$ javac -nowarn -cp /work/JxPath_10f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_10f/src/java:/work/JxPath_10f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_10f/target/lib/commons-collections-2.0.jar:/work/JxPath_10f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_10f/target/lib/jdom-1.0.jar:/work/JxPath_10f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_10f/target/lib/servletapi-2.2.jar:/work/JxPath_10f/target/lib/xerces-2.4.0.jar:/work/JxPath_10f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_10f/src/test:/work/JxPath_10f/target/classes:/work/JxPath_10f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/JxPath_10f/budget60_seed1/classes /work/evo_out/JxPath_10f/budget60_seed1/tests/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression_ESTest.java /work/evo_out/JxPath_10f/budget60_seed1/tests/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/JxPath_10f/target/classes --dest /work/evo_out/JxPath_10f/budget60_seed1/instrumented
+[INFO] 177 classes instrumented to /work/evo_out/JxPath_10f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/JxPath_10/budget60_seed1/jacoco.exec -cp /work/evo_out/JxPath_10f/budget60_seed1/instrumented:/work/evo_out/JxPath_10f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_10f/src/java:/work/JxPath_10f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_10f/target/lib/commons-collections-2.0.jar:/work/JxPath_10f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_10f/target/lib/jdom-1.0.jar:/work/JxPath_10f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_10f/target/lib/servletapi-2.2.jar:/work/JxPath_10f/target/lib/xerces-2.4.0.jar:/work/JxPath_10f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_10f/src/test:/work/JxPath_10f/target/classes:/work/JxPath_10f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression_ESTest
+JUnit version 4.12
+..........
+Time: 1.516
+
+OK (10 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/JxPath_10/budget60_seed1/jacoco.exec --classfiles /work/JxPath_10f/target/classes --csv /workspace/EvoSuite/Result_Round1/JxPath_10/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/JxPath_10/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 159 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -cp /work/evo_out/JxPath_10f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_10b/src/java:/work/JxPath_10b/target/lib/commons-beanutils-1.4.jar:/work/JxPath_10b/target/lib/commons-collections-2.0.jar:/work/JxPath_10b/target/lib/commons-logging-1.0.4.jar:/work/JxPath_10b/target/lib/jdom-1.0.jar:/work/JxPath_10b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_10b/target/lib/servletapi-2.2.jar:/work/JxPath_10b/target/lib/xerces-2.4.0.jar:/work/JxPath_10b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_10b/src/test:/work/JxPath_10b/target/classes:/work/JxPath_10b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression_ESTest
+JUnit version 4.12
+..........
+Time: 1.408
+
+OK (10 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.9s]

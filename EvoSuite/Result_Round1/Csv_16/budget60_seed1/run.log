@@ -1,0 +1,612 @@
+
+$ defects4j checkout -p Csv -v 16f -w /work/Csv_16f
+Checking out f368f64f to /work/Csv_16f..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Csv_16f/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f368f64f:33f662b2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Csv-16f......................................... OK
+
+[exit=0 timeout=False time=1.9s]
+
+$ defects4j compile -w /work/Csv_16f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=2.6s]
+
+$ defects4j checkout -p Csv -v 16b -w /work/Csv_16b
+Checking out f368f64f to /work/Csv_16b..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Csv_16b/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f368f64f:33f662b2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Csv-16b......................................... OK
+
+[exit=0 timeout=False time=2.0s]
+
+$ defects4j compile -w /work/Csv_16b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=2.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Csv_16f/target/classes:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/work/Csv_16f/target/test-classes:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar org.evosuite.EvoSuite -generateSuite -class org.apache.commons.csv.CSVParser -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Csv_16f/target/classes:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/work/Csv_16f/target/test-classes:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Csv_16f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Csv_16f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.csv.CSVParser
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Csv_16f/target/classes
+  - /opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar
+  - /opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar
+  - /work/Csv_16f/target/test-classes
+  - /opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar
+  - /opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar
+  - /opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar
+  - /opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar
+  - /opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+  - /opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar
+[MASTER] 23:17:36.896 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 23:17:37.127 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 23:17:37.288 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.sql.ShardingKey
+[MASTER] 23:17:38.035 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.035 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.035 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.035 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.035 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.035 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.035 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.036 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.036 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.036 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.036 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 23:17:38.036 [logback-1] WARN  CheapPurityAnalyzer - org.h2.result.LocalResultImpl was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.csv.CSVParser
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 123
+  - Branch 94
+  - Exception 0
+* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  0%]
+[Progress:>                             0%] [Cov:>                                  1%]
+[Progress:>                             0%] [Cov:>                                  2%]
+[Progress:>                             0%] [Cov:============>                      35%]
+[Progress:>                             1%] [Cov:===>                               11%]
+[Progress:>                             1%] [Cov:=======>                           20%]
+[Progress:>                             1%] [Cov:==================>                53%]
+[Progress:>                             1%] [Cov:====================>              58%]
+[Progress:>                             1%] [Cov:=======================>           66%][MASTER] 23:17:40.521 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Enumeration<E> : Type points to itself
+
+[Progress:>                             1%] [Cov:=======================>           66%]
+[Progress:>                             3%] [Cov:=================>                 51%]
+[Progress:>                             3%] [Cov:==================>                52%]
+[Progress:>                             3%] [Cov:===================>               55%]
+[Progress:>                             3%] [Cov:===================>               57%]
+[Progress:>                             3%] [Cov:=====================>             60%]
+[Progress:>                             3%] [Cov:=====================>             61%]
+[Progress:>                             3%] [Cov:=====================>             62%]
+[Progress:>                             3%] [Cov:============================>      82%]
+[Progress:>                             3%] [Cov:=============================>     83%]
+[Progress:>                             3%] [Cov:=============================>     83%]
+[Progress:>                             3%] [Cov:=============================>     83%]
+[Progress:>                             3%] [Cov:=============================>     83%]
+[Progress:=>                            5%] [Cov:=============================>     83%]
+[Progress:=>                            5%] [Cov:=============================>     83%]
+[Progress:=>                            5%] [Cov:=============================>     83%][MASTER] 23:17:42.013 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Map<K, V> : Type points to itself
+
+[Progress:=>                            5%] [Cov:=============================>     84%]
+[Progress:=>                            5%] [Cov:=============================>     84%]
+[Progress:=>                            5%] [Cov:=============================>     85%]
+[Progress:=>                            5%] [Cov:=============================>     85%]
+[Progress:=>                            5%] [Cov:==============================>    86%]
+[Progress:=>                            6%] [Cov:=============================>     85%]
+[Progress:=>                            6%] [Cov:==============================>    86%]
+[Progress:=>                            6%] [Cov:==============================>    86%]
+[Progress:=>                            6%] [Cov:==============================>    87%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:===============================>   89%]
+[Progress:==>                           8%] [Cov:===============================>   89%]
+[Progress:==>                           8%] [Cov:===============================>   89%]
+[Progress:==>                           8%] [Cov:===============================>   89%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%][MASTER] 23:17:45.786 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Enum<E> for wildcard ? extends java.lang.Enum<?>
+
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:===>                          13%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         15%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:====>                         16%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=====>                        18%] [Cov:===============================>   89%]
+[Progress:=======>                      26%] [Cov:===============================>   89%]
+[Progress:========>                     28%] [Cov:===============================>   89%]
+[Progress:========>                     28%] [Cov:===============================>   89%]
+[Progress:========>                     28%] [Cov:===============================>   89%]
+[Progress:========>                     28%] [Cov:===============================>   89%]
+[Progress:==========>                   36%] [Cov:===============================>   89%]
+[Progress:==========>                   36%] [Cov:===============================>   89%]
+[Progress:==========>                   36%] [Cov:===============================>   89%]
+[Progress:==========>                   36%] [Cov:===============================>   89%]
+[Progress:=============>                45%] [Cov:===============================>   89%]
+[Progress:=============>                45%] [Cov:===============================>   89%]
+[Progress:=============>                45%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:=============>                46%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:==============>               48%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              50%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              51%] [Cov:===============================>   89%]
+[Progress:===============>              53%] [Cov:===============================>   89%]
+[Progress:===============>              53%] [Cov:===============================>   89%]
+[Progress:===============>              53%] [Cov:===============================>   89%]
+[Progress:===============>              53%] [Cov:===============================>   89%]
+[Progress:===============>              53%] [Cov:===============================>   89%]
+[Progress:===============>              53%] [Cov:===============================>   89%]
+[Progress:===============>              53%] [Cov:===============================>   90%]
+[Progress:===============>              53%] [Cov:===============================>   90%]
+[Progress:===============>              53%] [Cov:===============================>   90%]
+[Progress:===============>              53%] [Cov:===============================>   90%]
+[Progress:===============>              53%] [Cov:===============================>   90%]
+[Progress:===============>              53%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             55%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:================>             56%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:=================>            58%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           60%] [Cov:===============================>   90%]
+[Progress:==================>           61%] [Cov:===============================>   90%]
+[Progress:==================>           61%] [Cov:===============================>   90%]
+[Progress:==================>           61%] [Cov:===============================>   90%]
+[Progress:==================>           61%] [Cov:===============================>   90%]
+[Progress:==================>           61%] [Cov:===============================>   90%]
+[Progress:==================>           61%] [Cov:===============================>   90%][MASTER] 23:18:16.022 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Enum<E> for wildcard ? extends java.lang.Enum<?>
+
+[Progress:==================>           61%] [Cov:===============================>   90%]
+[Progress:==================>           61%] [Cov:===============================>   90%]
+[Progress:=====================>        70%] [Cov:===============================>   90%]
+[Progress:=====================>        70%] [Cov:===============================>   90%]
+[Progress:=====================>        70%] [Cov:===============================>   90%]
+[Progress:=====================>        70%] [Cov:===============================>   90%]
+[Progress:=====================>        70%] [Cov:===============================>   90%]
+[Progress:=====================>        71%] [Cov:===============================>   90%]
+[Progress:=====================>        71%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%][MASTER] 23:18:28.390 [logback-1] WARN  TestCluster - Failed to check cache for java.util.concurrent.ForkJoinTask<V> : Type points to itself
+
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%][MASTER] 23:18:28.638 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Enum<E> for wildcard ? extends java.lang.Enum<?>
+
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    85%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:=========================>    86%] [Cov:===============================>   90%]
+[Progress:============================> 95%] [Cov:===============================>   90%]
+[Progress:============================> 95%] [Cov:===============================>   90%]
+[Progress:============================> 95%] [Cov:===============================>   90%]
+[Progress:============================> 95%] [Cov:===============================>   90%]
+[Progress:============================> 95%] [Cov:===============================>   90%]
+[Progress:============================> 96%] [Cov:===============================>   90%]
+[Progress:============================> 96%] [Cov:===============================>   90%]
+[Progress:============================> 96%] [Cov:===============================>   90%]
+[Progress:============================> 96%] [Cov:===============================>   90%]
+[Progress:============================> 96%] [Cov:===============================>   90%]
+[Progress:============================> 96%] [Cov:===============================>   90%]
+[Progress:============================> 96%] [Cov:===============================>   90%]
+[Progress:==============================100%] [Cov:===============================>   90%]
+[Progress:==============================100%] [Cov:===============================>   90%]
+* Search finished after 64s and 232 generations, 96836 statements, best individual has fitness: 27.801904761904762
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 89%
+* Total number of goals: 123
+* Number of covered goals: 110
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 81%
+* Total number of goals: 94
+* Number of covered goals: 76
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 24
+* Number of covered goals: 24
+* Generated 41 tests with total length 174
+* Resulting test suite's coverage: 90% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 42%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.io.FilePermission: 
+         write No more CSV records available/No more CSV records available/No more CSV records available/No more CSV records available/No more CSV records available: 1
+         write '/'/'/'/'/': 1
+         write +1P.3IKV{"gVSj: 1
+         and other 3 cases of action/name for this exception class
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 2
+* Writing tests to file
+* Writing JUnit test case 'CSVParser_ESTest' to /work/evo_out/Csv_16f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 23:17:37.568 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.csv.CSVParser. Class not found: org.h2.result.LocalResultImpl
+[MASTER] 23:17:37.568 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 23:18:48.194 [logback-2] ERROR ClassStateSupport - Could not initialize org.h2.value.ValueGeometry: com/vividsolutions/jts/io/ParseException
+
+[exit=0 timeout=False time=85.8s]
+
+$ javac -nowarn -cp /work/Csv_16f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/work/Csv_16f/target/classes:/work/Csv_16f/target/test-classes:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Csv_16f/budget60_seed1/classes /work/evo_out/Csv_16f/budget60_seed1/tests/org/apache/commons/csv/CSVParser_ESTest.java /work/evo_out/Csv_16f/budget60_seed1/tests/org/apache/commons/csv/CSVParser_ESTest_scaffolding.java
+Note: /work/evo_out/Csv_16f/budget60_seed1/tests/org/apache/commons/csv/CSVParser_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Csv_16f/target/classes --dest /work/evo_out/Csv_16f/budget60_seed1/instrumented
+[INFO] 16 classes instrumented to /work/evo_out/Csv_16f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.2s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Csv_16/budget60_seed1/jacoco.exec -cp /work/evo_out/Csv_16f/budget60_seed1/instrumented:/work/evo_out/Csv_16f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/work/Csv_16f/target/classes:/work/Csv_16f/target/test-classes:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.csv.CSVParser_ESTest
+JUnit version 4.12
+.........................................
+Time: 1.646
+
+OK (41 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Csv_16/budget60_seed1/jacoco.exec --classfiles /work/Csv_16f/target/classes --csv /workspace/EvoSuite/Result_Round1/Csv_16/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Csv_16/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 13 classes.
+
+[exit=0 timeout=False time=0.2s]
+
+$ java -cp /work/evo_out/Csv_16f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/work/Csv_16b/target/classes:/work/Csv_16b/target/test-classes:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.csv.CSVParser_ESTest
+JUnit version 4.12
+..E..........E.......E..E............E.E.E......
+Time: 1.631
+There were 7 failures:
+1) test14(org.apache.commons.csv.CSVParser_ESTest)
+java.io.FileNotFoundException
+	at org.evosuite.runtime.mock.java.io.MockFileInputStream.<init>(MockFileInputStream.java:86)
+	at org.apache.commons.csv.CSVParser.parse(CSVParser.java:155)
+	at org.apache.commons.csv.CSVParser_ESTest.test14(CSVParser_ESTest.java:300)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test31(org.apache.commons.csv.CSVParser_ESTest)
+java.lang.NoClassDefFoundError: org/apache/commons/csv/CSVParser$CSVRecordIterator
+	at org.apache.commons.csv.CSVParser_ESTest.test31(CSVParser_ESTest.java:548)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.ClassNotFoundException: Class 'org/apache/commons/csv/CSVParser$CSVRecordIterator.class' should be in target project, but could not be found!
+	at org.evosuite.runtime.instrumentation.EvoClassLoader.instrumentClass(EvoClassLoader.java:122)
+	at org.evosuite.runtime.instrumentation.EvoClassLoader.loadClass(EvoClassLoader.java:91)
+	... 13 more
+Caused by: java.lang.ClassNotFoundException: Class 'org/apache/commons/csv/CSVParser$CSVRecordIterator.class' should be in target project, but could not be found!
+	at org.evosuite.runtime.instrumentation.EvoClassLoader.instrumentClass(EvoClassLoader.java:108)
+	... 14 more
+3) test39(org.apache.commons.csv.CSVParser_ESTest)
+java.lang.NoClassDefFoundError: org/apache/commons/csv/CSVParser$CSVRecordIterator
+	at org.apache.commons.csv.CSVParser_ESTest.test39(CSVParser_ESTest.java:640)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test40(org.apache.commons.csv.CSVParser_ESTest)
+java.lang.NoClassDefFoundError: org/apache/commons/csv/CSVParser$CSVRecordIterator
+	at org.apache.commons.csv.CSVParser_ESTest.test40(CSVParser_ESTest.java:658)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+5) test23(org.apache.commons.csv.CSVParser_ESTest)
+java.lang.NoClassDefFoundError: org/apache/commons/csv/CSVParser$CSVRecordIterator
+	at org.apache.commons.csv.CSVParser_ESTest.test23(CSVParser_ESTest.java:459)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+6) test00(org.apache.commons.csv.CSVParser_ESTest)
+java.lang.NoClassDefFoundError: org/apache/commons/csv/CSVParser$CSVRecordIterator
+	at org.apache.commons.csv.CSVParser_ESTest.test00(CSVParser_ESTest.java:54)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+7) test22(org.apache.commons.csv.CSVParser_ESTest)
+java.lang.NoClassDefFoundError: org/apache/commons/csv/CSVParser$CSVRecordIterator
+	at org.apache.commons.csv.CSVParser_ESTest.test22(CSVParser_ESTest.java:436)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 41,  Failures: 7
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=1.9s]

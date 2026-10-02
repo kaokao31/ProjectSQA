@@ -1,0 +1,606 @@
+
+$ defects4j checkout -p Cli -v 25f -w /work/Cli_25f
+Checking out 6a585453 to /work/Cli_25f..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Cli_25f/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6a585453:02dd7c20..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-25f......................................... OK
+
+[exit=0 timeout=False time=2.4s]
+
+$ defects4j compile -w /work/Cli_25f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.2s]
+
+$ defects4j checkout -p Cli -v 25b -w /work/Cli_25b
+Checking out 6a585453 to /work/Cli_25b..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Cli_25b/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6a585453:02dd7c20..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-25b......................................... OK
+
+[exit=0 timeout=False time=2.4s]
+
+$ defects4j compile -w /work/Cli_25b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.4s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Cli_25f/target/classes:/work/Cli_25f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.apache.commons.cli.HelpFormatter -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_25f/target/classes:/work/Cli_25f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Cli_25f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Cli_25f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.cli.HelpFormatter
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Cli_25f/target/classes
+  - /work/Cli_25f/target/test-classes
+[MASTER] 10:02:46.776 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.cli.HelpFormatter
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 198
+  - Branch 144
+  - Exception 0
+* Using seed 1
+
+[Progress:>                             0%] [Cov:>                                  0%]* Starting evolution
+[MASTER] 10:02:48.377 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:>                             1%] [Cov:==>                                8%]
+[Progress:>                             1%] [Cov:=====>                             16%]
+[Progress:>                             1%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=====>                             17%]
+[Progress:>                             3%] [Cov:==========>                        31%]
+[Progress:>                             3%] [Cov:======================>            64%]
+[Progress:>                             3%] [Cov:========================>          70%]
+[Progress:>                             3%] [Cov:=========================>         73%]
+[Progress:=>                            5%] [Cov:===>                               11%]
+[Progress:=>                            5%] [Cov:=======>                           20%]
+[Progress:=>                            5%] [Cov:==================>                54%]
+[Progress:=>                            5%] [Cov:===================>               56%]
+[Progress:=>                            5%] [Cov:=====================>             60%]
+[Progress:=>                            6%] [Cov:===>                               9%]
+[Progress:=>                            6%] [Cov:======>                            18%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:==================>                53%]
+[Progress:=>                            6%] [Cov:======================>            64%]
+[Progress:=>                            6%] [Cov:=======================>           67%]
+[Progress:=>                            6%] [Cov:========================>          70%]
+[Progress:=>                            6%] [Cov:=========================>         73%]
+[Progress:==>                           8%] [Cov:==================>                54%]
+[Progress:==>                           8%] [Cov:===================>               57%]
+[Progress:==>                           8%] [Cov:====================>              59%]
+[Progress:==>                           8%] [Cov:======================>            65%]
+[Progress:==>                           8%] [Cov:========================>          69%]
+[Progress:==>                           8%] [Cov:========================>          70%]
+[Progress:==>                           8%] [Cov:========================>          71%]
+[Progress:===>                          10%] [Cov:===============================>   90%]
+[Progress:===>                          10%] [Cov:===============================>   90%]
+[Progress:===>                          11%] [Cov:===============================>   90%]
+[Progress:===>                          11%] [Cov:===============================>   90%]
+[Progress:===>                          11%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:================================>  92%]
+[Progress:=========>                    31%] [Cov:================================>  94%]
+[Progress:=========>                    33%] [Cov:================================>  94%]
+[Progress:=========>                    33%] [Cov:================================>  94%]
+[Progress:=========>                    33%] [Cov:=================================> 95%]
+[Progress:=========>                    33%] [Cov:=================================> 95%]
+[Progress:==========>                   35%] [Cov:=================================> 95%]
+[Progress:==========>                   35%] [Cov:=================================> 95%]
+[Progress:==========>                   35%] [Cov:=================================> 95%]
+[Progress:==========>                   35%] [Cov:=================================> 95%]
+[Progress:==========>                   36%] [Cov:=================================> 95%]
+[Progress:==========>                   36%] [Cov:=================================> 95%]
+[Progress:==========>                   36%] [Cov:=================================> 95%]
+[Progress:==========>                   36%] [Cov:=================================> 95%]
+[Progress:==========>                   36%] [Cov:=================================> 95%]
+[Progress:===========>                  38%] [Cov:=================================> 95%]
+[Progress:===========>                  38%] [Cov:=================================> 95%]
+[Progress:===========>                  38%] [Cov:=================================> 95%]
+[Progress:===========>                  38%] [Cov:=================================> 95%]
+[Progress:============>                 40%] [Cov:=================================> 95%]
+[Progress:============>                 40%] [Cov:=================================> 95%]
+[Progress:============>                 40%] [Cov:=================================> 95%]
+[Progress:============>                 40%] [Cov:=================================> 95%]
+[Progress:============>                 41%] [Cov:=================================> 95%]
+[Progress:============>                 41%] [Cov:=================================> 95%]
+[Progress:============>                 41%] [Cov:=================================> 95%]
+[Progress:============>                 41%] [Cov:=================================> 95%]
+[Progress:============>                 43%] [Cov:=================================> 95%]
+[Progress:============>                 43%] [Cov:=================================> 95%]
+[Progress:============>                 43%] [Cov:=================================> 95%]
+[Progress:============>                 43%] [Cov:=================================> 95%]
+[Progress:============>                 43%] [Cov:=================================> 95%]
+[Progress:=============>                45%] [Cov:=================================> 95%]
+[Progress:=============>                45%] [Cov:=================================> 95%]
+[Progress:=============>                45%] [Cov:=================================> 95%]
+[Progress:=============>                45%] [Cov:=================================> 96%]
+[Progress:=============>                46%] [Cov:=================================> 95%]
+[Progress:=============>                46%] [Cov:=================================> 96%]
+[Progress:=============>                46%] [Cov:=================================> 96%]
+[Progress:=============>                46%] [Cov:=================================> 96%]
+[Progress:==============>               48%] [Cov:=================================> 96%]
+[Progress:==============>               48%] [Cov:=================================> 96%]
+[Progress:==============>               48%] [Cov:=================================> 96%]
+[Progress:==============>               48%] [Cov:=================================> 96%]
+[Progress:===============>              50%] [Cov:=================================> 96%]
+[Progress:===============>              50%] [Cov:=================================> 96%]
+[Progress:===============>              50%] [Cov:=================================> 96%]
+[Progress:===============>              51%] [Cov:=================================> 96%]
+[Progress:===============>              51%] [Cov:=================================> 96%]
+[Progress:===============>              51%] [Cov:=================================> 96%]
+[Progress:===============>              51%] [Cov:=================================> 96%]
+[Progress:===============>              53%] [Cov:=================================> 96%]
+[Progress:===============>              53%] [Cov:=================================> 96%]
+[Progress:===============>              53%] [Cov:=================================> 96%]
+[Progress:===============>              53%] [Cov:=================================> 96%]
+[Progress:===============>              53%] [Cov:=================================> 96%]
+[Progress:================>             55%] [Cov:=================================> 96%]
+[Progress:================>             55%] [Cov:=================================> 96%]
+[Progress:================>             55%] [Cov:=================================> 96%]
+[Progress:================>             55%] [Cov:=================================> 96%]
+[Progress:================>             56%] [Cov:=================================> 96%]
+[Progress:================>             56%] [Cov:=================================> 96%]
+[Progress:================>             56%] [Cov:=================================> 96%]
+[Progress:================>             56%] [Cov:=================================> 96%]
+[Progress:=================>            58%] [Cov:=================================> 96%]
+[Progress:=================>            58%] [Cov:=================================> 96%]
+[Progress:=================>            58%] [Cov:=================================> 96%]
+[Progress:=================>            58%] [Cov:=================================> 96%]
+[Progress:=================>            58%] [Cov:=================================> 96%]
+[Progress:==================>           60%] [Cov:=================================> 96%]
+[Progress:==================>           60%] [Cov:=================================> 96%]
+[Progress:==================>           60%] [Cov:=================================> 96%]
+[Progress:==================>           60%] [Cov:=================================> 96%]
+[Progress:==================>           61%] [Cov:=================================> 96%]
+[Progress:==================>           61%] [Cov:=================================> 96%]
+[Progress:==================>           61%] [Cov:=================================> 97%]
+[Progress:==================>           61%] [Cov:=================================> 97%]
+[Progress:==================>           61%] [Cov:=================================> 97%]
+[Progress:==================>           61%] [Cov:=================================> 97%]
+[Progress:==================>           63%] [Cov:=================================> 97%]
+[Progress:==================>           63%] [Cov:=================================> 97%]
+[Progress:==================>           63%] [Cov:=================================> 97%]
+[Progress:==================>           63%] [Cov:=================================> 97%]
+[Progress:==================>           63%] [Cov:=================================> 97%]
+[Progress:===================>          65%] [Cov:=================================> 97%]
+[Progress:===================>          65%] [Cov:=================================> 97%]
+[Progress:===================>          65%] [Cov:=================================> 97%]
+[Progress:===================>          65%] [Cov:=================================> 97%]
+[Progress:===================>          65%] [Cov:=================================> 97%]
+[Progress:===================>          66%] [Cov:=================================> 97%]
+[Progress:===================>          66%] [Cov:=================================> 97%]
+[Progress:===================>          66%] [Cov:=================================> 97%]
+[Progress:===================>          66%] [Cov:=================================> 97%]
+[Progress:====================>         68%] [Cov:=================================> 97%]
+[Progress:====================>         68%] [Cov:=================================> 97%]
+[Progress:====================>         68%] [Cov:=================================> 97%]
+[Progress:====================>         68%] [Cov:=================================> 97%]
+[Progress:====================>         68%] [Cov:=================================> 97%]
+[Progress:=====================>        70%] [Cov:=================================> 97%]
+[Progress:=====================>        70%] [Cov:=================================> 97%]
+[Progress:=====================>        70%] [Cov:=================================> 97%]
+[Progress:=====================>        70%] [Cov:=================================> 97%]
+[Progress:=====================>        71%] [Cov:=================================> 97%]
+[Progress:=====================>        71%] [Cov:=================================> 97%]
+[Progress:=====================>        71%] [Cov:=================================> 97%]
+[Progress:=====================>        71%] [Cov:=================================> 97%]
+[Progress:=====================>        73%] [Cov:=================================> 97%]
+[Progress:=====================>        73%] [Cov:=================================> 97%]
+[Progress:=====================>        73%] [Cov:=================================> 97%]
+[Progress:=====================>        73%] [Cov:=================================> 97%]
+[Progress:======================>       75%] [Cov:=================================> 97%]
+[Progress:======================>       75%] [Cov:=================================> 97%]
+[Progress:======================>       75%] [Cov:=================================> 97%]
+[Progress:======================>       76%] [Cov:=================================> 97%]
+[Progress:======================>       76%] [Cov:=================================> 97%]
+[Progress:======================>       76%] [Cov:=================================> 97%]
+[Progress:======================>       76%] [Cov:=================================> 97%]
+[Progress:=======================>      78%] [Cov:=================================> 97%]
+[Progress:=======================>      78%] [Cov:=================================> 97%]
+[Progress:=======================>      78%] [Cov:=================================> 97%]
+[Progress:=======================>      78%] [Cov:=================================> 97%]
+[Progress:========================>     80%] [Cov:=================================> 97%]
+[Progress:========================>     80%] [Cov:=================================> 97%]
+[Progress:========================>     80%] [Cov:=================================> 97%]
+[Progress:========================>     80%] [Cov:=================================> 97%]
+[Progress:========================>     80%] [Cov:=================================> 97%]
+[Progress:========================>     80%] [Cov:=================================> 97%]
+[Progress:========================>     81%] [Cov:=================================> 97%]
+[Progress:========================>     81%] [Cov:=================================> 97%]
+[Progress:========================>     81%] [Cov:=================================> 97%]
+[Progress:========================>     81%] [Cov:=================================> 97%]
+[Progress:========================>     83%] [Cov:=================================> 97%]
+[Progress:========================>     83%] [Cov:=================================> 97%]
+[Progress:========================>     83%] [Cov:=================================> 97%]
+[Progress:========================>     83%] [Cov:=================================> 97%]
+[Progress:========================>     83%] [Cov:=================================> 97%]
+[Progress:========================>     83%] [Cov:=================================> 97%]
+[Progress:=========================>    85%] [Cov:=================================> 97%]
+[Progress:=========================>    85%] [Cov:=================================> 97%]
+[Progress:=========================>    85%] [Cov:=================================> 97%]
+[Progress:=========================>    85%] [Cov:=================================> 97%]
+[Progress:=========================>    85%] [Cov:=================================> 97%]
+[Progress:=========================>    85%] [Cov:=================================> 97%]
+[Progress:=========================>    85%] [Cov:=================================> 97%]
+[Progress:=========================>    86%] [Cov:=================================> 97%]
+[Progress:=========================>    86%] [Cov:=================================> 97%]
+[Progress:=========================>    86%] [Cov:=================================> 97%]
+[Progress:=========================>    86%] [Cov:=================================> 97%]
+[Progress:==========================>   88%] [Cov:=================================> 97%]
+[Progress:==========================>   88%] [Cov:=================================> 97%]
+[Progress:==========================>   88%] [Cov:=================================> 97%]
+[Progress:==========================>   88%] [Cov:=================================> 97%]
+[Progress:==========================>   88%] [Cov:=================================> 97%]
+[Progress:==========================>   88%] [Cov:=================================> 97%]
+[Progress:===========================>  90%] [Cov:=================================> 97%]
+[Progress:===========================>  90%] [Cov:=================================> 97%]
+[Progress:===========================>  90%] [Cov:=================================> 97%]
+[Progress:===========================>  90%] [Cov:=================================> 97%]
+[Progress:===========================>  91%] [Cov:=================================> 97%]
+[Progress:===========================>  91%] [Cov:=================================> 97%]
+[Progress:===========================>  91%] [Cov:=================================> 97%]
+[Progress:===========================>  91%] [Cov:=================================> 97%]
+[Progress:===========================>  91%] [Cov:=================================> 97%]
+[Progress:===========================>  93%] [Cov:=================================> 97%]
+[Progress:===========================>  93%] [Cov:=================================> 97%]
+[Progress:===========================>  93%] [Cov:=================================> 97%]
+[Progress:===========================>  93%] [Cov:=================================> 97%]
+[Progress:===========================>  93%] [Cov:=================================> 97%]
+[Progress:===========================>  93%] [Cov:=================================> 97%]
+[Progress:============================> 95%] [Cov:=================================> 97%]
+[Progress:============================> 95%] [Cov:=================================> 97%]
+[Progress:============================> 95%] [Cov:=================================> 97%]
+[Progress:============================> 95%] [Cov:=================================> 97%]
+[Progress:============================> 95%] [Cov:=================================> 97%]
+[Progress:============================> 95%] [Cov:=================================> 97%]
+[Progress:============================> 96%] [Cov:=================================> 97%]
+[Progress:============================> 96%] [Cov:=================================> 97%]
+[Progress:============================> 96%] [Cov:=================================> 97%]
+[Progress:============================> 96%] [Cov:=================================> 97%]
+[Progress:============================> 96%] [Cov:=================================> 97%]
+[Progress:=============================>98%] [Cov:=================================> 97%]
+[Progress:=============================>98%] [Cov:=================================> 97%]
+[Progress:=============================>98%] [Cov:=================================> 97%]
+[Progress:=============================>98%] [Cov:=================================> 97%]
+[Progress:=============================>98%] [Cov:=================================> 97%]
+[Progress:==============================100%] [Cov:=================================> 97%]
+[Progress:==============================100%] [Cov:=================================> 97%]
+[Progress:==============================100%] [Cov:=================================> 97%]
+[Progress:==============================100%] [Cov:=================================> 97%]
+[Progress:==============================100%] [Cov:=================================> 97%]
+[Progress:==============================100%] [Cov:=================================> 97%]
+[Progress:==============================100%] [Cov:=================================> 97%]
+* Search finished after 62s and 165 generations, 89060 statements, best individual has fitness: 13.008095238095237
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 99%
+* Total number of goals: 198
+* Number of covered goals: 197
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 92%
+* Total number of goals: 144
+* Number of covered goals: 132
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 49
+* Number of covered goals: 49
+* Generated 79 tests with total length 275
+* Resulting test suite's coverage: 97% (average coverage for all fitness functions)
+* Generating assertions
+[MASTER] 10:05:08.097 [logback-1] WARN  SimpleMutationAssertionGenerator - Reached maximum time to generate assertions, aborting assertion generation
+* Resulting test suite's mutation score: 13%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 10
+* Writing tests to file
+* Writing JUnit test case 'HelpFormatter_ESTest' to /work/evo_out/Cli_25f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=187.2s]
+
+$ javac -nowarn -cp /work/Cli_25f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_25f/target/classes:/work/Cli_25f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Cli_25f/budget60_seed1/classes /work/evo_out/Cli_25f/budget60_seed1/tests/org/apache/commons/cli/HelpFormatter_ESTest.java /work/evo_out/Cli_25f/budget60_seed1/tests/org/apache/commons/cli/HelpFormatter_ESTest_scaffolding.java
+Note: /work/evo_out/Cli_25f/budget60_seed1/tests/org/apache/commons/cli/HelpFormatter_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /work/evo_out/Cli_25f/budget60_seed1/tests/org/apache/commons/cli/HelpFormatter_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Cli_25f/target/classes --dest /work/evo_out/Cli_25f/budget60_seed1/instrumented
+[INFO] 22 classes instrumented to /work/evo_out/Cli_25f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Cli_25/budget60_seed1/jacoco.exec -cp /work/evo_out/Cli_25f/budget60_seed1/instrumented:/work/evo_out/Cli_25f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_25f/target/classes:/work/Cli_25f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.cli.HelpFormatter_ESTest
+JUnit version 4.12
+.usage: nfeU
+nfeU
+java.lang.StringBuffer@0000000005   XM;cM%N
+.......usage: ZS)vJJ
+
+%Zdq0w.la`Q$W
+.usage: ,  [--M{,Xe}1b <arg>]
+java.lang.StringBuffer@0000000005
+...........usage: nfeU
+nfeU
+java.lang.StringBuffer@0000000007   --
+java.lang.StringBuffer@0000000008   nfeU
+.........usage: {4lL<D [+.V%BgJai
+>50%0n?iZCP(1
+
+]
+...........usage: 7G!,}7eO37KLh4A [-arg]
+java.lang.StringBuffer@0000000005
+.usage: ]
+
+......................................
+Time: 1.307
+
+OK (79 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Cli_25/budget60_seed1/jacoco.exec --classfiles /work/Cli_25f/target/classes --csv /workspace/EvoSuite/Result_Round1/Cli_25/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Cli_25/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 20 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/Cli_25f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_25b/target/classes:/work/Cli_25b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.cli.HelpFormatter_ESTest
+JUnit version 4.12
+.usage: nfeU
+nfeU
+java.lang.StringBuffer@0000000005   XM;cM%N
+......E.usage: ZS)vJJ
+
+%Zdq0w.la`Q$W
+.usage: ,  [--M{,Xe}1b <arg>]
+java.lang.StringBuffer@0000000005
+.....E....E..usage: nfeU
+nfeU
+java.lang.StringBuffer@0000000007   --
+java.lang.StringBuffer@0000000008   nfeU
+.........usage: {4lL<D [+.V%BgJai
+>50%0n?iZCP(1
+
+]
+......E.E....usage: 7G!,}7eO37KLh4A [-arg]
+java.lang.StringBuffer@0000000005
+.usage: ]
+
+.........E.......E......................
+Time: 1.201
+There were 7 failures:
+1) test10(org.apache.commons.cli.HelpFormatter_ESTest)
+java.lang.NegativeArraySizeException: -1
+	at java.base/java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:86)
+	at java.base/java.lang.StringBuffer.<init>(StringBuffer.java:144)
+	at org.apache.commons.cli.HelpFormatter.createPadding(HelpFormatter.java:921)
+	at org.apache.commons.cli.HelpFormatter.renderWrappedText(HelpFormatter.java:830)
+	at org.apache.commons.cli.HelpFormatter.printWrapped(HelpFormatter.java:694)
+	at org.apache.commons.cli.HelpFormatter.printWrapped(HelpFormatter.java:679)
+	at org.apache.commons.cli.HelpFormatter_ESTest.test10(HelpFormatter_ESTest.java:172)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test14(org.apache.commons.cli.HelpFormatter_ESTest)
+java.lang.NegativeArraySizeException: -1
+	at java.base/java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:86)
+	at java.base/java.lang.StringBuffer.<init>(StringBuffer.java:144)
+	at org.apache.commons.cli.HelpFormatter.createPadding(HelpFormatter.java:921)
+	at org.apache.commons.cli.HelpFormatter.renderWrappedText(HelpFormatter.java:830)
+	at org.apache.commons.cli.HelpFormatter.printWrapped(HelpFormatter.java:694)
+	at org.apache.commons.cli.HelpFormatter.printUsage(HelpFormatter.java:560)
+	at org.apache.commons.cli.HelpFormatter_ESTest.test14(HelpFormatter_ESTest.java:226)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test16(org.apache.commons.cli.HelpFormatter_ESTest)
+java.lang.NegativeArraySizeException: -1
+	at java.base/java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:86)
+	at java.base/java.lang.StringBuffer.<init>(StringBuffer.java:144)
+	at org.apache.commons.cli.HelpFormatter.createPadding(HelpFormatter.java:921)
+	at org.apache.commons.cli.HelpFormatter.renderWrappedText(HelpFormatter.java:830)
+	at org.apache.commons.cli.HelpFormatter.printWrapped(HelpFormatter.java:694)
+	at org.apache.commons.cli.HelpFormatter.printUsage(HelpFormatter.java:646)
+	at org.apache.commons.cli.HelpFormatter_ESTest.test16(HelpFormatter_ESTest.java:251)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test02(org.apache.commons.cli.HelpFormatter_ESTest)
+java.lang.NegativeArraySizeException: -1
+	at java.base/java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:86)
+	at java.base/java.lang.StringBuffer.<init>(StringBuffer.java:144)
+	at org.apache.commons.cli.HelpFormatter.createPadding(HelpFormatter.java:921)
+	at org.apache.commons.cli.HelpFormatter.renderWrappedText(HelpFormatter.java:830)
+	at org.apache.commons.cli.HelpFormatter_ESTest.test02(HelpFormatter_ESTest.java:56)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+5) test46(org.apache.commons.cli.HelpFormatter_ESTest)
+java.lang.NegativeArraySizeException: -1
+	at java.base/java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:86)
+	at java.base/java.lang.StringBuffer.<init>(StringBuffer.java:144)
+	at org.apache.commons.cli.HelpFormatter.createPadding(HelpFormatter.java:921)
+	at org.apache.commons.cli.HelpFormatter.renderWrappedText(HelpFormatter.java:830)
+	at org.apache.commons.cli.HelpFormatter.printWrapped(HelpFormatter.java:694)
+	at org.apache.commons.cli.HelpFormatter.printUsage(HelpFormatter.java:646)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:481)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:418)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:381)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:364)
+	at org.apache.commons.cli.HelpFormatter_ESTest.test46(HelpFormatter_ESTest.java:698)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+6) test31(org.apache.commons.cli.HelpFormatter_ESTest)
+java.lang.NegativeArraySizeException: -1
+	at java.base/java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:86)
+	at java.base/java.lang.StringBuffer.<init>(StringBuffer.java:144)
+	at org.apache.commons.cli.HelpFormatter.createPadding(HelpFormatter.java:921)
+	at org.apache.commons.cli.HelpFormatter.renderWrappedText(HelpFormatter.java:830)
+	at org.apache.commons.cli.HelpFormatter.printWrapped(HelpFormatter.java:694)
+	at org.apache.commons.cli.HelpFormatter.printUsage(HelpFormatter.java:646)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:481)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:443)
+	at org.apache.commons.cli.HelpFormatter_ESTest.test31(HelpFormatter_ESTest.java:499)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+7) test35(org.apache.commons.cli.HelpFormatter_ESTest)
+java.lang.NegativeArraySizeException: -1
+	at java.base/java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:86)
+	at java.base/java.lang.StringBuffer.<init>(StringBuffer.java:144)
+	at org.apache.commons.cli.HelpFormatter.createPadding(HelpFormatter.java:921)
+	at org.apache.commons.cli.HelpFormatter.renderWrappedText(HelpFormatter.java:830)
+	at org.apache.commons.cli.HelpFormatter.printWrapped(HelpFormatter.java:694)
+	at org.apache.commons.cli.HelpFormatter.printUsage(HelpFormatter.java:560)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:477)
+	at org.apache.commons.cli.HelpFormatter.printHelp(HelpFormatter.java:418)
+	at org.apache.commons.cli.HelpFormatter_ESTest.test35(HelpFormatter_ESTest.java:556)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 79,  Failures: 7
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=1.5s]

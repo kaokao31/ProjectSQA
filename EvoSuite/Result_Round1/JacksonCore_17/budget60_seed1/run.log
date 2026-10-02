@@ -1,0 +1,340 @@
+
+$ defects4j checkout -p JacksonCore -v 17f -w /work/JacksonCore_17f
+Checking out 554f8db0 to /work/JacksonCore_17f............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /work/JacksonCore_17f/maven-build.xml............... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 554f8db0:d32c85f8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-17f................................. OK
+
+[exit=0 timeout=False time=1.4s]
+
+$ defects4j compile -w /work/JacksonCore_17f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.9s]
+
+$ defects4j checkout -p JacksonCore -v 17b -w /work/JacksonCore_17b
+Checking out 554f8db0 to /work/JacksonCore_17b............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /work/JacksonCore_17b/maven-build.xml............... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 554f8db0:d32c85f8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-17b................................. OK
+
+[exit=0 timeout=False time=1.2s]
+
+$ defects4j compile -w /work/JacksonCore_17b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JacksonCore_17f/target/classes:/work/JacksonCore_17f/target/test-classes org.evosuite.EvoSuite -generateSuite -class com.fasterxml.jackson.core.json.UTF8JsonGenerator -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_17f/target/classes:/work/JacksonCore_17f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JacksonCore_17f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JacksonCore_17f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.fasterxml.jackson.core.json.UTF8JsonGenerator
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JacksonCore_17f/target/classes
+  - /work/JacksonCore_17f/target/test-classes
+[MASTER] 01:47:01.006 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 01:47:01.138 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.fasterxml.jackson.core.json.UTF8JsonGenerator
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 1015
+  - Branch 557
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  1%]
+[Progress:>                             0%] [Cov:>                                  2%]
+[Progress:>                             0%] [Cov:============>                      35%]
+[Progress:>                             1%] [Cov:=>                                 3%]
+[Progress:>                             1%] [Cov:==>                                6%]
+[Progress:>                             1%] [Cov:=============>                     39%]
+[Progress:>                             3%] [Cov:>                                  1%]
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:============>                      35%]
+[Progress:>                             3%] [Cov:============>                      36%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:=============>                     39%]
+[Progress:>                             3%] [Cov:================>                  47%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            6%] [Cov:================>                  47%]
+[Progress:=>                            6%] [Cov:================>                  47%]
+[Progress:=>                            6%] [Cov:================>                  48%]
+[Progress:==>                           8%] [Cov:================>                  48%]
+[Progress:==>                           8%] [Cov:================>                  48%]
+[Progress:==>                           8%] [Cov:=================>                 49%]
+[Progress:===>                          10%] [Cov:=================>                 49%]
+[Progress:===>                          11%] [Cov:=================>                 49%]
+[Progress:===>                          11%] [Cov:=================>                 49%]
+[Progress:===>                          13%] [Cov:=================>                 49%]
+[Progress:===>                          13%] [Cov:=================>                 49%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         15%] [Cov:=================>                 49%]
+[Progress:====>                         16%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 49%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 51%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 51%]
+[Progress:======>                       21%] [Cov:==================>                52%]
+[Progress:======>                       21%] [Cov:==================>                53%]
+[Progress:======>                       23%] [Cov:=================>                 51%]
+[Progress:======>                       23%] [Cov:==================>                53%]
+[Progress:=======>                      25%] [Cov:==================>                53%]
+[Progress:=======>                      25%] [Cov:==================>                53%]
+[Progress:=======>                      26%] [Cov:==================>                53%]
+[Progress:=======>                      26%] [Cov:==================>                54%]
+[Progress:========>                     28%] [Cov:==================>                54%]
+[Progress:=========>                    30%] [Cov:==================>                54%]
+[Progress:=========>                    31%] [Cov:==================>                54%]
+[Progress:=========>                    31%] [Cov:==================>                54%]
+[Progress:=========>                    33%] [Cov:==================>                54%]
+[Progress:=========>                    33%] [Cov:===================>               55%]
+[Progress:==========>                   35%] [Cov:===================>               55%]
+[Progress:==========>                   36%] [Cov:===================>               55%]
+[Progress:===========>                  38%] [Cov:===================>               55%]
+[Progress:===========>                  38%] [Cov:===================>               55%]
+[Progress:============>                 40%] [Cov:===================>               55%]
+[Progress:============>                 40%] [Cov:===================>               55%]
+[Progress:============>                 41%] [Cov:===================>               55%]
+[Progress:============>                 41%] [Cov:===================>               55%]
+[Progress:============>                 41%] [Cov:===================>               56%]
+[Progress:============>                 43%] [Cov:===================>               55%]
+[Progress:============>                 43%] [Cov:===================>               57%]
+[Progress:=============>                45%] [Cov:===================>               57%]
+[Progress:=============>                46%] [Cov:===================>               57%]
+[Progress:==============>               48%] [Cov:===================>               57%]
+[Progress:==============>               48%] [Cov:===================>               57%]
+[Progress:===============>              50%] [Cov:===================>               57%]
+[Progress:===============>              50%] [Cov:===================>               57%]
+[Progress:===============>              51%] [Cov:===================>               57%]
+[Progress:===============>              51%] [Cov:====================>              58%]
+[Progress:===============>              53%] [Cov:====================>              58%]
+[Progress:================>             55%] [Cov:====================>              58%]
+[Progress:================>             55%] [Cov:====================>              58%]
+[Progress:================>             56%] [Cov:====================>              58%]
+[Progress:================>             56%] [Cov:====================>              58%]
+[Progress:=================>            58%] [Cov:====================>              58%]
+[Progress:==================>           60%] [Cov:====================>              58%]
+[Progress:==================>           60%] [Cov:====================>              59%]
+[Progress:==================>           61%] [Cov:====================>              58%]
+[Progress:==================>           63%] [Cov:====================>              59%]
+[Progress:===================>          65%] [Cov:====================>              59%]
+[Progress:===================>          66%] [Cov:====================>              59%]
+[Progress:====================>         68%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        73%] [Cov:====================>              59%]
+[Progress:======================>       75%] [Cov:====================>              59%]
+[Progress:======================>       75%] [Cov:====================>              59%]
+[Progress:======================>       76%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:========================>     80%] [Cov:====================>              59%]
+[Progress:========================>     80%] [Cov:=====================>             60%]
+[Progress:========================>     81%] [Cov:=====================>             60%]
+[Progress:========================>     83%] [Cov:=====================>             60%]
+[Progress:=========================>    85%] [Cov:=====================>             60%]
+[Progress:=========================>    86%] [Cov:=====================>             60%]
+[Progress:==========================>   88%] [Cov:=====================>             60%]
+[Progress:===========================>  90%] [Cov:=====================>             60%]
+[Progress:===========================>  90%] [Cov:=====================>             60%]
+[Progress:===========================>  91%] [Cov:=====================>             60%]
+[Progress:===========================>  93%] [Cov:=====================>             60%]
+[Progress:============================> 95%] [Cov:=====================>             60%]
+[Progress:============================> 95%] [Cov:=====================>             60%]
+[Progress:============================> 96%] [Cov:=====================>             60%]
+[Progress:============================> 96%] [Cov:=====================>             60%]
+[Progress:=============================>98%] [Cov:=====================>             60%]
+[Progress:=============================>98%] [Cov:=====================>             60%]
+[Progress:=============================>98%] [Cov:=====================>             61%]
+[Progress:==============================100%] [Cov:=====================>             60%]
+[Progress:==============================100%] [Cov:=====================>             61%]
+* Search finished after 61s and 49 generations, 36860 statements, best individual has fitness: 573.640261799853
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 44%
+* Total number of goals: 1015
+* Number of covered goals: 450
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 40%
+* Total number of goals: 557
+* Number of covered goals: 225
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 46
+* Number of covered goals: 46
+* Generated 91 tests with total length 564
+* Resulting test suite's coverage: 61% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 9%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 23
+* Writing tests to file
+* Writing JUnit test case 'UTF8JsonGenerator_ESTest' to /work/evo_out/JacksonCore_17f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=108.6s]
+
+$ javac -nowarn -cp /work/JacksonCore_17f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_17f/target/classes:/work/JacksonCore_17f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/JacksonCore_17f/budget60_seed1/classes /work/evo_out/JacksonCore_17f/budget60_seed1/tests/com/fasterxml/jackson/core/json/UTF8JsonGenerator_ESTest.java /work/evo_out/JacksonCore_17f/budget60_seed1/tests/com/fasterxml/jackson/core/json/UTF8JsonGenerator_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/JacksonCore_17f/target/classes --dest /work/evo_out/JacksonCore_17f/budget60_seed1/instrumented
+[INFO] 96 classes instrumented to /work/evo_out/JacksonCore_17f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/JacksonCore_17/budget60_seed1/jacoco.exec -cp /work/evo_out/JacksonCore_17f/budget60_seed1/instrumented:/work/evo_out/JacksonCore_17f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_17f/target/classes:/work/JacksonCore_17f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest
+JUnit version 4.12
+...........................................................................................
+Time: 1.007
+
+OK (91 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/JacksonCore_17/budget60_seed1/jacoco.exec --classfiles /work/JacksonCore_17f/target/classes --csv /workspace/EvoSuite/Result_Round1/JacksonCore_17/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/JacksonCore_17/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 79 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/JacksonCore_17f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_17b/target/classes:/work/JacksonCore_17b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest
+JUnit version 4.12
+.....................................................E....E.............E..............E.......
+Time: 0.924
+There were 4 failures:
+1) test00(com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest)
+arrays first differed at element [0]; expected:<0> but was:<50>
+	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:55)
+	at org.junit.Assert.internalArrayEquals(Assert.java:532)
+	at org.junit.Assert.assertArrayEquals(Assert.java:341)
+	at org.junit.Assert.assertArrayEquals(Assert.java:352)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest.test00(UTF8JsonGenerator_ESTest.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.AssertionError: expected:<0> but was:<50>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8)
+	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:53)
+	... 16 more
+2) test45(com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest)
+java.lang.AssertionError: Expecting exception: ArrayIndexOutOfBoundsException
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest.test45(UTF8JsonGenerator_ESTest.java:807)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test09(com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest)
+java.lang.AssertionError: Expecting exception: StringIndexOutOfBoundsException
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest.test09(UTF8JsonGenerator_ESTest.java:215)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test14(com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest)
+java.lang.AssertionError: Expecting exception: ArrayIndexOutOfBoundsException
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator_ESTest.test14(UTF8JsonGenerator_ESTest.java:315)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 91,  Failures: 4
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=1.2s]

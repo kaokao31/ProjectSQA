@@ -1,0 +1,847 @@
+
+$ defects4j checkout -p JxPath -v 19f -w /work/JxPath_19f
+Checking out 7b2847e8 to /work/JxPath_19f.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7b2847e8:b67345af..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-19f...................................... OK
+
+[exit=0 timeout=False time=0.5s]
+
+$ defects4j compile -w /work/JxPath_19f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=5.4s]
+
+$ defects4j checkout -p JxPath -v 19b -w /work/JxPath_19b
+Checking out 7b2847e8 to /work/JxPath_19b.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7b2847e8:b67345af..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-19b...................................... OK
+
+[exit=0 timeout=False time=0.5s]
+
+$ defects4j compile -w /work/JxPath_19b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=5.7s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.apache.commons.jxpath.ri.model.dom.DOMNodePointer -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JxPath_19f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JxPath_19f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.jxpath.ri.model.dom.DOMNodePointer
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JxPath_19f/target/classes
+  - /work/JxPath_19f/src/java
+  - /work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar
+  - /work/JxPath_19f/target/lib/commons-logging-1.1.jar
+  - /work/JxPath_19f/target/lib/jdom-1.0.jar
+  - /work/JxPath_19f/target/lib/jsp-api-2.0.jar
+  - /work/JxPath_19f/target/lib/mockrunner-0.4.1.jar
+  - /work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar
+  - /work/JxPath_19f/target/lib/servletapi-2.4.jar
+  - /work/JxPath_19f/target/lib/xerces-2.4.0.jar
+  - /work/JxPath_19f/target/lib/xml-apis-2.0.2.jar
+  - /work/JxPath_19f/src/test
+  - /work/JxPath_19f/target/test-classes
+[MASTER] 04:37:01.934 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.jxpath.ri.model.dom.DOMNodePointer
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 354
+  - Branch 311
+  - Exception 0
+* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  0%]
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:============>                      37%]
+[Progress:>                             1%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:>                                  1%]
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:============>                      35%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:=============>                     39%]
+[Progress:=>                            5%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:==================>                52%]
+[Progress:=>                            6%] [Cov:==================>                52%]
+[Progress:=>                            6%] [Cov:==================>                53%]
+[Progress:=>                            6%] [Cov:==================>                53%]
+[Progress:=>                            6%] [Cov:==================>                53%]
+[Progress:==>                           8%] [Cov:==================>                53%]
+[Progress:==>                           8%] [Cov:==================>                53%]
+[Progress:==>                           8%] [Cov:==================>                53%]
+[Progress:==>                           8%] [Cov:==================>                54%]
+[Progress:===>                          10%] [Cov:==================>                54%]
+[Progress:===>                          10%] [Cov:==================>                54%]
+[Progress:===>                          10%] [Cov:==================>                54%]
+[Progress:===>                          11%] [Cov:==================>                54%]
+[Progress:===>                          11%] [Cov:==================>                54%]
+[Progress:===>                          11%] [Cov:==================>                54%]
+[Progress:===>                          11%] [Cov:==================>                54%]
+[Progress:===>                          11%] [Cov:===================>               55%]
+[Progress:===>                          13%] [Cov:===================>               55%]
+[Progress:===>                          13%] [Cov:===================>               55%]
+[Progress:===>                          13%] [Cov:===================>               55%]
+[Progress:====>                         15%] [Cov:===================>               55%]
+[Progress:====>                         15%] [Cov:===================>               55%]
+[Progress:====>                         15%] [Cov:===================>               55%]
+[Progress:====>                         15%] [Cov:===================>               55%]
+[Progress:====>                         16%] [Cov:===================>               55%]
+[Progress:====>                         16%] [Cov:===================>               55%]
+[Progress:====>                         16%] [Cov:===================>               55%]
+[Progress:====>                         16%] [Cov:===================>               55%]
+[Progress:=====>                        18%] [Cov:===================>               55%]
+[Progress:=====>                        18%] [Cov:===================>               55%]
+[Progress:=====>                        18%] [Cov:===================>               55%]
+[Progress:======>                       20%] [Cov:===================>               55%]
+[Progress:======>                       20%] [Cov:===================>               55%]
+[Progress:======>                       20%] [Cov:===================>               55%]
+[Progress:======>                       21%] [Cov:===================>               55%]
+[Progress:======>                       21%] [Cov:===================>               55%]
+[Progress:======>                       21%] [Cov:===================>               55%]
+[Progress:======>                       21%] [Cov:===================>               55%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:=======>                      25%] [Cov:===================>               55%]
+[Progress:=======>                      25%] [Cov:===================>               55%]
+[Progress:=======>                      25%] [Cov:===================>               55%]
+[Progress:=======>                      25%] [Cov:===================>               55%]
+[Progress:=======>                      26%] [Cov:===================>               55%]
+[Progress:=======>                      26%] [Cov:===================>               55%]
+[Progress:=======>                      26%] [Cov:===================>               55%]
+[Progress:=======>                      26%] [Cov:===================>               55%]
+[Progress:========>                     28%] [Cov:===================>               55%]
+[Progress:========>                     28%] [Cov:===================>               55%]
+[Progress:========>                     28%] [Cov:===================>               55%]
+[Progress:========>                     28%] [Cov:===================>               55%]
+[Progress:=========>                    30%] [Cov:===================>               55%]
+[Progress:=========>                    30%] [Cov:===================>               55%]
+[Progress:=========>                    30%] [Cov:===================>               55%]
+[Progress:=========>                    31%] [Cov:===================>               55%]
+[Progress:=========>                    31%] [Cov:===================>               55%]
+[Progress:=========>                    31%] [Cov:===================>               55%]
+[Progress:=========>                    31%] [Cov:===================>               55%]
+[Progress:=========>                    33%] [Cov:===================>               55%]
+[Progress:=========>                    33%] [Cov:===================>               55%]
+[Progress:=========>                    33%] [Cov:===================>               55%]
+[Progress:==========>                   35%] [Cov:===================>               55%]
+[Progress:==========>                   35%] [Cov:===================>               55%]
+[Progress:==========>                   35%] [Cov:===================>               55%]
+[Progress:==========>                   35%] [Cov:===================>               56%]
+[Progress:==========>                   36%] [Cov:===================>               56%]
+[Progress:==========>                   36%] [Cov:===================>               56%]
+[Progress:===========>                  38%] [Cov:===================>               56%]
+[Progress:===========>                  38%] [Cov:===================>               56%]
+[Progress:===========>                  38%] [Cov:===================>               56%]
+[Progress:===========>                  38%] [Cov:===================>               56%]
+[Progress:============>                 40%] [Cov:===================>               56%]
+[Progress:============>                 40%] [Cov:===================>               56%]
+[Progress:============>                 40%] [Cov:===================>               56%]
+[Progress:============>                 41%] [Cov:===================>               56%]
+[Progress:============>                 41%] [Cov:===================>               56%]
+[Progress:============>                 41%] [Cov:===================>               56%]
+[Progress:============>                 41%] [Cov:===================>               57%]
+[Progress:============>                 43%] [Cov:===================>               56%]
+[Progress:============>                 43%] [Cov:===================>               57%]
+[Progress:============>                 43%] [Cov:===================>               57%]
+[Progress:=============>                45%] [Cov:===================>               57%]
+[Progress:=============>                45%] [Cov:===================>               57%]
+[Progress:=============>                45%] [Cov:===================>               57%]
+[Progress:=============>                46%] [Cov:===================>               57%]
+[Progress:=============>                46%] [Cov:===================>               57%]
+[Progress:=============>                46%] [Cov:===================>               57%]
+[Progress:==============>               48%] [Cov:===================>               57%]
+[Progress:==============>               48%] [Cov:===================>               57%]
+[Progress:==============>               48%] [Cov:===================>               57%]
+[Progress:===============>              50%] [Cov:===================>               57%]
+[Progress:===============>              50%] [Cov:===================>               57%]
+[Progress:===============>              50%] [Cov:===================>               57%]
+[Progress:===============>              51%] [Cov:===================>               57%]
+[Progress:===============>              51%] [Cov:===================>               57%]
+[Progress:===============>              51%] [Cov:===================>               57%]
+[Progress:===============>              53%] [Cov:===================>               57%]
+[Progress:===============>              53%] [Cov:===================>               57%]
+[Progress:================>             55%] [Cov:===================>               57%]
+[Progress:================>             55%] [Cov:===================>               57%]
+[Progress:================>             55%] [Cov:===================>               57%]
+[Progress:================>             56%] [Cov:===================>               57%]
+[Progress:================>             56%] [Cov:===================>               57%]
+[Progress:================>             56%] [Cov:===================>               57%]
+[Progress:================>             56%] [Cov:===================>               57%]
+[Progress:=================>            58%] [Cov:===================>               57%]
+[Progress:=================>            58%] [Cov:===================>               57%]
+[Progress:=================>            58%] [Cov:===================>               57%]
+[Progress:==================>           60%] [Cov:===================>               57%]
+[Progress:==================>           60%] [Cov:===================>               57%]
+[Progress:==================>           60%] [Cov:===================>               57%]
+[Progress:==================>           61%] [Cov:===================>               57%]
+[Progress:==================>           61%] [Cov:===================>               57%]
+[Progress:==================>           63%] [Cov:===================>               57%]
+[Progress:==================>           63%] [Cov:===================>               57%]
+[Progress:===================>          65%] [Cov:===================>               57%]
+[Progress:===================>          65%] [Cov:===================>               57%]
+[Progress:===================>          66%] [Cov:===================>               57%]
+[Progress:===================>          66%] [Cov:===================>               57%]
+[Progress:===================>          66%] [Cov:===================>               57%]
+[Progress:====================>         68%] [Cov:===================>               57%]
+[Progress:====================>         68%] [Cov:===================>               57%]
+[Progress:====================>         68%] [Cov:===================>               57%]
+[Progress:=====================>        70%] [Cov:===================>               57%]
+[Progress:=====================>        70%] [Cov:===================>               57%]
+[Progress:=====================>        70%] [Cov:===================>               57%]
+[Progress:=====================>        71%] [Cov:===================>               57%]
+[Progress:=====================>        71%] [Cov:===================>               57%]
+[Progress:=====================>        71%] [Cov:===================>               57%]
+[Progress:=====================>        71%] [Cov:====================>              58%]
+[Progress:=====================>        73%] [Cov:===================>               57%]
+[Progress:=====================>        73%] [Cov:====================>              58%]
+[Progress:=====================>        73%] [Cov:====================>              58%]
+[Progress:======================>       75%] [Cov:====================>              58%]
+[Progress:======================>       75%] [Cov:====================>              58%]
+[Progress:======================>       75%] [Cov:====================>              58%]
+[Progress:======================>       76%] [Cov:====================>              58%]
+[Progress:======================>       76%] [Cov:====================>              58%]
+[Progress:======================>       76%] [Cov:====================>              58%]
+[Progress:=======================>      78%] [Cov:====================>              58%]
+[Progress:=======================>      78%] [Cov:====================>              58%]
+[Progress:=======================>      78%] [Cov:====================>              58%]
+[Progress:========================>     80%] [Cov:====================>              58%]
+[Progress:========================>     80%] [Cov:====================>              58%]
+[Progress:========================>     81%] [Cov:====================>              58%]
+[Progress:========================>     81%] [Cov:====================>              58%]
+[Progress:========================>     81%] [Cov:====================>              58%]
+[Progress:========================>     83%] [Cov:====================>              58%]
+[Progress:========================>     83%] [Cov:====================>              58%]
+[Progress:========================>     83%] [Cov:====================>              58%]
+[Progress:=========================>    85%] [Cov:====================>              58%]
+[Progress:=========================>    85%] [Cov:====================>              58%]
+[Progress:=========================>    85%] [Cov:====================>              58%]
+[Progress:=========================>    86%] [Cov:====================>              58%]
+[Progress:=========================>    86%] [Cov:====================>              58%]
+[Progress:=========================>    86%] [Cov:====================>              58%]
+[Progress:==========================>   88%] [Cov:====================>              58%]
+[Progress:==========================>   88%] [Cov:====================>              58%]
+[Progress:===========================>  90%] [Cov:====================>              58%]
+[Progress:===========================>  90%] [Cov:====================>              58%]
+[Progress:===========================>  91%] [Cov:====================>              58%]
+[Progress:===========================>  91%] [Cov:====================>              58%]
+[Progress:===========================>  91%] [Cov:====================>              58%]
+[Progress:===========================>  93%] [Cov:====================>              58%]
+[Progress:===========================>  93%] [Cov:====================>              58%]
+[Progress:============================> 95%] [Cov:====================>              58%]
+[Progress:============================> 95%] [Cov:====================>              58%]
+[Progress:============================> 96%] [Cov:====================>              58%]
+[Progress:============================> 96%] [Cov:====================>              58%]
+[Progress:============================> 96%] [Cov:====================>              58%]
+[Progress:=============================>98%] [Cov:====================>              58%]
+[Progress:=============================>98%] [Cov:====================>              58%]
+[Progress:=============================>98%] [Cov:====================>              58%]
+[Progress:==============================100%] [Cov:====================>              58%]
+[Progress:==============================100%] [Cov:====================>              58%]
+[Progress:==============================100%] [Cov:====================>              58%]
+* Search finished after 61s and 125 generations, 45546 statements, best individual has fitness: 351.540217138859
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 41%
+* Total number of goals: 354
+* Number of covered goals: 144
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 36%
+* Total number of goals: 311
+* Number of covered goals: 111
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 30
+* Number of covered goals: 30
+* Generated 53 tests with total length 225
+* Resulting test suite's coverage: 59% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 6%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'DOMNodePointer_ESTest' to /work/evo_out/JxPath_19f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 04:36:55.840 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.jxpath.ri.model.dom.DOMNodePointer. Class not found: org.w3c.dom.html.HTMLBlockquoteElement
+[MASTER] 04:36:55.840 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 04:36:56.130 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.jxpath.ri.model.dom.DOMNodePointer. Class not found: org.apache.wml.dom.WMLDocumentImpl
+[MASTER] 04:36:56.131 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 04:36:56.188 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.jxpath.ri.model.dom.DOMNodePointer. Class not found: org.apache.xerces.dom.DeferredDocumentImpl
+[MASTER] 04:36:56.188 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 04:36:56.215 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.jxpath.ri.model.dom.DOMNodePointer. Class not found: org.apache.xerces.dom.PSVIDocumentImpl
+[MASTER] 04:36:56.215 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 04:36:56.246 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.jxpath.ri.model.dom.DOMNodePointer. Class not found: org.apache.html.dom.HTMLDocumentImpl
+[MASTER] 04:36:56.247 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 04:36:56.317 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.jxpath.ri.model.dom.DOMNodePointer. Class not found: org.apache.xerces.dom.DocumentImpl
+[MASTER] 04:36:56.317 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 04:36:56.344 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.apache.commons.jxpath.ri.model.dom.DOMNodePointer. Class not found: org.apache.xerces.dom.CoreDocumentImpl
+[MASTER] 04:36:56.344 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+
+[exit=0 timeout=False time=95.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JxPath_19f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JxPath_19f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JxPath_19f/target/classes
+  - /work/JxPath_19f/src/java
+  - /work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar
+  - /work/JxPath_19f/target/lib/commons-logging-1.1.jar
+  - /work/JxPath_19f/target/lib/jdom-1.0.jar
+  - /work/JxPath_19f/target/lib/jsp-api-2.0.jar
+  - /work/JxPath_19f/target/lib/mockrunner-0.4.1.jar
+  - /work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar
+  - /work/JxPath_19f/target/lib/servletapi-2.4.jar
+  - /work/JxPath_19f/target/lib/xerces-2.4.0.jar
+  - /work/JxPath_19f/target/lib/xml-apis-2.0.2.jar
+  - /work/JxPath_19f/src/test
+  - /work/JxPath_19f/target/test-classes
+[MASTER] 04:38:32.086 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 380
+  - Branch 320
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:==>                                6%]
+[Progress:>                             1%] [Cov:==============>                    40%]
+[Progress:>                             1%] [Cov:===============>                   44%]
+[Progress:>                             3%] [Cov:=>                                 4%]
+[Progress:>                             3%] [Cov:==>                                8%]
+[Progress:>                             3%] [Cov:==============>                    41%]
+[Progress:>                             3%] [Cov:==============>                    42%]
+[Progress:=>                            5%] [Cov:=>                                 5%]
+[Progress:=>                            5%] [Cov:===>                               9%]
+[Progress:=>                            5%] [Cov:==============>                    42%]
+[Progress:=>                            5%] [Cov:===============>                   43%]
+[Progress:=>                            5%] [Cov:===============>                   44%]
+[Progress:=>                            5%] [Cov:===============>                   45%]
+[Progress:=>                            5%] [Cov:===============>                   44%]
+[Progress:=>                            5%] [Cov:===============>                   45%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:==>                           8%] [Cov:=================>                 51%]
+[Progress:==>                           8%] [Cov:=================>                 51%]
+[Progress:==>                           8%] [Cov:=================>                 51%]
+[Progress:===>                          10%] [Cov:=================>                 51%]
+[Progress:===>                          10%] [Cov:=================>                 51%]
+[Progress:===>                          10%] [Cov:=================>                 51%]
+[Progress:===>                          11%] [Cov:=================>                 51%]
+[Progress:===>                          11%] [Cov:=================>                 51%]
+[Progress:===>                          11%] [Cov:=================>                 51%]
+[Progress:===>                          13%] [Cov:=================>                 51%]
+[Progress:===>                          13%] [Cov:=================>                 51%]
+[Progress:===>                          13%] [Cov:=================>                 51%]
+[Progress:===>                          13%] [Cov:=================>                 51%]
+[Progress:====>                         15%] [Cov:=================>                 51%]
+[Progress:====>                         15%] [Cov:=================>                 51%]
+[Progress:====>                         15%] [Cov:=================>                 51%]
+[Progress:====>                         16%] [Cov:=================>                 51%]
+[Progress:====>                         16%] [Cov:=================>                 51%]
+[Progress:=====>                        18%] [Cov:=================>                 51%]
+[Progress:=====>                        18%] [Cov:=================>                 51%]
+[Progress:=====>                        18%] [Cov:=================>                 51%]
+[Progress:======>                       20%] [Cov:=================>                 51%]
+[Progress:======>                       20%] [Cov:=================>                 51%]
+[Progress:======>                       20%] [Cov:=================>                 51%]
+[Progress:======>                       21%] [Cov:=================>                 51%]
+[Progress:======>                       21%] [Cov:=================>                 51%]
+[Progress:======>                       21%] [Cov:=================>                 51%]
+[Progress:======>                       23%] [Cov:=================>                 51%]
+[Progress:======>                       23%] [Cov:=================>                 51%]
+[Progress:======>                       23%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:========>                     28%] [Cov:=================>                 51%]
+[Progress:========>                     28%] [Cov:=================>                 51%]
+[Progress:=========>                    30%] [Cov:=================>                 51%]
+[Progress:=========>                    30%] [Cov:=================>                 51%]
+[Progress:=========>                    30%] [Cov:=================>                 51%]
+[Progress:=========>                    31%] [Cov:=================>                 51%]
+[Progress:=========>                    31%] [Cov:=================>                 51%]
+[Progress:=========>                    31%] [Cov:=================>                 51%]
+[Progress:=========>                    33%] [Cov:=================>                 51%]
+[Progress:=========>                    33%] [Cov:=================>                 51%]
+[Progress:=========>                    33%] [Cov:=================>                 51%]
+[Progress:==========>                   35%] [Cov:=================>                 51%]
+[Progress:==========>                   35%] [Cov:=================>                 51%]
+[Progress:==========>                   35%] [Cov:=================>                 51%]
+[Progress:==========>                   36%] [Cov:=================>                 51%]
+[Progress:==========>                   36%] [Cov:=================>                 51%]
+[Progress:==========>                   36%] [Cov:=================>                 51%]
+[Progress:===========>                  38%] [Cov:=================>                 51%]
+[Progress:===========>                  38%] [Cov:=================>                 51%]
+[Progress:============>                 40%] [Cov:=================>                 51%]
+[Progress:============>                 40%] [Cov:=================>                 51%]
+[Progress:============>                 40%] [Cov:=================>                 51%]
+[Progress:============>                 41%] [Cov:=================>                 51%]
+[Progress:============>                 41%] [Cov:=================>                 51%]
+[Progress:============>                 41%] [Cov:=================>                 51%]
+[Progress:============>                 43%] [Cov:=================>                 51%]
+[Progress:============>                 43%] [Cov:=================>                 51%]
+[Progress:============>                 43%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:==============>               48%] [Cov:=================>                 51%]
+[Progress:==============>               48%] [Cov:=================>                 51%]
+[Progress:==============>               48%] [Cov:=================>                 51%]
+[Progress:===============>              50%] [Cov:=================>                 51%]
+[Progress:===============>              50%] [Cov:=================>                 51%]
+[Progress:===============>              51%] [Cov:=================>                 51%]
+[Progress:===============>              51%] [Cov:=================>                 51%]
+[Progress:===============>              51%] [Cov:=================>                 51%]
+[Progress:===============>              53%] [Cov:=================>                 51%]
+[Progress:===============>              53%] [Cov:=================>                 51%]
+[Progress:===============>              53%] [Cov:=================>                 51%]
+[Progress:================>             55%] [Cov:=================>                 51%]
+[Progress:================>             55%] [Cov:=================>                 51%]
+[Progress:================>             55%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+* Search finished after 61s and 105 generations, 54279 statements, best individual has fitness: 417.4920739339058
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 30%
+* Total number of goals: 380
+* Number of covered goals: 115
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 26%
+* Total number of goals: 320
+* Number of covered goals: 84
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 15
+* Number of covered goals: 15
+* Generated 41 tests with total length 184
+* Resulting test suite's coverage: 52% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 8%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'JDOMNodePointer_ESTest' to /work/evo_out/JxPath_19f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=84.6s]
+
+$ javac -nowarn -cp /work/JxPath_19f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/classes:/work/JxPath_19f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/JxPath_19f/budget60_seed1/classes /work/evo_out/JxPath_19f/budget60_seed1/tests/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer_ESTest.java /work/evo_out/JxPath_19f/budget60_seed1/tests/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer_ESTest_scaffolding.java /work/evo_out/JxPath_19f/budget60_seed1/tests/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer_ESTest.java /work/evo_out/JxPath_19f/budget60_seed1/tests/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/JxPath_19f/target/classes --dest /work/evo_out/JxPath_19f/budget60_seed1/instrumented
+[INFO] 183 classes instrumented to /work/evo_out/JxPath_19f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/JxPath_19/budget60_seed1/jacoco.exec -cp /work/evo_out/JxPath_19f/budget60_seed1/instrumented:/work/evo_out/JxPath_19f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/classes:/work/JxPath_19f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer_ESTest
+JUnit version 4.12
+......E........E.E..........E..E.......E...E.........................................................
+Time: 1.643
+There were 7 failures:
+1) test46(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl
+	at org.apache.commons.jxpath.ri.model.NodePointer.newNodePointer(NodePointer.java:79)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test46(DOMNodePointer_ESTest.java:729)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test43(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl
+	at org.apache.commons.jxpath.ri.model.NodePointer.newNodePointer(NodePointer.java:79)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test43(DOMNodePointer_ESTest.java:682)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test08(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3427b02d; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @368102c8)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test08(DOMNodePointer_ESTest.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test11(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl
+	at org.apache.commons.jxpath.ri.model.NodePointer.newChildNodePointer(NodePointer.java:104)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test11(DOMNodePointer_ESTest.java:247)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+5) test10(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3427b02d; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @368102c8)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test10(DOMNodePointer_ESTest.java:223)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+6) test26(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3427b02d; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @368102c8)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test26(DOMNodePointer_ESTest.java:486)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+7) test25(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3427b02d; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @368102c8)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test25(DOMNodePointer_ESTest.java:468)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 94,  Failures: 7
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=2.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/JxPath_19/budget60_seed1/jacoco.exec --classfiles /work/JxPath_19f/target/classes --csv /workspace/EvoSuite/Result_Round1/JxPath_19/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/JxPath_19/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 162 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -cp /work/evo_out/JxPath_19f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JxPath_19b/src/java:/work/JxPath_19b/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19b/target/lib/commons-logging-1.1.jar:/work/JxPath_19b/target/lib/jdom-1.0.jar:/work/JxPath_19b/target/lib/jsp-api-2.0.jar:/work/JxPath_19b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19b/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19b/target/lib/servletapi-2.4.jar:/work/JxPath_19b/target/lib/xerces-2.4.0.jar:/work/JxPath_19b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19b/src/test:/work/JxPath_19b/target/classes:/work/JxPath_19b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer_ESTest
+JUnit version 4.12
+......E........E.E..........E..E.......E...E.........................................................
+Time: 1.527
+There were 7 failures:
+1) test46(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl
+	at org.apache.commons.jxpath.ri.model.NodePointer.newNodePointer(NodePointer.java:79)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test46(DOMNodePointer_ESTest.java:729)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test43(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl
+	at org.apache.commons.jxpath.ri.model.NodePointer.newNodePointer(NodePointer.java:79)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test43(DOMNodePointer_ESTest.java:682)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test08(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3d74bf60; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @15615099)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test08(DOMNodePointer_ESTest.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test11(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.commons.jxpath.ri.JXPathContextReferenceImpl
+	at org.apache.commons.jxpath.ri.model.NodePointer.newChildNodePointer(NodePointer.java:104)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test11(DOMNodePointer_ESTest.java:247)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+5) test10(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3d74bf60; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @15615099)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test10(DOMNodePointer_ESTest.java:223)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+6) test26(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3d74bf60; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @15615099)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test26(DOMNodePointer_ESTest.java:486)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+7) test25(org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest)
+java.lang.ClassCastException: class org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl cannot be cast to class org.apache.commons.jxpath.JXPathContextFactory (org.apache.commons.jxpath.ri.JXPathContextFactoryReferenceImpl is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @3d74bf60; org.apache.commons.jxpath.JXPathContextFactory is in unnamed module of loader org.evosuite.runtime.instrumentation.EvoClassLoader @15615099)
+	at org.apache.commons.jxpath.JXPathContextFactory.newInstance(JXPathContextFactory.java:113)
+	at org.apache.commons.jxpath.JXPathContext.getContextFactory(JXPathContext.java:439)
+	at org.apache.commons.jxpath.JXPathContext.newContext(JXPathContext.java:416)
+	at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_ESTest.test25(DOMNodePointer_ESTest.java:468)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 94,  Failures: 7
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=2.0s]

@@ -1,0 +1,1908 @@
+
+$ defects4j checkout -p Chart -v 14f -w /work/Chart_14f
+Checking out 811 to /work/Chart_14f........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 811:809............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-14f....................................... OK
+
+[exit=0 timeout=False time=3.7s]
+
+$ defects4j compile -w /work/Chart_14f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.9s]
+
+$ defects4j checkout -p Chart -v 14b -w /work/Chart_14b
+Checking out 811 to /work/Chart_14b........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 811:809............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-14b....................................... OK
+
+[exit=0 timeout=False time=3.7s]
+
+$ defects4j compile -w /work/Chart_14b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests org.evosuite.EvoSuite -generateSuite -class org.jfree.chart.plot.CategoryPlot -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Chart_14f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Chart_14f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.jfree.chart.plot.CategoryPlot
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Chart_14f/build
+  - /work/Chart_14f/lib/servlet.jar
+  - /work/Chart_14f/build-tests
+[MASTER] 06:55:37.675 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 06:55:38.198 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 06:55:39.159 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class org.jfree.chart.plot.CategoryPlot
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 1178
+  - Branch 717
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 06:55:40.101 [logback-1] WARN  TestCluster - Failed to check cache for javax.swing.JList<E> : Type points to itself
+[MASTER] 06:55:40.879 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Stack<E> for wildcard ? extends java.util.Vector
+[MASTER] 06:55:40.887 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Vector<E> for wildcard ? extends java.util.Vector
+[MASTER] 06:55:40.969 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Vector<E> : Type points to itself
+
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:==>                                8%]
+[Progress:>                             1%] [Cov:==============>                    41%]
+[Progress:>                             3%] [Cov:==>                                6%]
+[Progress:>                             3%] [Cov:===>                               10%]
+[Progress:>                             3%] [Cov:===============>                   44%]
+[Progress:=>                            5%] [Cov:=>                                 5%]
+[Progress:=>                            5%] [Cov:===>                               9%]
+[Progress:=>                            5%] [Cov:==============>                    42%]
+[Progress:=>                            5%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:=>                                 4%]
+[Progress:=>                            6%] [Cov:==>                                7%]
+[Progress:=>                            6%] [Cov:==============>                    41%]
+[Progress:=>                            6%] [Cov:==============>                    42%]
+[Progress:=>                            6%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   45%]
+[Progress:==>                           8%] [Cov:================>                  47%]
+[Progress:==>                           8%] [Cov:===============>                   43%]
+[Progress:===>                          10%] [Cov:==============>                    42%]
+[Progress:===>                          10%] [Cov:===============>                   43%]
+[Progress:===>                          10%] [Cov:========================>          69%]
+[Progress:===>                          11%] [Cov:========================>          69%]
+[Progress:===>                          11%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:=========================>         73%]
+[Progress:===>                          13%] [Cov:==========================>        75%]
+[Progress:====>                         15%] [Cov:========================>          69%]
+[Progress:====>                         15%] [Cov:========================>          70%]
+[Progress:====>                         15%] [Cov:==========================>        76%]
+[Progress:====>                         16%] [Cov:==========================>        76%]
+[Progress:====>                         16%] [Cov:==========================>        76%]
+[Progress:=====>                        18%] [Cov:==========================>        76%]
+[Progress:=====>                        18%] [Cov:==========================>        76%]
+[Progress:======>                       20%] [Cov:==========================>        76%][MASTER] 06:55:51.980 [logback-1] WARN  TestCluster - Failed to check cache for javax.swing.JLayer<V> : Type points to itself
+
+[Progress:======>                       20%] [Cov:==========================>        76%]
+[Progress:======>                       21%] [Cov:==========================>        76%]
+[Progress:=======>                      25%] [Cov:==========================>        76%]
+[Progress:=======>                      26%] [Cov:==========================>        76%]
+[Progress:=======>                      26%] [Cov:==========================>        76%]
+[Progress:========>                     28%] [Cov:==========================>        76%]
+[Progress:========>                     28%] [Cov:==========================>        77%]
+[Progress:=========>                    30%] [Cov:==========================>        77%]
+[Progress:=========>                    30%] [Cov:==========================>        77%]
+[Progress:=========>                    31%] [Cov:==========================>        77%]
+[Progress:=========>                    33%] [Cov:==========================>        77%]
+[Progress:==========>                   35%] [Cov:==========================>        77%]
+[Progress:==========>                   35%] [Cov:==========================>        77%]
+[Progress:==========>                   36%] [Cov:==========================>        77%]
+[Progress:===========>                  38%] [Cov:==========================>        77%]
+[Progress:===========>                  38%] [Cov:==========================>        77%]
+[Progress:============>                 40%] [Cov:==========================>        77%]
+[Progress:============>                 40%] [Cov:==========================>        77%]
+[Progress:============>                 41%] [Cov:==========================>        77%]
+[Progress:============>                 41%] [Cov:==========================>        77%]
+[Progress:============>                 43%] [Cov:==========================>        77%]
+[Progress:=============>                45%] [Cov:==========================>        77%]
+[Progress:=============>                46%] [Cov:==========================>        77%]
+[Progress:==============>               48%] [Cov:==========================>        77%]
+[Progress:==============>               48%] [Cov:===========================>       78%]
+[Progress:===============>              50%] [Cov:==========================>        77%]
+[Progress:===============>              50%] [Cov:===========================>       78%]
+[Progress:===============>              51%] [Cov:===========================>       78%]
+[Progress:===============>              53%] [Cov:===========================>       78%]
+[Progress:===============>              53%] [Cov:===========================>       78%]
+[Progress:================>             55%] [Cov:===========================>       78%]
+[Progress:================>             55%] [Cov:===========================>       78%]
+[Progress:================>             56%] [Cov:===========================>       78%]
+[Progress:==================>           60%] [Cov:===========================>       78%]
+[Progress:==================>           61%] [Cov:===========================>       78%]
+[Progress:===================>          65%] [Cov:===========================>       78%]
+[Progress:===================>          66%] [Cov:===========================>       78%]
+[Progress:====================>         68%] [Cov:===========================>       78%]
+[Progress:=====================>        70%] [Cov:===========================>       78%]
+[Progress:=====================>        71%] [Cov:===========================>       78%]
+[Progress:=====================>        73%] [Cov:===========================>       78%]
+[Progress:======================>       75%] [Cov:===========================>       78%]
+[Progress:======================>       75%] [Cov:===========================>       78%]
+[Progress:======================>       75%] [Cov:===========================>       79%]
+[Progress:======================>       76%] [Cov:===========================>       78%]
+[Progress:=======================>      78%] [Cov:===========================>       79%]
+[Progress:========================>     80%] [Cov:===========================>       79%]
+[Progress:========================>     80%] [Cov:===========================>       79%]
+[Progress:========================>     81%] [Cov:===========================>       79%]
+[Progress:========================>     81%] [Cov:===========================>       79%]
+[Progress:========================>     83%] [Cov:===========================>       79%]
+[Progress:========================>     83%] [Cov:===========================>       79%]
+[Progress:=========================>    85%] [Cov:===========================>       79%]
+[Progress:=========================>    85%] [Cov:============================>      80%]
+[Progress:=========================>    85%] [Cov:============================>      81%]
+[Progress:=========================>    86%] [Cov:===========================>       79%]
+[Progress:=========================>    86%] [Cov:============================>      81%]
+[Progress:==========================>   88%] [Cov:============================>      81%]
+[Progress:===========================>  90%] [Cov:============================>      81%]
+[Progress:===========================>  91%] [Cov:============================>      81%]
+[Progress:===========================>  93%] [Cov:============================>      81%]
+[Progress:============================> 95%] [Cov:============================>      81%]
+[Progress:============================> 95%] [Cov:============================>      81%]
+[Progress:============================> 96%] [Cov:============================>      81%]
+[Progress:=============================>98%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+* Search finished after 63s and 37 generations, 26286 statements, best individual has fitness: 310.687893081761
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 78%
+* Total number of goals: 1178
+* Number of covered goals: 914
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 68%
+* Total number of goals: 717
+* Number of covered goals: 488
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 39
+* Number of covered goals: 39
+* Generated 153 tests with total length 554
+* Resulting test suite's coverage: 82% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 14%
+* Compiling and checking tests
+[MASTER] 06:58:39.257 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.OutOfMemoryError: Java heap space
+[MASTER] 06:58:39.258 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ CombinedRangeCategoryPlot combinedRangeCategoryPlot0 = new CombinedRangeCategoryPlot((ValueAxis) null);
+BarRenderer3D barRenderer3D0 = new BarRenderer3D();
+combinedRangeCategoryPlot0.setRenderer(2144430466, (CategoryItemRenderer) barRenderer3D0, true);
+
+* Writing tests to file
+* Writing JUnit test case 'CategoryPlot_ESTest' to /work/evo_out/Chart_14f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 06:57:52.273 [logback-2] ERROR JUnitAnalyzer - Compilation failed on compilation units: [SimpleFileObject[/tmp/EvoSuite_78_1789912672197/org/jfree/chart/plot/CategoryPlot_78_tmp__ESTest.java], SimpleFileObject[/tmp/EvoSuite_78_1789912672197/org/jfree/chart/plot/CategoryPlot_78_tmp__ESTest_scaffolding.java]]
+[MASTER] 06:57:52.273 [logback-2] ERROR JUnitAnalyzer - Classpath: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests
+[MASTER] 06:57:52.273 [logback-2] ERROR JUnitAnalyzer - evosuiteCP: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests
+[MASTER] 06:57:52.275 [logback-2] ERROR JUnitAnalyzer - Diagnostic: package sun.util.calendar is not visible
+  (package sun.util.calendar is declared in module java.base, which does not export it): 18
+[MASTER] 06:57:52.275 [logback-2] ERROR JUnitAnalyzer - Diagnostic: /tmp/EvoSuite_78_1789912672197/org/jfree/chart/plot/CategoryPlot_78_tmp__ESTest.java uses or overrides a deprecated API.: -1
+[MASTER] 06:57:52.275 [logback-2] ERROR JUnitAnalyzer - Diagnostic: Recompile with -Xlint:deprecation for details.: -1
+[MASTER] 06:57:52.276 [logback-2] ERROR JUnitAnalyzer - SimpleFileObject[/tmp/EvoSuite_78_1789912672197/org/jfree/chart/plot/CategoryPlot_78_tmp__ESTest.java]
+1: /*
+2:  * This file was automatically generated by EvoSuite
+3:  * Sun Sep 20 13:57:52 GMT 2026
+4:  */
+5: 
+6: package org.jfree.chart.plot;
+7: 
+8: import org.junit.Test;
+9: import static org.junit.Assert.*;
+10: import static org.evosuite.runtime.EvoAssertions.*;
+11: import org.evosuite.runtime.EvoRunner;
+12: import org.evosuite.runtime.EvoRunnerParameters;
+13: import org.jfree.chart.axis.CategoryAnchor;
+14: import org.jfree.chart.axis.DateAxis;
+15: import org.jfree.chart.axis.SegmentedTimeline;
+16: import org.jfree.chart.plot.CombinedRangeCategoryPlot;
+17: import org.junit.runner.RunWith;
+18: import sun.util.calendar.ZoneInfo;
+19: 
+20: @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true) 
+21: public class CategoryPlot_78_tmp__ESTest extends CategoryPlot_78_tmp__ESTest_scaffolding {
+22: 
+23:   @Test(timeout = 4000)
+24:   public void test0()  throws Throwable  {
+25:       ZoneInfo zoneInfo0 = (ZoneInfo)SegmentedTimeline.DEFAULT_TIME_ZONE;
+26:       DateAxis dateAxis0 = new DateAxis("_=dVCmbKU6", zoneInfo0);
+27:       CombinedRangeCategoryPlot combinedRangeCategoryPlot0 = new CombinedRangeCategoryPlot(dateAxis0);
+28:       // Undeclared exception!
+29:       try { 
+30:         combinedRangeCategoryPlot0.setDomainGridlinePosition((CategoryAnchor) null);
+31:         fail("Expecting exception: IllegalArgumentException");
+32:       
+33:       } catch(IllegalArgumentException e) {
+34:          //
+35:          // Null 'position' argument.
+36:          //
+37:          verifyException("org.jfree.chart.plot.CategoryPlot", e);
+38:       }
+39:   }
+40: }
+SimpleFileObject[/tmp/EvoSuite_78_1789912672197/org/jfree/chart/plot/CategoryPlot_78_tmp__ESTest.java]
+1: /**
+2:  * Scaffolding file used to store all the setups needed to run 
+3:  * tests automatically generated by EvoSuite
+4:  * Sun Sep 20 13:57:52 GMT 2026
+5:  */
+6: 
+7: package org.jfree.chart.plot;
+8: 
+9: import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
+10: import org.junit.BeforeClass;
+11: import org.junit.Before;
+12: import org.junit.After;
+13: import org.junit.AfterClass;
+14: import org.evosuite.runtime.sandbox.Sandbox;
+15: import org.evosuite.runtime.sandbox.Sandbox.SandboxMode;
+16: 
+17: @EvoSuiteClassExclude
+18: public class CategoryPlot_78_tmp__ESTest_scaffolding {
+19: 
+20:   @org.junit.Rule
+21:   public org.evosuite.runtime.vnet.NonFunctionalRequirementRule nfr = new org.evosuite.runtime.vnet.NonFunctionalRequirementRule();
+22: 
+23:   private static final java.util.Properties defaultProperties = (java.util.Properties) java.lang.System.getProperties().clone(); 
+24: 
+25:   private org.evosuite.runtime.thread.ThreadStopper threadStopper =  new org.evosuite.runtime.thread.ThreadStopper (org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
+26: 
+27: 
+28:   @BeforeClass
+29:   public static void initEvoSuiteFramework() { 
+30:     org.evosuite.runtime.RuntimeSettings.className = "org.jfree.chart.plot.CategoryPlot"; 
+31:     org.evosuite.runtime.GuiSupport.initialize(); 
+32:     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
+33:     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
+34:     org.evosuite.runtime.RuntimeSettings.mockSystemIn = true; 
+35:     org.evosuite.runtime.RuntimeSettings.sandboxMode = org.evosuite.runtime.sandbox.Sandbox.SandboxMode.RECOMMENDED; 
+36:     org.evosuite.runtime.sandbox.Sandbox.initializeSecurityManagerForSUT(); 
+37:     org.evosuite.runtime.classhandling.JDKClassResetter.init();
+38:     setSystemProperties();
+39:     initializeClasses();
+40:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+41:   } 
+42: 
+43:   @AfterClass
+44:   public static void clearEvoSuiteFramework(){ 
+45:     Sandbox.resetDefaultSecurityManager(); 
+46:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+47:   } 
+48: 
+49:   @Before
+50:   public void initTestCase(){ 
+51:     threadStopper.storeCurrentThreads();
+52:     threadStopper.startRecordingTime();
+53:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().initHandler(); 
+54:     org.evosuite.runtime.sandbox.Sandbox.goingToExecuteSUTCode(); 
+55:     setSystemProperties(); 
+56:     org.evosuite.runtime.GuiSupport.setHeadless(); 
+57:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+58:     org.evosuite.runtime.agent.InstrumentingAgent.activate(); 
+59:   } 
+60: 
+61:   @After
+62:   public void doneWithTestCase(){ 
+63:     threadStopper.killAndJoinClientThreads();
+64:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().safeExecuteAddedHooks(); 
+65:     org.evosuite.runtime.classhandling.JDKClassResetter.reset(); 
+66:     resetClasses(); 
+67:     org.evosuite.runtime.sandbox.Sandbox.doneWithExecutingSUTCode(); 
+68:     org.evosuite.runtime.agent.InstrumentingAgent.deactivate(); 
+69:     org.evosuite.runtime.GuiSupport.restoreHeadlessMode(); 
+70:   } 
+71: 
+72:   public static void setSystemProperties() {
+73:  
+74:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+75:     java.lang.System.setProperty("user.language", "en"); 
+76:     java.lang.System.setProperty("user.country", "US"); 
+77:     java.lang.System.setProperty("user.home", "/root"); 
+78:     java.lang.System.setProperty("user.dir", "/work/Chart_14f"); 
+79:     java.lang.System.setProperty("java.io.tmpdir", "/tmp"); 
+80:   }
+81: 
+82:   private static void initializeClasses() {
+83:     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(CategoryPlot_78_tmp__ESTest_scaffolding.class.getClassLoader() ,
+84:       "org.jfree.chart.event.ChartProgressListener",
+85:       "org.jfree.chart.plot.ValueMarker",
+86:       "org.jfree.data.resources.DataPackageResources",
+87:       "org.jfree.chart.labels.CategorySeriesLabelGenerator",
+88:       "org.jfree.data.time.Minute",
+89:       "org.jfree.chart.Effect3D",
+90:       "org.jfree.chart.axis.MarkerAxisBand",
+91:       "org.jfree.data.general.AbstractSeriesDataset",
+92:       "org.jfree.chart.LegendItemCollection",
+93:       "org.jfree.chart.axis.CategoryAxis",
+94:       "org.jfree.chart.renderer.xy.XYItemRenderer",
+95:       "org.jfree.data.RangeInfo",
+96:       "org.jfree.chart.ui.ProjectInfo",
+97:       "org.jfree.chart.renderer.RendererState",
+98:       "org.jfree.data.xy.AbstractIntervalXYDataset",
+99:       "org.jfree.chart.text.TextFragment",
+100:       "org.jfree.chart.entity.StandardEntityCollection",
+101:       "org.jfree.chart.axis.LogarithmicAxis",
+102:       "org.jfree.chart.axis.DateAxis$DefaultTimeline",
+103:       "org.jfree.data.xy.AbstractXYDataset",
+104:       "org.jfree.chart.axis.AxisCollection",
+105:       "org.jfree.chart.labels.ItemLabelPosition",
+106:       "org.jfree.chart.axis.DateAxis",
+107:       "org.jfree.chart.plot.CategoryPlot",
+108:       "org.jfree.chart.event.MarkerChangeListener",
+109:       "org.jfree.chart.event.PlotChangeEvent",
+110:       "org.jfree.chart.labels.ItemLabelAnchor",
+111:       "org.jfree.chart.util.PaintList",
+112:       "org.jfree.chart.axis.Timeline",
+113:       "org.jfree.chart.renderer.category.LayeredBarRenderer",
+114:       "org.jfree.chart.ui.Contributor",
+115:       "org.jfree.chart.event.RendererChangeEvent",
+116:       "org.jfree.chart.text.G2TextMeasurer",
+117:       "org.jfree.chart.util.RectangleAnchor",
+118:       "org.jfree.chart.axis.Tick",
+119:       "org.jfree.chart.text.TextBlock",
+120:       "org.jfree.chart.axis.Axis",
+121:       "org.jfree.chart.renderer.category.StatisticalLineAndShapeRenderer",
+122:       "org.jfree.chart.axis.NumberAxis3D",
+123:       "org.jfree.chart.util.ShapeList",
+124:       "org.jfree.chart.block.BlockBorder",
+125:       "org.jfree.chart.util.UnitType",
+126:       "org.jfree.chart.annotations.XYAnnotation",
+127:       "org.jfree.chart.util.ObjectUtilities",
+128:       "org.jfree.chart.util.HorizontalAlignment",
+129:       "org.jfree.data.time.Second",
+130:       "org.jfree.chart.axis.CategoryAnchor",
+131:       "org.jfree.data.time.DynamicTimeSeriesCollection$ValueSequence",
+132:       "org.jfree.chart.plot.DatasetRenderingOrder",
+133:       "org.jfree.chart.event.RendererChangeListener",
+134:       "org.jfree.chart.axis.SegmentedTimeline$BaseTimelineSegmentRange",
+135:       "org.jfree.chart.util.HashUtilities",
+136:       "org.jfree.chart.plot.CombinedRangeCategoryPlot",
+137:       "org.jfree.data.KeyedValues",
+138:       "org.jfree.chart.block.FlowArrangement",
+139:       "org.jfree.chart.labels.CategoryToolTipGenerator",
+140:       "org.jfree.chart.event.TitleChangeListener",
+141:       "org.jfree.chart.axis.CategoryLabelPositions",
+142:       "org.jfree.chart.text.TextMeasurer",
+143:       "org.jfree.chart.LegendItemSource",
+144:       "org.jfree.data.time.DynamicTimeSeriesCollection",
+145:       "org.jfree.chart.util.SortOrder",
+146:       "org.jfree.chart.renderer.PolarItemRenderer",
+147:       "org.jfree.data.DomainInfo",
+148:       "org.jfree.data.general.DatasetChangeListener",
+149:       "org.jfree.data.statistics.MultiValueCategoryDataset",
+150:       "org.jfree.chart.renderer.category.BarRenderer3D",
+151:       "org.jfree.chart.block.BlockParams",
+152:       "org.jfree.data.gantt.TaskSeries",
+153:       "org.jfree.chart.event.TitleChangeEvent",
+154:       "org.jfree.chart.annotations.CategoryAnnotation",
+155:       "org.jfree.chart.axis.AxisSpace",
+156:       "org.jfree.chart.axis.SegmentedTimeline$SegmentRange",
+157:       "org.jfree.chart.plot.PolarPlot",
+158:       "org.jfree.chart.renderer.category.WaterfallBarRenderer",
+159:       "org.jfree.chart.ui.Licences",
+160:       "org.jfree.data.time.DateRange",
+161:       "org.jfree.data.general.DatasetGroup",
+162:       "org.jfree.chart.axis.CyclicNumberAxis$CycleBoundTick",
+163:       "org.jfree.chart.event.ChartChangeEventType",
+164:       "org.jfree.chart.util.Rotation",
+165:       "org.jfree.chart.block.BlockResult",
+166:       "org.jfree.data.time.Millisecond",
+167:       "org.jfree.chart.axis.ExtendedCategoryAxis",
+168:       "org.jfree.chart.util.GradientPaintTransformType",
+169:       "org.jfree.chart.renderer.category.CategoryItemRenderer",
+170:       "org.jfree.chart.util.Size2D",
+171:       "org.jfree.chart.annotations.CategoryTextAnnotation",
+172:       "org.jfree.chart.renderer.category.LineAndShapeRenderer",
+173:       "org.jfree.chart.util.ShapeUtilities",
+174:       "org.jfree.data.general.SeriesChangeEvent",
+175:       "org.jfree.chart.labels.CategoryItemLabelGenerator",
+176:       "org.jfree.chart.resources.JFreeChartResources",
+177:       "org.jfree.data.RangeType",
+178:       "org.jfree.data.time.Month",
+179:       "org.jfree.chart.renderer.category.CategoryStepRenderer",
+180:       "org.jfree.chart.axis.TickUnits",
+181:       "org.jfree.chart.util.VerticalAlignment",
+182:       "org.jfree.chart.renderer.category.StackedBarRenderer",
+183:       "org.jfree.chart.block.EntityBlockParams",
+184:       "org.jfree.data.general.Dataset",
+185:       "org.jfree.chart.plot.SeriesRenderingOrder",
+186:       "org.jfree.chart.block.EntityBlockResult",
+187:       "org.jfree.chart.plot.PlotOrientation",
+188:       "org.jfree.chart.axis.NumberAxis",
+189:       "org.jfree.chart.axis.SymbolAxis",
+190:       "org.jfree.chart.axis.NumberTick",
+191:       "org.jfree.chart.axis.ValueTick",
+192:       "org.jfree.chart.renderer.category.CategoryStepRenderer$State",
+193:       "org.jfree.chart.block.BlockContainer",
+194:       "org.jfree.chart.JFreeChart",
+195:       "org.jfree.chart.plot.Marker",
+196:       "org.jfree.chart.title.LegendTitle",
+197:       "org.jfree.chart.renderer.category.CategoryItemRendererState",
+198:       "org.jfree.chart.renderer.category.DefaultCategoryItemRenderer",
+199:       "org.jfree.chart.axis.SegmentedTimeline",
+200:       "org.jfree.data.DataUtilities",
+201:       "org.jfree.chart.axis.ValueAxis",
+202:       "org.jfree.chart.ChartRenderingInfo",
+203:       "org.jfree.chart.JFreeChartInfo",
+204:       "org.jfree.chart.event.MarkerChangeEvent",
+205:       "org.jfree.data.time.MonthConstants",
+206:       "org.jfree.chart.block.BlockFrame",
+207:       "org.jfree.chart.event.AxisChangeListener",
+208:       "org.jfree.chart.axis.SegmentedTimeline$Segment",
+209:       "org.jfree.chart.plot.CrosshairState",
+210:       "org.jfree.chart.ui.Library",
+211:       "org.jfree.chart.renderer.category.StackedBarRenderer3D",
+212:       "org.jfree.data.time.SerialDate",
+213:       "org.jfree.data.DomainOrder",
+214:       "org.jfree.chart.axis.AxisState",
+215:       "org.jfree.chart.renderer.AbstractRenderer",
+216:       "org.jfree.chart.block.ColumnArrangement",
+217:       "org.jfree.data.general.AbstractDataset",
+218:       "org.jfree.chart.renderer.DefaultPolarItemRenderer",
+219:       "org.jfree.chart.block.RectangleConstraint",
+220:       "org.jfree.chart.plot.Zoomable",
+221:       "org.jfree.chart.title.Title",
+222:       "org.jfree.chart.axis.DateTickMarkPosition",
+223:       "org.jfree.chart.block.LineBorder",
+224:       "org.jfree.data.DefaultKeyedValues2D",
+225:       "org.jfree.chart.util.ObjectList",
+226:       "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+227:       "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+228:       "org.jfree.data.time.Day",
+229:       "org.jfree.chart.labels.StandardCategoryItemLabelGenerator",
+230:       "org.jfree.data.general.SeriesDataset",
+231:       "org.jfree.chart.ui.BasicProjectInfo",
+232:       "org.jfree.data.xy.XYDataset",
+233:       "org.jfree.chart.block.Arrangement",
+234:       "org.jfree.chart.plot.Plot",
+235:       "org.jfree.chart.plot.ValueAxisPlot",
+236:       "org.jfree.data.UnknownKeyException",
+237:       "org.jfree.data.time.TimePeriod",
+238:       "org.jfree.chart.renderer.category.BarRenderer",
+239:       "org.jfree.chart.event.AxisChangeEvent",
+240:       "org.jfree.chart.LegendItem",
+241:       "org.jfree.chart.urls.CategoryURLGenerator",
+242:       "org.jfree.chart.plot.PlotRenderingInfo",
+243:       "org.jfree.chart.util.LengthAdjustmentType",
+244:       "org.jfree.chart.block.Block",
+245:       "org.jfree.data.time.RegularTimePeriod",
+246:       "org.jfree.chart.entity.TickLabelEntity",
+247:       "org.jfree.chart.plot.CombinedRangeXYPlot",
+248:       "org.jfree.data.general.PieDataset",
+249:       "org.jfree.chart.entity.CategoryItemEntity",
+250:       "org.jfree.chart.entity.AxisLabelEntity",
+251:       "org.jfree.data.general.DatasetUtilities",
+252:       "org.jfree.chart.util.BooleanList",
+253:       "org.jfree.chart.annotations.TextAnnotation",
+254:       "org.jfree.chart.axis.AxisLocation",
+255:       "org.jfree.chart.util.AbstractObjectList",
+256:       "org.jfree.chart.labels.StandardCategorySeriesLabelGenerator",
+257:       "org.jfree.data.xy.IntervalXYDataset",
+258:       "org.jfree.chart.event.ChartProgressEvent",
+259:       "org.jfree.chart.entity.CategoryLabelEntity",
+260:       "org.jfree.chart.util.RectangleEdge",
+261:       "org.jfree.chart.plot.DefaultDrawingSupplier",
+262:       "org.jfree.chart.block.LengthConstraintType",
+263:       "org.jfree.data.category.DefaultIntervalCategoryDataset",
+264:       "org.jfree.data.category.CategoryDataset",
+265:       "org.jfree.data.Range",
+266:       "org.jfree.data.statistics.DefaultMultiValueCategoryDataset",
+267:       "org.jfree.chart.util.RectangleInsets",
+268:       "org.jfree.chart.plot.CombinedDomainCategoryPlot",
+269:       "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+270:       "org.jfree.chart.text.TextAnchor",
+271:       "org.jfree.chart.labels.AbstractCategoryItemLabelGenerator",
+272:       "org.jfree.data.category.IntervalCategoryDataset",
+273:       "org.jfree.chart.plot.PlotState",
+274:       "org.jfree.chart.axis.TickUnit",
+275:       "org.jfree.data.time.Year",
+276:       "org.jfree.chart.ChartColor",
+277:       "org.jfree.chart.Drawable",
+278:       "org.jfree.chart.util.GradientPaintTransformer",
+279:       "org.jfree.chart.axis.CategoryLabelPosition",
+280:       "org.jfree.data.gantt.TaskSeriesCollection",
+281:       "org.jfree.chart.annotations.CategoryPointerAnnotation",
+282:       "org.jfree.chart.util.StrokeList",
+283:       "org.jfree.chart.util.StandardGradientPaintTransformer",
+284:       "org.jfree.chart.text.TextLine",
+285:       "org.jfree.chart.text.TextUtilities",
+286:       "org.jfree.chart.axis.CategoryAxis3D",
+287:       "org.jfree.chart.axis.DateTickUnit",
+288:       "org.jfree.chart.axis.TickUnitSource",
+289:       "org.jfree.chart.plot.CategoryMarker",
+290:       "org.jfree.data.time.SpreadsheetDate",
+291:       "org.jfree.chart.block.AbstractBlock",
+292:       "org.jfree.chart.plot.XYPlot",
+293:       "org.jfree.chart.util.TableOrder",
+294:       "org.jfree.chart.entity.ChartEntity",
+295:       "org.jfree.chart.entity.EntityCollection",
+296:       "org.jfree.data.gantt.GanttCategoryDataset",
+297:       "org.jfree.data.jdbc.JDBCCategoryDataset",
+298:       "org.jfree.data.Values2D",
+299:       "org.jfree.data.general.DatasetChangeEvent",
+300:       "org.jfree.data.general.SeriesChangeListener",
+301:       "org.jfree.data.category.DefaultCategoryDataset",
+302:       "org.jfree.chart.axis.TickType",
+303:       "org.jfree.chart.plot.SpiderWebPlot",
+304:       "org.jfree.chart.util.Layer",
+305:       "org.jfree.chart.event.PlotChangeListener",
+306:       "org.jfree.data.time.Hour",
+307:       "org.jfree.data.general.Series",
+308:       "org.jfree.chart.axis.SubCategoryAxis",
+309:       "org.jfree.chart.axis.NumberTickUnit",
+310:       "org.jfree.chart.plot.DrawingSupplier",
+311:       "org.jfree.chart.title.TextTitle",
+312:       "org.jfree.data.statistics.StatisticalCategoryDataset",
+313:       "org.jfree.chart.plot.IntervalMarker",
+314:       "org.jfree.chart.util.PublicCloneable",
+315:       "org.jfree.chart.event.ChartChangeEvent",
+316:       "org.jfree.data.KeyedValues2D",
+317:       "org.jfree.data.Values",
+318:       "org.jfree.chart.axis.CyclicNumberAxis",
+319:       "org.jfree.data.KeyedObjects2D",
+320:       "org.jfree.chart.text.TextBlockAnchor",
+321:       "org.jfree.chart.event.ChartChangeListener",
+322:       "org.jfree.chart.axis.LogAxis",
+323:       "org.jfree.chart.axis.CategoryLabelWidthType",
+324:       "org.jfree.chart.util.PaintUtilities"
+325:     );
+326:   } 
+327: 
+328:   private static void resetClasses() {
+329:     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(CategoryPlot_78_tmp__ESTest_scaffolding.class.getClassLoader()); 
+330: 
+331:     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
+332:       "org.jfree.chart.util.UnitType",
+333:       "org.jfree.chart.util.RectangleInsets",
+334:       "org.jfree.chart.plot.Plot",
+335:       "org.jfree.chart.plot.CategoryPlot",
+336:       "org.jfree.chart.plot.DatasetRenderingOrder",
+337:       "org.jfree.chart.util.SortOrder",
+338:       "org.jfree.chart.plot.PlotOrientation",
+339:       "org.jfree.chart.axis.AxisLocation",
+340:       "org.jfree.chart.axis.CategoryAnchor",
+341:       "org.jfree.chart.util.Layer",
+342:       "org.jfree.chart.util.RectangleEdge",
+343:       "org.jfree.chart.event.ChartChangeEventType",
+344:       "org.jfree.chart.axis.Axis",
+345:       "org.jfree.chart.axis.CategoryAxis",
+346:       "org.jfree.chart.axis.ExtendedCategoryAxis",
+347:       "org.jfree.chart.event.ChartChangeEvent",
+348:       "org.jfree.chart.event.AxisChangeEvent",
+349:       "org.jfree.chart.axis.CategoryLabelPosition",
+350:       "org.jfree.chart.util.RectangleAnchor",
+351:       "org.jfree.chart.text.TextBlockAnchor",
+352:       "org.jfree.chart.text.TextAnchor",
+353:       "org.jfree.chart.axis.CategoryLabelWidthType",
+354:       "org.jfree.chart.axis.CategoryLabelPositions",
+355:       "org.jfree.chart.plot.CombinedDomainCategoryPlot",
+356:       "org.jfree.chart.ChartColor",
+357:       "org.jfree.chart.plot.DefaultDrawingSupplier",
+358:       "org.jfree.chart.util.AbstractObjectList",
+359:       "org.jfree.chart.util.ObjectList",
+360:       "org.jfree.data.general.DatasetChangeEvent",
+361:       "org.jfree.chart.event.PlotChangeEvent",
+362:       "org.jfree.chart.plot.Marker",
+363:       "org.jfree.chart.plot.ValueMarker",
+364:       "org.jfree.chart.util.LengthAdjustmentType",
+365:       "org.jfree.chart.plot.XYPlot",
+366:       "org.jfree.chart.plot.CombinedRangeXYPlot",
+367:       "org.jfree.data.Range",
+368:       "org.jfree.chart.axis.ValueAxis",
+369:       "org.jfree.chart.axis.TickUnit",
+370:       "org.jfree.chart.axis.NumberTickUnit",
+371:       "org.jfree.chart.axis.NumberAxis",
+372:       "org.jfree.chart.axis.TickUnits",
+373:       "org.jfree.data.RangeType",
+374:       "org.jfree.chart.plot.SeriesRenderingOrder",
+375:       "org.jfree.chart.renderer.AbstractRenderer",
+376:       "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+377:       "org.jfree.chart.renderer.category.BarRenderer",
+378:       "org.jfree.chart.renderer.category.IntervalBarRenderer",
+379:       "org.jfree.chart.renderer.category.GanttRenderer",
+380:       "org.jfree.chart.util.BooleanList",
+381:       "org.jfree.chart.util.PaintList",
+382:       "org.jfree.chart.util.StrokeList",
+383:       "org.jfree.chart.util.ShapeList",
+384:       "org.jfree.chart.labels.ItemLabelPosition",
+385:       "org.jfree.chart.labels.ItemLabelAnchor",
+386:       "org.jfree.chart.labels.StandardCategorySeriesLabelGenerator",
+387:       "org.jfree.chart.util.StandardGradientPaintTransformer",
+388:       "org.jfree.chart.util.GradientPaintTransformType",
+389:       "org.jfree.chart.event.RendererChangeEvent",
+390:       "org.jfree.chart.entity.StandardEntityCollection",
+391:       "org.jfree.chart.ChartRenderingInfo",
+392:       "org.jfree.chart.plot.PlotRenderingInfo",
+393:       "org.jfree.chart.axis.CategoryAxis3D",
+394:       "org.jfree.chart.annotations.TextAnnotation",
+395:       "org.jfree.chart.annotations.CategoryTextAnnotation",
+396:       "org.jfree.chart.annotations.CategoryPointerAnnotation",
+397:       "org.jfree.chart.plot.IntervalMarker",
+398:       "org.jfree.chart.event.MarkerChangeEvent",
+399:       "org.jfree.chart.plot.ThermometerPlot",
+400:       "org.jfree.data.general.AbstractDataset",
+401:       "org.jfree.data.general.DefaultValueDataset",
+402:       "org.jfree.data.general.DatasetGroup",
+403:       "org.jfree.chart.plot.PiePlot",
+404:       "org.jfree.chart.plot.RingPlot",
+405:       "org.jfree.chart.plot.PieLabelLinkStyle",
+406:       "org.jfree.chart.util.Rotation",
+407:       "org.jfree.chart.PaintMap",
+408:       "org.jfree.chart.StrokeMap",
+409:       "org.jfree.chart.labels.AbstractPieItemLabelGenerator",
+410:       "org.jfree.chart.labels.StandardPieSectionLabelGenerator",
+411:       "org.jfree.chart.plot.AbstractPieLabelDistributor",
+412:       "org.jfree.chart.plot.PieLabelDistributor",
+413:       "org.jfree.data.time.SerialDate",
+414:       "org.jfree.data.time.SpreadsheetDate",
+415:       "org.jfree.data.general.DefaultPieDataset",
+416:       "org.jfree.data.general.DefaultKeyedValuesDataset",
+417:       "org.jfree.data.DefaultKeyedValues",
+418:       "org.jfree.chart.ui.Library",
+419:       "org.jfree.chart.ui.BasicProjectInfo",
+420:       "org.jfree.chart.ui.ProjectInfo",
+421:       "org.jfree.chart.JFreeChartInfo",
+422:       "org.jfree.chart.resources.JFreeChartResources",
+423:       "org.jfree.chart.ui.Licences",
+424:       "org.jfree.chart.ui.Contributor",
+425:       "org.jfree.chart.JFreeChart",
+426:       "org.jfree.chart.block.AbstractBlock",
+427:       "org.jfree.chart.util.HorizontalAlignment",
+428:       "org.jfree.chart.util.VerticalAlignment",
+429:       "org.jfree.chart.title.Title",
+430:       "org.jfree.chart.title.LegendTitle",
+431:       "org.jfree.chart.block.FlowArrangement",
+432:       "org.jfree.chart.block.ColumnArrangement",
+433:       "org.jfree.chart.block.BlockBorder",
+434:       "org.jfree.chart.block.BlockContainer",
+435:       "org.jfree.chart.block.LineBorder",
+436:       "org.jfree.chart.event.TitleChangeEvent",
+437:       "org.jfree.chart.title.TextTitle",
+438:       "org.jfree.chart.renderer.category.WaterfallBarRenderer",
+439:       "org.jfree.chart.axis.CyclicNumberAxis",
+440:       "org.jfree.chart.ChartPanel",
+441:       "org.jfree.chart.PolarChartPanel",
+442:       "org.jfree.chart.text.TextBlock",
+443:       "org.jfree.chart.text.TextBox",
+444:       "org.jfree.chart.plot.CombinedRangeCategoryPlot",
+445:       "org.jfree.data.category.DefaultCategoryDataset",
+446:       "org.jfree.data.jdbc.JDBCCategoryDataset",
+447:       "org.jfree.data.DefaultKeyedValues2D",
+448:       "org.jfree.chart.plot.MultiplePiePlot",
+449:       "org.jfree.chart.util.TableOrder",
+450:       "org.jfree.chart.axis.LogAxis",
+451:       "org.jfree.chart.renderer.xy.AbstractXYItemRenderer",
+452:       "org.jfree.chart.renderer.xy.XYBarRenderer",
+453:       "org.jfree.chart.renderer.xy.StackedXYBarRenderer",
+454:       "org.jfree.chart.labels.StandardXYSeriesLabelGenerator",
+455:       "org.jfree.data.general.AbstractSeriesDataset",
+456:       "org.jfree.data.gantt.TaskSeriesCollection",
+457:       "org.jfree.chart.util.ObjectUtilities",
+458:       "org.jfree.data.general.SeriesChangeEvent",
+459:       "org.jfree.data.time.RegularTimePeriod",
+460:       "org.jfree.data.time.Day",
+461:       "org.jfree.data.xy.AbstractXYDataset",
+462:       "org.jfree.data.xy.AbstractIntervalXYDataset",
+463:       "org.jfree.data.statistics.SimpleHistogramDataset",
+464:       "org.jfree.chart.renderer.category.BarRenderer3D",
+465:       "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+466:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer",
+467:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer$1",
+468:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer$2",
+469:       "org.jfree.chart.renderer.category.AreaRenderer",
+470:       "org.jfree.chart.renderer.category.StackedAreaRenderer",
+471:       "org.jfree.chart.renderer.AreaRendererEndType",
+472:       "org.jfree.chart.annotations.CategoryLineAnnotation",
+473:       "org.jfree.chart.axis.NumberAxis3D",
+474:       "org.jfree.data.statistics.DefaultMultiValueCategoryDataset",
+475:       "org.jfree.data.KeyedObjects2D",
+476:       "org.jfree.chart.renderer.category.CategoryStepRenderer",
+477:       "org.jfree.data.general.Series",
+478:       "org.jfree.data.time.TimePeriodValues",
+479:       "org.jfree.data.xy.XIntervalSeriesCollection",
+480:       "org.jfree.chart.renderer.WaferMapRenderer",
+481:       "org.jfree.chart.plot.FastScatterPlot",
+482:       "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+483:       "org.jfree.chart.renderer.category.LineAndShapeRenderer",
+484:       "org.jfree.chart.renderer.category.DefaultCategoryItemRenderer",
+485:       "org.jfree.data.general.DatasetUtilities",
+486:       "org.jfree.chart.plot.CategoryMarker",
+487:       "org.jfree.data.time.DateRange",
+488:       "org.jfree.chart.axis.DateTickUnit",
+489:       "org.jfree.chart.axis.DateAxis$DefaultTimeline",
+490:       "org.jfree.chart.axis.DateAxis",
+491:       "org.jfree.chart.axis.DateTickMarkPosition",
+492:       "org.jfree.chart.axis.SubCategoryAxis",
+493:       "org.jfree.chart.plot.SpiderWebPlot",
+494:       "org.jfree.chart.labels.AbstractCategoryItemLabelGenerator",
+495:       "org.jfree.chart.labels.StandardCategoryItemLabelGenerator",
+496:       "org.jfree.chart.plot.MeterPlot",
+497:       "org.jfree.chart.plot.DialShape",
+498:       "org.jfree.chart.plot.CombinedDomainXYPlot",
+499:       "org.jfree.chart.axis.SegmentedTimeline",
+500:       "org.jfree.chart.renderer.category.StackedBarRenderer3D",
+501:       "org.jfree.data.category.DefaultIntervalCategoryDataset",
+502:       "org.jfree.data.resources.DataPackageResources",
+503:       "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset",
+504:       "org.jfree.data.DataUtilities",
+505:       "org.jfree.chart.labels.StandardCategoryToolTipGenerator",
+506:       "org.jfree.chart.labels.IntervalCategoryToolTipGenerator",
+507:       "org.jfree.chart.renderer.RendererState",
+508:       "org.jfree.chart.renderer.category.CategoryItemRendererState",
+509:       "org.jfree.chart.util.PaintUtilities",
+510:       "org.jfree.data.general.DefaultKeyedValues2DDataset",
+511:       "org.jfree.data.UnknownKeyException",
+512:       "org.jfree.chart.util.ShapeUtilities",
+513:       "org.jfree.data.time.Hour",
+514:       "org.jfree.chart.axis.LogarithmicAxis",
+515:       "org.jfree.chart.axis.SymbolAxis",
+516:       "org.jfree.chart.axis.ModuloAxis",
+517:       "org.jfree.data.time.Minute",
+518:       "org.jfree.chart.axis.PeriodAxis",
+519:       "org.jfree.chart.renderer.category.LayeredBarRenderer",
+520:       "org.jfree.data.time.SimpleTimePeriod",
+521:       "org.jfree.chart.renderer.category.LineRenderer3D",
+522:       "org.jfree.chart.plot.CompassPlot",
+523:       "org.jfree.chart.needle.MeterNeedle",
+524:       "org.jfree.chart.needle.ArrowNeedle",
+525:       "org.jfree.chart.event.ChartProgressEvent",
+526:       "org.jfree.chart.axis.AxisSpace",
+527:       "org.jfree.chart.axis.AxisState",
+528:       "org.jfree.chart.text.TextUtilities",
+529:       "org.jfree.data.xy.XYSeries",
+530:       "org.jfree.data.xy.XYSeriesCollection",
+531:       "org.jfree.data.xy.IntervalXYDelegate",
+532:       "org.jfree.data.jdbc.JDBCPieDataset",
+533:       "org.jfree.data.KeyedValueComparator",
+534:       "org.jfree.data.KeyedValueComparatorType",
+535:       "org.jfree.data.general.DefaultKeyedValueDataset",
+536:       "org.jfree.data.DefaultKeyedValue",
+537:       "org.jfree.chart.renderer.GrayPaintScale",
+538:       "org.jfree.chart.title.PaintScaleLegend",
+539:       "org.jfree.chart.renderer.category.LevelRenderer",
+540:       "org.jfree.chart.axis.PeriodAxisLabelInfo",
+541:       "org.jfree.chart.renderer.DefaultPolarItemRenderer",
+542:       "org.jfree.chart.axis.StandardTickUnitSource",
+543:       "org.jfree.chart.plot.PolarPlot",
+544:       "org.jfree.data.statistics.HistogramDataset",
+545:       "org.jfree.data.statistics.HistogramType",
+546:       "org.jfree.data.time.Year",
+547:       "org.jfree.data.statistics.DefaultBoxAndWhiskerXYDataset",
+548:       "org.jfree.chart.LegendItemCollection",
+549:       "org.jfree.chart.renderer.category.StackedBarRenderer",
+550:       "org.jfree.chart.renderer.category.StatisticalLineAndShapeRenderer",
+551:       "org.jfree.chart.renderer.xy.XYDotRenderer",
+552:       "org.jfree.data.general.WaferMapDataset",
+553:       "org.jfree.chart.renderer.LookupPaintScale",
+554:       "org.jfree.chart.block.LengthConstraintType",
+555:       "org.jfree.chart.block.RectangleConstraint",
+556:       "org.jfree.chart.block.BlockParams",
+557:       "org.jfree.chart.text.G2TextMeasurer",
+558:       "org.jfree.chart.text.TextLine",
+559:       "org.jfree.chart.text.TextFragment",
+560:       "org.jfree.chart.util.Size2D",
+561:       "org.jfree.chart.block.BlockResult",
+562:       "org.jfree.chart.axis.AxisCollection",
+563:       "org.jfree.chart.plot.PlotState",
+564:       "org.jfree.data.xy.AbstractXYZDataset",
+565:       "org.jfree.data.xy.MatrixSeriesCollection",
+566:       "org.jfree.chart.renderer.category.GroupedStackedBarRenderer",
+567:       "org.jfree.data.KeyToGroupMap",
+568:       "org.jfree.data.xy.CategoryTableXYDataset",
+569:       "org.jfree.chart.entity.ChartEntity",
+570:       "org.jfree.chart.renderer.category.ScatterRenderer",
+571:       "org.jfree.chart.entity.AxisLabelEntity",
+572:       "org.jfree.chart.axis.Tick",
+573:       "org.jfree.chart.axis.ValueTick",
+574:       "org.jfree.chart.axis.NumberTick",
+575:       "org.jfree.chart.axis.TickType",
+576:       "org.jfree.data.time.FixedMillisecond",
+577:       "org.jfree.data.time.Week",
+578:       "org.jfree.data.time.TimePeriodFormatException",
+579:       "org.jfree.chart.plot.WaferMapPlot",
+580:       "org.jfree.data.time.DynamicTimeSeriesCollection",
+581:       "org.jfree.data.time.Millisecond",
+582:       "org.jfree.chart.plot.PiePlot3D",
+583:       "org.jfree.chart.annotations.AbstractXYAnnotation",
+584:       "org.jfree.chart.annotations.XYTextAnnotation",
+585:       "org.jfree.chart.util.HashUtilities"
+586:     );
+587:   }
+588: }
+
+[MASTER] 06:57:52.276 [logback-2] ERROR JUnitAnalyzer - Failed to compile test case:
+ZoneInfo zoneInfo0 = (ZoneInfo)SegmentedTimeline.DEFAULT_TIME_ZONE;
+DateAxis dateAxis0 = new DateAxis("_=dVCmbKU6", zoneInfo0);
+CombinedRangeCategoryPlot combinedRangeCategoryPlot0 = new CombinedRangeCategoryPlot(dateAxis0);
+combinedRangeCategoryPlot0.setDomainGridlinePosition((CategoryAnchor) null);
+
+
+[exit=0 timeout=False time=186.8s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests org.evosuite.EvoSuite -generateSuite -class org.jfree.chart.plot.XYPlot -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Chart_14f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Chart_14f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.jfree.chart.plot.XYPlot
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Chart_14f/build
+  - /work/Chart_14f/lib/servlet.jar
+  - /work/Chart_14f/build-tests
+[MASTER] 06:58:45.325 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 06:58:45.659 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 06:58:46.722 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class org.jfree.chart.plot.XYPlot
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 1539
+  - Branch 912
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 06:58:47.384 [logback-1] WARN  TestCluster - Failed to check cache for java.util.HashMap<K, V> : Type points to itself
+
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:=>                                 3%]
+[Progress:>                             1%] [Cov:============>                      36%]
+[Progress:>                             3%] [Cov:=>                                 3%]
+[Progress:>                             3%] [Cov:=>                                 5%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:=============>                     39%]
+[Progress:=>                            5%] [Cov:=>                                 5%]
+[Progress:=>                            5%] [Cov:===>                               9%]
+[Progress:=>                            5%] [Cov:==============>                    42%]
+[Progress:=>                            6%] [Cov:>                                  2%]
+[Progress:=>                            6%] [Cov:=>                                 4%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:>                                  1%]
+[Progress:==>                           8%] [Cov:>                                  2%]
+[Progress:==>                           8%] [Cov:============>                      35%]
+[Progress:==>                           8%] [Cov:============>                      37%]
+[Progress:==>                           8%] [Cov:==============>                    42%]
+[Progress:===>                          10%] [Cov:=============>                     38%]
+[Progress:===>                          10%] [Cov:=============>                     39%]
+[Progress:===>                          10%] [Cov:==============>                    40%]
+[Progress:===>                          11%] [Cov:=====================>             60%]
+[Progress:===>                          13%] [Cov:=====================>             60%]
+[Progress:====>                         15%] [Cov:=====================>             60%]
+[Progress:====>                         15%] [Cov:=====================>             62%]
+[Progress:====>                         15%] [Cov:======================>            63%]
+[Progress:====>                         16%] [Cov:=====================>             60%]
+[Progress:=====>                        18%] [Cov:======================>            63%]
+[Progress:======>                       20%] [Cov:======================>            63%]
+[Progress:======>                       21%] [Cov:======================>            64%]
+[Progress:======>                       23%] [Cov:======================>            64%]
+[Progress:=======>                      25%] [Cov:======================>            64%]
+[Progress:=======>                      26%] [Cov:======================>            64%]
+[Progress:=======>                      26%] [Cov:======================>            65%]
+[Progress:========>                     28%] [Cov:======================>            65%]
+[Progress:=========>                    30%] [Cov:======================>            65%]
+[Progress:=========>                    31%] [Cov:======================>            65%]
+[Progress:=========>                    33%] [Cov:======================>            65%]
+[Progress:==========>                   35%] [Cov:======================>            65%]
+[Progress:==========>                   35%] [Cov:=======================>           66%]
+[Progress:==========>                   36%] [Cov:=======================>           66%]
+[Progress:===========>                  38%] [Cov:=======================>           66%]
+[Progress:============>                 40%] [Cov:=======================>           66%]
+[Progress:============>                 41%] [Cov:=======================>           66%]
+[Progress:============>                 43%] [Cov:=======================>           66%]
+[Progress:=============>                45%] [Cov:=======================>           66%]
+[Progress:=============>                46%] [Cov:=======================>           66%]
+[Progress:==============>               48%] [Cov:=======================>           66%]
+[Progress:==============>               48%] [Cov:=======================>           67%]
+[Progress:===============>              50%] [Cov:=======================>           66%]
+[Progress:===============>              53%] [Cov:=======================>           67%]
+[Progress:================>             55%] [Cov:=======================>           67%]
+[Progress:================>             55%] [Cov:=======================>           67%]
+[Progress:================>             56%] [Cov:=======================>           67%]
+[Progress:==================>           60%] [Cov:=======================>           67%]
+[Progress:==================>           61%] [Cov:=======================>           67%]
+[Progress:===================>          65%] [Cov:=======================>           67%]
+[Progress:===================>          66%] [Cov:=======================>           67%]
+[Progress:======================>       75%] [Cov:=======================>           67%]
+[Progress:=======================>      78%] [Cov:=======================>           67%]
+[Progress:========================>     80%] [Cov:=======================>           67%]
+[Progress:========================>     80%] [Cov:=======================>           67%]
+[Progress:========================>     81%] [Cov:=======================>           67%]
+[Progress:========================>     83%] [Cov:=======================>           67%]
+[Progress:=========================>    86%] [Cov:=======================>           67%]
+[Progress:==========================>   88%] [Cov:=======================>           67%]
+[Progress:===========================>  91%] [Cov:=======================>           67%]
+[Progress:===========================>  93%] [Cov:=======================>           67%]
+[Progress:============================> 95%] [Cov:=======================>           67%]
+[Progress:============================> 96%] [Cov:=======================>           67%]
+[Progress:=============================>98%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%][MASTER] 06:59:47.625 [logback-1] WARN  TestCluster - Failed to check cache for javax.swing.RowFilter<M, I>.ComparisonType : Type points to itself
+
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+* Search finished after 62s and 24 generations, 14105 statements, best individual has fitness: 668.8280827497994
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 55%
+* Total number of goals: 1539
+* Number of covered goals: 848
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 48%
+* Total number of goals: 912
+* Number of covered goals: 442
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 32
+* Number of covered goals: 32
+* Generated 173 tests with total length 660
+* Resulting test suite's coverage: 68% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 14%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'XYPlot_ESTest' to /work/evo_out/Chart_14f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 07:00:45.200 [logback-2] ERROR JUnitAnalyzer - Compilation failed on compilation units: [SimpleFileObject[/tmp/EvoSuite_157_1789912845154/org/jfree/chart/plot/XYPlot_157_tmp__ESTest.java], SimpleFileObject[/tmp/EvoSuite_157_1789912845154/org/jfree/chart/plot/XYPlot_157_tmp__ESTest_scaffolding.java]]
+[MASTER] 07:00:45.200 [logback-2] ERROR JUnitAnalyzer - Classpath: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests
+[MASTER] 07:00:45.200 [logback-2] ERROR JUnitAnalyzer - evosuiteCP: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/build:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build-tests
+[MASTER] 07:00:45.202 [logback-2] ERROR JUnitAnalyzer - Diagnostic: package sun.util.calendar is not visible
+  (package sun.util.calendar is declared in module java.base, which does not export it): 19
+[MASTER] 07:00:45.202 [logback-2] ERROR JUnitAnalyzer - Diagnostic: /tmp/EvoSuite_157_1789912845154/org/jfree/chart/plot/XYPlot_157_tmp__ESTest.java uses or overrides a deprecated API.: -1
+[MASTER] 07:00:45.202 [logback-2] ERROR JUnitAnalyzer - Diagnostic: Recompile with -Xlint:deprecation for details.: -1
+[MASTER] 07:00:45.203 [logback-2] ERROR JUnitAnalyzer - SimpleFileObject[/tmp/EvoSuite_157_1789912845154/org/jfree/chart/plot/XYPlot_157_tmp__ESTest.java]
+1: /*
+2:  * This file was automatically generated by EvoSuite
+3:  * Sun Sep 20 14:00:45 GMT 2026
+4:  */
+5: 
+6: package org.jfree.chart.plot;
+7: 
+8: import org.junit.Test;
+9: import static org.junit.Assert.*;
+10: import java.util.Locale;
+11: import org.evosuite.runtime.EvoRunner;
+12: import org.evosuite.runtime.EvoRunnerParameters;
+13: import org.jfree.chart.axis.NumberAxis;
+14: import org.jfree.chart.axis.SegmentedTimeline;
+15: import org.jfree.chart.plot.XYPlot;
+16: import org.jfree.chart.renderer.xy.StandardXYItemRenderer;
+17: import org.jfree.data.time.TimeTableXYDataset;
+18: import org.junit.runner.RunWith;
+19: import sun.util.calendar.ZoneInfo;
+20: 
+21: @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true) 
+22: public class XYPlot_157_tmp__ESTest extends XYPlot_157_tmp__ESTest_scaffolding {
+23: 
+24:   @Test(timeout = 4000)
+25:   public void test0()  throws Throwable  {
+26:       ZoneInfo zoneInfo0 = (ZoneInfo)SegmentedTimeline.DEFAULT_TIME_ZONE;
+27:       Locale locale0 = new Locale("Wy}TfD!0l/\",", "S5");
+28:       TimeTableXYDataset timeTableXYDataset0 = new TimeTableXYDataset(zoneInfo0, locale0);
+29:       NumberAxis numberAxis0 = new NumberAxis("S5");
+30:       StandardXYItemRenderer standardXYItemRenderer0 = new StandardXYItemRenderer(500);
+31:       XYPlot xYPlot0 = new XYPlot(timeTableXYDataset0, numberAxis0, numberAxis0, standardXYItemRenderer0);
+32:       Object object0 = xYPlot0.clone();
+33:       assertTrue(object0.equals((Object)xYPlot0));
+34:   }
+35: }
+SimpleFileObject[/tmp/EvoSuite_157_1789912845154/org/jfree/chart/plot/XYPlot_157_tmp__ESTest.java]
+1: /**
+2:  * Scaffolding file used to store all the setups needed to run 
+3:  * tests automatically generated by EvoSuite
+4:  * Sun Sep 20 14:00:45 GMT 2026
+5:  */
+6: 
+7: package org.jfree.chart.plot;
+8: 
+9: import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
+10: import org.junit.BeforeClass;
+11: import org.junit.Before;
+12: import org.junit.After;
+13: import org.junit.AfterClass;
+14: import org.evosuite.runtime.sandbox.Sandbox;
+15: import org.evosuite.runtime.sandbox.Sandbox.SandboxMode;
+16: 
+17: @EvoSuiteClassExclude
+18: public class XYPlot_157_tmp__ESTest_scaffolding {
+19: 
+20:   @org.junit.Rule
+21:   public org.evosuite.runtime.vnet.NonFunctionalRequirementRule nfr = new org.evosuite.runtime.vnet.NonFunctionalRequirementRule();
+22: 
+23:   private static final java.util.Properties defaultProperties = (java.util.Properties) java.lang.System.getProperties().clone(); 
+24: 
+25:   private org.evosuite.runtime.thread.ThreadStopper threadStopper =  new org.evosuite.runtime.thread.ThreadStopper (org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
+26: 
+27: 
+28:   @BeforeClass
+29:   public static void initEvoSuiteFramework() { 
+30:     org.evosuite.runtime.RuntimeSettings.className = "org.jfree.chart.plot.XYPlot"; 
+31:     org.evosuite.runtime.GuiSupport.initialize(); 
+32:     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
+33:     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
+34:     org.evosuite.runtime.RuntimeSettings.mockSystemIn = true; 
+35:     org.evosuite.runtime.RuntimeSettings.sandboxMode = org.evosuite.runtime.sandbox.Sandbox.SandboxMode.RECOMMENDED; 
+36:     org.evosuite.runtime.sandbox.Sandbox.initializeSecurityManagerForSUT(); 
+37:     org.evosuite.runtime.classhandling.JDKClassResetter.init();
+38:     setSystemProperties();
+39:     initializeClasses();
+40:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+41:   } 
+42: 
+43:   @AfterClass
+44:   public static void clearEvoSuiteFramework(){ 
+45:     Sandbox.resetDefaultSecurityManager(); 
+46:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+47:   } 
+48: 
+49:   @Before
+50:   public void initTestCase(){ 
+51:     threadStopper.storeCurrentThreads();
+52:     threadStopper.startRecordingTime();
+53:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().initHandler(); 
+54:     org.evosuite.runtime.sandbox.Sandbox.goingToExecuteSUTCode(); 
+55:     setSystemProperties(); 
+56:     org.evosuite.runtime.GuiSupport.setHeadless(); 
+57:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+58:     org.evosuite.runtime.agent.InstrumentingAgent.activate(); 
+59:   } 
+60: 
+61:   @After
+62:   public void doneWithTestCase(){ 
+63:     threadStopper.killAndJoinClientThreads();
+64:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().safeExecuteAddedHooks(); 
+65:     org.evosuite.runtime.classhandling.JDKClassResetter.reset(); 
+66:     resetClasses(); 
+67:     org.evosuite.runtime.sandbox.Sandbox.doneWithExecutingSUTCode(); 
+68:     org.evosuite.runtime.agent.InstrumentingAgent.deactivate(); 
+69:     org.evosuite.runtime.GuiSupport.restoreHeadlessMode(); 
+70:   } 
+71: 
+72:   public static void setSystemProperties() {
+73:  
+74:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+75:     java.lang.System.setProperty("user.language", "en"); 
+76:     java.lang.System.setProperty("user.country", "US"); 
+77:     java.lang.System.setProperty("user.home", "/root"); 
+78:     java.lang.System.setProperty("java.io.tmpdir", "/tmp"); 
+79:     java.lang.System.setProperty("user.dir", "/work/Chart_14f"); 
+80:   }
+81: 
+82:   private static void initializeClasses() {
+83:     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(XYPlot_157_tmp__ESTest_scaffolding.class.getClassLoader() ,
+84:       "org.jfree.chart.event.ChartProgressListener",
+85:       "org.jfree.data.time.TimeTableXYDataset",
+86:       "org.jfree.chart.labels.StandardPieSectionLabelGenerator",
+87:       "org.jfree.chart.labels.AbstractPieItemLabelGenerator",
+88:       "org.jfree.chart.plot.ValueMarker",
+89:       "org.jfree.chart.renderer.xy.DeviationRenderer$State",
+90:       "org.jfree.chart.labels.CategorySeriesLabelGenerator",
+91:       "org.jfree.data.time.Minute",
+92:       "org.jfree.chart.Effect3D",
+93:       "org.jfree.data.general.ValueDataset",
+94:       "org.jfree.chart.axis.MarkerAxisBand",
+95:       "org.jfree.data.general.AbstractSeriesDataset",
+96:       "org.jfree.chart.LegendItemCollection",
+97:       "org.jfree.chart.renderer.xy.XYItemRenderer",
+98:       "org.jfree.chart.axis.CategoryAxis",
+99:       "org.jfree.data.xy.DefaultTableXYDataset",
+100:       "org.jfree.data.RangeInfo",
+101:       "org.jfree.data.xy.AbstractIntervalXYDataset",
+102:       "org.jfree.chart.renderer.RendererState",
+103:       "org.jfree.chart.ui.ProjectInfo",
+104:       "org.jfree.chart.text.TextFragment",
+105:       "org.jfree.chart.entity.StandardEntityCollection",
+106:       "org.jfree.chart.axis.LogarithmicAxis",
+107:       "org.jfree.chart.axis.DateAxis$DefaultTimeline",
+108:       "org.jfree.data.xy.AbstractXYDataset",
+109:       "org.jfree.chart.labels.StandardXYSeriesLabelGenerator",
+110:       "org.jfree.chart.labels.ItemLabelPosition",
+111:       "org.jfree.chart.axis.DateAxis",
+112:       "org.jfree.chart.plot.CategoryPlot",
+113:       "org.jfree.chart.event.MarkerChangeListener",
+114:       "org.jfree.chart.event.PlotChangeEvent",
+115:       "org.jfree.chart.plot.PiePlot",
+116:       "org.jfree.chart.util.PaintList",
+117:       "org.jfree.chart.labels.ItemLabelAnchor",
+118:       "org.jfree.chart.axis.Timeline",
+119:       "org.jfree.chart.ui.Contributor",
+120:       "org.jfree.chart.event.RendererChangeEvent",
+121:       "org.jfree.data.time.TimeSeriesCollection",
+122:       "org.jfree.chart.text.G2TextMeasurer",
+123:       "org.jfree.chart.util.RectangleAnchor",
+124:       "org.jfree.chart.entity.XYAnnotationEntity",
+125:       "org.jfree.chart.labels.PieSectionLabelGenerator",
+126:       "org.jfree.data.time.TimePeriodFormatException",
+127:       "org.jfree.chart.axis.Tick",
+128:       "org.jfree.chart.renderer.xy.XYDifferenceRenderer",
+129:       "org.jfree.data.statistics.BoxAndWhiskerItem",
+130:       "org.jfree.chart.text.TextBlock",
+131:       "org.jfree.chart.axis.Axis",
+132:       "org.jfree.chart.urls.PieURLGenerator",
+133:       "org.jfree.chart.axis.NumberAxis3D",
+134:       "org.jfree.chart.util.ShapeList",
+135:       "org.jfree.data.statistics.BoxAndWhiskerCategoryDataset",
+136:       "org.jfree.chart.block.BlockBorder",
+137:       "org.jfree.chart.util.UnitType",
+138:       "org.jfree.chart.urls.XYURLGenerator",
+139:       "org.jfree.data.time.TimePeriodValues",
+140:       "org.jfree.chart.annotations.XYAnnotation",
+141:       "org.jfree.chart.renderer.xy.CyclicXYItemRenderer",
+142:       "org.jfree.chart.renderer.xy.XYLine3DRenderer",
+143:       "org.jfree.chart.util.ObjectUtilities",
+144:       "org.jfree.chart.renderer.xy.XYBarRenderer$XYBarRendererState",
+145:       "org.jfree.chart.util.HorizontalAlignment",
+146:       "org.jfree.data.time.Second",
+147:       "org.jfree.chart.axis.CategoryAnchor",
+148:       "org.jfree.chart.plot.DatasetRenderingOrder",
+149:       "org.jfree.chart.event.RendererChangeListener",
+150:       "org.jfree.chart.axis.SegmentedTimeline$BaseTimelineSegmentRange",
+151:       "org.jfree.chart.util.HashUtilities",
+152:       "org.jfree.data.KeyedValues",
+153:       "org.jfree.data.xy.CategoryTableXYDataset",
+154:       "org.jfree.chart.plot.CombinedRangeCategoryPlot",
+155:       "org.jfree.chart.block.FlowArrangement",
+156:       "org.jfree.chart.labels.CategoryToolTipGenerator",
+157:       "org.jfree.chart.entity.XYItemEntity",
+158:       "org.jfree.chart.event.TitleChangeListener",
+159:       "org.jfree.data.time.Quarter",
+160:       "org.jfree.chart.axis.CategoryLabelPositions",
+161:       "org.jfree.chart.text.TextMeasurer",
+162:       "org.jfree.chart.renderer.xy.XYAreaRenderer2",
+163:       "org.jfree.chart.LegendItemSource",
+164:       "org.jfree.chart.util.SortOrder",
+165:       "org.jfree.chart.renderer.PolarItemRenderer",
+166:       "org.jfree.data.xy.XYZDataset",
+167:       "org.jfree.data.DomainInfo",
+168:       "org.jfree.chart.plot.PieLabelLinkStyle",
+169:       "org.jfree.data.general.DatasetChangeListener",
+170:       "org.jfree.chart.renderer.xy.XYSplineAndShapeRenderer",
+171:       "org.jfree.chart.block.BlockParams",
+172:       "org.jfree.data.gantt.TaskSeries",
+173:       "org.jfree.chart.event.TitleChangeEvent",
+174:       "org.jfree.chart.annotations.CategoryAnnotation",
+175:       "org.jfree.chart.axis.AxisSpace",
+176:       "org.jfree.chart.axis.SegmentedTimeline$SegmentRange",
+177:       "org.jfree.chart.plot.PolarPlot",
+178:       "org.jfree.chart.renderer.category.WaterfallBarRenderer",
+179:       "org.jfree.chart.ui.Licences",
+180:       "org.jfree.data.ComparableObjectSeries",
+181:       "org.jfree.data.time.DateRange",
+182:       "org.jfree.data.general.DatasetGroup",
+183:       "org.jfree.chart.axis.CyclicNumberAxis$CycleBoundTick",
+184:       "org.jfree.chart.event.ChartChangeEventType",
+185:       "org.jfree.chart.util.Rotation",
+186:       "org.jfree.chart.block.BlockResult",
+187:       "org.jfree.data.time.Millisecond",
+188:       "org.jfree.chart.axis.ExtendedCategoryAxis",
+189:       "org.jfree.chart.util.GradientPaintTransformType",
+190:       "org.jfree.chart.renderer.category.CategoryItemRenderer",
+191:       "org.jfree.chart.util.Size2D",
+192:       "org.jfree.chart.renderer.category.LineAndShapeRenderer",
+193:       "org.jfree.chart.util.ShapeUtilities",
+194:       "org.jfree.data.general.SeriesChangeEvent",
+195:       "org.jfree.chart.renderer.xy.XYLineAndShapeRenderer$State",
+196:       "org.jfree.chart.labels.CategoryItemLabelGenerator",
+197:       "org.jfree.chart.resources.JFreeChartResources",
+198:       "org.jfree.data.RangeType",
+199:       "org.jfree.data.time.Month",
+200:       "org.jfree.chart.axis.TickUnits",
+201:       "org.jfree.chart.util.VerticalAlignment",
+202:       "org.jfree.chart.block.EntityBlockParams",
+203:       "org.jfree.data.general.Dataset",
+204:       "org.jfree.chart.plot.SeriesRenderingOrder",
+205:       "org.jfree.chart.block.EntityBlockResult",
+206:       "org.jfree.chart.plot.PlotOrientation",
+207:       "org.jfree.chart.axis.NumberAxis",
+208:       "org.jfree.chart.axis.NumberTick",
+209:       "org.jfree.chart.axis.ValueTick",
+210:       "org.jfree.chart.block.BlockContainer",
+211:       "org.jfree.chart.JFreeChart",
+212:       "org.jfree.chart.renderer.xy.StandardXYItemRenderer",
+213:       "org.jfree.chart.plot.Marker",
+214:       "org.jfree.chart.renderer.xy.XYBarRenderer",
+215:       "org.jfree.chart.title.LegendTitle",
+216:       "org.jfree.chart.renderer.category.CategoryItemRendererState",
+217:       "org.jfree.chart.axis.SegmentedTimeline",
+218:       "org.jfree.chart.axis.ValueAxis",
+219:       "org.jfree.chart.ChartRenderingInfo",
+220:       "org.jfree.chart.renderer.xy.DeviationRenderer",
+221:       "org.jfree.data.Value",
+222:       "org.jfree.data.time.TimePeriodAnchor",
+223:       "org.jfree.chart.JFreeChartInfo",
+224:       "org.jfree.chart.event.MarkerChangeEvent",
+225:       "org.jfree.chart.plot.MultiplePiePlot",
+226:       "org.jfree.data.time.MonthConstants",
+227:       "org.jfree.chart.block.BlockFrame",
+228:       "org.jfree.chart.event.AxisChangeListener",
+229:       "org.jfree.data.general.DefaultValueDataset",
+230:       "org.jfree.chart.renderer.xy.ClusteredXYBarRenderer",
+231:       "org.jfree.chart.axis.SegmentedTimeline$Segment",
+232:       "org.jfree.data.xy.DefaultXYZDataset",
+233:       "org.jfree.data.xy.VectorSeriesCollection",
+234:       "org.jfree.chart.renderer.xy.AbstractXYItemRenderer",
+235:       "org.jfree.chart.plot.CrosshairState",
+236:       "org.jfree.chart.labels.XYSeriesLabelGenerator",
+237:       "org.jfree.chart.urls.TimeSeriesURLGenerator",
+238:       "org.jfree.chart.ui.Library",
+239:       "org.jfree.data.time.SerialDate",
+240:       "org.jfree.chart.plot.PieLabelRecord",
+241:       "org.jfree.data.DomainOrder",
+242:       "org.jfree.chart.axis.AxisState",
+243:       "org.jfree.chart.renderer.AbstractRenderer",
+244:       "org.jfree.chart.block.ColumnArrangement",
+245:       "org.jfree.chart.plot.RingPlot",
+246:       "org.jfree.chart.renderer.xy.StackedXYBarRenderer",
+247:       "org.jfree.data.general.AbstractDataset",
+248:       "org.jfree.chart.renderer.DefaultPolarItemRenderer",
+249:       "org.jfree.chart.block.RectangleConstraint",
+250:       "org.jfree.chart.plot.Zoomable",
+251:       "org.jfree.chart.title.Title",
+252:       "org.jfree.chart.labels.PieToolTipGenerator",
+253:       "org.jfree.chart.axis.DateTickMarkPosition",
+254:       "org.jfree.chart.block.LineBorder",
+255:       "org.jfree.data.DefaultKeyedValues2D",
+256:       "org.jfree.chart.util.ObjectList",
+257:       "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+258:       "org.jfree.chart.renderer.xy.StandardXYItemRenderer$State",
+259:       "org.jfree.chart.plot.PiePlotState",
+260:       "org.jfree.chart.plot.CombinedDomainXYPlot",
+261:       "org.jfree.chart.axis.PeriodAxis",
+262:       "org.jfree.data.time.Day",
+263:       "org.jfree.data.general.SeriesDataset",
+264:       "org.jfree.chart.ui.BasicProjectInfo",
+265:       "org.jfree.data.xy.XYDataset",
+266:       "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset",
+267:       "org.jfree.chart.block.Arrangement",
+268:       "org.jfree.chart.plot.Plot",
+269:       "org.jfree.chart.plot.ValueAxisPlot",
+270:       "org.jfree.data.UnknownKeyException",
+271:       "org.jfree.chart.urls.StandardXYURLGenerator",
+272:       "org.jfree.chart.labels.XYToolTipGenerator",
+273:       "org.jfree.data.time.TimePeriod",
+274:       "org.jfree.chart.renderer.category.BarRenderer",
+275:       "org.jfree.chart.event.AxisChangeEvent",
+276:       "org.jfree.chart.LegendItem",
+277:       "org.jfree.chart.urls.CategoryURLGenerator",
+278:       "org.jfree.chart.plot.PlotRenderingInfo",
+279:       "org.jfree.chart.util.LengthAdjustmentType",
+280:       "org.jfree.chart.renderer.xy.CandlestickRenderer",
+281:       "org.jfree.chart.block.Block",
+282:       "org.jfree.data.time.RegularTimePeriod",
+283:       "org.jfree.data.xy.AbstractXYZDataset",
+284:       "org.jfree.chart.entity.TickLabelEntity",
+285:       "org.jfree.data.time.TimeSeries",
+286:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer$2",
+287:       "org.jfree.chart.plot.CombinedRangeXYPlot",
+288:       "org.jfree.chart.renderer.category.LineRenderer3D",
+289:       "org.jfree.chart.renderer.xy.StackedXYAreaRenderer2",
+290:       "org.jfree.chart.labels.XYItemLabelGenerator",
+291:       "org.jfree.data.general.PieDataset",
+292:       "org.jfree.chart.entity.CategoryItemEntity",
+293:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer$1",
+294:       "org.jfree.chart.entity.AxisLabelEntity",
+295:       "org.jfree.chart.plot.AbstractPieLabelDistributor",
+296:       "org.jfree.data.general.DatasetUtilities",
+297:       "org.jfree.chart.util.BooleanList",
+298:       "org.jfree.chart.axis.AxisLocation",
+299:       "org.jfree.chart.util.AbstractObjectList",
+300:       "org.jfree.chart.labels.StandardCategorySeriesLabelGenerator",
+301:       "org.jfree.data.xy.IntervalXYDataset",
+302:       "org.jfree.chart.renderer.xy.XYLineAndShapeRenderer",
+303:       "org.jfree.data.xy.Vector",
+304:       "org.jfree.chart.event.ChartProgressEvent",
+305:       "org.jfree.chart.entity.CategoryLabelEntity",
+306:       "org.jfree.chart.util.RectangleEdge",
+307:       "org.jfree.chart.plot.DefaultDrawingSupplier",
+308:       "org.jfree.chart.block.LengthConstraintType",
+309:       "org.jfree.chart.plot.PieLabelDistributor",
+310:       "org.jfree.data.category.CategoryDataset",
+311:       "org.jfree.data.Range",
+312:       "org.jfree.data.xy.XYSeries",
+313:       "org.jfree.chart.util.RectangleInsets",
+314:       "org.jfree.chart.text.TextAnchor",
+315:       "org.jfree.data.category.IntervalCategoryDataset",
+316:       "org.jfree.chart.plot.PlotState",
+317:       "org.jfree.chart.axis.TickUnit",
+318:       "org.jfree.data.time.Year",
+319:       "org.jfree.chart.ChartColor",
+320:       "org.jfree.chart.Drawable",
+321:       "org.jfree.chart.util.GradientPaintTransformer",
+322:       "org.jfree.chart.axis.CategoryLabelPosition",
+323:       "org.jfree.data.gantt.TaskSeriesCollection",
+324:       "org.jfree.chart.util.StrokeList",
+325:       "org.jfree.chart.util.StandardGradientPaintTransformer",
+326:       "org.jfree.chart.text.TextLine",
+327:       "org.jfree.data.time.TimePeriodValuesCollection",
+328:       "org.jfree.chart.PaintMap",
+329:       "org.jfree.chart.renderer.xy.XYBubbleRenderer",
+330:       "org.jfree.chart.text.TextUtilities",
+331:       "org.jfree.chart.axis.CategoryAxis3D",
+332:       "org.jfree.chart.axis.DateTickUnit",
+333:       "org.jfree.chart.axis.TickUnitSource",
+334:       "org.jfree.chart.annotations.XYBoxAnnotation",
+335:       "org.jfree.chart.plot.CategoryMarker",
+336:       "org.jfree.chart.axis.ModuloAxis",
+337:       "org.jfree.data.time.SpreadsheetDate",
+338:       "org.jfree.data.xy.MatrixSeriesCollection",
+339:       "org.jfree.chart.plot.XYPlot",
+340:       "org.jfree.chart.block.AbstractBlock",
+341:       "org.jfree.data.xy.TableXYDataset",
+342:       "org.jfree.chart.annotations.AbstractXYAnnotation",
+343:       "org.jfree.chart.util.TableOrder",
+344:       "org.jfree.data.xy.MatrixSeries",
+345:       "org.jfree.chart.entity.ChartEntity",
+346:       "org.jfree.chart.entity.EntityCollection",
+347:       "org.jfree.data.gantt.GanttCategoryDataset",
+348:       "org.jfree.chart.renderer.xy.WindItemRenderer",
+349:       "org.jfree.data.Values2D",
+350:       "org.jfree.data.time.TimeSeriesDataItem",
+351:       "org.jfree.data.general.DatasetChangeEvent",
+352:       "org.jfree.chart.annotations.XYLineAnnotation",
+353:       "org.jfree.data.general.SeriesChangeListener",
+354:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer",
+355:       "org.jfree.data.category.DefaultCategoryDataset",
+356:       "org.jfree.chart.axis.TickType",
+357:       "org.jfree.chart.renderer.xy.XYItemRendererState",
+358:       "org.jfree.data.time.Week",
+359:       "org.jfree.chart.entity.PieSectionEntity",
+360:       "org.jfree.data.xy.VectorSeries",
+361:       "org.jfree.chart.plot.ThermometerPlot",
+362:       "org.jfree.chart.util.Layer",
+363:       "org.jfree.data.xy.VectorXYDataset",
+364:       "org.jfree.chart.event.PlotChangeListener",
+365:       "org.jfree.data.time.Hour",
+366:       "org.jfree.chart.axis.PeriodAxisLabelInfo",
+367:       "org.jfree.data.general.Series",
+368:       "org.jfree.chart.axis.NumberTickUnit",
+369:       "org.jfree.data.xy.XYSeriesCollection",
+370:       "org.jfree.chart.plot.DrawingSupplier",
+371:       "org.jfree.chart.title.TextTitle",
+372:       "org.jfree.chart.labels.HighLowItemLabelGenerator",
+373:       "org.jfree.chart.plot.IntervalMarker",
+374:       "org.jfree.chart.util.PublicCloneable",
+375:       "org.jfree.data.xy.IntervalXYDelegate",
+376:       "org.jfree.chart.event.ChartChangeEvent",
+377:       "org.jfree.chart.StrokeMap",
+378:       "org.jfree.data.Values",
+379:       "org.jfree.data.KeyedValues2D",
+380:       "org.jfree.chart.axis.CyclicNumberAxis",
+381:       "org.jfree.data.KeyedObjects2D",
+382:       "org.jfree.chart.text.TextBlockAnchor",
+383:       "org.jfree.data.general.SeriesException",
+384:       "org.jfree.chart.event.ChartChangeListener",
+385:       "org.jfree.chart.axis.LogAxis",
+386:       "org.jfree.chart.axis.CategoryLabelWidthType",
+387:       "org.jfree.chart.util.PaintUtilities"
+388:     );
+389:   } 
+390: 
+391:   private static void resetClasses() {
+392:     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(XYPlot_157_tmp__ESTest_scaffolding.class.getClassLoader()); 
+393: 
+394:     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
+395:       "org.jfree.chart.util.UnitType",
+396:       "org.jfree.chart.util.RectangleInsets",
+397:       "org.jfree.chart.plot.Plot",
+398:       "org.jfree.chart.plot.XYPlot",
+399:       "org.jfree.chart.plot.DatasetRenderingOrder",
+400:       "org.jfree.chart.plot.SeriesRenderingOrder",
+401:       "org.jfree.chart.plot.PlotOrientation",
+402:       "org.jfree.chart.axis.AxisLocation",
+403:       "org.jfree.chart.util.RectangleEdge",
+404:       "org.jfree.chart.util.Layer",
+405:       "org.jfree.data.DomainOrder",
+406:       "org.jfree.chart.event.ChartChangeEventType",
+407:       "org.jfree.chart.plot.CombinedDomainXYPlot",
+408:       "org.jfree.chart.ChartColor",
+409:       "org.jfree.chart.plot.DefaultDrawingSupplier",
+410:       "org.jfree.chart.util.AbstractObjectList",
+411:       "org.jfree.chart.util.ObjectList",
+412:       "org.jfree.data.general.DatasetChangeEvent",
+413:       "org.jfree.chart.event.ChartChangeEvent",
+414:       "org.jfree.chart.event.PlotChangeEvent",
+415:       "org.jfree.chart.ChartPanel",
+416:       "org.jfree.chart.PolarChartPanel",
+417:       "org.jfree.chart.axis.Axis",
+418:       "org.jfree.data.Range",
+419:       "org.jfree.chart.axis.ValueAxis",
+420:       "org.jfree.chart.axis.TickUnit",
+421:       "org.jfree.chart.axis.NumberTickUnit",
+422:       "org.jfree.chart.axis.NumberAxis",
+423:       "org.jfree.chart.axis.CyclicNumberAxis",
+424:       "org.jfree.chart.axis.TickUnits",
+425:       "org.jfree.data.RangeType",
+426:       "org.jfree.chart.event.AxisChangeEvent",
+427:       "org.jfree.chart.axis.CategoryAxis",
+428:       "org.jfree.chart.axis.CategoryAxis3D",
+429:       "org.jfree.chart.axis.CategoryLabelPosition",
+430:       "org.jfree.chart.util.RectangleAnchor",
+431:       "org.jfree.chart.text.TextBlockAnchor",
+432:       "org.jfree.chart.text.TextAnchor",
+433:       "org.jfree.chart.axis.CategoryLabelWidthType",
+434:       "org.jfree.chart.axis.CategoryLabelPositions",
+435:       "org.jfree.chart.ui.Library",
+436:       "org.jfree.chart.ui.BasicProjectInfo",
+437:       "org.jfree.chart.ui.ProjectInfo",
+438:       "org.jfree.chart.JFreeChartInfo",
+439:       "org.jfree.chart.resources.JFreeChartResources",
+440:       "org.jfree.chart.ui.Licences",
+441:       "org.jfree.chart.ui.Contributor",
+442:       "org.jfree.chart.JFreeChart",
+443:       "org.jfree.chart.block.AbstractBlock",
+444:       "org.jfree.chart.util.HorizontalAlignment",
+445:       "org.jfree.chart.util.VerticalAlignment",
+446:       "org.jfree.chart.title.Title",
+447:       "org.jfree.chart.title.LegendTitle",
+448:       "org.jfree.chart.block.FlowArrangement",
+449:       "org.jfree.chart.block.ColumnArrangement",
+450:       "org.jfree.chart.block.BlockBorder",
+451:       "org.jfree.chart.block.BlockContainer",
+452:       "org.jfree.chart.block.LineBorder",
+453:       "org.jfree.chart.event.TitleChangeEvent",
+454:       "org.jfree.chart.event.ChartProgressEvent",
+455:       "org.jfree.chart.block.LengthConstraintType",
+456:       "org.jfree.chart.block.RectangleConstraint",
+457:       "org.jfree.chart.block.BlockParams",
+458:       "org.jfree.chart.util.Size2D",
+459:       "org.jfree.chart.LegendItemCollection",
+460:       "org.jfree.chart.axis.AxisSpace",
+461:       "org.jfree.chart.axis.AxisState",
+462:       "org.jfree.chart.axis.Tick",
+463:       "org.jfree.chart.axis.ValueTick",
+464:       "org.jfree.chart.axis.NumberTick",
+465:       "org.jfree.chart.axis.CyclicNumberAxis$CycleBoundTick",
+466:       "org.jfree.chart.axis.TickType",
+467:       "org.jfree.chart.util.ObjectUtilities",
+468:       "org.jfree.chart.text.TextUtilities",
+469:       "org.jfree.chart.plot.PlotState",
+470:       "org.jfree.chart.title.TextTitle",
+471:       "org.jfree.chart.plot.CombinedRangeXYPlot",
+472:       "org.jfree.chart.plot.PlotRenderingInfo",
+473:       "org.jfree.chart.axis.ModuloAxis",
+474:       "org.jfree.chart.renderer.AbstractRenderer",
+475:       "org.jfree.chart.renderer.xy.AbstractXYItemRenderer",
+476:       "org.jfree.chart.renderer.xy.XYDotRenderer",
+477:       "org.jfree.chart.util.BooleanList",
+478:       "org.jfree.chart.util.PaintList",
+479:       "org.jfree.chart.util.StrokeList",
+480:       "org.jfree.chart.util.ShapeList",
+481:       "org.jfree.chart.labels.ItemLabelPosition",
+482:       "org.jfree.chart.labels.ItemLabelAnchor",
+483:       "org.jfree.chart.labels.StandardXYSeriesLabelGenerator",
+484:       "org.jfree.chart.axis.PeriodAxis",
+485:       "org.jfree.data.time.RegularTimePeriod",
+486:       "org.jfree.data.time.Day",
+487:       "org.jfree.data.time.SerialDate",
+488:       "org.jfree.data.time.SpreadsheetDate",
+489:       "org.jfree.chart.axis.PeriodAxisLabelInfo",
+490:       "org.jfree.chart.ChartRenderingInfo",
+491:       "org.jfree.chart.plot.SpiderWebPlot",
+492:       "org.jfree.chart.util.TableOrder",
+493:       "org.jfree.chart.util.Rotation",
+494:       "org.jfree.chart.labels.AbstractCategoryItemLabelGenerator",
+495:       "org.jfree.chart.labels.StandardCategoryItemLabelGenerator",
+496:       "org.jfree.data.general.AbstractDataset",
+497:       "org.jfree.data.general.AbstractSeriesDataset",
+498:       "org.jfree.data.xy.AbstractXYDataset",
+499:       "org.jfree.data.xy.AbstractIntervalXYDataset",
+500:       "org.jfree.data.time.TimePeriodValuesCollection",
+501:       "org.jfree.data.general.DatasetGroup",
+502:       "org.jfree.data.time.TimePeriodAnchor",
+503:       "org.jfree.chart.plot.CategoryPlot",
+504:       "org.jfree.chart.plot.CombinedRangeCategoryPlot",
+505:       "org.jfree.chart.util.SortOrder",
+506:       "org.jfree.chart.axis.CategoryAnchor",
+507:       "org.jfree.chart.plot.Marker",
+508:       "org.jfree.chart.plot.ValueMarker",
+509:       "org.jfree.chart.util.LengthAdjustmentType",
+510:       "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+511:       "org.jfree.chart.renderer.category.BarRenderer",
+512:       "org.jfree.chart.renderer.category.WaterfallBarRenderer",
+513:       "org.jfree.chart.labels.StandardCategorySeriesLabelGenerator",
+514:       "org.jfree.chart.util.StandardGradientPaintTransformer",
+515:       "org.jfree.chart.util.GradientPaintTransformType",
+516:       "org.jfree.chart.event.RendererChangeEvent",
+517:       "org.jfree.data.xy.AbstractXYZDataset",
+518:       "org.jfree.data.xy.MatrixSeriesCollection",
+519:       "org.jfree.chart.axis.NumberAxis3D",
+520:       "org.jfree.chart.renderer.xy.WindItemRenderer",
+521:       "org.jfree.data.general.DatasetUtilities",
+522:       "org.jfree.chart.plot.IntervalMarker",
+523:       "org.jfree.chart.event.MarkerChangeEvent",
+524:       "org.jfree.chart.entity.StandardEntityCollection",
+525:       "org.jfree.chart.renderer.DefaultPolarItemRenderer",
+526:       "org.jfree.data.time.DateRange",
+527:       "org.jfree.chart.axis.DateTickUnit",
+528:       "org.jfree.chart.axis.DateAxis$DefaultTimeline",
+529:       "org.jfree.chart.axis.DateAxis",
+530:       "org.jfree.chart.axis.DateTickMarkPosition",
+531:       "org.jfree.chart.axis.SegmentedTimeline",
+532:       "org.jfree.data.time.Week",
+533:       "org.jfree.chart.text.G2TextMeasurer",
+534:       "org.jfree.chart.text.TextBlock",
+535:       "org.jfree.chart.text.TextLine",
+536:       "org.jfree.chart.text.TextFragment",
+537:       "org.jfree.chart.block.BlockResult",
+538:       "org.jfree.chart.util.ShapeUtilities",
+539:       "org.jfree.data.time.TimeSeriesCollection",
+540:       "org.jfree.data.category.DefaultCategoryDataset",
+541:       "org.jfree.data.jdbc.JDBCCategoryDataset",
+542:       "org.jfree.data.DefaultKeyedValues2D",
+543:       "org.jfree.chart.axis.LogarithmicAxis",
+544:       "org.jfree.data.xy.DefaultTableXYDataset",
+545:       "org.jfree.data.xy.IntervalXYDelegate",
+546:       "org.jfree.chart.annotations.AbstractXYAnnotation",
+547:       "org.jfree.chart.annotations.XYPolygonAnnotation",
+548:       "org.jfree.data.xy.XYSeriesCollection",
+549:       "org.jfree.data.xy.DefaultWindDataset",
+550:       "org.jfree.chart.renderer.xy.XYStepAreaRenderer",
+551:       "org.jfree.data.jdbc.JDBCXYDataset",
+552:       "org.jfree.chart.renderer.xy.XYLineAndShapeRenderer",
+553:       "org.jfree.chart.renderer.xy.XYErrorRenderer",
+554:       "org.jfree.data.general.CombinedDataset",
+555:       "org.jfree.data.general.Series",
+556:       "org.jfree.data.time.TimeSeries",
+557:       "org.jfree.chart.urls.TimeSeriesURLGenerator",
+558:       "org.jfree.chart.renderer.xy.XYAreaRenderer2",
+559:       "org.jfree.chart.renderer.xy.StackedXYAreaRenderer2",
+560:       "org.jfree.data.statistics.DefaultMultiValueCategoryDataset",
+561:       "org.jfree.data.KeyedObjects2D",
+562:       "org.jfree.chart.plot.CategoryMarker",
+563:       "org.jfree.chart.renderer.WaferMapRenderer",
+564:       "org.jfree.chart.annotations.XYTextAnnotation",
+565:       "org.jfree.chart.annotations.XYPointerAnnotation",
+566:       "org.jfree.chart.renderer.xy.XYBoxAndWhiskerRenderer",
+567:       "org.jfree.chart.labels.AbstractXYItemLabelGenerator",
+568:       "org.jfree.chart.labels.StandardXYToolTipGenerator",
+569:       "org.jfree.chart.labels.BoxAndWhiskerXYToolTipGenerator",
+570:       "org.jfree.chart.renderer.xy.YIntervalRenderer",
+571:       "org.jfree.chart.renderer.xy.XYDifferenceRenderer",
+572:       "org.jfree.chart.annotations.XYShapeAnnotation",
+573:       "org.jfree.chart.axis.LogAxis",
+574:       "org.jfree.chart.renderer.category.IntervalBarRenderer",
+575:       "org.jfree.chart.renderer.category.GanttRenderer",
+576:       "org.jfree.chart.plot.CombinedDomainCategoryPlot",
+577:       "org.jfree.data.general.DefaultValueDataset",
+578:       "org.jfree.chart.plot.MeterPlot",
+579:       "org.jfree.chart.plot.DialShape",
+580:       "org.jfree.chart.plot.ThermometerPlot",
+581:       "org.jfree.data.time.Quarter",
+582:       "org.jfree.data.time.DynamicTimeSeriesCollection",
+583:       "org.jfree.chart.plot.PiePlot",
+584:       "org.jfree.chart.plot.RingPlot",
+585:       "org.jfree.chart.plot.PieLabelLinkStyle",
+586:       "org.jfree.chart.PaintMap",
+587:       "org.jfree.chart.StrokeMap",
+588:       "org.jfree.chart.labels.AbstractPieItemLabelGenerator",
+589:       "org.jfree.chart.labels.StandardPieSectionLabelGenerator",
+590:       "org.jfree.chart.plot.AbstractPieLabelDistributor",
+591:       "org.jfree.chart.plot.PieLabelDistributor",
+592:       "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+593:       "org.jfree.chart.renderer.category.ScatterRenderer",
+594:       "org.jfree.chart.plot.CrosshairState",
+595:       "org.jfree.data.time.Minute",
+596:       "org.jfree.data.time.Second",
+597:       "org.jfree.chart.renderer.xy.DeviationRenderer",
+598:       "org.jfree.chart.urls.StandardXYURLGenerator",
+599:       "org.jfree.chart.annotations.XYBoxAnnotation",
+600:       "org.jfree.data.statistics.DefaultBoxAndWhiskerXYDataset",
+601:       "org.jfree.chart.axis.SymbolAxis",
+602:       "org.jfree.chart.renderer.xy.XYAreaRenderer",
+603:       "org.jfree.chart.renderer.xy.StackedXYAreaRenderer",
+604:       "org.jfree.chart.plot.MultiplePiePlot",
+605:       "org.jfree.data.time.Millisecond",
+606:       "org.jfree.chart.renderer.category.LineAndShapeRenderer",
+607:       "org.jfree.chart.renderer.category.LineRenderer3D",
+608:       "org.jfree.chart.renderer.xy.XYBarRenderer",
+609:       "org.jfree.chart.renderer.xy.StackedXYBarRenderer",
+610:       "org.jfree.chart.urls.CustomXYURLGenerator",
+611:       "org.jfree.chart.plot.CompassPlot",
+612:       "org.jfree.chart.needle.MeterNeedle",
+613:       "org.jfree.chart.needle.ArrowNeedle",
+614:       "org.jfree.chart.renderer.RendererState",
+615:       "org.jfree.chart.renderer.xy.XYItemRendererState",
+616:       "org.jfree.data.xy.DefaultXYZDataset",
+617:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer",
+618:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer$1",
+619:       "org.jfree.chart.renderer.category.MinMaxCategoryRenderer$2",
+620:       "org.jfree.chart.renderer.xy.CandlestickRenderer",
+621:       "org.jfree.chart.labels.HighLowItemLabelGenerator",
+622:       "org.jfree.data.time.TimeTableXYDataset",
+623:       "org.jfree.chart.renderer.xy.StandardXYItemRenderer",
+624:       "org.jfree.chart.renderer.xy.CyclicXYItemRenderer",
+625:       "org.jfree.data.time.TimePeriodFormatException",
+626:       "org.jfree.data.xy.XYSeries",
+627:       "org.jfree.data.xy.DefaultIntervalXYDataset",
+628:       "org.jfree.data.general.SubSeriesDataset",
+629:       "org.jfree.data.xy.XYIntervalSeriesCollection",
+630:       "org.jfree.data.time.Month",
+631:       "org.jfree.data.xy.XIntervalSeriesCollection",
+632:       "org.jfree.chart.renderer.xy.XYLine3DRenderer",
+633:       "org.jfree.data.statistics.SimpleHistogramDataset",
+634:       "org.jfree.chart.needle.PlumNeedle",
+635:       "org.jfree.data.time.Hour",
+636:       "org.jfree.data.general.DefaultKeyedValues2DDataset",
+637:       "org.jfree.chart.plot.PolarPlot",
+638:       "org.jfree.chart.plot.WaferMapPlot",
+639:       "org.jfree.chart.labels.StandardXYZToolTipGenerator",
+640:       "org.jfree.data.time.Year",
+641:       "org.jfree.chart.renderer.category.StackedBarRenderer",
+642:       "org.jfree.data.xy.CategoryTableXYDataset",
+643:       "org.jfree.chart.annotations.XYLineAnnotation",
+644:       "org.jfree.data.xy.XYBarDataset",
+645:       "org.jfree.chart.renderer.LookupPaintScale",
+646:       "org.jfree.chart.entity.ChartEntity",
+647:       "org.jfree.data.gantt.TaskSeriesCollection",
+648:       "org.jfree.chart.axis.SubCategoryAxis",
+649:       "org.jfree.data.category.DefaultIntervalCategoryDataset",
+650:       "org.jfree.data.resources.DataPackageResources",
+651:       "org.jfree.chart.renderer.xy.XYStepRenderer",
+652:       "org.jfree.chart.renderer.xy.XYBubbleRenderer",
+653:       "org.jfree.chart.renderer.xy.ClusteredXYBarRenderer",
+654:       "org.jfree.chart.util.PaintUtilities",
+655:       "org.jfree.chart.plot.FastScatterPlot",
+656:       "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset",
+657:       "org.jfree.data.UnknownKeyException",
+658:       "org.jfree.data.xy.VectorSeriesCollection",
+659:       "org.jfree.data.DataUtilities",
+660:       "org.jfree.data.time.FixedMillisecond",
+661:       "org.jfree.chart.renderer.xy.XYSplineAndShapeRenderer",
+662:       "org.jfree.chart.axis.ExtendedCategoryAxis",
+663:       "org.jfree.chart.renderer.xy.DefaultXYItemRenderer",
+664:       "org.jfree.chart.block.ColorBlock",
+665:       "org.jfree.chart.annotations.XYDrawableAnnotation",
+666:       "org.jfree.chart.text.TextBox",
+667:       "org.jfree.data.xy.YIntervalSeriesCollection",
+668:       "org.jfree.data.ComparableObjectSeries",
+669:       "org.jfree.data.xy.XYIntervalSeries",
+670:       "org.jfree.data.general.DefaultKeyedValueDataset",
+671:       "org.jfree.data.DefaultKeyedValue",
+672:       "org.jfree.chart.labels.CustomXYToolTipGenerator",
+673:       "org.jfree.chart.util.HashUtilities"
+674:     );
+675:   }
+676: }
+
+[MASTER] 07:00:45.203 [logback-2] ERROR JUnitAnalyzer - Failed to compile test case:
+ZoneInfo zoneInfo0 = (ZoneInfo)SegmentedTimeline.DEFAULT_TIME_ZONE;
+Locale locale0 = new Locale("Wy}TfD!0l/\",", "S5");
+TimeTableXYDataset timeTableXYDataset0 = new TimeTableXYDataset(zoneInfo0, locale0);
+NumberAxis numberAxis0 = new NumberAxis("S5");
+StandardXYItemRenderer standardXYItemRenderer0 = new StandardXYItemRenderer(500);
+XYPlot xYPlot0 = new XYPlot(timeTableXYDataset0, numberAxis0, numberAxis0, standardXYItemRenderer0);
+Object object0 = xYPlot0.clone();
+assertTrue(object0.equals((Object)xYPlot0));
+
+
+
+[exit=0 timeout=False time=175.3s]
+
+$ javac -nowarn -cp /work/Chart_14f/build:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build:/work/Chart_14f/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Chart_14f/budget60_seed1/classes /work/evo_out/Chart_14f/budget60_seed1/tests/org/jfree/chart/plot/CategoryPlot_ESTest.java /work/evo_out/Chart_14f/budget60_seed1/tests/org/jfree/chart/plot/CategoryPlot_ESTest_scaffolding.java /work/evo_out/Chart_14f/budget60_seed1/tests/org/jfree/chart/plot/XYPlot_ESTest.java /work/evo_out/Chart_14f/budget60_seed1/tests/org/jfree/chart/plot/XYPlot_ESTest_scaffolding.java
+Note: /work/evo_out/Chart_14f/budget60_seed1/tests/org/jfree/chart/plot/XYPlot_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=1.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Chart_14f/build --dest /work/evo_out/Chart_14f/budget60_seed1/instrumented
+[INFO] 608 classes instrumented to /work/evo_out/Chart_14f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Chart_14/budget60_seed1/jacoco.exec -cp /work/evo_out/Chart_14f/budget60_seed1/instrumented:/work/evo_out/Chart_14f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14f/lib/servlet.jar:/work/Chart_14f/build:/work/Chart_14f/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.jfree.chart.plot.CategoryPlot_ESTest org.jfree.chart.plot.XYPlot_ESTest
+JUnit version 4.12
+...................................................................................................................................................................................................................................................................................................................................
+Time: 3.023
+
+OK (323 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=5.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Chart_14/budget60_seed1/jacoco.exec --classfiles /work/Chart_14f/build --csv /workspace/EvoSuite/Result_Round1/Chart_14/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Chart_14/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 514 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -cp /work/evo_out/Chart_14f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_14b/lib/servlet.jar:/work/Chart_14b/build:/work/Chart_14b/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.jfree.chart.plot.CategoryPlot_ESTest org.jfree.chart.plot.XYPlot_ESTest
+JUnit version 4.12
+....E...........................................E.....................................................E...........................................................................................E..............................E.E....E.................................................................................................
+Time: 3.032
+There were 7 failures:
+1) test136(org.jfree.chart.plot.CategoryPlot_ESTest)
+java.lang.NullPointerException
+	at org.jfree.chart.plot.CategoryPlot.removeDomainMarker(CategoryPlot.java:2166)
+	at org.jfree.chart.plot.CategoryPlot.removeDomainMarker(CategoryPlot.java:2139)
+	at org.jfree.chart.plot.CategoryPlot.removeDomainMarker(CategoryPlot.java:2122)
+	at org.jfree.chart.plot.CategoryPlot_ESTest.test136(CategoryPlot_ESTest.java:1630)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test045(org.jfree.chart.plot.CategoryPlot_ESTest)
+java.lang.NullPointerException
+	at org.jfree.chart.plot.CategoryPlot.removeRangeMarker(CategoryPlot.java:2448)
+	at org.jfree.chart.plot.CategoryPlot_ESTest.test045(CategoryPlot_ESTest.java:726)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test112(org.jfree.chart.plot.CategoryPlot_ESTest)
+java.lang.NullPointerException
+	at org.jfree.chart.plot.CategoryPlot.removeDomainMarker(CategoryPlot.java:2166)
+	at org.jfree.chart.plot.CategoryPlot.removeDomainMarker(CategoryPlot.java:2139)
+	at org.jfree.chart.plot.CategoryPlot.removeDomainMarker(CategoryPlot.java:2122)
+	at org.jfree.chart.plot.CategoryPlot.removeDomainMarker(CategoryPlot.java:2106)
+	at org.jfree.chart.plot.CategoryPlot_ESTest.test112(CategoryPlot_ESTest.java:1410)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test146(org.jfree.chart.plot.XYPlot_ESTest)
+java.lang.NullPointerException
+	at org.jfree.chart.plot.XYPlot.removeRangeMarker(XYPlot.java:2529)
+	at org.jfree.chart.plot.XYPlot.removeRangeMarker(XYPlot.java:2498)
+	at org.jfree.chart.plot.XYPlot.removeRangeMarker(XYPlot.java:2481)
+	at org.jfree.chart.plot.XYPlot.removeRangeMarker(XYPlot.java:2465)
+	at org.jfree.chart.plot.XYPlot_ESTest.test146(XYPlot_ESTest.java:1872)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+5) test056(org.jfree.chart.plot.XYPlot_ESTest)
+java.lang.NullPointerException
+	at org.jfree.chart.plot.XYPlot.removeDomainMarker(XYPlot.java:2293)
+	at org.jfree.chart.plot.XYPlot.removeDomainMarker(XYPlot.java:2265)
+	at org.jfree.chart.plot.XYPlot_ESTest.test056(XYPlot_ESTest.java:916)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+6) test170(org.jfree.chart.plot.XYPlot_ESTest)
+java.lang.NullPointerException
+	at org.jfree.chart.plot.XYPlot.removeDomainMarker(XYPlot.java:2293)
+	at org.jfree.chart.plot.XYPlot.removeDomainMarker(XYPlot.java:2265)
+	at org.jfree.chart.plot.XYPlot.removeDomainMarker(XYPlot.java:2248)
+	at org.jfree.chart.plot.XYPlot.removeDomainMarker(XYPlot.java:2232)
+	at org.jfree.chart.plot.XYPlot_ESTest.test170(XYPlot_ESTest.java:2132)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+7) test052(org.jfree.chart.plot.XYPlot_ESTest)
+java.lang.NullPointerException
+	at org.jfree.chart.plot.XYPlot.removeRangeMarker(XYPlot.java:2529)
+	at org.jfree.chart.plot.XYPlot_ESTest.test052(XYPlot_ESTest.java:866)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 323,  Failures: 7
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=3.7s]

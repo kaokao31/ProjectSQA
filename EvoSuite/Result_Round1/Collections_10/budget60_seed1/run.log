@@ -1,0 +1,825 @@
+
+$ defects4j checkout -p Collections -v 10f -w /work/Collections_10f
+Checking out e6d4f465 to /work/Collections_10f............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Collections_10f/project.properties............ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e6d4f465:c1351569..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Collections-10f................................. OK
+
+[exit=0 timeout=False time=1.6s]
+
+$ defects4j compile -w /work/Collections_10f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=5.8s]
+
+$ defects4j checkout -p Collections -v 10b -w /work/Collections_10b
+Checking out e6d4f465 to /work/Collections_10b............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Collections_10b/project.properties............ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e6d4f465:c1351569..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Collections-10b................................. OK
+
+[exit=0 timeout=False time=1.6s]
+
+$ defects4j compile -w /work/Collections_10b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=5.5s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar org.evosuite.EvoSuite -generateSuite -class org.apache.commons.collections.map.MultiValueMap -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Collections_10f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Collections_10f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.collections.map.MultiValueMap
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Collections_10f/build/classes
+  - /work/Collections_10f/build/tests
+  - /opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.collections.map.MultiValueMap
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 119
+  - Branch 72
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 17:36:32.544 [logback-1] WARN  TestCluster - Failed to check cache for java.util.HashMap<K, V> : Type points to itself
+[MASTER] 17:36:33.220 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:36:33.225 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:>                             1%] [Cov:====>                              14%]
+[Progress:>                             1%] [Cov:========>                          25%]
+[Progress:>                             1%] [Cov:====================>              58%]
+[Progress:>                             1%] [Cov:=====================>             60%]
+[Progress:>                             3%] [Cov:=>                                 3%]
+[Progress:>                             3%] [Cov:=>                                 5%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:===================>               55%]
+[Progress:>                             3%] [Cov:====================>              58%][MASTER] 17:36:34.746 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:>                             3%] [Cov:====================>              59%]
+[Progress:>                             3%] [Cov:=====================>             62%]
+[Progress:>                             3%] [Cov:======================>            65%]
+[Progress:>                             3%] [Cov:======================>            63%]
+[Progress:>                             3%] [Cov:======================>            65%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            5%] [Cov:===================>               57%]
+[Progress:=>                            5%] [Cov:=====================>             60%]
+[Progress:=>                            5%] [Cov:==============================>    88%]
+[Progress:=>                            5%] [Cov:==============================>    88%]
+[Progress:=>                            5%] [Cov:==============================>    88%]
+[Progress:=>                            5%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%]
+[Progress:=>                            6%] [Cov:==============================>    88%][MASTER] 17:36:37.416 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:36:37.417 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class org.apache.commons.collections.MultiHashMap}
+
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%][MASTER] 17:36:38.084 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:36:38.086 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.util.ArrayList<org.apache.commons.collections.MultiHashMap>>}
+
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:==>                           8%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:==============================>    88%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          10%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%][MASTER] 17:36:39.816 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:36:39.817 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class org.apache.commons.collections.MultiHashMap}
+
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   89%]
+[Progress:===>                          11%] [Cov:===============================>   90%]
+[Progress:===>                          11%] [Cov:===============================>   90%]
+[Progress:===>                          11%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:===>                          13%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         15%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:====>                         16%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:=====>                        18%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       20%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       21%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:======>                       23%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      25%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:=======>                      26%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:========>                     28%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    30%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    31%] [Cov:===============================>   90%]
+[Progress:=========>                    33%] [Cov:===============================>   90%]
+[Progress:=========>                    33%] [Cov:===============================>   90%]
+[Progress:=========>                    33%] [Cov:===============================>   90%]
+[Progress:=========>                    33%] [Cov:===============================>   90%]
+[Progress:=========>                    33%] [Cov:===============================>   90%]
+[Progress:=========>                    33%] [Cov:===============================>   90%]
+[Progress:==========>                   35%] [Cov:===============================>   90%]
+[Progress:==========>                   35%] [Cov:===============================>   90%]
+[Progress:==========>                   35%] [Cov:===============================>   90%]
+[Progress:==========>                   35%] [Cov:===============================>   90%]
+[Progress:==========>                   35%] [Cov:===============================>   90%]
+[Progress:==========>                   35%] [Cov:===============================>   90%]
+[Progress:==========>                   35%] [Cov:===============================>   90%]
+[Progress:==========>                   36%] [Cov:===============================>   90%]
+[Progress:==========>                   36%] [Cov:===============================>   90%]
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:==========>                   36%] [Cov:===============================>   91%][MASTER] 17:36:55.191 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:36:55.192 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.util.HashMap<org.apache.commons.collections.MultiHashMap, org.apache.commons.collections.MultiHashMap>}
+
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:==========>                   36%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:===========>                  38%] [Cov:===============================>   91%]
+[Progress:============>                 40%] [Cov:===============================>   91%]
+[Progress:============>                 40%] [Cov:===============================>   91%]
+[Progress:============>                 40%] [Cov:===============================>   91%][MASTER] 17:36:56.868 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:36:56.869 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:============>                 40%] [Cov:===============================>   91%]
+[Progress:============>                 40%] [Cov:===============================>   91%]
+[Progress:============>                 41%] [Cov:===============================>   91%]
+[Progress:============>                 41%] [Cov:===============================>   91%]
+[Progress:============>                 41%] [Cov:===============================>   91%]
+[Progress:============>                 41%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:============>                 43%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%]
+[Progress:=============>                45%] [Cov:===============================>   91%][MASTER] 17:37:00.537 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:00.539 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class org.apache.commons.collections.map.MultiValueMap}
+
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:=============>                46%] [Cov:===============================>   91%]
+[Progress:==============>               48%] [Cov:===============================>   91%]
+[Progress:==============>               48%] [Cov:===============================>   91%]
+[Progress:==============>               48%] [Cov:===============================>   91%]
+[Progress:==============>               48%] [Cov:===============================>   91%]
+[Progress:==============>               48%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              50%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              51%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:===============>              53%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             55%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:================>             56%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:=================>            58%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           60%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           61%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:==================>           63%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%][MASTER] 17:37:12.304 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:12.305 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.util.ArrayList<org.apache.commons.collections.MultiHashMap>>}
+
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          65%] [Cov:===============================>   91%]
+[Progress:===================>          66%] [Cov:===============================>   91%]
+[Progress:===================>          66%] [Cov:===============================>   91%]
+[Progress:===================>          66%] [Cov:===============================>   91%]
+[Progress:===================>          66%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:====================>         68%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        70%] [Cov:===============================>   91%]
+[Progress:=====================>        71%] [Cov:===============================>   91%]
+[Progress:=====================>        71%] [Cov:===============================>   91%]
+[Progress:=====================>        71%] [Cov:===============================>   91%][MASTER] 17:37:15.814 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:15.816 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:=====================>        71%] [Cov:===============================>   91%]
+[Progress:=====================>        71%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:=====================>        73%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       75%] [Cov:===============================>   91%]
+[Progress:======================>       76%] [Cov:===============================>   91%]
+[Progress:======================>       76%] [Cov:===============================>   91%][MASTER] 17:37:18.708 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:18.709 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class org.apache.commons.collections.MultiHashMap}
+
+[Progress:======================>       76%] [Cov:===============================>   91%]
+[Progress:======================>       76%] [Cov:===============================>   91%]
+[Progress:======================>       76%] [Cov:===============================>   91%]
+[Progress:======================>       76%] [Cov:===============================>   91%]
+[Progress:======================>       76%] [Cov:===============================>   91%]
+[Progress:======================>       76%] [Cov:===============================>   91%][MASTER] 17:37:19.422 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:19.423 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.Object>}
+
+[Progress:======================>       76%] [Cov:===============================>   91%]
+[Progress:=======================>      78%] [Cov:===============================>   91%][MASTER] 17:37:19.547 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:19.548 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.util.ArrayList<java.lang.Object>}
+
+[Progress:=======================>      78%] [Cov:===============================>   91%]
+[Progress:=======================>      78%] [Cov:===============================>   91%][MASTER] 17:37:19.745 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:19.746 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<org.apache.commons.collections.map.MultiValueMap>}
+
+[Progress:=======================>      78%] [Cov:===============================>   91%]
+[Progress:=======================>      78%] [Cov:===============================>   91%]
+[Progress:=======================>      78%] [Cov:===============================>   91%]
+[Progress:=======================>      78%] [Cov:===============================>   91%][MASTER] 17:37:20.229 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:20.230 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class org.apache.commons.collections.map.MultiValueMap}
+
+[Progress:=======================>      78%] [Cov:===============================>   91%]
+[Progress:=======================>      78%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%][MASTER] 17:37:20.875 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:20.876 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%]
+[Progress:========================>     80%] [Cov:===============================>   91%][MASTER] 17:37:21.525 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:21.526 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.util.ArrayList<org.apache.commons.collections.map.MultiValueMap>}
+
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     81%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%][MASTER] 17:37:24.662 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:24.663 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%][MASTER] 17:37:26.064 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:26.065 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%][MASTER] 17:37:26.460 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:26.461 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.util.ArrayList<java.lang.Object>}
+
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%][MASTER] 17:37:27.724 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:27.725 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class org.apache.commons.collections.MultiHashMap}
+
+[Progress:===========================>  91%] [Cov:===============================>   91%][MASTER] 17:37:27.818 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:27.820 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<org.apache.commons.collections.MultiHashMap>}
+
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%][MASTER] 17:37:29.259 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:29.260 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.util.ArrayList<org.apache.commons.collections.MultiHashMap>>}
+
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%][MASTER] 17:37:30.180 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:30.181 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%][MASTER] 17:37:31.989 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:31.990 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.lang.Comparable<java.lang.Object>}
+
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%][MASTER] 17:37:32.323 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:32.324 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=java.util.ArrayList<org.apache.commons.collections.MultiHashMap>}
+
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%][MASTER] 17:37:32.917 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:32.918 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class java.lang.Object}
+
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%][MASTER] 17:37:33.317 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable K with bounds [java.lang.Comparable<? super K>] of declaration Entry#comparingByKey. The owner var map is {}
+[MASTER] 17:37:33.318 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.lang.Comparable<T> for type Variable V with bounds [java.lang.Comparable<? super V>] of declaration Entry#comparingByValue. The owner var map is {K=class org.apache.commons.collections.MultiHashMap}
+
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+* Search finished after 61s and 360 generations, 167150 statements, best individual has fitness: 15.292207792207792
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 88%
+* Total number of goals: 119
+* Number of covered goals: 105
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 85%
+* Total number of goals: 72
+* Number of covered goals: 61
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 32
+* Number of covered goals: 32
+* Generated 49 tests with total length 242
+* Resulting test suite's coverage: 91% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 58%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'MultiValueMap_ESTest' to /work/evo_out/Collections_10f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 17:37:40.757 [logback-2] ERROR JUnitAnalyzer - Compilation failed on compilation units: [SimpleFileObject[/tmp/EvoSuite_7_1790037460689/org/apache/commons/collections/map/MultiValueMap_7_tmp__ESTest.java], SimpleFileObject[/tmp/EvoSuite_7_1790037460689/org/apache/commons/collections/map/MultiValueMap_7_tmp__ESTest_scaffolding.java]]
+[MASTER] 17:37:40.757 [logback-2] ERROR JUnitAnalyzer - Classpath: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar
+[MASTER] 17:37:40.758 [logback-2] ERROR JUnitAnalyzer - evosuiteCP: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar
+[MASTER] 17:37:40.761 [logback-2] ERROR JUnitAnalyzer - Diagnostic: incompatible types: java.util.ArrayList cannot be converted to java.util.Map: 28
+[MASTER] 17:37:40.761 [logback-2] ERROR JUnitAnalyzer - Diagnostic: /tmp/EvoSuite_7_1790037460689/org/apache/commons/collections/map/MultiValueMap_7_tmp__ESTest.java uses or overrides a deprecated API.: -1
+[MASTER] 17:37:40.761 [logback-2] ERROR JUnitAnalyzer - Diagnostic: Recompile with -Xlint:deprecation for details.: -1
+[MASTER] 17:37:40.761 [logback-2] ERROR JUnitAnalyzer - Diagnostic: Some messages have been simplified; recompile with -Xdiags:verbose to get full output: -1
+[MASTER] 17:37:40.761 [logback-2] ERROR JUnitAnalyzer - SimpleFileObject[/tmp/EvoSuite_7_1790037460689/org/apache/commons/collections/map/MultiValueMap_7_tmp__ESTest.java]
+1: /*
+2:  * This file was automatically generated by EvoSuite
+3:  * Tue Sep 22 00:37:40 GMT 2026
+4:  */
+5: 
+6: package org.apache.commons.collections.map;
+7: 
+8: import org.junit.Test;
+9: import static org.junit.Assert.*;
+10: import java.util.ArrayList;
+11: import org.apache.commons.collections.MultiHashMap;
+12: import org.apache.commons.collections.map.MultiValueMap;
+13: import org.evosuite.runtime.EvoRunner;
+14: import org.evosuite.runtime.EvoRunnerParameters;
+15: import org.junit.runner.RunWith;
+16: 
+17: @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true) 
+18: public class MultiValueMap_7_tmp__ESTest extends MultiValueMap_7_tmp__ESTest_scaffolding {
+19: 
+20:   @Test(timeout = 4000)
+21:   public void test0()  throws Throwable  {
+22:       MultiValueMap multiValueMap0 = new MultiValueMap();
+23:       ArrayList<Object> arrayList0 = new ArrayList<Object>();
+24:       MultiHashMap multiHashMap0 = new MultiHashMap();
+25:       ArrayList arrayList1 = (ArrayList)multiValueMap0.put(arrayList0, multiHashMap0);
+26:       ArrayList<MultiHashMap> arrayList2 = new ArrayList<MultiHashMap>();
+27:       multiHashMap0.put(arrayList2, (Object) null);
+28:       multiValueMap0.putAll(arrayList1);
+29:       multiValueMap0.removeMapping(arrayList0, (Object) null);
+30:       assertEquals(1, multiValueMap0.size());
+31:   }
+32: }
+SimpleFileObject[/tmp/EvoSuite_7_1790037460689/org/apache/commons/collections/map/MultiValueMap_7_tmp__ESTest.java]
+1: /**
+2:  * Scaffolding file used to store all the setups needed to run 
+3:  * tests automatically generated by EvoSuite
+4:  * Tue Sep 22 00:37:40 GMT 2026
+5:  */
+6: 
+7: package org.apache.commons.collections.map;
+8: 
+9: import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
+10: import org.junit.BeforeClass;
+11: import org.junit.Before;
+12: import org.junit.After;
+13: import org.junit.AfterClass;
+14: import org.evosuite.runtime.sandbox.Sandbox;
+15: import org.evosuite.runtime.sandbox.Sandbox.SandboxMode;
+16: 
+17: @EvoSuiteClassExclude
+18: public class MultiValueMap_7_tmp__ESTest_scaffolding {
+19: 
+20:   @org.junit.Rule
+21:   public org.evosuite.runtime.vnet.NonFunctionalRequirementRule nfr = new org.evosuite.runtime.vnet.NonFunctionalRequirementRule();
+22: 
+23:   private static final java.util.Properties defaultProperties = (java.util.Properties) java.lang.System.getProperties().clone(); 
+24: 
+25:   private org.evosuite.runtime.thread.ThreadStopper threadStopper =  new org.evosuite.runtime.thread.ThreadStopper (org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
+26: 
+27: 
+28:   @BeforeClass
+29:   public static void initEvoSuiteFramework() { 
+30:     org.evosuite.runtime.RuntimeSettings.className = "org.apache.commons.collections.map.MultiValueMap"; 
+31:     org.evosuite.runtime.GuiSupport.initialize(); 
+32:     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
+33:     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
+34:     org.evosuite.runtime.RuntimeSettings.mockSystemIn = true; 
+35:     org.evosuite.runtime.RuntimeSettings.sandboxMode = org.evosuite.runtime.sandbox.Sandbox.SandboxMode.RECOMMENDED; 
+36:     org.evosuite.runtime.sandbox.Sandbox.initializeSecurityManagerForSUT(); 
+37:     org.evosuite.runtime.classhandling.JDKClassResetter.init();
+38:     setSystemProperties();
+39:     initializeClasses();
+40:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+41:   } 
+42: 
+43:   @AfterClass
+44:   public static void clearEvoSuiteFramework(){ 
+45:     Sandbox.resetDefaultSecurityManager(); 
+46:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+47:   } 
+48: 
+49:   @Before
+50:   public void initTestCase(){ 
+51:     threadStopper.storeCurrentThreads();
+52:     threadStopper.startRecordingTime();
+53:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().initHandler(); 
+54:     org.evosuite.runtime.sandbox.Sandbox.goingToExecuteSUTCode(); 
+55:     setSystemProperties(); 
+56:     org.evosuite.runtime.GuiSupport.setHeadless(); 
+57:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+58:     org.evosuite.runtime.agent.InstrumentingAgent.activate(); 
+59:   } 
+60: 
+61:   @After
+62:   public void doneWithTestCase(){ 
+63:     threadStopper.killAndJoinClientThreads();
+64:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().safeExecuteAddedHooks(); 
+65:     org.evosuite.runtime.classhandling.JDKClassResetter.reset(); 
+66:     resetClasses(); 
+67:     org.evosuite.runtime.sandbox.Sandbox.doneWithExecutingSUTCode(); 
+68:     org.evosuite.runtime.agent.InstrumentingAgent.deactivate(); 
+69:     org.evosuite.runtime.GuiSupport.restoreHeadlessMode(); 
+70:   } 
+71: 
+72:   public static void setSystemProperties() {
+73:  
+74:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+75:     java.lang.System.setProperty("user.dir", "/work/Collections_10f"); 
+76:     java.lang.System.setProperty("java.io.tmpdir", "/tmp"); 
+77:   }
+78: 
+79:   private static void initializeClasses() {
+80:     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(MultiValueMap_7_tmp__ESTest_scaffolding.class.getClassLoader() ,
+81:       "org.apache.commons.collections.iterators.AbstractEmptyIterator",
+82:       "org.apache.commons.collections.MultiHashMap",
+83:       "org.apache.commons.collections.functors.ExceptionFactory",
+84:       "org.apache.commons.collections.ResettableIterator",
+85:       "org.apache.commons.collections.map.AbstractMapDecorator",
+86:       "org.apache.commons.collections.MultiMap",
+87:       "org.apache.commons.collections.map.MultiValueMap",
+88:       "org.apache.commons.collections.FunctorException",
+89:       "org.apache.commons.collections.map.MultiValueMap$ValuesIterator",
+90:       "org.apache.commons.collections.map.MultiValueMap$Values",
+91:       "org.apache.commons.collections.functors.ConstantFactory",
+92:       "org.apache.commons.collections.map.MultiValueMap$ReflectionFactory",
+93:       "org.apache.commons.collections.Factory",
+94:       "org.apache.commons.collections.iterators.IteratorChain",
+95:       "org.apache.commons.collections.iterators.EmptyIterator"
+96:     );
+97:   } 
+98: 
+99:   private static void resetClasses() {
+100:     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(MultiValueMap_7_tmp__ESTest_scaffolding.class.getClassLoader()); 
+101: 
+102:     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
+103:       "org.apache.commons.collections.map.AbstractMapDecorator",
+104:       "org.apache.commons.collections.map.MultiValueMap",
+105:       "org.apache.commons.collections.map.MultiValueMap$ReflectionFactory",
+106:       "org.apache.commons.collections.map.MultiValueMap$Values",
+107:       "org.apache.commons.collections.map.MultiValueMap$ValuesIterator",
+108:       "org.apache.commons.collections.iterators.AbstractEmptyIterator",
+109:       "org.apache.commons.collections.iterators.EmptyIterator",
+110:       "org.apache.commons.collections.MultiHashMap",
+111:       "org.apache.commons.collections.functors.ExceptionFactory",
+112:       "org.apache.commons.collections.functors.ConstantFactory",
+113:       "org.apache.commons.collections.functors.InstantiateFactory",
+114:       "org.apache.commons.collections.iterators.IteratorChain",
+115:       "org.apache.commons.collections.MultiHashMap$Values",
+116:       "org.apache.commons.collections.MultiHashMap$ValueIterator",
+117:       "org.apache.commons.collections.FunctorException"
+118:     );
+119:   }
+120: }
+
+[MASTER] 17:37:40.762 [logback-2] ERROR JUnitAnalyzer - Failed to compile test case:
+MultiValueMap multiValueMap0 = new MultiValueMap();
+ArrayList<Object> arrayList0 = new ArrayList<Object>();
+MultiHashMap multiHashMap0 = new MultiHashMap();
+ArrayList arrayList1 = (ArrayList)multiValueMap0.put(arrayList0, multiHashMap0);
+ArrayList<MultiHashMap> arrayList2 = new ArrayList<MultiHashMap>();
+multiHashMap0.put(arrayList2, (Object) null);
+multiValueMap0.putAll(arrayList1);
+multiValueMap0.removeMapping(arrayList0, (Object) null);
+assertEquals(1, multiValueMap0.size());
+
+
+
+[exit=0 timeout=False time=76.4s]
+
+$ javac -nowarn -cp /work/Collections_10f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Collections_10f/budget60_seed1/classes /work/evo_out/Collections_10f/budget60_seed1/tests/org/apache/commons/collections/map/MultiValueMap_ESTest.java /work/evo_out/Collections_10f/budget60_seed1/tests/org/apache/commons/collections/map/MultiValueMap_ESTest_scaffolding.java
+Note: /work/evo_out/Collections_10f/budget60_seed1/tests/org/apache/commons/collections/map/MultiValueMap_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /work/evo_out/Collections_10f/budget60_seed1/tests/org/apache/commons/collections/map/MultiValueMap_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Collections_10f/build/classes --dest /work/evo_out/Collections_10f/budget60_seed1/instrumented
+[INFO] 458 classes instrumented to /work/evo_out/Collections_10f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Collections_10/budget60_seed1/jacoco.exec -cp /work/evo_out/Collections_10f/budget60_seed1/instrumented:/work/evo_out/Collections_10f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_10f/build/classes:/work/Collections_10f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.collections.map.MultiValueMap_ESTest
+JUnit version 4.12
+................................................
+Time: 0.75
+
+OK (48 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Collections_10/budget60_seed1/jacoco.exec --classfiles /work/Collections_10f/build/classes --csv /workspace/EvoSuite/Result_Round1/Collections_10/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Collections_10/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 420 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -cp /work/evo_out/Collections_10f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_10b/build/classes:/work/Collections_10b/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.collections.map.MultiValueMap_ESTest
+JUnit version 4.12
+................................................
+Time: 0.684
+
+OK (48 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.9s]

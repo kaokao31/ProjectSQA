@@ -1,0 +1,523 @@
+
+$ defects4j checkout -p Closure -v 116f -w /work/Closure_116f
+Checking out b80dfd3b to /work/Closure_116f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_116f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_116f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b80dfd3b:b9262dcd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-116f.................................... OK
+
+[exit=0 timeout=False time=3.1s]
+
+$ defects4j compile -w /work/Closure_116f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.7s]
+
+$ defects4j checkout -p Closure -v 116b -w /work/Closure_116b
+Checking out b80dfd3b to /work/Closure_116b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_116b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_116b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b80dfd3b:b9262dcd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-116b.................................... OK
+
+[exit=0 timeout=False time=3.2s]
+
+$ defects4j compile -w /work/Closure_116b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.7s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_116f/build/classes:/work/Closure_116f/lib/args4j.jar:/work/Closure_116f/lib/guava.jar:/work/Closure_116f/lib/json.jar:/work/Closure_116f/lib/jsr305.jar:/work/Closure_116f/lib/protobuf-java.jar:/work/Closure_116f/build/lib/rhino.jar:/work/Closure_116f/lib/ant.jar:/work/Closure_116f/lib/ant-launcher.jar:/work/Closure_116f/lib/caja-r4314.jar:/work/Closure_116f/lib/jarjar.jar:/work/Closure_116f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.FunctionInjector -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_116f/build/classes:/work/Closure_116f/lib/args4j.jar:/work/Closure_116f/lib/guava.jar:/work/Closure_116f/lib/json.jar:/work/Closure_116f/lib/jsr305.jar:/work/Closure_116f/lib/protobuf-java.jar:/work/Closure_116f/build/lib/rhino.jar:/work/Closure_116f/lib/ant.jar:/work/Closure_116f/lib/ant-launcher.jar:/work/Closure_116f/lib/caja-r4314.jar:/work/Closure_116f/lib/jarjar.jar:/work/Closure_116f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_116f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_116f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.FunctionInjector
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_116f/build/classes
+  - /work/Closure_116f/lib/args4j.jar
+  - /work/Closure_116f/lib/guava.jar
+  - /work/Closure_116f/lib/json.jar
+  - /work/Closure_116f/lib/jsr305.jar
+  - /work/Closure_116f/lib/protobuf-java.jar
+  - /work/Closure_116f/build/lib/rhino.jar
+  - /work/Closure_116f/lib/ant.jar
+  - /work/Closure_116f/lib/ant-launcher.jar
+  - /work/Closure_116f/lib/caja-r4314.jar
+  - /work/Closure_116f/lib/jarjar.jar
+  - /work/Closure_116f/build/test
+[MASTER] 08:30:53.098 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 08:30:53.113 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 08:30:53.586 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.FunctionInjector
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 287
+  - Branch 258
+  - Exception 0
+* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  0%]
+[Progress:>                             3%] [Cov:>                                  1%]
+[Progress:>                             3%] [Cov:===========>                       34%]
+[Progress:>                             3%] [Cov:============>                      35%][MASTER] 08:30:56.856 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:=>                            5%] [Cov:>                                  1%]
+[Progress:=>                            5%] [Cov:===========>                       34%]
+[Progress:=>                            5%] [Cov:============>                      35%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    41%]
+[Progress:==>                           8%] [Cov:==============>                    42%]
+[Progress:==>                           8%] [Cov:===============>                   43%]
+[Progress:==>                           8%] [Cov:===============>                   43%]
+[Progress:==>                           8%] [Cov:===============>                   43%]
+[Progress:==>                           8%] [Cov:===============>                   43%]
+[Progress:===>                          10%] [Cov:===============>                   43%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          11%] [Cov:===============>                   44%]
+[Progress:===>                          11%] [Cov:===============>                   44%]
+[Progress:===>                          11%] [Cov:===============>                   44%]
+[Progress:===>                          11%] [Cov:===============>                   44%]
+[Progress:===>                          11%] [Cov:===============>                   44%]
+[Progress:===>                          11%] [Cov:===============>                   44%]
+[Progress:===>                          13%] [Cov:===============>                   44%]
+[Progress:===>                          13%] [Cov:===============>                   44%]
+[Progress:===>                          13%] [Cov:===============>                   44%]
+[Progress:===>                          13%] [Cov:===============>                   44%]
+[Progress:===>                          13%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         15%] [Cov:===============>                   44%]
+[Progress:====>                         16%] [Cov:===============>                   44%]
+[Progress:====>                         16%] [Cov:===============>                   44%]
+[Progress:====>                         16%] [Cov:===============>                   44%]
+[Progress:====>                         16%] [Cov:===============>                   44%]
+[Progress:====>                         16%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:=====>                        18%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:========>                     28%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:============>                 40%] [Cov:===============>                   44%]
+[Progress:============>                 40%] [Cov:===============>                   44%]
+[Progress:============>                 40%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 43%] [Cov:===============>                   44%]
+[Progress:============>                 43%] [Cov:===============>                   44%]
+[Progress:============>                 43%] [Cov:===============>                   44%]
+[Progress:============>                 43%] [Cov:===============>                   44%]
+[Progress:============>                 43%] [Cov:===============>                   44%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:================>             55%] [Cov:===============>                   44%]
+[Progress:================>             55%] [Cov:===============>                   44%]
+[Progress:================>             56%] [Cov:===============>                   44%]
+[Progress:================>             56%] [Cov:===============>                   44%]
+[Progress:================>             56%] [Cov:===============>                   44%]
+[Progress:================>             56%] [Cov:===============>                   44%]
+[Progress:================>             56%] [Cov:===============>                   44%]
+[Progress:=================>            58%] [Cov:===============>                   44%]
+[Progress:=================>            58%] [Cov:===============>                   44%]
+[Progress:=================>            58%] [Cov:===============>                   44%]
+[Progress:=================>            58%] [Cov:===============>                   44%]
+[Progress:=================>            58%] [Cov:===============>                   45%]
+[Progress:===================>          66%] [Cov:===============>                   44%]
+[Progress:====================>         68%] [Cov:===============>                   44%]
+[Progress:====================>         68%] [Cov:===============>                   45%]
+[Progress:====================>         68%] [Cov:===============>                   45%]
+[Progress:====================>         68%] [Cov:===============>                   45%]
+[Progress:====================>         68%] [Cov:===============>                   45%]
+[Progress:=====================>        70%] [Cov:===============>                   45%]
+[Progress:=====================>        70%] [Cov:===============>                   45%]
+[Progress:=====================>        70%] [Cov:===============>                   45%]
+[Progress:=====================>        70%] [Cov:===============>                   45%]
+[Progress:=====================>        71%] [Cov:===============>                   45%]
+[Progress:=====================>        71%] [Cov:===============>                   45%]
+[Progress:=====================>        71%] [Cov:===============>                   45%]
+[Progress:=====================>        71%] [Cov:===============>                   45%]
+[Progress:=====================>        73%] [Cov:===============>                   45%]
+[Progress:=====================>        73%] [Cov:===============>                   45%]
+[Progress:=====================>        73%] [Cov:===============>                   45%]
+[Progress:=====================>        73%] [Cov:===============>                   45%]
+[Progress:=====================>        73%] [Cov:===============>                   45%]
+[Progress:======================>       75%] [Cov:===============>                   45%]
+[Progress:======================>       75%] [Cov:===============>                   45%]
+[Progress:======================>       75%] [Cov:===============>                   45%]
+[Progress:======================>       75%] [Cov:===============>                   45%]
+[Progress:======================>       76%] [Cov:===============>                   45%]
+[Progress:======================>       76%] [Cov:===============>                   45%]
+[Progress:======================>       76%] [Cov:===============>                   45%]
+[Progress:======================>       76%] [Cov:===============>                   45%]
+[Progress:======================>       76%] [Cov:===============>                   45%]
+[Progress:=======================>      78%] [Cov:===============>                   45%]
+[Progress:=======================>      78%] [Cov:===============>                   45%]
+[Progress:=======================>      78%] [Cov:===============>                   45%]
+[Progress:=======================>      78%] [Cov:===============>                   45%]
+[Progress:=======================>      78%] [Cov:===============>                   45%]
+[Progress:========================>     80%] [Cov:===============>                   45%]
+[Progress:========================>     80%] [Cov:===============>                   45%]
+[Progress:========================>     80%] [Cov:===============>                   45%]
+[Progress:========================>     80%] [Cov:===============>                   45%]
+[Progress:========================>     81%] [Cov:===============>                   45%]
+[Progress:========================>     81%] [Cov:===============>                   45%]
+[Progress:========================>     81%] [Cov:===============>                   45%]
+[Progress:========================>     81%] [Cov:===============>                   45%]
+[Progress:========================>     81%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:==========================>   88%] [Cov:===============>                   45%]
+[Progress:==========================>   88%] [Cov:===============>                   45%]
+[Progress:==========================>   88%] [Cov:===============>                   45%]
+[Progress:==========================>   88%] [Cov:===============>                   45%]
+[Progress:===========================>  90%] [Cov:===============>                   45%]
+[Progress:===========================>  90%] [Cov:===============>                   45%]
+[Progress:===========================>  90%] [Cov:===============>                   45%]
+[Progress:===========================>  90%] [Cov:===============>                   45%]
+[Progress:===========================>  90%] [Cov:===============>                   45%]
+[Progress:===========================>  91%] [Cov:===============>                   45%]
+[Progress:===========================>  91%] [Cov:===============>                   45%]
+[Progress:===========================>  91%] [Cov:===============>                   45%]
+[Progress:===========================>  91%] [Cov:===============>                   45%]
+[Progress:===========================>  91%] [Cov:===============>                   45%]
+[Progress:===========================>  93%] [Cov:===============>                   45%]
+[Progress:===========================>  93%] [Cov:===============>                   45%]
+[Progress:===========================>  93%] [Cov:===============>                   45%]
+[Progress:===========================>  93%] [Cov:===============>                   45%]
+[Progress:===========================>  93%] [Cov:===============>                   45%]
+[Progress:============================> 95%] [Cov:===============>                   45%]
+[Progress:============================> 95%] [Cov:===============>                   45%]
+[Progress:============================> 95%] [Cov:===============>                   45%]
+[Progress:============================> 95%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+* Search finished after 63s and 142 generations, 71542 statements, best individual has fitness: 405.0725752508361
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 20%
+* Total number of goals: 287
+* Number of covered goals: 58
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 16%
+* Total number of goals: 258
+* Number of covered goals: 41
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 12
+* Number of covered goals: 12
+* Generated 17 tests with total length 155
+* Resulting test suite's coverage: 45% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 4%
+* Compiling and checking tests
+[MASTER] 08:32:04.871 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: Expecting exception: IllegalArgumentException
+[MASTER] 08:32:04.872 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = denormalizeTest0.createCompiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionToBlockMutator.LabelNameSupplier functionToBlockMutator_LabelNameSupplier0 = new FunctionToBlockMutator.LabelNameSupplier(supplier0);
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, functionToBlockMutator_LabelNameSupplier0, true, false, false);
+DenormalizeTest.NormalizeAndDenormalizePass denormalizeTest_NormalizeAndDenormalizePass0 = denormalizeTest0.new NormalizeAndDenormalizePass(compiler0);
+Denormalize denormalize0 = denormalizeTest_NormalizeAndDenormalizePass0.denormalizePass;
+compiler0.getTypedScopeCreator();
+NodeTraversal nodeTraversal0 = new NodeTraversal(compiler0, denormalize0, (ScopeCreator) null);
+compiler0.parseSyntheticCode("F6K", "F6K");
+
+[MASTER] 08:32:05.495 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: Expecting exception: IllegalArgumentException
+[MASTER] 08:32:05.495 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = denormalizeTest0.createCompiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionToBlockMutator.LabelNameSupplier functionToBlockMutator_LabelNameSupplier0 = new FunctionToBlockMutator.LabelNameSupplier(supplier0);
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, functionToBlockMutator_LabelNameSupplier0, true, true, true);
+DenormalizeTest.NormalizeAndDenormalizePass denormalizeTest_NormalizeAndDenormalizePass0 = denormalizeTest0.new NormalizeAndDenormalizePass(compiler0);
+Denormalize denormalize0 = denormalizeTest_NormalizeAndDenormalizePass0.denormalizePass;
+compiler0.getTypedScopeCreator();
+NodeTraversal nodeTraversal0 = new NodeTraversal(compiler0, denormalize0, (ScopeCreator) null);
+compiler0.parseSyntheticCode("F6K", "F6K");
+
+[MASTER] 08:32:06.123 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: Expecting exception: IllegalArgumentException
+[MASTER] 08:32:06.123 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = new Compiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionToBlockMutator.LabelNameSupplier functionToBlockMutator_LabelNameSupplier0 = new FunctionToBlockMutator.LabelNameSupplier(supplier0);
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, functionToBlockMutator_LabelNameSupplier0, true, true, false);
+DenormalizeTest.NormalizeAndDenormalizePass denormalizeTest_NormalizeAndDenormalizePass0 = denormalizeTest0.new NormalizeAndDenormalizePass(compiler0);
+Denormalize denormalize0 = denormalizeTest_NormalizeAndDenormalizePass0.denormalizePass;
+compiler0.getTypedScopeCreator();
+NodeTraversal nodeTraversal0 = new NodeTraversal(compiler0, denormalize0, (ScopeCreator) null);
+denormalizeTest0.parseExpectedJs("F6K");
+
+[MASTER] 08:32:06.740 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: Expecting exception: IllegalArgumentException
+[MASTER] 08:32:06.741 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = new Compiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionToBlockMutator.LabelNameSupplier functionToBlockMutator_LabelNameSupplier0 = new FunctionToBlockMutator.LabelNameSupplier(supplier0);
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, functionToBlockMutator_LabelNameSupplier0, true, true, false);
+DenormalizeTest.NormalizeAndDenormalizePass denormalizeTest_NormalizeAndDenormalizePass0 = denormalizeTest0.new NormalizeAndDenormalizePass(compiler0);
+Denormalize denormalize0 = denormalizeTest_NormalizeAndDenormalizePass0.denormalizePass;
+compiler0.getTypedScopeCreator();
+NodeTraversal nodeTraversal0 = new NodeTraversal(compiler0, denormalize0, (ScopeCreator) null);
+denormalizeTest0.parseExpectedJs("F6K");
+
+[MASTER] 08:32:14.223 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test06 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:32:14.223 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = denormalizeTest0.createCompiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionToBlockMutator.LabelNameSupplier functionToBlockMutator_LabelNameSupplier0 = new FunctionToBlockMutator.LabelNameSupplier(supplier0);
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, functionToBlockMutator_LabelNameSupplier0, true, true, false);
+Node node0 = compiler0.parseSyntheticCode("F6K", "F6K");
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.BLOCK;
+JSModule jSModule0 = new JSModule("e]VW^E>MdaK]|,");
+FunctionInjector.Reference functionInjector_Reference0 = new FunctionInjector.Reference(node0, jSModule0, functionInjector_InliningMode0);
+ImmutableList<FunctionInjector.Reference> immutableList0 = ImmutableList.of(functionInjector_Reference0);
+functionInjector0.inliningLowersCost(jSModule0, node0, immutableList0, (Set<String>) null, true, true);
+
+[MASTER] 08:32:14.223 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test07 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:32:14.223 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ LightweightMessageFormatter lightweightMessageFormatter0 = LightweightMessageFormatter.withoutSource();
+MockPrintStream mockPrintStream0 = new MockPrintStream("W");
+PrintStreamErrorManager printStreamErrorManager0 = new PrintStreamErrorManager(lightweightMessageFormatter0, mockPrintStream0);
+Compiler compiler0 = new Compiler(printStreamErrorManager0);
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionToBlockMutator.LabelNameSupplier functionToBlockMutator_LabelNameSupplier0 = new FunctionToBlockMutator.LabelNameSupplier(supplier0);
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, functionToBlockMutator_LabelNameSupplier0, false, true, true);
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.BLOCK;
+FunctionInjector.Reference functionInjector_Reference0 = new FunctionInjector.Reference((Node) null, (JSModule) null, functionInjector_InliningMode0);
+ImmutableListMultimap<FunctionInjector.Reference, FunctionInjector.Reference> immutableListMultimap0 = ImmutableListMultimap.of(functionInjector_Reference0, functionInjector_Reference0, functionInjector_Reference0, functionInjector_Reference0);
+ImmutableCollection<FunctionInjector.Reference> immutableCollection0 = immutableListMultimap0.values();
+Set<String> set0 = ZoneId.getAvailableZoneIds();
+functionInjector0.inliningLowersCost((JSModule) null, (Node) null, immutableCollection0, set0, true, false);
+
+[MASTER] 08:32:14.223 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test09 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:32:14.223 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = denormalizeTest0.createCompiler();
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, (Supplier<String>) null, false, false, false);
+
+[MASTER] 08:32:14.927 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test07 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+[MASTER] 08:32:14.927 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = denormalizeTest0.createCompiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionToBlockMutator.LabelNameSupplier functionToBlockMutator_LabelNameSupplier0 = new FunctionToBlockMutator.LabelNameSupplier(supplier0);
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, functionToBlockMutator_LabelNameSupplier0, true, true, false);
+Node node0 = compiler0.parseSyntheticCode("F6K", "F6K");
+JSModule jSModule0 = new JSModule("e]VW^E>MdaK]|,");
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.DIRECT;
+FunctionInjector.Reference functionInjector_Reference0 = new FunctionInjector.Reference(node0, jSModule0, functionInjector_InliningMode0);
+ImmutableList<FunctionInjector.Reference> immutableList0 = ImmutableList.of(functionInjector_Reference0);
+functionInjector0.inliningLowersCost(jSModule0, node0, immutableList0, (Set<String>) null, false, true);
+
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+         writeFileDescriptor: 5
+* Writing tests to file
+* Writing JUnit test case 'FunctionInjector_ESTest' to /work/evo_out/Closure_116f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=86.4s]
+
+$ javac -nowarn -cp /work/Closure_116f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_116f/build/classes:/work/Closure_116f/lib/args4j.jar:/work/Closure_116f/lib/guava.jar:/work/Closure_116f/lib/json.jar:/work/Closure_116f/lib/jsr305.jar:/work/Closure_116f/lib/protobuf-java.jar:/work/Closure_116f/build/lib/rhino.jar:/work/Closure_116f/lib/ant.jar:/work/Closure_116f/lib/ant-launcher.jar:/work/Closure_116f/lib/caja-r4314.jar:/work/Closure_116f/lib/jarjar.jar:/work/Closure_116f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_116f/budget60_seed1/classes /work/evo_out/Closure_116f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionInjector_ESTest.java /work/evo_out/Closure_116f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionInjector_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_116f/build/classes --dest /work/evo_out/Closure_116f/budget60_seed1/instrumented
+[INFO] 1428 classes instrumented to /work/evo_out/Closure_116f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_116/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_116f/budget60_seed1/instrumented:/work/evo_out/Closure_116f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_116f/build/classes:/work/Closure_116f/lib/args4j.jar:/work/Closure_116f/lib/guava.jar:/work/Closure_116f/lib/json.jar:/work/Closure_116f/lib/jsr305.jar:/work/Closure_116f/lib/protobuf-java.jar:/work/Closure_116f/build/lib/rhino.jar:/work/Closure_116f/lib/ant.jar:/work/Closure_116f/lib/ant-launcher.jar:/work/Closure_116f/lib/caja-r4314.jar:/work/Closure_116f/lib/jarjar.jar:/work/Closure_116f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionInjector_ESTest
+JUnit version 4.12
+....E........
+Time: 1.545
+There was 1 failure:
+1) test06(com.google.javascript.jscomp.FunctionInjector_ESTest)
+org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:119)
+	at com.google.common.collect.RegularImmutableMap.<init>(RegularImmutableMap.java:67)
+	at com.google.common.collect.ImmutableMap$Builder.fromEntryList(ImmutableMap.java:249)
+	at com.google.common.collect.ImmutableMap$Builder.build(ImmutableMap.java:235)
+	at com.google.javascript.jscomp.parsing.Config.buildAnnotationNames(Config.java:101)
+	at com.google.javascript.jscomp.parsing.Config.<init>(Config.java:77)
+	at com.google.javascript.jscomp.parsing.ParserRunner.createConfig(ParserRunner.java:69)
+	at com.google.javascript.jscomp.Compiler.getParserConfig(Compiler.java:2101)
+	at com.google.javascript.jscomp.JsAst.parse(JsAst.java:85)
+	at com.google.javascript.jscomp.JsAst.getAstRoot(JsAst.java:50)
+	at com.google.javascript.jscomp.Compiler.parse(Compiler.java:1568)
+	at com.google.javascript.jscomp.Compiler.parseSyntheticCode(Compiler.java:1599)
+	at com.google.javascript.jscomp.FunctionInjector_ESTest.test06(FunctionInjector_ESTest.java:173)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 12,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=3.5s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_116/budget60_seed1/jacoco.exec --classfiles /work/Closure_116f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_116/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_116/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1226 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -cp /work/evo_out/Closure_116f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_116b/build/classes:/work/Closure_116b/lib/args4j.jar:/work/Closure_116b/lib/guava.jar:/work/Closure_116b/lib/json.jar:/work/Closure_116b/lib/jsr305.jar:/work/Closure_116b/lib/protobuf-java.jar:/work/Closure_116b/build/lib/rhino.jar:/work/Closure_116b/lib/ant.jar:/work/Closure_116b/lib/ant-launcher.jar:/work/Closure_116b/lib/caja-r4314.jar:/work/Closure_116b/lib/jarjar.jar:/work/Closure_116b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionInjector_ESTest
+JUnit version 4.12
+....E........
+Time: 1.464
+There was 1 failure:
+1) test06(com.google.javascript.jscomp.FunctionInjector_ESTest)
+org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: duplicate key: desc
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:119)
+	at com.google.common.collect.RegularImmutableMap.<init>(RegularImmutableMap.java:67)
+	at com.google.common.collect.ImmutableMap$Builder.fromEntryList(ImmutableMap.java:249)
+	at com.google.common.collect.ImmutableMap$Builder.build(ImmutableMap.java:235)
+	at com.google.javascript.jscomp.parsing.Config.buildAnnotationNames(Config.java:101)
+	at com.google.javascript.jscomp.parsing.Config.<init>(Config.java:77)
+	at com.google.javascript.jscomp.parsing.ParserRunner.createConfig(ParserRunner.java:69)
+	at com.google.javascript.jscomp.Compiler.getParserConfig(Compiler.java:2101)
+	at com.google.javascript.jscomp.JsAst.parse(JsAst.java:85)
+	at com.google.javascript.jscomp.JsAst.getAstRoot(JsAst.java:50)
+	at com.google.javascript.jscomp.Compiler.parse(Compiler.java:1568)
+	at com.google.javascript.jscomp.Compiler.parseSyntheticCode(Compiler.java:1599)
+	at com.google.javascript.jscomp.FunctionInjector_ESTest.test06(FunctionInjector_ESTest.java:173)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 12,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=1.8s]

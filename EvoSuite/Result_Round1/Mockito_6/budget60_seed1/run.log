@@ -1,0 +1,744 @@
+
+$ defects4j checkout -p Mockito -v 6f -w /work/Mockito_6f
+Checking out dc205824 to /work/Mockito_6f.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: -e expression #1, char 84: unterminated `s' command
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Mockito_6f/build.xml.......................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dc205824:a7ba6069..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-6f...................................... OK
+
+[exit=0 timeout=False time=4.2s]
+
+$ defects4j compile -w /work/Mockito_6f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=58.4s]
+
+$ defects4j checkout -p Mockito -v 6b -w /work/Mockito_6b
+Checking out dc205824 to /work/Mockito_6b.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: -e expression #1, char 84: unterminated `s' command
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Mockito_6b/build.xml.......................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dc205824:a7ba6069..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-6b...................................... OK
+
+[exit=0 timeout=False time=4.1s]
+
+$ defects4j compile -w /work/Mockito_6b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=58.5s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test org.evosuite.EvoSuite -generateSuite -class org.mockito.Matchers -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Mockito_6f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Mockito_6f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.mockito.Matchers
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Mockito_6f/build/classes/java/main
+  - /opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar
+  - /work/Mockito_6f/build/classes/java/test
+[MASTER] 13:37:56.642 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 13:37:56.650 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class org.mockito.Matchers
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 54
+  - Branch 54
+  - Exception 0
+* Using seed 1
+
+[Progress:>                             0%] [Cov:>                                  0%]* Starting evolution
+[MASTER] 13:37:57.554 [logback-1] WARN  TestCluster - Failed to check cache for java.util.LinkedHashSet<E> : Type points to itself
+[MASTER] 13:37:57.554 [logback-1] WARN  TestCluster - Failed to check cache for java.util.HashMap<K, V> : Type points to itself
+
+[Progress:=>                            5%] [Cov:========>                          24%]
+[Progress:=>                            5%] [Cov:=================>                 49%]
+[Progress:=>                            5%] [Cov:============================>      82%]
+[Progress:=>                            5%] [Cov:===============================>   90%][MASTER] 13:38:00.685 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:=>                            6%] [Cov:===>                               10%]
+[Progress:=>                            6%] [Cov:=======>                           20%]
+[Progress:=>                            6%] [Cov:==================>                54%]
+[Progress:=>                            6%] [Cov:============================>      80%]
+[Progress:=>                            6%] [Cov:============================>      82%]
+[Progress:=>                            6%] [Cov:==============================>    87%]
+[Progress:=>                            6%] [Cov:================================>  93%]
+[Progress:=>                            6%] [Cov:===============================>   90%]
+[Progress:=>                            6%] [Cov:================================>  94%]
+[Progress:=>                            6%] [Cov:=================================> 95%]
+[Progress:=>                            6%] [Cov:===================================100%]
+* Search finished after 5s and 1 generations, 5643 statements, best individual has fitness: 1.0
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 100%
+* Total number of goals: 54
+* Number of covered goals: 54
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 100%
+* Total number of goals: 54
+* Number of covered goals: 54
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100% (no goals)
+* Generated 47 tests with total length 71
+* Resulting test suite's coverage: 100% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 6%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 1
+* Writing tests to file
+* Writing JUnit test case 'Matchers_ESTest' to /work/evo_out/Mockito_6f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 13:38:07.260 [logback-2] ERROR JUnitAnalyzer - Compilation failed on compilation units: [SimpleFileObject[/tmp/EvoSuite_12_1790368687203/org/mockito/Matchers_12_tmp__ESTest.java], SimpleFileObject[/tmp/EvoSuite_12_1790368687203/org/mockito/Matchers_12_tmp__ESTest_scaffolding.java]]
+[MASTER] 13:38:07.260 [logback-2] ERROR JUnitAnalyzer - Classpath: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test
+[MASTER] 13:38:07.260 [logback-2] ERROR JUnitAnalyzer - evosuiteCP: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test
+[MASTER] 13:38:07.264 [logback-2] ERROR JUnitAnalyzer - Diagnostic: incompatible types: java.lang.Class<java.lang.Object> cannot be converted to java.lang.Class<java.util.LinkedHashSet<java.util.LinkedHashSet>>: 23
+[MASTER] 13:38:07.265 [logback-2] ERROR JUnitAnalyzer - SimpleFileObject[/tmp/EvoSuite_12_1790368687203/org/mockito/Matchers_12_tmp__ESTest.java]
+1: /*
+2:  * This file was automatically generated by EvoSuite
+3:  * Fri Sep 25 20:38:07 GMT 2026
+4:  */
+5: 
+6: package org.mockito;
+7: 
+8: import org.junit.Test;
+9: import static org.junit.Assert.*;
+10: import java.util.LinkedHashSet;
+11: import java.util.Map;
+12: import org.evosuite.runtime.EvoRunner;
+13: import org.evosuite.runtime.EvoRunnerParameters;
+14: import org.junit.runner.RunWith;
+15: import org.mockito.Matchers;
+16: 
+17: @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true) 
+18: public class Matchers_12_tmp__ESTest extends Matchers_12_tmp__ESTest_scaffolding {
+19: 
+20:   @Test(timeout = 4000)
+21:   public void test0()  throws Throwable  {
+22:       Class<Object> class0 = Object.class;
+23:       Map<Object, LinkedHashSet<LinkedHashSet>> map0 = Matchers.anyMapOf(class0, (Class<LinkedHashSet<LinkedHashSet>>) class0);
+24:       assertTrue(map0.isEmpty());
+25:   }
+26: }
+SimpleFileObject[/tmp/EvoSuite_12_1790368687203/org/mockito/Matchers_12_tmp__ESTest.java]
+1: /**
+2:  * Scaffolding file used to store all the setups needed to run 
+3:  * tests automatically generated by EvoSuite
+4:  * Fri Sep 25 20:38:07 GMT 2026
+5:  */
+6: 
+7: package org.mockito;
+8: 
+9: import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
+10: import org.junit.BeforeClass;
+11: import org.junit.Before;
+12: import org.junit.After;
+13: import org.junit.AfterClass;
+14: import org.evosuite.runtime.sandbox.Sandbox;
+15: import org.evosuite.runtime.sandbox.Sandbox.SandboxMode;
+16: 
+17: @EvoSuiteClassExclude
+18: public class Matchers_12_tmp__ESTest_scaffolding {
+19: 
+20:   @org.junit.Rule
+21:   public org.evosuite.runtime.vnet.NonFunctionalRequirementRule nfr = new org.evosuite.runtime.vnet.NonFunctionalRequirementRule();
+22: 
+23:   private static final java.util.Properties defaultProperties = (java.util.Properties) java.lang.System.getProperties().clone(); 
+24: 
+25:   private org.evosuite.runtime.thread.ThreadStopper threadStopper =  new org.evosuite.runtime.thread.ThreadStopper (org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
+26: 
+27: 
+28:   @BeforeClass
+29:   public static void initEvoSuiteFramework() { 
+30:     org.evosuite.runtime.RuntimeSettings.className = "org.mockito.Matchers"; 
+31:     org.evosuite.runtime.GuiSupport.initialize(); 
+32:     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
+33:     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
+34:     org.evosuite.runtime.RuntimeSettings.mockSystemIn = true; 
+35:     org.evosuite.runtime.RuntimeSettings.sandboxMode = org.evosuite.runtime.sandbox.Sandbox.SandboxMode.RECOMMENDED; 
+36:     org.evosuite.runtime.sandbox.Sandbox.initializeSecurityManagerForSUT(); 
+37:     org.evosuite.runtime.classhandling.JDKClassResetter.init();
+38:     setSystemProperties();
+39:     initializeClasses();
+40:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+41:   } 
+42: 
+43:   @AfterClass
+44:   public static void clearEvoSuiteFramework(){ 
+45:     Sandbox.resetDefaultSecurityManager(); 
+46:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+47:   } 
+48: 
+49:   @Before
+50:   public void initTestCase(){ 
+51:     threadStopper.storeCurrentThreads();
+52:     threadStopper.startRecordingTime();
+53:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().initHandler(); 
+54:     org.evosuite.runtime.sandbox.Sandbox.goingToExecuteSUTCode(); 
+55:     setSystemProperties(); 
+56:     org.evosuite.runtime.GuiSupport.setHeadless(); 
+57:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+58:     org.evosuite.runtime.agent.InstrumentingAgent.activate(); 
+59:   } 
+60: 
+61:   @After
+62:   public void doneWithTestCase(){ 
+63:     threadStopper.killAndJoinClientThreads();
+64:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().safeExecuteAddedHooks(); 
+65:     org.evosuite.runtime.classhandling.JDKClassResetter.reset(); 
+66:     resetClasses(); 
+67:     org.evosuite.runtime.sandbox.Sandbox.doneWithExecutingSUTCode(); 
+68:     org.evosuite.runtime.agent.InstrumentingAgent.deactivate(); 
+69:     org.evosuite.runtime.GuiSupport.restoreHeadlessMode(); 
+70:   } 
+71: 
+72:   public static void setSystemProperties() {
+73:  
+74:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+75:     java.lang.System.setProperty("user.dir", "/work/Mockito_6f"); 
+76:     java.lang.System.setProperty("java.io.tmpdir", "/tmp"); 
+77:   }
+78: 
+79:   private static void initializeClasses() {
+80:     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(Matchers_12_tmp__ESTest_scaffolding.class.getClassLoader() ,
+81:       "org.mockito.internal.configuration.plugins.PluginRegistry",
+82:       "org.mockito.internal.matchers.ContainsExtraTypeInformation",
+83:       "org.mockito.cglib.proxy.Callback",
+84:       "org.mockito.exceptions.misusing.UnfinishedVerificationException",
+85:       "org.mockito.invocation.Location",
+86:       "org.mockito.exceptions.Reporter",
+87:       "org.mockito.exceptions.verification.VerificationInOrderFailure",
+88:       "org.hamcrest.core.Is",
+89:       "org.mockito.exceptions.misusing.NullInsteadOfMockException",
+90:       "org.mockito.ArgumentMatcher",
+91:       "org.mockito.internal.configuration.plugins.PluginLoader",
+92:       "org.mockito.internal.matchers.InstanceOf",
+93:       "org.mockito.internal.matchers.Matches",
+94:       "org.hamcrest.core.CombinableMatcher$CombinableBothMatcher",
+95:       "org.mockito.internal.exceptions.stacktrace.StackTraceFilter",
+96:       "org.mockito.exceptions.misusing.NotAMockException",
+97:       "org.mockito.exceptions.misusing.FriendlyReminderException",
+98:       "org.mockito.internal.progress.MockingProgress",
+99:       "org.mockito.exceptions.misusing.MissingMethodInvocationException",
+100:       "org.mockito.exceptions.verification.SmartNullPointerException",
+101:       "org.mockito.exceptions.verification.TooLittleActualInvocations",
+102:       "org.mockito.internal.progress.MockingProgressImpl",
+103:       "org.mockito.internal.matchers.NotNull",
+104:       "org.mockito.internal.matchers.StartsWith",
+105:       "org.hamcrest.TypeSafeMatcher",
+106:       "org.mockito.internal.matchers.MatcherDecorator",
+107:       "org.mockito.internal.configuration.plugins.Plugins",
+108:       "org.mockito.cglib.proxy.MethodInterceptor",
+109:       "org.mockito.exceptions.verification.TooManyActualInvocations",
+110:       "org.mockito.plugins.MockMaker",
+111:       "org.mockito.internal.matchers.Contains",
+112:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleanerProvider",
+113:       "org.mockito.plugins.StackTraceCleanerProvider",
+114:       "org.mockito.exceptions.misusing.MockitoConfigurationException",
+115:       "org.hamcrest.SelfDescribing",
+116:       "org.mockito.internal.matchers.EndsWith",
+117:       "org.hamcrest.DiagnosingMatcher",
+118:       "org.mockito.exceptions.misusing.InvalidUseOfMatchersException",
+119:       "org.mockito.exceptions.misusing.UnfinishedStubbingException",
+120:       "org.hamcrest.core.IsNot",
+121:       "org.mockito.Matchers",
+122:       "org.mockito.exceptions.verification.NoInteractionsWanted",
+123:       "org.hamcrest.internal.ReflectiveTypeFinder",
+124:       "org.hamcrest.core.CombinableMatcher",
+125:       "org.mockito.exceptions.base.MockitoException",
+126:       "org.mockito.plugins.PluginSwitch",
+127:       "org.hamcrest.core.AllOf",
+128:       "org.mockito.internal.matchers.CapturesArguments",
+129:       "org.mockito.internal.matchers.Same",
+130:       "org.hamcrest.TypeSafeDiagnosingMatcher",
+131:       "org.hamcrest.BaseMatcher",
+132:       "org.mockito.internal.progress.ArgumentMatcherStorageImpl",
+133:       "org.mockito.internal.util.collections.Iterables",
+134:       "org.mockito.internal.matchers.Any",
+135:       "org.mockito.internal.configuration.plugins.DefaultPluginSwitch",
+136:       "org.mockito.internal.util.Primitives",
+137:       "org.mockito.internal.progress.ThreadSafeMockingProgress",
+138:       "org.mockito.exceptions.verification.WantedButNotInvoked",
+139:       "org.hamcrest.core.IsAnything",
+140:       "org.hamcrest.core.IsEqual",
+141:       "org.mockito.internal.creation.cglib.CglibMockMaker",
+142:       "org.hamcrest.core.IsSame",
+143:       "org.hamcrest.core.IsInstanceOf",
+144:       "org.hamcrest.Description",
+145:       "org.hamcrest.beans.HasProperty",
+146:       "org.hamcrest.object.HasToString",
+147:       "org.mockito.exceptions.misusing.WrongTypeOfReturnValue",
+148:       "org.mockito.internal.progress.ArgumentMatcherStorage",
+149:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleaner",
+150:       "org.mockito.exceptions.stacktrace.StackTraceCleaner",
+151:       "org.mockito.internal.matchers.Null",
+152:       "org.mockito.internal.progress.HandyReturnValues",
+153:       "org.mockito.exceptions.base.MockitoAssertionError",
+154:       "org.mockito.internal.debugging.LocationImpl",
+155:       "org.hamcrest.core.CombinableMatcher$CombinableEitherMatcher",
+156:       "org.hamcrest.FeatureMatcher",
+157:       "org.mockito.internal.matchers.Equals",
+158:       "org.mockito.internal.configuration.plugins.PluginFinder",
+159:       "org.mockito.internal.matchers.LocalizedMatcher",
+160:       "org.mockito.internal.matchers.AnyVararg",
+161:       "org.mockito.exceptions.verification.NeverWantedButInvoked",
+162:       "org.mockito.exceptions.misusing.CannotVerifyStubOnlyMock",
+163:       "org.mockito.exceptions.misusing.CannotStubVoidMethodWithReturnValue",
+164:       "org.hamcrest.Matcher",
+165:       "org.mockito.internal.matchers.apachecommons.ReflectionEquals",
+166:       "org.mockito.internal.matchers.VarargMatcher"
+167:     );
+168:   } 
+169: 
+170:   private static void resetClasses() {
+171:     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(Matchers_12_tmp__ESTest_scaffolding.class.getClassLoader()); 
+172: 
+173:     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
+174:       "org.mockito.internal.progress.ThreadSafeMockingProgress",
+175:       "org.mockito.Matchers",
+176:       "org.hamcrest.BaseMatcher",
+177:       "org.mockito.ArgumentMatcher",
+178:       "org.mockito.internal.matchers.AnyVararg",
+179:       "org.mockito.internal.matchers.Any",
+180:       "org.mockito.internal.matchers.Null",
+181:       "org.mockito.internal.matchers.NotNull",
+182:       "org.mockito.internal.matchers.InstanceOf",
+183:       "org.mockito.internal.progress.MockingProgressImpl",
+184:       "org.mockito.exceptions.Reporter",
+185:       "org.mockito.internal.progress.ArgumentMatcherStorageImpl",
+186:       "org.mockito.internal.matchers.LocalizedMatcher",
+187:       "org.mockito.internal.debugging.LocationImpl",
+188:       "org.mockito.internal.configuration.plugins.PluginRegistry",
+189:       "org.mockito.internal.configuration.plugins.PluginLoader",
+190:       "org.mockito.internal.configuration.plugins.DefaultPluginSwitch",
+191:       "org.mockito.internal.configuration.plugins.PluginFinder",
+192:       "org.mockito.internal.util.collections.Iterables",
+193:       "org.mockito.internal.creation.cglib.CglibMockMaker",
+194:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleanerProvider",
+195:       "org.mockito.internal.configuration.plugins.Plugins",
+196:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleaner",
+197:       "org.mockito.internal.exceptions.stacktrace.StackTraceFilter",
+198:       "org.mockito.internal.progress.HandyReturnValues",
+199:       "org.mockito.internal.util.Primitives",
+200:       "org.mockito.internal.matchers.Contains",
+201:       "org.mockito.internal.matchers.Equals",
+202:       "org.mockito.internal.matchers.Matches",
+203:       "org.hamcrest.core.DescribedAs",
+204:       "org.hamcrest.core.Is",
+205:       "org.hamcrest.core.IsEqual",
+206:       "org.hamcrest.internal.ReflectiveTypeFinder",
+207:       "org.hamcrest.TypeSafeDiagnosingMatcher",
+208:       "org.hamcrest.core.CombinableMatcher",
+209:       "org.hamcrest.BaseDescription",
+210:       "org.hamcrest.StringDescription",
+211:       "org.hamcrest.core.IsAnything",
+212:       "org.hamcrest.core.ShortcutCombination",
+213:       "org.hamcrest.core.AnyOf",
+214:       "org.hamcrest.DiagnosingMatcher",
+215:       "org.hamcrest.core.IsInstanceOf",
+216:       "org.hamcrest.core.AllOf",
+217:       "org.mockito.internal.matchers.Same",
+218:       "org.mockito.internal.matchers.StartsWith",
+219:       "org.hamcrest.core.IsSame",
+220:       "org.hamcrest.core.IsNull",
+221:       "org.hamcrest.core.IsNot",
+222:       "org.hamcrest.beans.SamePropertyValuesAs",
+223:       "org.hamcrest.beans.PropertyUtil",
+224:       "org.hamcrest.FeatureMatcher",
+225:       "org.hamcrest.object.HasToString",
+226:       "org.mockito.internal.matchers.EndsWith",
+227:       "org.hamcrest.beans.HasPropertyWithValue$2",
+228:       "org.hamcrest.beans.HasPropertyWithValue",
+229:       "org.hamcrest.TypeSafeMatcher",
+230:       "org.hamcrest.beans.HasProperty",
+231:       "org.hamcrest.collection.IsIn",
+232:       "org.hamcrest.number.OrderingComparison",
+233:       "org.hamcrest.Description$NullDescription",
+234:       "org.mockito.internal.matchers.apachecommons.ReflectionEquals",
+235:       "org.hamcrest.internal.SelfDescribingValueIterator",
+236:       "org.hamcrest.core.CombinableMatcher$CombinableEitherMatcher",
+237:       "org.hamcrest.number.IsCloseTo",
+238:       "org.hamcrest.core.CombinableMatcher$CombinableBothMatcher",
+239:       "org.hamcrest.beans.SamePropertyValuesAs$PropertyMatcher",
+240:       "org.hamcrest.Description",
+241:       "org.hamcrest.internal.SelfDescribingValue",
+242:       "org.hamcrest.Condition$NotMatched",
+243:       "org.hamcrest.Condition",
+244:       "org.hamcrest.beans.HasPropertyWithValue$1"
+245:     );
+246:   }
+247: }
+
+[MASTER] 13:38:07.265 [logback-2] ERROR JUnitAnalyzer - Failed to compile test case:
+Class<Object> class0 = Object.class;
+Map<Object, LinkedHashSet<LinkedHashSet>> map0 = Matchers.anyMapOf(class0, (Class<LinkedHashSet<LinkedHashSet>>) class0);
+assertTrue(map0.isEmpty());
+
+
+[MASTER] 13:38:07.614 [logback-2] ERROR JUnitAnalyzer - Compilation failed on compilation units: [SimpleFileObject[/tmp/EvoSuite_17_1790368687550/org/mockito/Matchers_17_tmp__ESTest.java], SimpleFileObject[/tmp/EvoSuite_17_1790368687550/org/mockito/Matchers_17_tmp__ESTest_scaffolding.java]]
+[MASTER] 13:38:07.614 [logback-2] ERROR JUnitAnalyzer - Classpath: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test
+[MASTER] 13:38:07.614 [logback-2] ERROR JUnitAnalyzer - evosuiteCP: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_6f/build/classes/java/test
+[MASTER] 13:38:07.615 [logback-2] ERROR JUnitAnalyzer - Diagnostic: incompatible types: java.lang.Class<java.lang.Byte> cannot be converted to java.lang.Class<java.util.HashMap<java.util.HashMap,java.util.LinkedHashSet>>: 24
+[MASTER] 13:38:07.616 [logback-2] ERROR JUnitAnalyzer - SimpleFileObject[/tmp/EvoSuite_17_1790368687550/org/mockito/Matchers_17_tmp__ESTest.java]
+1: /*
+2:  * This file was automatically generated by EvoSuite
+3:  * Fri Sep 25 20:38:07 GMT 2026
+4:  */
+5: 
+6: package org.mockito;
+7: 
+8: import org.junit.Test;
+9: import static org.junit.Assert.*;
+10: import java.util.Collection;
+11: import java.util.HashMap;
+12: import java.util.LinkedHashSet;
+13: import org.evosuite.runtime.EvoRunner;
+14: import org.evosuite.runtime.EvoRunnerParameters;
+15: import org.junit.runner.RunWith;
+16: import org.mockito.Matchers;
+17: 
+18: @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true) 
+19: public class Matchers_17_tmp__ESTest extends Matchers_17_tmp__ESTest_scaffolding {
+20: 
+21:   @Test(timeout = 4000)
+22:   public void test0()  throws Throwable  {
+23:       Class<Byte> class0 = Byte.class;
+24:       Collection<HashMap<HashMap, LinkedHashSet>> collection0 = Matchers.anyCollectionOf((Class<HashMap<HashMap, LinkedHashSet>>) class0);
+25:       assertNotNull(collection0);
+26:   }
+27: }
+SimpleFileObject[/tmp/EvoSuite_17_1790368687550/org/mockito/Matchers_17_tmp__ESTest.java]
+1: /**
+2:  * Scaffolding file used to store all the setups needed to run 
+3:  * tests automatically generated by EvoSuite
+4:  * Fri Sep 25 20:38:07 GMT 2026
+5:  */
+6: 
+7: package org.mockito;
+8: 
+9: import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
+10: import org.junit.BeforeClass;
+11: import org.junit.Before;
+12: import org.junit.After;
+13: import org.junit.AfterClass;
+14: import org.evosuite.runtime.sandbox.Sandbox;
+15: import org.evosuite.runtime.sandbox.Sandbox.SandboxMode;
+16: 
+17: @EvoSuiteClassExclude
+18: public class Matchers_17_tmp__ESTest_scaffolding {
+19: 
+20:   @org.junit.Rule
+21:   public org.evosuite.runtime.vnet.NonFunctionalRequirementRule nfr = new org.evosuite.runtime.vnet.NonFunctionalRequirementRule();
+22: 
+23:   private static final java.util.Properties defaultProperties = (java.util.Properties) java.lang.System.getProperties().clone(); 
+24: 
+25:   private org.evosuite.runtime.thread.ThreadStopper threadStopper =  new org.evosuite.runtime.thread.ThreadStopper (org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
+26: 
+27: 
+28:   @BeforeClass
+29:   public static void initEvoSuiteFramework() { 
+30:     org.evosuite.runtime.RuntimeSettings.className = "org.mockito.Matchers"; 
+31:     org.evosuite.runtime.GuiSupport.initialize(); 
+32:     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
+33:     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
+34:     org.evosuite.runtime.RuntimeSettings.mockSystemIn = true; 
+35:     org.evosuite.runtime.RuntimeSettings.sandboxMode = org.evosuite.runtime.sandbox.Sandbox.SandboxMode.RECOMMENDED; 
+36:     org.evosuite.runtime.sandbox.Sandbox.initializeSecurityManagerForSUT(); 
+37:     org.evosuite.runtime.classhandling.JDKClassResetter.init();
+38:     setSystemProperties();
+39:     initializeClasses();
+40:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+41:   } 
+42: 
+43:   @AfterClass
+44:   public static void clearEvoSuiteFramework(){ 
+45:     Sandbox.resetDefaultSecurityManager(); 
+46:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+47:   } 
+48: 
+49:   @Before
+50:   public void initTestCase(){ 
+51:     threadStopper.storeCurrentThreads();
+52:     threadStopper.startRecordingTime();
+53:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().initHandler(); 
+54:     org.evosuite.runtime.sandbox.Sandbox.goingToExecuteSUTCode(); 
+55:     setSystemProperties(); 
+56:     org.evosuite.runtime.GuiSupport.setHeadless(); 
+57:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+58:     org.evosuite.runtime.agent.InstrumentingAgent.activate(); 
+59:   } 
+60: 
+61:   @After
+62:   public void doneWithTestCase(){ 
+63:     threadStopper.killAndJoinClientThreads();
+64:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().safeExecuteAddedHooks(); 
+65:     org.evosuite.runtime.classhandling.JDKClassResetter.reset(); 
+66:     resetClasses(); 
+67:     org.evosuite.runtime.sandbox.Sandbox.doneWithExecutingSUTCode(); 
+68:     org.evosuite.runtime.agent.InstrumentingAgent.deactivate(); 
+69:     org.evosuite.runtime.GuiSupport.restoreHeadlessMode(); 
+70:   } 
+71: 
+72:   public static void setSystemProperties() {
+73:  
+74:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+75:     java.lang.System.setProperty("user.dir", "/work/Mockito_6f"); 
+76:     java.lang.System.setProperty("java.io.tmpdir", "/tmp"); 
+77:   }
+78: 
+79:   private static void initializeClasses() {
+80:     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(Matchers_17_tmp__ESTest_scaffolding.class.getClassLoader() ,
+81:       "org.mockito.internal.configuration.plugins.PluginRegistry",
+82:       "org.mockito.internal.matchers.ContainsExtraTypeInformation",
+83:       "org.mockito.cglib.proxy.Callback",
+84:       "org.mockito.exceptions.misusing.UnfinishedVerificationException",
+85:       "org.mockito.invocation.Location",
+86:       "org.mockito.exceptions.Reporter",
+87:       "org.mockito.exceptions.verification.VerificationInOrderFailure",
+88:       "org.hamcrest.core.Is",
+89:       "org.mockito.exceptions.misusing.NullInsteadOfMockException",
+90:       "org.mockito.ArgumentMatcher",
+91:       "org.mockito.internal.configuration.plugins.PluginLoader",
+92:       "org.mockito.internal.matchers.InstanceOf",
+93:       "org.mockito.internal.matchers.Matches",
+94:       "org.hamcrest.core.CombinableMatcher$CombinableBothMatcher",
+95:       "org.mockito.internal.exceptions.stacktrace.StackTraceFilter",
+96:       "org.mockito.exceptions.misusing.NotAMockException",
+97:       "org.mockito.exceptions.misusing.FriendlyReminderException",
+98:       "org.mockito.internal.progress.MockingProgress",
+99:       "org.mockito.exceptions.misusing.MissingMethodInvocationException",
+100:       "org.mockito.exceptions.verification.SmartNullPointerException",
+101:       "org.mockito.exceptions.verification.TooLittleActualInvocations",
+102:       "org.mockito.internal.progress.MockingProgressImpl",
+103:       "org.mockito.internal.matchers.NotNull",
+104:       "org.mockito.internal.matchers.StartsWith",
+105:       "org.hamcrest.TypeSafeMatcher",
+106:       "org.mockito.internal.matchers.MatcherDecorator",
+107:       "org.mockito.internal.configuration.plugins.Plugins",
+108:       "org.mockito.cglib.proxy.MethodInterceptor",
+109:       "org.mockito.exceptions.verification.TooManyActualInvocations",
+110:       "org.mockito.plugins.MockMaker",
+111:       "org.mockito.internal.matchers.Contains",
+112:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleanerProvider",
+113:       "org.mockito.plugins.StackTraceCleanerProvider",
+114:       "org.mockito.exceptions.misusing.MockitoConfigurationException",
+115:       "org.hamcrest.SelfDescribing",
+116:       "org.mockito.internal.matchers.EndsWith",
+117:       "org.hamcrest.DiagnosingMatcher",
+118:       "org.mockito.exceptions.misusing.InvalidUseOfMatchersException",
+119:       "org.mockito.exceptions.misusing.UnfinishedStubbingException",
+120:       "org.hamcrest.core.IsNot",
+121:       "org.mockito.Matchers",
+122:       "org.mockito.exceptions.verification.NoInteractionsWanted",
+123:       "org.hamcrest.internal.ReflectiveTypeFinder",
+124:       "org.hamcrest.core.CombinableMatcher",
+125:       "org.mockito.exceptions.base.MockitoException",
+126:       "org.mockito.plugins.PluginSwitch",
+127:       "org.hamcrest.core.AllOf",
+128:       "org.mockito.internal.matchers.CapturesArguments",
+129:       "org.mockito.internal.matchers.Same",
+130:       "org.hamcrest.TypeSafeDiagnosingMatcher",
+131:       "org.hamcrest.BaseMatcher",
+132:       "org.mockito.internal.progress.ArgumentMatcherStorageImpl",
+133:       "org.mockito.internal.util.collections.Iterables",
+134:       "org.mockito.internal.matchers.Any",
+135:       "org.mockito.internal.configuration.plugins.DefaultPluginSwitch",
+136:       "org.mockito.internal.util.Primitives",
+137:       "org.mockito.internal.progress.ThreadSafeMockingProgress",
+138:       "org.mockito.exceptions.verification.WantedButNotInvoked",
+139:       "org.hamcrest.core.IsAnything",
+140:       "org.hamcrest.core.IsEqual",
+141:       "org.mockito.internal.creation.cglib.CglibMockMaker",
+142:       "org.hamcrest.core.IsSame",
+143:       "org.hamcrest.core.IsInstanceOf",
+144:       "org.hamcrest.Description",
+145:       "org.hamcrest.beans.HasProperty",
+146:       "org.hamcrest.object.HasToString",
+147:       "org.mockito.exceptions.misusing.WrongTypeOfReturnValue",
+148:       "org.mockito.internal.progress.ArgumentMatcherStorage",
+149:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleaner",
+150:       "org.mockito.exceptions.stacktrace.StackTraceCleaner",
+151:       "org.mockito.internal.matchers.Null",
+152:       "org.mockito.internal.progress.HandyReturnValues",
+153:       "org.mockito.exceptions.base.MockitoAssertionError",
+154:       "org.mockito.internal.debugging.LocationImpl",
+155:       "org.hamcrest.core.CombinableMatcher$CombinableEitherMatcher",
+156:       "org.hamcrest.FeatureMatcher",
+157:       "org.mockito.internal.matchers.Equals",
+158:       "org.mockito.internal.configuration.plugins.PluginFinder",
+159:       "org.mockito.internal.matchers.LocalizedMatcher",
+160:       "org.mockito.internal.matchers.AnyVararg",
+161:       "org.mockito.exceptions.verification.NeverWantedButInvoked",
+162:       "org.mockito.exceptions.misusing.CannotVerifyStubOnlyMock",
+163:       "org.mockito.exceptions.misusing.CannotStubVoidMethodWithReturnValue",
+164:       "org.hamcrest.Matcher",
+165:       "org.mockito.internal.matchers.apachecommons.ReflectionEquals",
+166:       "org.mockito.internal.matchers.VarargMatcher"
+167:     );
+168:   } 
+169: 
+170:   private static void resetClasses() {
+171:     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(Matchers_17_tmp__ESTest_scaffolding.class.getClassLoader()); 
+172: 
+173:     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
+174:       "org.mockito.internal.progress.ThreadSafeMockingProgress",
+175:       "org.mockito.Matchers",
+176:       "org.hamcrest.BaseMatcher",
+177:       "org.mockito.ArgumentMatcher",
+178:       "org.mockito.internal.matchers.AnyVararg",
+179:       "org.mockito.internal.matchers.Any",
+180:       "org.mockito.internal.matchers.Null",
+181:       "org.mockito.internal.matchers.NotNull",
+182:       "org.mockito.internal.matchers.InstanceOf",
+183:       "org.mockito.internal.progress.MockingProgressImpl",
+184:       "org.mockito.exceptions.Reporter",
+185:       "org.mockito.internal.progress.ArgumentMatcherStorageImpl",
+186:       "org.mockito.internal.matchers.LocalizedMatcher",
+187:       "org.mockito.internal.debugging.LocationImpl",
+188:       "org.mockito.internal.configuration.plugins.PluginRegistry",
+189:       "org.mockito.internal.configuration.plugins.PluginLoader",
+190:       "org.mockito.internal.configuration.plugins.DefaultPluginSwitch",
+191:       "org.mockito.internal.configuration.plugins.PluginFinder",
+192:       "org.mockito.internal.util.collections.Iterables",
+193:       "org.mockito.internal.creation.cglib.CglibMockMaker",
+194:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleanerProvider",
+195:       "org.mockito.internal.configuration.plugins.Plugins",
+196:       "org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleaner",
+197:       "org.mockito.internal.exceptions.stacktrace.StackTraceFilter",
+198:       "org.mockito.internal.progress.HandyReturnValues",
+199:       "org.mockito.internal.util.Primitives",
+200:       "org.mockito.internal.matchers.Contains",
+201:       "org.mockito.internal.matchers.Equals",
+202:       "org.mockito.internal.matchers.Matches",
+203:       "org.hamcrest.core.DescribedAs",
+204:       "org.hamcrest.core.Is",
+205:       "org.hamcrest.core.IsEqual",
+206:       "org.hamcrest.internal.ReflectiveTypeFinder",
+207:       "org.hamcrest.TypeSafeDiagnosingMatcher",
+208:       "org.hamcrest.core.CombinableMatcher",
+209:       "org.hamcrest.BaseDescription",
+210:       "org.hamcrest.StringDescription",
+211:       "org.hamcrest.core.IsAnything",
+212:       "org.hamcrest.core.ShortcutCombination",
+213:       "org.hamcrest.core.AnyOf",
+214:       "org.hamcrest.DiagnosingMatcher",
+215:       "org.hamcrest.core.IsInstanceOf",
+216:       "org.hamcrest.core.AllOf",
+217:       "org.mockito.internal.matchers.Same",
+218:       "org.mockito.internal.matchers.StartsWith",
+219:       "org.hamcrest.core.IsSame",
+220:       "org.hamcrest.core.IsNull",
+221:       "org.hamcrest.core.IsNot",
+222:       "org.hamcrest.beans.SamePropertyValuesAs",
+223:       "org.hamcrest.beans.PropertyUtil",
+224:       "org.hamcrest.FeatureMatcher",
+225:       "org.hamcrest.object.HasToString",
+226:       "org.mockito.internal.matchers.EndsWith",
+227:       "org.hamcrest.beans.HasPropertyWithValue$2",
+228:       "org.hamcrest.beans.HasPropertyWithValue",
+229:       "org.hamcrest.TypeSafeMatcher",
+230:       "org.hamcrest.beans.HasProperty",
+231:       "org.hamcrest.collection.IsIn",
+232:       "org.hamcrest.number.OrderingComparison",
+233:       "org.hamcrest.Description$NullDescription",
+234:       "org.mockito.internal.matchers.apachecommons.ReflectionEquals",
+235:       "org.hamcrest.internal.SelfDescribingValueIterator",
+236:       "org.hamcrest.core.CombinableMatcher$CombinableEitherMatcher",
+237:       "org.hamcrest.number.IsCloseTo",
+238:       "org.hamcrest.core.CombinableMatcher$CombinableBothMatcher",
+239:       "org.hamcrest.beans.SamePropertyValuesAs$PropertyMatcher",
+240:       "org.hamcrest.Description",
+241:       "org.hamcrest.internal.SelfDescribingValue",
+242:       "org.hamcrest.Condition$NotMatched",
+243:       "org.hamcrest.Condition",
+244:       "org.hamcrest.beans.HasPropertyWithValue$1"
+245:     );
+246:   }
+247: }
+
+[MASTER] 13:38:07.616 [logback-2] ERROR JUnitAnalyzer - Failed to compile test case:
+Class<Byte> class0 = Byte.class;
+Collection<HashMap<HashMap, LinkedHashSet>> collection0 = Matchers.anyCollectionOf((Class<HashMap<HashMap, LinkedHashSet>>) class0);
+assertNotNull(collection0);
+
+
+
+[exit=0 timeout=False time=21.3s]
+
+$ javac -nowarn -cp /work/Mockito_6f/build/classes/java/main:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_6f/build/classes/java/main:/work/Mockito_6f/build/classes/java/test:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Mockito_6f/budget60_seed1/classes /work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java /work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest_scaffolding.java
+/work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java:18: error: package org.hamcrest.beans does not exist
+import org.hamcrest.beans.HasProperty;
+                         ^
+/work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java:25: error: package org.hamcrest.object does not exist
+import org.hamcrest.object.HasToString;
+                          ^
+/work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java:240: error: cannot find symbol
+      HasProperty<Long> hasProperty0 = new HasProperty<Long>("");
+      ^
+  symbol:   class HasProperty
+  location: class Matchers_ESTest
+/work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java:240: error: cannot find symbol
+      HasProperty<Long> hasProperty0 = new HasProperty<Long>("");
+                                           ^
+  symbol:   class HasProperty
+  location: class Matchers_ESTest
+/work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java:277: error: cannot find symbol
+      HasToString<Object> hasToString0 = new HasToString<Object>(matcher0);
+      ^
+  symbol:   class HasToString
+  location: class Matchers_ESTest
+/work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java:277: error: cannot find symbol
+      HasToString<Object> hasToString0 = new HasToString<Object>(matcher0);
+                                             ^
+  symbol:   class HasToString
+  location: class Matchers_ESTest
+Note: /work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /work/evo_out/Mockito_6f/budget60_seed1/tests/org/mockito/Matchers_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 errors
+
+[exit=1 timeout=False time=0.9s]

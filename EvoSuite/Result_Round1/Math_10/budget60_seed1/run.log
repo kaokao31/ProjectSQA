@@ -1,0 +1,247 @@
+
+$ defects4j checkout -p Math -v 10f -w /work/Math_10f
+Checking out 48dde378 to /work/Math_10f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 48dde378:2edd83f5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-10f........................................ OK
+
+[exit=0 timeout=False time=4.2s]
+
+$ defects4j compile -w /work/Math_10f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.7s]
+
+$ defects4j checkout -p Math -v 10b -w /work/Math_10b
+Checking out 48dde378 to /work/Math_10b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 48dde378:2edd83f5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-10b........................................ OK
+
+[exit=0 timeout=False time=4.2s]
+
+$ defects4j compile -w /work/Math_10b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=15.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Math_10f/target/classes:/work/Math_10f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.apache.commons.math3.analysis.differentiation.DSCompiler -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_10f/target/classes:/work/Math_10f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Math_10f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Math_10f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.math3.analysis.differentiation.DSCompiler
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Math_10f/target/classes
+  - /work/Math_10f/target/test-classes
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.math3.analysis.differentiation.DSCompiler
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 553
+  - Branch 295
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:==>                                8%]
+[Progress:>                             1%] [Cov:=======>                           20%]
+[Progress:>                             1%] [Cov:==================>                53%]
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:=>                                 5%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:==================>                54%]
+[Progress:=>                            5%] [Cov:===>                               10%]
+[Progress:=>                            5%] [Cov:=======>                           21%]
+[Progress:=>                            5%] [Cov:==================>                54%]
+[Progress:=>                            5%] [Cov:===================>               56%]
+[Progress:=>                            6%] [Cov:==>                                8%]
+[Progress:=>                            6%] [Cov:=====>                             17%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:==================>                53%]
+[Progress:==>                           8%] [Cov:===>                               10%]
+[Progress:==>                           8%] [Cov:=======>                           22%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:=>                                 3%]
+[Progress:===>                          10%] [Cov:==>                                7%]
+[Progress:===>                          10%] [Cov:==============>                    40%]
+[Progress:===>                          10%] [Cov:=================>                 51%]
+[Progress:===>                          10%] [Cov:==================>                53%]
+[Progress:===>                          11%] [Cov:===>                               9%]
+[Progress:===>                          11%] [Cov:=======>                           20%]
+[Progress:===>                          11%] [Cov:==================>                53%]
+[Progress:===>                          13%] [Cov:==>                                7%]
+[Progress:===>                          13%] [Cov:=====>                             15%]
+[Progress:===>                          13%] [Cov:================>                  48%]
+[Progress:===>                          13%] [Cov:==================>                54%]
+[Progress:===>                          13%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:==================>                53%]
+[Progress:====>                         15%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:===================>               57%]
+[Progress:====>                         16%] [Cov:==================>                54%]
+[Progress:====>                         16%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               55%]
+[Progress:=====>                        18%] [Cov:===================>               56%]
+[Progress:=====>                        18%] [Cov:==========================>        77%]
+[Progress:======>                       20%] [Cov:==========================>        77%]
+[Progress:======>                       20%] [Cov:===========================>       78%]
+[Progress:======>                       21%] [Cov:==========================>        77%]
+[Progress:======>                       23%] [Cov:===========================>       79%]
+[Progress:=======>                      25%] [Cov:===========================>       79%]
+[Progress:========>                     28%] [Cov:===========================>       79%]
+[Progress:=========>                    30%] [Cov:===========================>       79%]
+[Progress:=========>                    31%] [Cov:===========================>       79%]
+[Progress:=========>                    33%] [Cov:===========================>       79%]
+[Progress:==========>                   35%] [Cov:===========================>       79%]
+[Progress:==========>                   36%] [Cov:===========================>       79%]
+[Progress:==========>                   36%] [Cov:===========================>       79%]
+[Progress:===========>                  38%] [Cov:===========================>       79%]
+[Progress:============>                 40%] [Cov:===========================>       79%]
+[Progress:============>                 40%] [Cov:===========================>       79%]
+[Progress:============>                 41%] [Cov:===========================>       79%]
+[Progress:============>                 43%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:==============>               48%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:================>             56%] [Cov:===========================>       79%]
+[Progress:=================>            58%] [Cov:===========================>       79%]
+[Progress:==================>           61%] [Cov:===========================>       79%]
+[Progress:==================>           63%] [Cov:===========================>       79%]
+[Progress:==================>           63%] [Cov:============================>      80%]
+[Progress:===================>          65%] [Cov:===========================>       79%]
+[Progress:===================>          66%] [Cov:============================>      80%]
+[Progress:====================>         68%] [Cov:============================>      80%]
+[Progress:=====================>        70%] [Cov:============================>      80%]
+[Progress:=====================>        71%] [Cov:============================>      80%]
+[Progress:=====================>        73%] [Cov:============================>      80%]
+[Progress:======================>       75%] [Cov:============================>      80%]
+[Progress:======================>       75%] [Cov:============================>      81%]
+[Progress:======================>       76%] [Cov:============================>      80%]
+[Progress:========================>     80%] [Cov:============================>      81%]
+[Progress:========================>     81%] [Cov:============================>      81%]
+[Progress:========================>     83%] [Cov:============================>      81%]
+[Progress:========================>     83%] [Cov:============================>      81%]
+[Progress:=========================>    85%] [Cov:============================>      81%]
+[Progress:=========================>    86%] [Cov:============================>      81%]
+[Progress:=========================>    86%] [Cov:============================>      81%]
+[Progress:==========================>   88%] [Cov:============================>      81%]
+[Progress:===========================>  90%] [Cov:============================>      81%]
+[Progress:===========================>  91%] [Cov:============================>      81%]
+[Progress:===========================>  93%] [Cov:============================>      81%]
+[Progress:===========================>  93%] [Cov:============================>      81%]
+[Progress:============================> 95%] [Cov:============================>      81%]
+[Progress:============================> 96%] [Cov:============================>      81%]
+[Progress:=============================>98%] [Cov:============================>      81%]
+[Progress:=============================>98%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+* Search finished after 63s and 21 generations, 8386 statements, best individual has fitness: 128.2013848905088
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 73%
+* Total number of goals: 553
+* Number of covered goals: 402
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 65%
+* Total number of goals: 295
+* Number of covered goals: 193
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 53
+* Number of covered goals: 53
+* Generated 78 tests with total length 217
+* Resulting test suite's coverage: 82% (average coverage for all fitness functions)
+* Generating assertions
+[MASTER] 05:53:29.023 [logback-1] WARN  SimpleMutationAssertionGenerator - Assertion minimization is taking too long (0.76655% of time used, but only 36/78 tests minimized), falling back to using all assertions
+* Resulting test suite's mutation score: 6%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'DSCompiler_ESTest' to /work/evo_out/Math_10f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=146.7s]
+
+$ javac -nowarn -cp /work/Math_10f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_10f/target/classes:/work/Math_10f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Math_10f/budget60_seed1/classes /work/evo_out/Math_10f/budget60_seed1/tests/org/apache/commons/math3/analysis/differentiation/DSCompiler_ESTest.java /work/evo_out/Math_10f/budget60_seed1/tests/org/apache/commons/math3/analysis/differentiation/DSCompiler_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Math_10f/target/classes --dest /work/evo_out/Math_10f/budget60_seed1/instrumented
+[INFO] 1014 classes instrumented to /work/evo_out/Math_10f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Math_10/budget60_seed1/jacoco.exec -cp /work/evo_out/Math_10f/budget60_seed1/instrumented:/work/evo_out/Math_10f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_10f/target/classes:/work/Math_10f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.math3.analysis.differentiation.DSCompiler_ESTest
+JUnit version 4.12
+.............................................................................
+Time: 1.761
+
+OK (77 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Math_10/budget60_seed1/jacoco.exec --classfiles /work/Math_10f/target/classes --csv /workspace/EvoSuite/Result_Round1/Math_10/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Math_10/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 787 classes.
+
+[exit=0 timeout=False time=1.3s]
+
+$ java -cp /work/evo_out/Math_10f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_10b/target/classes:/work/Math_10b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.math3.analysis.differentiation.DSCompiler_ESTest
+JUnit version 4.12
+.............................................................................
+Time: 2.388
+
+OK (77 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.8s]

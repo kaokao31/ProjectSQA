@@ -1,0 +1,770 @@
+
+$ defects4j checkout -p JacksonCore -v 9f -w /work/JacksonCore_9f
+Checking out 698f3a73 to /work/JacksonCore_9f.............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /work/JacksonCore_9f/maven-build.xml................ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 698f3a73:4b041e97..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-9f.................................. OK
+
+[exit=0 timeout=False time=1.3s]
+
+$ defects4j compile -w /work/JacksonCore_9f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.9s]
+
+$ defects4j checkout -p JacksonCore -v 9b -w /work/JacksonCore_9b
+Checking out 698f3a73 to /work/JacksonCore_9b.............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /work/JacksonCore_9b/maven-build.xml................ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 698f3a73:4b041e97..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-9b.................................. OK
+
+[exit=0 timeout=False time=1.4s]
+
+$ defects4j compile -w /work/JacksonCore_9b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.7s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes org.evosuite.EvoSuite -generateSuite -class com.fasterxml.jackson.core.base.ParserMinimalBase -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JacksonCore_9f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JacksonCore_9f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.fasterxml.jackson.core.base.ParserMinimalBase
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JacksonCore_9f/target/classes
+  - /work/JacksonCore_9f/target/test-classes
+[MASTER] 01:02:56.206 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 01:02:56.244 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.fasterxml.jackson.core.base.ParserMinimalBase
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 190
+  - Branch 203
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:===========>                       34%]
+[Progress:>                             0%] [Cov:============>                      35%]
+[Progress:>                             0%] [Cov:=============>                     38%]
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:============>                      36%]
+[Progress:>                             1%] [Cov:============>                      37%]
+[Progress:>                             1%] [Cov:=============>                     38%][MASTER] 01:02:58.010 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:>                             1%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=================>                 50%]
+[Progress:>                             3%] [Cov:=================>                 50%]
+[Progress:>                             3%] [Cov:=================>                 50%]
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            5%] [Cov:=================>                 50%][MASTER] 01:02:59.500 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            5%] [Cov:=================>                 50%][MASTER] 01:03:00.166 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=>                            5%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:=>                            6%] [Cov:=================>                 51%]
+[Progress:====>                         15%] [Cov:=================>                 51%]
+[Progress:======>                       23%] [Cov:=================>                 51%]
+[Progress:======>                       23%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      25%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:=======>                      26%] [Cov:=================>                 51%]
+[Progress:==========>                   35%] [Cov:=================>                 51%]
+[Progress:==========>                   35%] [Cov:=================>                 51%]
+[Progress:==========>                   36%] [Cov:=================>                 51%]
+[Progress:==========>                   36%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:================>             55%] [Cov:=================>                 51%]
+[Progress:================>             55%] [Cov:=================>                 51%]
+[Progress:================>             55%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:================>             56%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:=================>            58%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           60%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           61%] [Cov:=================>                 51%]
+[Progress:==================>           63%] [Cov:=================>                 51%]
+[Progress:==================>           63%] [Cov:=================>                 51%]
+[Progress:==================>           63%] [Cov:=================>                 51%]
+[Progress:==================>           63%] [Cov:=================>                 51%]
+[Progress:==================>           63%] [Cov:=================>                 51%]
+[Progress:==================>           63%] [Cov:=================>                 51%]
+[Progress:===================>          65%] [Cov:=================>                 51%]
+[Progress:===================>          65%] [Cov:=================>                 51%]
+[Progress:===================>          65%] [Cov:=================>                 51%]
+[Progress:===================>          65%] [Cov:=================>                 51%]
+[Progress:===================>          65%] [Cov:=================>                 51%]
+[Progress:===================>          65%] [Cov:=================>                 51%]
+[Progress:===================>          65%] [Cov:=================>                 51%]
+[Progress:===================>          66%] [Cov:=================>                 51%]
+[Progress:===================>          66%] [Cov:=================>                 51%]
+[Progress:===================>          66%] [Cov:=================>                 51%]
+[Progress:===================>          66%] [Cov:=================>                 51%]
+[Progress:===================>          66%] [Cov:=================>                 51%]
+[Progress:===================>          66%] [Cov:=================>                 51%]
+[Progress:======================>       75%] [Cov:=================>                 51%]
+[Progress:======================>       76%] [Cov:=================>                 51%]
+[Progress:======================>       76%] [Cov:=================>                 51%]
+[Progress:======================>       76%] [Cov:=================>                 51%]
+[Progress:======================>       76%] [Cov:=================>                 51%]
+[Progress:======================>       76%] [Cov:=================>                 51%]
+[Progress:======================>       76%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     83%] [Cov:=================>                 51%]
+[Progress:========================>     83%] [Cov:=================>                 51%]
+[Progress:========================>     83%] [Cov:=================>                 51%]
+[Progress:========================>     83%] [Cov:=================>                 51%]
+[Progress:========================>     83%] [Cov:=================>                 51%]
+[Progress:========================>     83%] [Cov:=================>                 51%]
+[Progress:=========================>    85%] [Cov:=================>                 51%]
+[Progress:=========================>    85%] [Cov:=================>                 51%]
+[Progress:=========================>    85%] [Cov:=================>                 51%]
+[Progress:=========================>    85%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:==============================100%] [Cov:=================>                 51%]
+[Progress:==============================100%] [Cov:=================>                 51%]
+* Search finished after 62s and 121 generations, 89164 statements, best individual has fitness: 247.55426610717717
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 35%
+* Total number of goals: 190
+* Number of covered goals: 67
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 21%
+* Total number of goals: 203
+* Number of covered goals: 42
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 8
+* Number of covered goals: 8
+* Generated 29 tests with total length 204
+* Resulting test suite's coverage: 52% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 28%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 1
+* Writing tests to file
+* Writing JUnit test case 'ParserMinimalBase_ESTest' to /work/evo_out/JacksonCore_9f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=72.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes org.evosuite.EvoSuite -generateSuite -class com.fasterxml.jackson.core.json.ReaderBasedJsonParser -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JacksonCore_9f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JacksonCore_9f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.fasterxml.jackson.core.json.ReaderBasedJsonParser
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JacksonCore_9f/target/classes
+  - /work/JacksonCore_9f/target/test-classes
+[MASTER] 01:04:09.120 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.fasterxml.jackson.core.json.ReaderBasedJsonParser
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 1145
+  - Branch 978
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  1%]
+[Progress:>                             0%] [Cov:>                                  2%]
+[Progress:>                             0%] [Cov:============>                      35%]
+[Progress:>                             0%] [Cov:============>                      37%]
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:============>                      35%]
+[Progress:>                             1%] [Cov:============>                      37%]
+[Progress:>                             1%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:>                                  0%]
+[Progress:>                             3%] [Cov:>                                  1%]
+[Progress:>                             3%] [Cov:===========>                       34%]
+[Progress:>                             3%] [Cov:============>                      35%]
+[Progress:>                             3%] [Cov:============>                      36%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:=============>                     38%][MASTER] 01:04:12.091 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:>                             3%] [Cov:=============>                     39%]
+[Progress:=>                            5%] [Cov:============>                      35%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:=============>                     39%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  47%]
+[Progress:=>                            6%] [Cov:================>                  47%][MASTER] 01:04:13.830 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:==>                           8%] [Cov:================>                  47%]
+[Progress:==>                           8%] [Cov:================>                  47%]
+[Progress:===>                          10%] [Cov:================>                  47%]
+[Progress:===>                          10%] [Cov:================>                  47%]
+[Progress:===>                          11%] [Cov:================>                  47%]
+[Progress:===>                          11%] [Cov:================>                  47%]
+[Progress:===>                          13%] [Cov:================>                  47%]
+[Progress:===>                          13%] [Cov:================>                  48%]
+[Progress:===>                          13%] [Cov:================>                  48%]
+[Progress:====>                         15%] [Cov:================>                  48%]
+[Progress:====>                         16%] [Cov:================>                  48%]
+[Progress:=====>                        18%] [Cov:================>                  48%]
+[Progress:=====>                        18%] [Cov:================>                  48%]
+[Progress:======>                       20%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%]
+[Progress:======>                       21%] [Cov:=================>                 49%][MASTER] 01:04:23.021 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:======>                       23%] [Cov:=================>                 49%]
+[Progress:======>                       23%] [Cov:=================>                 49%]
+[Progress:=======>                      25%] [Cov:=================>                 49%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:========>                     28%] [Cov:=================>                 50%]
+[Progress:=========>                    30%] [Cov:=================>                 50%]
+[Progress:=========>                    30%] [Cov:=================>                 50%]
+[Progress:=========>                    31%] [Cov:=================>                 50%]
+[Progress:=========>                    31%] [Cov:=================>                 51%]
+[Progress:=========>                    31%] [Cov:=================>                 51%]
+[Progress:=========>                    33%] [Cov:=================>                 51%]
+[Progress:==========>                   35%] [Cov:=================>                 51%]
+[Progress:==========>                   36%] [Cov:=================>                 51%][MASTER] 01:04:31.410 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:==========>                   36%] [Cov:=================>                 51%]
+[Progress:===========>                  38%] [Cov:=================>                 51%][MASTER] 01:04:32.632 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.json.ReaderBasedJsonParser canUseFunctionalMocks=false, canBeMocked: false
+
+[Progress:============>                 40%] [Cov:=================>                 51%]
+[Progress:============>                 41%] [Cov:=================>                 51%]
+[Progress:============>                 43%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                45%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:=============>                46%] [Cov:=================>                 51%]
+[Progress:==============>               48%] [Cov:=================>                 51%]
+[Progress:==============>               48%] [Cov:=================>                 51%]
+[Progress:===============>              50%] [Cov:=================>                 51%]
+[Progress:===============>              50%] [Cov:=================>                 51%]
+[Progress:===============>              51%] [Cov:=================>                 51%]
+[Progress:===============>              51%] [Cov:=================>                 51%]
+[Progress:===============>              53%] [Cov:=================>                 51%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                53%]
+[Progress:===========================>  90%] [Cov:==================>                53%]
+[Progress:===========================>  90%] [Cov:==================>                53%]
+[Progress:===========================>  91%] [Cov:==================>                53%]
+[Progress:===========================>  93%] [Cov:==================>                53%]
+[Progress:============================> 95%] [Cov:==================>                53%]
+[Progress:=============================>98%] [Cov:==================>                53%]
+[Progress:==============================100%] [Cov:==================>                53%]
+[Progress:==============================100%] [Cov:==================>                53%]
+[Progress:==============================100%] [Cov:==================>                53%]
+[Progress:==============================100%] [Cov:==================>                53%]
+* Search finished after 61s and 40 generations, 34880 statements, best individual has fitness: 1256.2465894020497
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 33%
+* Total number of goals: 1145
+* Number of covered goals: 375
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 28%
+* Total number of goals: 978
+* Number of covered goals: 274
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 98%
+* Total number of goals: 65
+* Number of covered goals: 64
+* Generated 95 tests with total length 715
+* Resulting test suite's coverage: 53% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 5%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'ReaderBasedJsonParser_ESTest' to /work/evo_out/JacksonCore_9f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=100.1s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes org.evosuite.EvoSuite -generateSuite -class com.fasterxml.jackson.core.json.UTF8StreamJsonParser -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JacksonCore_9f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JacksonCore_9f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.fasterxml.jackson.core.json.UTF8StreamJsonParser
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JacksonCore_9f/target/classes
+  - /work/JacksonCore_9f/target/test-classes
+[MASTER] 01:05:49.425 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 01:05:49.485 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.fasterxml.jackson.core.json.UTF8StreamJsonParser
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 1791
+  - Branch 1457
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  1%]
+[Progress:>                             0%] [Cov:===========>                       34%]
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:===========>                       34%]
+[Progress:>                             1%] [Cov:============>                      35%]
+[Progress:===>                          11%] [Cov:>                                  0%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:============>                      35%]
+[Progress:===>                          11%] [Cov:============>                      35%]
+[Progress:===>                          11%] [Cov:============>                      36%]
+[Progress:======>                       20%] [Cov:===========>                       34%]
+[Progress:======>                       20%] [Cov:============>                      35%]
+[Progress:======>                       21%] [Cov:==============>                    42%]
+[Progress:======>                       23%] [Cov:==============>                    42%]
+[Progress:=======>                      25%] [Cov:==============>                    42%]
+[Progress:=======>                      26%] [Cov:==============>                    42%]
+[Progress:=======>                      26%] [Cov:===============>                   43%]
+[Progress:=======>                      26%] [Cov:===============>                   43%]
+[Progress:========>                     28%] [Cov:===============>                   43%]
+[Progress:========>                     28%] [Cov:===============>                   43%]
+[Progress:=========>                    30%] [Cov:===============>                   43%]
+[Progress:=========>                    31%] [Cov:===============>                   43%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:=========>                    33%] [Cov:===============>                   44%]
+[Progress:==========>                   35%] [Cov:===============>                   44%]
+[Progress:==========>                   35%] [Cov:===============>                   45%]
+[Progress:==========>                   36%] [Cov:===============>                   44%]
+[Progress:===========>                  38%] [Cov:===============>                   45%]
+[Progress:============>                 40%] [Cov:===============>                   45%]
+[Progress:============>                 41%] [Cov:===============>                   45%]
+[Progress:============>                 43%] [Cov:===============>                   45%]
+[Progress:=============>                45%] [Cov:===============>                   45%]
+[Progress:=============>                46%] [Cov:===============>                   45%]
+[Progress:==============>               48%] [Cov:===============>                   45%]
+[Progress:===============>              50%] [Cov:================>                  46%]
+[Progress:===============>              51%] [Cov:================>                  46%]
+[Progress:==================>           60%] [Cov:================>                  46%]
+[Progress:==================>           61%] [Cov:================>                  46%]
+[Progress:==================>           63%] [Cov:================>                  46%]
+[Progress:=====================>        71%] [Cov:================>                  46%]
+[Progress:=====================>        73%] [Cov:================>                  46%]
+[Progress:======================>       75%] [Cov:================>                  46%]
+[Progress:======================>       76%] [Cov:================>                  46%]
+[Progress:=========================>    85%] [Cov:================>                  46%]
+[Progress:=========================>    86%] [Cov:================>                  46%]
+[Progress:==========================>   88%] [Cov:================>                  46%]
+[Progress:===========================>  90%] [Cov:================>                  46%]
+[Progress:===========================>  90%] [Cov:================>                  47%]
+[Progress:===========================>  91%] [Cov:================>                  46%]
+[Progress:============================> 95%] [Cov:================>                  47%]
+[Progress:============================> 96%] [Cov:================>                  47%]
+[Progress:=============================>98%] [Cov:================>                  47%]
+[Progress:==============================100%] [Cov:================>                  47%]
+[Progress:==============================100%] [Cov:================>                  47%]
+* Search finished after 63s and 20 generations, 18726 statements, best individual has fitness: 1991.2710931543584
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 24%
+* Total number of goals: 1791
+* Number of covered goals: 435
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 19%
+* Total number of goals: 1457
+* Number of covered goals: 282
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 69
+* Number of covered goals: 69
+* Generated 100 tests with total length 845
+* Resulting test suite's coverage: 48% (average coverage for all fitness functions)
+* Generating assertions
+[MASTER] 01:07:42.290 [logback-1] WARN  SimpleMutationAssertionGenerator - Assertion minimization is taking too long (0.67045% of time used, but only 49/100 tests minimized), falling back to using all assertions
+* Resulting test suite's mutation score: 1%
+* Compiling and checking tests
+[MASTER] 01:07:47.789 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 2]
+[MASTER] 01:07:47.789 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, false);
+PipedInputStream pipedInputStream0 = new PipedInputStream(1);
+byte[] byteArray0 = new byte[3];
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 0, pipedInputStream0, (ObjectCodec) null, (ByteQuadsCanonicalizer) null, byteArray0, 0, 1502, false);
+uTF8StreamJsonParser0.parseMediumName(2);
+
+[MASTER] 01:07:48.350 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 2]
+[MASTER] 01:07:48.351 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, false);
+PipedInputStream pipedInputStream0 = new PipedInputStream(101);
+ObjectCodec objectCodec0 = mock(ObjectCodec.class, new ViolatedAssumptionAnswer());
+ByteQuadsCanonicalizer byteQuadsCanonicalizer0 = ByteQuadsCanonicalizer.createRoot();
+byte[] byteArray0 = new byte[6];
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 21, pipedInputStream0, objectCodec0, byteQuadsCanonicalizer0, byteArray0, (byte)0, (byte)24, false);
+uTF8StreamJsonParser0.parseMediumName2(2, 101);
+
+[MASTER] 01:07:50.783 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 4]
+[MASTER] 01:07:50.783 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, false);
+PipedInputStream pipedInputStream0 = new PipedInputStream(1);
+byte[] byteArray0 = new byte[3];
+byteArray0[0] = (byte) (-5);
+byteArray0[1] = (byte) (-5);
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 0, pipedInputStream0, (ObjectCodec) null, (ByteQuadsCanonicalizer) null, byteArray0, 0, 1502, false);
+uTF8StreamJsonParser0.parseMediumName(2);
+
+[MASTER] 01:07:50.865 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 3]
+[MASTER] 01:07:50.865 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, false);
+PipedInputStream pipedInputStream0 = new PipedInputStream(101);
+ObjectCodec objectCodec0 = mock(ObjectCodec.class, new ViolatedAssumptionAnswer());
+ByteQuadsCanonicalizer byteQuadsCanonicalizer0 = ByteQuadsCanonicalizer.createRoot();
+byte[] byteArray0 = new byte[6];
+byteArray0[0] = (byte) (-13);
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 21, pipedInputStream0, objectCodec0, byteQuadsCanonicalizer0, byteArray0, (byte)0, (byte)24, false);
+uTF8StreamJsonParser0.parseMediumName2(2, 101);
+
+[MASTER] 01:07:51.033 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 3]
+[MASTER] 01:07:51.033 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, false);
+PipedInputStream pipedInputStream0 = new PipedInputStream(101);
+ObjectCodec objectCodec0 = mock(ObjectCodec.class, new ViolatedAssumptionAnswer());
+ByteQuadsCanonicalizer byteQuadsCanonicalizer0 = ByteQuadsCanonicalizer.createRoot();
+byte[] byteArray0 = new byte[6];
+byteArray0[0] = (byte) (-13);
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 21, pipedInputStream0, objectCodec0, byteQuadsCanonicalizer0, byteArray0, (byte)0, (byte)24, false);
+uTF8StreamJsonParser0.parseLongName((-302), 21, (-1));
+
+[MASTER] 01:07:51.116 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 4]
+[MASTER] 01:07:51.116 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, false);
+PipedInputStream pipedInputStream0 = new PipedInputStream(101);
+ObjectCodec objectCodec0 = mock(ObjectCodec.class, new ViolatedAssumptionAnswer());
+ByteQuadsCanonicalizer byteQuadsCanonicalizer0 = ByteQuadsCanonicalizer.createRoot();
+byte[] byteArray0 = new byte[6];
+byteArray0[0] = (byte) (-13);
+byteArray0[1] = (byte)45;
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 21, pipedInputStream0, objectCodec0, byteQuadsCanonicalizer0, byteArray0, (byte)0, (byte)45, false);
+uTF8StreamJsonParser0.parseLongName((-302), 21, (-1));
+
+[MASTER] 01:07:51.442 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 2]
+[MASTER] 01:07:51.442 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, true);
+ObjectCodec objectCodec0 = mock(ObjectCodec.class, new ViolatedAssumptionAnswer());
+ByteQuadsCanonicalizer byteQuadsCanonicalizer0 = ByteQuadsCanonicalizer.createRoot();
+byte[] byteArray0 = new byte[9];
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 1, (InputStream) null, objectCodec0, byteQuadsCanonicalizer0, byteArray0, (byte)0, 69, true);
+uTF8StreamJsonParser0.slowParseName();
+
+[MASTER] 01:07:51.784 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 0)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 3]
+[MASTER] 01:07:51.784 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, true);
+PipedInputStream pipedInputStream0 = new PipedInputStream(2);
+ObjectCodec objectCodec0 = mock(ObjectCodec.class, new ViolatedAssumptionAnswer());
+ByteQuadsCanonicalizer byteQuadsCanonicalizer0 = ByteQuadsCanonicalizer.createRoot();
+byte[] byteArray0 = new byte[7];
+byteArray0[3] = (byte)102;
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 1, pipedInputStream0, objectCodec0, byteQuadsCanonicalizer0, byteArray0, 3, 43, true);
+uTF8StreamJsonParser0._parseAposName();
+
+[MASTER] 01:07:56.007 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class com.fasterxml.jackson.core.JsonParseException: Illegal unquoted character ((CTRL-CHAR, code 1)): has to be escaped using backslash to be included in name
+ at [Source: com.fasterxml.jackson.core.util.BufferRecycler@5; line: 1, column: 1]
+[MASTER] 01:07:56.007 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ BufferRecycler bufferRecycler0 = new BufferRecycler();
+assertNotNull(bufferRecycler0);
+assertEquals(1, BufferRecycler.CHAR_CONCAT_BUFFER);
+assertEquals(3, BufferRecycler.CHAR_NAME_COPY_BUFFER);
+assertEquals(1, BufferRecycler.BYTE_WRITE_ENCODING_BUFFER);
+assertEquals(3, BufferRecycler.BYTE_BASE64_CODEC_BUFFER);
+assertEquals(2, BufferRecycler.CHAR_TEXT_BUFFER);
+assertEquals(2, BufferRecycler.BYTE_WRITE_CONCAT_BUFFER);
+assertEquals(0, BufferRecycler.BYTE_READ_IO_BUFFER);
+assertEquals(0, BufferRecycler.CHAR_TOKEN_BUFFER);
+
+IOContext iOContext0 = new IOContext(bufferRecycler0, bufferRecycler0, true);
+assertNotNull(iOContext0);
+assertNull(iOContext0.getEncoding());
+assertTrue(iOContext0.isResourceManaged());
+assertEquals(1, BufferRecycler.CHAR_CONCAT_BUFFER);
+assertEquals(3, BufferRecycler.CHAR_NAME_COPY_BUFFER);
+assertEquals(1, BufferRecycler.BYTE_WRITE_ENCODING_BUFFER);
+assertEquals(3, BufferRecycler.BYTE_BASE64_CODEC_BUFFER);
+assertEquals(2, BufferRecycler.CHAR_TEXT_BUFFER);
+assertEquals(2, BufferRecycler.BYTE_WRITE_CONCAT_BUFFER);
+assertEquals(0, BufferRecycler.BYTE_READ_IO_BUFFER);
+assertEquals(0, BufferRecycler.CHAR_TOKEN_BUFFER);
+
+ByteQuadsCanonicalizer byteQuadsCanonicalizer0 = ByteQuadsCanonicalizer.createRoot();
+assertNotNull(byteQuadsCanonicalizer0);
+assertEquals(0, byteQuadsCanonicalizer0.primaryCount());
+assertEquals(0, byteQuadsCanonicalizer0.totalCount());
+assertEquals(0, byteQuadsCanonicalizer0.secondaryCount());
+assertEquals(839877741, byteQuadsCanonicalizer0.hashSeed());
+assertEquals(0, byteQuadsCanonicalizer0.tertiaryCount());
+assertTrue(byteQuadsCanonicalizer0.maybeDirty());
+assertEquals(0, byteQuadsCanonicalizer0.spilloverCount());
+assertEquals(0, byteQuadsCanonicalizer0.size());
+assertEquals(0, byteQuadsCanonicalizer0.bucketCount());
+
+byte[] byteArray0 = new byte[1];
+UTF8StreamJsonParser uTF8StreamJsonParser0 = new UTF8StreamJsonParser(iOContext0, 0, (InputStream) null, (ObjectCodec) null, byteQuadsCanonicalizer0, byteArray0, (-5080), 582, true);
+assertEquals(1, byteArray0.length);
+assertNotNull(uTF8StreamJsonParser0);
+assertArrayEquals(new byte[] {(byte)0}, byteArray0);
+assertNull(iOContext0.getEncoding());
+assertTrue(iOContext0.isResourceManaged());
+assertEquals(0, byteQuadsCanonicalizer0.primaryCount());
+assertEquals(0, byteQuadsCanonicalizer0.totalCount());
+assertEquals(0, byteQuadsCanonicalizer0.secondaryCount());
+assertEquals(839877741, byteQuadsCanonicalizer0.hashSeed());
+assertEquals(0, byteQuadsCanonicalizer0.tertiaryCount());
+assertTrue(byteQuadsCanonicalizer0.maybeDirty());
+assertEquals(0, byteQuadsCanonicalizer0.spilloverCount());
+assertEquals(0, byteQuadsCanonicalizer0.size());
+assertEquals(0, byteQuadsCanonicalizer0.bucketCount());
+assertFalse(uTF8StreamJsonParser0.isExpectedStartObjectToken());
+assertFalse(uTF8StreamJsonParser0.isExpectedStartArrayToken());
+assertEquals(1, uTF8StreamJsonParser0.getTokenLineNr());
+assertNull(uTF8StreamJsonParser0.getLastClearedToken());
+assertEquals(0, uTF8StreamJsonParser0.getFeatureMask());
+assertFalse(uTF8StreamJsonParser0.canReadObjectId());
+assertEquals(0L, uTF8StreamJsonParser0.getTokenCharacterOffset());
+assertFalse(uTF8StreamJsonParser0.requiresCustomCodec());
+assertEquals(0, uTF8StreamJsonParser0.getCurrentTokenId());
+assertFalse(uTF8StreamJsonParser0.isClosed());
+assertNull(uTF8StreamJsonParser0.getCurrentName());
+assertFalse(uTF8StreamJsonParser0.hasCurrentToken());
+assertFalse(uTF8StreamJsonParser0.hasTextCharacters());
+assertNull(uTF8StreamJsonParser0.getCurrentToken());
+assertFalse(uTF8StreamJsonParser0.canReadTypeId());
+assertEquals(1, uTF8StreamJsonParser0.getTokenColumnNr());
+assertEquals(1, BufferRecycler.CHAR_CONCAT_BUFFER);
+assertEquals(3, BufferRecycler.CHAR_NAME_COPY_BUFFER);
+assertEquals(1, BufferRecycler.BYTE_WRITE_ENCODING_BUFFER);
+assertEquals(3, BufferRecycler.BYTE_BASE64_CODEC_BUFFER);
+assertEquals(2, BufferRecycler.CHAR_TEXT_BUFFER);
+assertEquals(2, BufferRecycler.BYTE_WRITE_CONCAT_BUFFER);
+assertEquals(0, BufferRecycler.BYTE_READ_IO_BUFFER);
+assertEquals(0, BufferRecycler.CHAR_TOKEN_BUFFER);
+
+int[] intArray0 = new int[8];
+uTF8StreamJsonParser0.parseEscapedName(intArray0, 0, 31, 1, 31);
+
+* Writing tests to file
+* Writing JUnit test case 'UTF8StreamJsonParser_ESTest' to /work/evo_out/JacksonCore_9f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=130.9s]
+
+$ javac -nowarn -cp /work/JacksonCore_9f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/JacksonCore_9f/budget60_seed1/classes /work/evo_out/JacksonCore_9f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserMinimalBase_ESTest.java /work/evo_out/JacksonCore_9f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserMinimalBase_ESTest_scaffolding.java /work/evo_out/JacksonCore_9f/budget60_seed1/tests/com/fasterxml/jackson/core/json/ReaderBasedJsonParser_ESTest.java /work/evo_out/JacksonCore_9f/budget60_seed1/tests/com/fasterxml/jackson/core/json/ReaderBasedJsonParser_ESTest_scaffolding.java /work/evo_out/JacksonCore_9f/budget60_seed1/tests/com/fasterxml/jackson/core/json/UTF8StreamJsonParser_ESTest.java /work/evo_out/JacksonCore_9f/budget60_seed1/tests/com/fasterxml/jackson/core/json/UTF8StreamJsonParser_ESTest_scaffolding.java
+Note: /work/evo_out/JacksonCore_9f/budget60_seed1/tests/com/fasterxml/jackson/core/json/UTF8StreamJsonParser_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=1.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/JacksonCore_9f/target/classes --dest /work/evo_out/JacksonCore_9f/budget60_seed1/instrumented
+[INFO] 97 classes instrumented to /work/evo_out/JacksonCore_9f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/JacksonCore_9/budget60_seed1/jacoco.exec -cp /work/evo_out/JacksonCore_9f/budget60_seed1/instrumented:/work/evo_out/JacksonCore_9f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_9f/target/classes:/work/JacksonCore_9f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.base.ParserMinimalBase_ESTest com.fasterxml.jackson.core.json.ReaderBasedJsonParser_ESTest com.fasterxml.jackson.core.json.UTF8StreamJsonParser_ESTest
+JUnit version 4.12
+.......................................................................................................................................................................................................................
+Time: 1.481
+
+OK (215 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/JacksonCore_9/budget60_seed1/jacoco.exec --classfiles /work/JacksonCore_9f/target/classes --csv /workspace/EvoSuite/Result_Round1/JacksonCore_9/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/JacksonCore_9/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 81 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/JacksonCore_9f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_9b/target/classes:/work/JacksonCore_9b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.base.ParserMinimalBase_ESTest com.fasterxml.jackson.core.json.ReaderBasedJsonParser_ESTest com.fasterxml.jackson.core.json.UTF8StreamJsonParser_ESTest
+JUnit version 4.12
+.......................................................................................................................................................................................................................
+Time: 1.415
+
+OK (215 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.7s]

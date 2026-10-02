@@ -1,0 +1,1737 @@
+
+$ defects4j checkout -p Closure -v 54f -w /work/Closure_54f
+Checking out 7e9b8336 to /work/Closure_54f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_54f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_54f/lib/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e9b8336:fc307189..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-54f..................................... OK
+
+[exit=0 timeout=False time=3.2s]
+
+$ defects4j compile -w /work/Closure_54f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.6s]
+
+$ defects4j checkout -p Closure -v 54b -w /work/Closure_54b
+Checking out 7e9b8336 to /work/Closure_54b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_54b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_54b/lib/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e9b8336:fc307189..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-54b..................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_54b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_54f/build/classes:/work/Closure_54f/lib/args4j.jar:/work/Closure_54f/lib/guava.jar:/work/Closure_54f/lib/json.jar:/work/Closure_54f/lib/jsr305.jar:/work/Closure_54f/lib/protobuf-java.jar:/work/Closure_54f/build/lib/rhino.jar:/work/Closure_54f/lib/ant.jar:/work/Closure_54f/lib/ant-launcher.jar:/work/Closure_54f/lib/caja-r4314.jar:/work/Closure_54f/lib/jarjar.jar:/work/Closure_54f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.TypedScopeCreator -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_54f/build/classes:/work/Closure_54f/lib/args4j.jar:/work/Closure_54f/lib/guava.jar:/work/Closure_54f/lib/json.jar:/work/Closure_54f/lib/jsr305.jar:/work/Closure_54f/lib/protobuf-java.jar:/work/Closure_54f/build/lib/rhino.jar:/work/Closure_54f/lib/ant.jar:/work/Closure_54f/lib/ant-launcher.jar:/work/Closure_54f/lib/caja-r4314.jar:/work/Closure_54f/lib/jarjar.jar:/work/Closure_54f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_54f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_54f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.TypedScopeCreator
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_54f/build/classes
+  - /work/Closure_54f/lib/args4j.jar
+  - /work/Closure_54f/lib/guava.jar
+  - /work/Closure_54f/lib/json.jar
+  - /work/Closure_54f/lib/jsr305.jar
+  - /work/Closure_54f/lib/protobuf-java.jar
+  - /work/Closure_54f/build/lib/rhino.jar
+  - /work/Closure_54f/lib/ant.jar
+  - /work/Closure_54f/lib/ant-launcher.jar
+  - /work/Closure_54f/lib/caja-r4314.jar
+  - /work/Closure_54f/lib/jarjar.jar
+  - /work/Closure_54f/build/test
+[MASTER] 16:10:25.329 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 16:10:25.357 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 16:10:25.607 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.TypedScopeCreator
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 762
+  - Branch 646
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:>                                  0%]
+[Progress:>                             1%] [Cov:===========>                       33%][MASTER] 16:10:27.984 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:>                             3%] [Cov:>                                  0%]
+[Progress:>                             3%] [Cov:===========>                       33%][MASTER] 16:10:28.975 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Enumeration<E> : Type points to itself
+
+[Progress:=>                            5%] [Cov:>                                  0%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%][MASTER] 16:10:30.141 [logback-1] WARN  TestCluster - Failed to check cache for com.google.javascript.jscomp.ControlFlowGraph<N>.Branch : Type points to itself
+
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:=>                            6%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          11%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:===>                          13%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         15%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:===========>                       33%]
+[Progress:====>                         16%] [Cov:============>                      37%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:==============>                    41%]
+[Progress:======>                       23%] [Cov:==============>                    40%]
+[Progress:======>                       23%] [Cov:==============>                    41%]
+[Progress:======>                       23%] [Cov:==============>                    41%]
+[Progress:======>                       23%] [Cov:==============>                    41%]
+[Progress:=======>                      25%] [Cov:==============>                    41%]
+[Progress:=======>                      25%] [Cov:==============>                    41%]
+[Progress:=======>                      25%] [Cov:==============>                    41%]
+[Progress:=======>                      26%] [Cov:==============>                    41%]
+[Progress:=======>                      26%] [Cov:==============>                    41%]
+[Progress:=======>                      26%] [Cov:==============>                    41%]
+[Progress:========>                     28%] [Cov:==============>                    41%]
+[Progress:========>                     28%] [Cov:==============>                    41%]
+[Progress:========>                     28%] [Cov:==============>                    41%]
+[Progress:========>                     28%] [Cov:==============>                    41%]
+[Progress:=========>                    30%] [Cov:==============>                    41%]
+[Progress:=========>                    30%] [Cov:==============>                    41%]
+[Progress:=========>                    30%] [Cov:==============>                    41%]
+[Progress:=========>                    31%] [Cov:==============>                    41%]
+[Progress:=========>                    31%] [Cov:==============>                    41%]
+[Progress:=========>                    31%] [Cov:==============>                    41%]
+[Progress:=========>                    31%] [Cov:==============>                    41%]
+[Progress:=========>                    33%] [Cov:==============>                    41%]
+[Progress:=========>                    33%] [Cov:==============>                    41%]
+[Progress:=========>                    33%] [Cov:==============>                    42%]
+[Progress:==========>                   35%] [Cov:==============>                    42%]
+[Progress:==========>                   35%] [Cov:==============>                    42%]
+[Progress:==========>                   36%] [Cov:==============>                    42%]
+[Progress:==========>                   36%] [Cov:==============>                    42%]
+[Progress:==========>                   36%] [Cov:==============>                    42%]
+[Progress:===========>                  38%] [Cov:==============>                    42%]
+[Progress:===========>                  38%] [Cov:==============>                    42%]
+[Progress:===========>                  38%] [Cov:===============>                   43%]
+[Progress:============>                 40%] [Cov:===============>                   43%]
+[Progress:============>                 40%] [Cov:===============>                   43%]
+[Progress:============>                 41%] [Cov:===============>                   43%]
+[Progress:============>                 41%] [Cov:===============>                   43%]
+[Progress:============>                 41%] [Cov:===============>                   43%]
+[Progress:============>                 43%] [Cov:===============>                   43%]
+[Progress:============>                 43%] [Cov:===============>                   43%]
+[Progress:=============>                45%] [Cov:===============>                   43%]
+[Progress:=============>                45%] [Cov:===============>                   43%]
+[Progress:=============>                46%] [Cov:===============>                   43%]
+[Progress:=============>                46%] [Cov:===============>                   43%]
+[Progress:=============>                46%] [Cov:===============>                   43%]
+[Progress:==============>               48%] [Cov:===============>                   43%]
+[Progress:==============>               48%] [Cov:===============>                   43%]
+[Progress:===============>              50%] [Cov:===============>                   43%]
+[Progress:===============>              50%] [Cov:===============>                   43%]
+[Progress:===============>              51%] [Cov:===============>                   43%]
+[Progress:===============>              51%] [Cov:===============>                   43%]
+[Progress:===============>              53%] [Cov:===============>                   43%]
+[Progress:===============>              53%] [Cov:===============>                   43%]
+[Progress:================>             55%] [Cov:===============>                   43%]
+[Progress:================>             55%] [Cov:===============>                   43%]
+[Progress:================>             55%] [Cov:===============>                   43%]
+[Progress:================>             56%] [Cov:===============>                   43%]
+[Progress:================>             56%] [Cov:===============>                   43%]
+[Progress:================>             56%] [Cov:===============>                   43%]
+[Progress:=================>            58%] [Cov:===============>                   43%]
+[Progress:=================>            58%] [Cov:===============>                   43%]
+[Progress:=================>            58%] [Cov:===============>                   43%]
+[Progress:==================>           60%] [Cov:===============>                   43%]
+[Progress:==================>           60%] [Cov:===============>                   43%]
+[Progress:==================>           61%] [Cov:===============>                   43%]
+[Progress:==================>           61%] [Cov:===============>                   43%]
+[Progress:==================>           63%] [Cov:===============>                   43%]
+[Progress:==================>           63%] [Cov:===============>                   43%]
+[Progress:==================>           63%] [Cov:===============>                   43%]
+[Progress:===================>          65%] [Cov:===============>                   43%]
+[Progress:===================>          65%] [Cov:===============>                   43%]
+[Progress:===================>          66%] [Cov:===============>                   43%]
+[Progress:===================>          66%] [Cov:===============>                   43%]
+[Progress:======================>       75%] [Cov:===============>                   43%]
+[Progress:======================>       75%] [Cov:===============>                   43%]
+[Progress:======================>       76%] [Cov:===============>                   43%]
+[Progress:======================>       76%] [Cov:===============>                   43%]
+[Progress:======================>       76%] [Cov:===============>                   43%]
+[Progress:=======================>      78%] [Cov:===============>                   43%]
+[Progress:=======================>      78%] [Cov:===============>                   43%]
+[Progress:========================>     80%] [Cov:===============>                   43%]
+[Progress:========================>     80%] [Cov:===============>                   43%]
+[Progress:========================>     80%] [Cov:===============>                   43%]
+[Progress:========================>     81%] [Cov:===============>                   43%]
+[Progress:========================>     81%] [Cov:===============>                   43%]
+[Progress:========================>     83%] [Cov:===============>                   43%]
+[Progress:========================>     83%] [Cov:===============>                   43%]
+[Progress:========================>     83%] [Cov:===============>                   43%]
+[Progress:=========================>    85%] [Cov:===============>                   43%]
+[Progress:=========================>    85%] [Cov:===============>                   43%]
+[Progress:=========================>    86%] [Cov:===============>                   43%]
+[Progress:=========================>    86%] [Cov:===============>                   43%]
+[Progress:==========================>   88%] [Cov:===============>                   43%]
+[Progress:==========================>   88%] [Cov:===============>                   43%]
+[Progress:==========================>   88%] [Cov:===============>                   43%]
+[Progress:===========================>  90%] [Cov:===============>                   43%]
+[Progress:===========================>  90%] [Cov:===============>                   43%]
+[Progress:===========================>  91%] [Cov:===============>                   43%]
+[Progress:===========================>  91%] [Cov:===============>                   43%]
+[Progress:===========================>  91%] [Cov:===============>                   43%]
+[Progress:===========================>  93%] [Cov:===============>                   43%]
+[Progress:===========================>  93%] [Cov:===============>                   43%]
+[Progress:============================> 95%] [Cov:===============>                   43%]
+[Progress:============================> 95%] [Cov:===============>                   43%]
+[Progress:============================> 96%] [Cov:===============>                   43%]
+[Progress:============================> 96%] [Cov:===============>                   43%]
+[Progress:============================> 96%] [Cov:===============>                   43%]
+[Progress:=============================>98%] [Cov:===============>                   43%]
+[Progress:=============================>98%] [Cov:===============>                   43%]
+[Progress:==============================100%] [Cov:===============>                   43%]
+[Progress:==============================100%] [Cov:===============>                   43%]
+[Progress:==============================100%] [Cov:===============>                   43%]
+[Progress:==============================100%] [Cov:===============>                   43%]
+[Progress:==============================100%] [Cov:===============>                   43%]
+* Search finished after 62s and 194 generations, 60260 statements, best individual has fitness: 1019.0086017424426
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 19%
+* Total number of goals: 762
+* Number of covered goals: 146
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 11%
+* Total number of goals: 646
+* Number of covered goals: 73
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 10
+* Number of covered goals: 10
+* Generated 15 tests with total length 103
+* Resulting test suite's coverage: 43% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 5%
+* Compiling and checking tests
+[MASTER] 16:11:41.948 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 16:11:41.949 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+Compiler compiler0 = denormalizeTest0.createCompiler();
+JSSourceFile jSSourceFile0 = JSSourceFile.fromFile("'zZqdErq");
+Node node0 = compiler0.parse(jSSourceFile0);
+Node node1 = new Node(850, node0);
+node0.addChildrenToFront(node1);
+TypedScopeCreator typedScopeCreator0 = new TypedScopeCreator(compiler0);
+typedScopeCreator0.createScope(node0, (Scope) null);
+
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+         writeFileDescriptor: 7
+* Writing tests to file
+* Writing JUnit test case 'TypedScopeCreator_ESTest' to /work/evo_out/Closure_54f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=83.1s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_54f/build/classes:/work/Closure_54f/lib/args4j.jar:/work/Closure_54f/lib/guava.jar:/work/Closure_54f/lib/json.jar:/work/Closure_54f/lib/jsr305.jar:/work/Closure_54f/lib/protobuf-java.jar:/work/Closure_54f/build/lib/rhino.jar:/work/Closure_54f/lib/ant.jar:/work/Closure_54f/lib/ant-launcher.jar:/work/Closure_54f/lib/caja-r4314.jar:/work/Closure_54f/lib/jarjar.jar:/work/Closure_54f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.rhino.jstype.FunctionType -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_54f/build/classes:/work/Closure_54f/lib/args4j.jar:/work/Closure_54f/lib/guava.jar:/work/Closure_54f/lib/json.jar:/work/Closure_54f/lib/jsr305.jar:/work/Closure_54f/lib/protobuf-java.jar:/work/Closure_54f/build/lib/rhino.jar:/work/Closure_54f/lib/ant.jar:/work/Closure_54f/lib/ant-launcher.jar:/work/Closure_54f/lib/caja-r4314.jar:/work/Closure_54f/lib/jarjar.jar:/work/Closure_54f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_54f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_54f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.rhino.jstype.FunctionType
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_54f/build/classes
+  - /work/Closure_54f/lib/args4j.jar
+  - /work/Closure_54f/lib/guava.jar
+  - /work/Closure_54f/lib/json.jar
+  - /work/Closure_54f/lib/jsr305.jar
+  - /work/Closure_54f/lib/protobuf-java.jar
+  - /work/Closure_54f/build/lib/rhino.jar
+  - /work/Closure_54f/lib/ant.jar
+  - /work/Closure_54f/lib/ant-launcher.jar
+  - /work/Closure_54f/lib/caja-r4314.jar
+  - /work/Closure_54f/lib/jarjar.jar
+  - /work/Closure_54f/build/test
+[MASTER] 16:11:47.597 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.rhino.jstype.FunctionType
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 411
+  - Branch 334
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:==>                                6%]
+[Progress:>                             1%] [Cov:===>                               10%]
+[Progress:>                             1%] [Cov:===============>                   44%]
+[Progress:>                             1%] [Cov:===============>                   45%]
+[Progress:>                             3%] [Cov:==>                                6%]
+[Progress:>                             3%] [Cov:===>                               10%]
+[Progress:>                             3%] [Cov:===============>                   43%]
+[Progress:>                             3%] [Cov:===============>                   45%]
+[Progress:>                             3%] [Cov:==================>                52%]
+[Progress:=>                            5%] [Cov:=>                                 5%]
+[Progress:=>                            5%] [Cov:===>                               9%]
+[Progress:=>                            5%] [Cov:==============>                    42%]
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            6%] [Cov:==============>                    42%]
+[Progress:=>                            6%] [Cov:===============>                   44%]
+[Progress:=>                            6%] [Cov:===============>                   45%]
+[Progress:=>                            6%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           68%]
+[Progress:===>                          10%] [Cov:=======================>           68%]
+[Progress:===>                          10%] [Cov:=======================>           68%]
+[Progress:===>                          11%] [Cov:=======================>           68%]
+[Progress:===>                          11%] [Cov:========================>          69%]
+[Progress:===>                          11%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:========================>          70%]
+[Progress:====>                         15%] [Cov:========================>          69%]
+[Progress:====>                         15%] [Cov:========================>          70%]
+[Progress:====>                         16%] [Cov:========================>          70%]
+[Progress:====>                         16%] [Cov:========================>          70%]
+[Progress:====>                         16%] [Cov:========================>          70%]
+[Progress:=====>                        18%] [Cov:========================>          70%]
+[Progress:=====>                        18%] [Cov:========================>          70%]
+[Progress:=====>                        18%] [Cov:========================>          71%]
+[Progress:=====>                        18%] [Cov:=========================>         72%]
+[Progress:======>                       20%] [Cov:=========================>         72%]
+[Progress:======>                       21%] [Cov:=========================>         72%]
+[Progress:======>                       21%] [Cov:=========================>         73%]
+[Progress:======>                       23%] [Cov:=========================>         72%]
+[Progress:======>                       23%] [Cov:=========================>         73%]
+[Progress:=======>                      25%] [Cov:=========================>         73%]
+[Progress:=======>                      25%] [Cov:=========================>         74%]
+[Progress:=======>                      26%] [Cov:=========================>         74%]
+[Progress:=======>                      26%] [Cov:=========================>         74%]
+[Progress:========>                     28%] [Cov:=========================>         74%]
+[Progress:========>                     28%] [Cov:=========================>         74%]
+[Progress:=========>                    30%] [Cov:=========================>         74%]
+[Progress:=========>                    30%] [Cov:=========================>         74%]
+[Progress:=========>                    30%] [Cov:==========================>        75%]
+[Progress:=========>                    31%] [Cov:==========================>        75%]
+[Progress:=========>                    33%] [Cov:==========================>        75%]
+[Progress:==========>                   35%] [Cov:==========================>        75%]
+[Progress:==========>                   35%] [Cov:==========================>        75%]
+[Progress:==========>                   35%] [Cov:==========================>        76%]
+[Progress:==========>                   36%] [Cov:==========================>        76%]
+[Progress:===========>                  38%] [Cov:==========================>        76%]
+[Progress:============>                 40%] [Cov:==========================>        76%]
+[Progress:============>                 40%] [Cov:==========================>        77%]
+[Progress:============>                 40%] [Cov:===========================>       78%]
+[Progress:============>                 41%] [Cov:===========================>       78%]
+[Progress:============>                 41%] [Cov:===========================>       78%]
+[Progress:============>                 43%] [Cov:===========================>       78%]
+[Progress:============>                 43%] [Cov:===========================>       79%]
+[Progress:============>                 43%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                45%] [Cov:===========================>       79%]
+[Progress:=============>                46%] [Cov:===========================>       79%]
+[Progress:=============>                46%] [Cov:===========================>       79%]
+[Progress:==============>               48%] [Cov:===========================>       79%]
+[Progress:==============>               48%] [Cov:===========================>       79%]
+[Progress:==============>               48%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              50%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              51%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:===============>              53%] [Cov:===========================>       79%]
+[Progress:================>             55%] [Cov:===========================>       79%]
+[Progress:================>             56%] [Cov:===========================>       79%]
+[Progress:=================>            58%] [Cov:===========================>       79%]
+[Progress:=================>            58%] [Cov:===========================>       79%]
+[Progress:==================>           60%] [Cov:===========================>       79%]
+[Progress:==================>           61%] [Cov:===========================>       79%]
+[Progress:==================>           61%] [Cov:===========================>       79%]
+[Progress:==================>           63%] [Cov:===========================>       79%]
+[Progress:==================>           63%] [Cov:===========================>       79%]
+[Progress:===================>          65%] [Cov:===========================>       79%]
+[Progress:===================>          65%] [Cov:===========================>       79%]
+[Progress:===================>          65%] [Cov:===========================>       79%]
+[Progress:===================>          66%] [Cov:===========================>       79%]
+[Progress:===================>          66%] [Cov:===========================>       79%]
+[Progress:===================>          66%] [Cov:============================>      80%]
+[Progress:====================>         68%] [Cov:===========================>       79%]
+[Progress:====================>         68%] [Cov:============================>      80%]
+[Progress:=====================>        70%] [Cov:============================>      80%]
+[Progress:=====================>        70%] [Cov:============================>      80%]
+[Progress:=====================>        71%] [Cov:============================>      80%]
+[Progress:=====================>        73%] [Cov:============================>      80%]
+[Progress:======================>       75%] [Cov:============================>      80%]
+[Progress:======================>       76%] [Cov:============================>      80%]
+[Progress:======================>       76%] [Cov:============================>      80%]
+[Progress:=======================>      78%] [Cov:============================>      80%]
+[Progress:=======================>      78%] [Cov:============================>      80%]
+[Progress:========================>     80%] [Cov:============================>      80%]
+[Progress:========================>     80%] [Cov:============================>      80%]
+[Progress:========================>     81%] [Cov:============================>      80%]
+[Progress:========================>     81%] [Cov:============================>      80%]
+[Progress:========================>     83%] [Cov:============================>      80%]
+[Progress:========================>     83%] [Cov:============================>      80%]
+[Progress:========================>     83%] [Cov:============================>      80%]
+[Progress:=========================>    85%] [Cov:============================>      80%]
+[Progress:=========================>    85%] [Cov:============================>      80%]
+[Progress:=========================>    85%] [Cov:============================>      81%]
+[Progress:=========================>    86%] [Cov:============================>      80%]
+[Progress:==========================>   88%] [Cov:============================>      81%]
+[Progress:===========================>  90%] [Cov:============================>      81%]
+[Progress:===========================>  90%] [Cov:============================>      81%]
+[Progress:===========================>  91%] [Cov:============================>      81%]
+[Progress:===========================>  93%] [Cov:============================>      81%]
+[Progress:===========================>  93%] [Cov:============================>      81%]
+[Progress:===========================>  93%] [Cov:============================>      81%]
+[Progress:============================> 95%] [Cov:============================>      81%]
+[Progress:============================> 95%] [Cov:============================>      81%]
+[Progress:============================> 96%] [Cov:============================>      81%]
+[Progress:============================> 96%] [Cov:============================>      81%]
+[Progress:=============================>98%] [Cov:============================>      81%]
+[Progress:=============================>98%] [Cov:============================>      81%]
+[Progress:=============================>98%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+[Progress:==============================100%] [Cov:============================>      81%]
+* Search finished after 62s and 66 generations, 53325 statements, best individual has fitness: 170.90778923669586
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 74%
+* Total number of goals: 411
+* Number of covered goals: 306
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 70%
+* Total number of goals: 334
+* Number of covered goals: 233
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 28
+* Number of covered goals: 28
+* Generated 85 tests with total length 433
+* Resulting test suite's coverage: 81% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 37%
+* Compiling and checking tests
+[MASTER] 16:13:27.722 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: null
+[MASTER] 16:13:27.723 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry((ErrorReporter) null);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("lfdg9Y`", (Node) null);
+Visitor<ObjectType> visitor0 = (Visitor<ObjectType>) mock(Visitor.class, new ViolatedAssumptionAnswer());
+doReturn(functionType0).when(visitor0).caseFunctionType(any(com.google.javascript.rhino.jstype.FunctionType.class));
+FunctionType functionType1 = (FunctionType)functionType0.visit(visitor0);
+assertTrue(functionType1.hasCachedValues());
+assertTrue(functionType1.isInterface());
+
+
+[MASTER] 16:13:28.423 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: null
+[MASTER] 16:13:28.424 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry((ErrorReporter) null);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("lfdg9Y`", (Node) null);
+boolean boolean0 = functionType0.canBeCalled();
+assertTrue(boolean0);
+assertTrue(functionType0.hasCachedValues());
+assertTrue(functionType0.hasInstanceType());
+
+
+[MASTER] 16:13:31.824 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 16:13:31.824 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ SimpleErrorReporter simpleErrorReporter0 = new SimpleErrorReporter();
+JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry(simpleErrorReporter0, true);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("nx", (Node) null);
+functionType0.toString();
+functionType0.setPrototype(functionType0);
+
+[MASTER] 16:13:36.649 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.junit.ComparisonFailure: expected:<function (): {27[2]}> but was:<function (): {27[0]}>
+[MASTER] 16:13:36.650 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ SimpleErrorReporter simpleErrorReporter0 = new SimpleErrorReporter();
+JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry(simpleErrorReporter0);
+ErrorFunctionType errorFunctionType0 = new ErrorFunctionType(jSTypeRegistry0, (String) null);
+InstanceObjectType instanceObjectType0 = new InstanceObjectType(jSTypeRegistry0, errorFunctionType0);
+JSType[] jSTypeArray0 = new JSType[0];
+FunctionType functionType0 = jSTypeRegistry0.createFunctionType((JSType) instanceObjectType0, jSTypeArray0);
+String string0 = functionType0.toDebugHashCodeString();
+assertEquals("function (): {272}", string0);
+
+
+[MASTER] 16:13:37.699 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.ClassCastException: class com.google.javascript.rhino.jstype.PrototypeObjectType cannot be cast to class com.google.javascript.rhino.jstype.FunctionType (com.google.javascript.rhino.jstype.PrototypeObjectType and com.google.javascript.rhino.jstype.FunctionType are in unnamed module of loader org.evosuite.instrumentation.NonInstrumentingClassLoader @18f6e80)
+[MASTER] 16:13:37.699 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry((ErrorReporter) null);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("lfdg9Y`", (Node) null);
+PrototypeObjectType prototypeObjectType0 = (PrototypeObjectType)functionType0.getPrototype();
+((FunctionType) prototypeObjectType0).getMaxArguments();
+
+[MASTER] 16:13:37.950 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.ClassCastException: class com.google.javascript.rhino.jstype.PrototypeObjectType cannot be cast to class com.google.javascript.rhino.jstype.FunctionType (com.google.javascript.rhino.jstype.PrototypeObjectType and com.google.javascript.rhino.jstype.FunctionType are in unnamed module of loader org.evosuite.instrumentation.NonInstrumentingClassLoader @1abfb6ec)
+[MASTER] 16:13:37.950 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry((ErrorReporter) null);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("lfdg9Y`", (Node) null);
+PrototypeObjectType prototypeObjectType0 = (PrototypeObjectType)jSTypeRegistry0.createObjectType((ObjectType) functionType0);
+((FunctionType) prototypeObjectType0).getSuperClassConstructor();
+
+[MASTER] 16:13:38.202 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: Expecting exception: IllegalStateException
+[MASTER] 16:13:38.202 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ SimpleErrorReporter simpleErrorReporter0 = new SimpleErrorReporter();
+JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry(simpleErrorReporter0, true);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("nx", (Node) null);
+functionType0.setImplicitPrototype(functionType0);
+
+[MASTER] 16:13:38.984 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.ClassCastException: class com.google.javascript.rhino.jstype.PrototypeObjectType cannot be cast to class com.google.javascript.rhino.jstype.FunctionType (com.google.javascript.rhino.jstype.PrototypeObjectType and com.google.javascript.rhino.jstype.FunctionType are in unnamed module of loader org.evosuite.instrumentation.NonInstrumentingClassLoader @12fa682f)
+[MASTER] 16:13:38.984 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry((ErrorReporter) null);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("lfdg9Y`", (Node) null);
+ObjectType objectType0 = functionType0.getPrototype();
+((FunctionType) objectType0).toDebugHashCodeString();
+
+* Writing tests to file
+* Writing JUnit test case 'FunctionType_ESTest' to /work/evo_out/Closure_54f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=116.0s]
+
+$ javac -nowarn -cp /work/Closure_54f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_54f/build/classes:/work/Closure_54f/lib/args4j.jar:/work/Closure_54f/lib/guava.jar:/work/Closure_54f/lib/json.jar:/work/Closure_54f/lib/jsr305.jar:/work/Closure_54f/lib/protobuf-java.jar:/work/Closure_54f/build/lib/rhino.jar:/work/Closure_54f/lib/ant.jar:/work/Closure_54f/lib/ant-launcher.jar:/work/Closure_54f/lib/caja-r4314.jar:/work/Closure_54f/lib/jarjar.jar:/work/Closure_54f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_54f/budget60_seed1/classes /work/evo_out/Closure_54f/budget60_seed1/tests/com/google/javascript/jscomp/TypedScopeCreator_ESTest.java /work/evo_out/Closure_54f/budget60_seed1/tests/com/google/javascript/jscomp/TypedScopeCreator_ESTest_scaffolding.java /work/evo_out/Closure_54f/budget60_seed1/tests/com/google/javascript/rhino/jstype/FunctionType_ESTest.java /work/evo_out/Closure_54f/budget60_seed1/tests/com/google/javascript/rhino/jstype/FunctionType_ESTest_scaffolding.java
+Note: /work/evo_out/Closure_54f/budget60_seed1/tests/com/google/javascript/rhino/jstype/FunctionType_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_54f/build/classes --dest /work/evo_out/Closure_54f/budget60_seed1/instrumented
+[INFO] 1306 classes instrumented to /work/evo_out/Closure_54f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_54/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_54f/budget60_seed1/instrumented:/work/evo_out/Closure_54f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_54f/build/classes:/work/Closure_54f/lib/args4j.jar:/work/Closure_54f/lib/guava.jar:/work/Closure_54f/lib/json.jar:/work/Closure_54f/lib/jsr305.jar:/work/Closure_54f/lib/protobuf-java.jar:/work/Closure_54f/build/lib/rhino.jar:/work/Closure_54f/lib/ant.jar:/work/Closure_54f/lib/ant-launcher.jar:/work/Closure_54f/lib/caja-r4314.jar:/work/Closure_54f/lib/jarjar.jar:/work/Closure_54f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.TypedScopeCreator_ESTest com.google.javascript.rhino.jstype.FunctionType_ESTest
+JUnit version 4.12
+...............................................................................................
+Time: 2.106
+
+OK (95 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=4.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_54/budget60_seed1/jacoco.exec --classfiles /work/Closure_54f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_54/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_54/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1112 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -cp /work/evo_out/Closure_54f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_54b/build/classes:/work/Closure_54b/lib/args4j.jar:/work/Closure_54b/lib/guava.jar:/work/Closure_54b/lib/json.jar:/work/Closure_54b/lib/jsr305.jar:/work/Closure_54b/lib/protobuf-java.jar:/work/Closure_54b/build/lib/rhino.jar:/work/Closure_54b/lib/ant.jar:/work/Closure_54b/lib/ant-launcher.jar:/work/Closure_54b/lib/caja-r4314.jar:/work/Closure_54b/lib/jarjar.jar:/work/Closure_54b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.TypedScopeCreator_ESTest com.google.javascript.rhino.jstype.FunctionType_ESTest
+JUnit version 4.12
+..................................................................................E.............
+Time: 1.951
+There was 1 failure:
+1) test58(com.google.javascript.rhino.jstype.FunctionType_ESTest)
+java.lang.StackOverflowError
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:974)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+	at com.google.javascript.rhino.jstype.FunctionType.clearCachedValues(FunctionType.java:986)
+
+FAILURES!!!
+Tests run: 95,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=2.3s]

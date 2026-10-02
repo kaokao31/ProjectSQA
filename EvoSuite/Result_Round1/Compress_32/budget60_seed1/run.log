@@ -1,0 +1,261 @@
+
+$ defects4j checkout -p Compress -v 32f -w /work/Compress_32f
+Checking out 3c4a09bf to /work/Compress_32f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Compress_32f/maven-build.xml.................. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3c4a09bf:24a3100e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-32f.................................... OK
+
+[exit=0 timeout=False time=3.1s]
+
+$ defects4j compile -w /work/Compress_32f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ defects4j checkout -p Compress -v 32b -w /work/Compress_32b
+Checking out 3c4a09bf to /work/Compress_32b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Compress_32b/maven-build.xml.................. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3c4a09bf:24a3100e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-32b.................................... OK
+
+[exit=0 timeout=False time=3.1s]
+
+$ defects4j compile -w /work/Compress_32b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Compress_32f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32f/target/test-classes org.evosuite.EvoSuite -generateSuite -class org.apache.commons.compress.archivers.tar.TarArchiveInputStream -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_32f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Compress_32f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Compress_32f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.compress.archivers.tar.TarArchiveInputStream
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Compress_32f/target/classes
+  - /opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar
+  - /work/Compress_32f/target/test-classes
+[MASTER] 21:18:14.955 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 21:18:15.195 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 21:18:15.278 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.compress.archivers.tar.TarArchiveInputStream
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 220
+  - Branch 147
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 21:18:15.657 [logback-1] WARN  TestCluster - Failed to check cache for java.util.AbstractMap<K, V>.SimpleImmutableEntry<K, V> : Type points to itself
+
+[Progress:==>                           8%] [Cov:=>                                 4%]
+[Progress:==>                           8%] [Cov:==>                                6%]
+[Progress:==>                           8%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:================>                  48%]
+[Progress:====>                         16%] [Cov:=>                                 3%]
+[Progress:====>                         16%] [Cov:=>                                 4%]
+[Progress:====>                         16%] [Cov:============>                      37%]
+[Progress:=======>                      25%] [Cov:>                                  0%]
+[Progress:=======>                      25%] [Cov:>                                  1%]
+[Progress:=======>                      25%] [Cov:===========>                       34%]
+[Progress:=======>                      25%] [Cov:==============>                    40%]
+[Progress:=======>                      25%] [Cov:==============>                    41%]
+[Progress:=======>                      25%] [Cov:===============>                   43%]
+[Progress:=========>                    33%] [Cov:>                                  0%]
+[Progress:=========>                    33%] [Cov:>                                  1%]
+[Progress:=========>                    33%] [Cov:===========>                       34%]
+[Progress:==========>                   35%] [Cov:>                                  2%]
+[Progress:==========>                   35%] [Cov:=>                                 3%]
+[Progress:==========>                   35%] [Cov:============>                      36%]
+[Progress:==========>                   35%] [Cov:==============>                    42%]
+[Progress:==========>                   35%] [Cov:================>                  47%]
+[Progress:==========>                   35%] [Cov:================>                  48%]
+[Progress:==========>                   35%] [Cov:===================>               56%]
+[Progress:==========>                   35%] [Cov:===================>               57%]
+[Progress:==========>                   35%] [Cov:===================>               57%]
+[Progress:==========>                   35%] [Cov:===================>               57%]
+[Progress:==========>                   35%] [Cov:===================>               57%]
+[Progress:==========>                   36%] [Cov:===================>               57%]
+[Progress:==========>                   36%] [Cov:===================>               57%]
+[Progress:==========>                   36%] [Cov:===================>               57%]
+[Progress:==========>                   36%] [Cov:===================>               57%]
+[Progress:==========>                   36%] [Cov:===================>               57%]
+[Progress:==========>                   36%] [Cov:====================>              58%]
+[Progress:==========>                   36%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:===================>               57%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                46%] [Cov:====================>              59%]
+[Progress:=============>                46%] [Cov:====================>              59%]
+[Progress:=============>                46%] [Cov:====================>              59%]
+[Progress:=============>                46%] [Cov:====================>              59%]
+[Progress:=============>                46%] [Cov:====================>              59%]
+[Progress:================>             55%] [Cov:====================>              59%]
+[Progress:================>             55%] [Cov:====================>              59%]
+[Progress:================>             56%] [Cov:====================>              59%]
+[Progress:================>             56%] [Cov:====================>              59%]
+[Progress:================>             56%] [Cov:====================>              59%]
+[Progress:================>             56%] [Cov:====================>              59%]
+[Progress:===================>          65%] [Cov:====================>              59%]
+[Progress:===================>          65%] [Cov:====================>              59%]
+[Progress:===================>          65%] [Cov:====================>              59%]
+[Progress:===================>          65%] [Cov:====================>              59%]
+[Progress:===================>          66%] [Cov:====================>              59%]
+[Progress:===================>          66%] [Cov:====================>              59%]
+[Progress:===================>          66%] [Cov:====================>              59%]
+[Progress:===================>          66%] [Cov:====================>              59%]
+[Progress:===================>          66%] [Cov:====================>              59%]
+[Progress:===================>          66%] [Cov:====================>              59%]
+[Progress:====================>         68%] [Cov:====================>              59%]
+[Progress:====================>         68%] [Cov:====================>              59%]
+[Progress:====================>         68%] [Cov:====================>              59%]
+[Progress:====================>         68%] [Cov:====================>              59%]
+[Progress:====================>         68%] [Cov:====================>              59%]
+[Progress:====================>         68%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        70%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        71%] [Cov:====================>              59%]
+[Progress:=====================>        73%] [Cov:====================>              59%]
+[Progress:=====================>        73%] [Cov:====================>              59%]
+[Progress:=====================>        73%] [Cov:====================>              59%]
+[Progress:=====================>        73%] [Cov:====================>              59%]
+[Progress:======================>       76%] [Cov:====================>              59%]
+[Progress:======================>       76%] [Cov:====================>              59%]
+[Progress:======================>       76%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:=======================>      78%] [Cov:====================>              59%]
+[Progress:========================>     80%] [Cov:====================>              59%]
+[Progress:========================>     80%] [Cov:====================>              59%]
+[Progress:==========================>   88%] [Cov:====================>              59%]
+[Progress:==========================>   88%] [Cov:====================>              59%]
+[Progress:============================> 96%] [Cov:====================>              59%]
+[Progress:============================> 96%] [Cov:====================>              59%]
+[Progress:============================> 96%] [Cov:====================>              59%]
+[Progress:==============================100%] [Cov:====================>              59%]
+[Progress:==============================100%] [Cov:====================>              59%]
+* Search finished after 64s and 61 generations, 40645 statements, best individual has fitness: 171.7208076467056
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 45%
+* Total number of goals: 220
+* Number of covered goals: 98
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 35%
+* Total number of goals: 147
+* Number of covered goals: 51
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 25
+* Number of covered goals: 25
+* Generated 42 tests with total length 137
+* Resulting test suite's coverage: 60% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 9%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'TarArchiveInputStream_ESTest' to /work/evo_out/Compress_32f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=74.6s]
+
+$ javac -nowarn -cp /work/Compress_32f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32f/target/classes:/work/Compress_32f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Compress_32f/budget60_seed1/classes /work/evo_out/Compress_32f/budget60_seed1/tests/org/apache/commons/compress/archivers/tar/TarArchiveInputStream_ESTest.java /work/evo_out/Compress_32f/budget60_seed1/tests/org/apache/commons/compress/archivers/tar/TarArchiveInputStream_ESTest_scaffolding.java
+Note: /work/evo_out/Compress_32f/budget60_seed1/tests/org/apache/commons/compress/archivers/tar/TarArchiveInputStream_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Compress_32f/target/classes --dest /work/evo_out/Compress_32f/budget60_seed1/instrumented
+[INFO] 221 classes instrumented to /work/evo_out/Compress_32f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Compress_32/budget60_seed1/jacoco.exec -cp /work/evo_out/Compress_32f/budget60_seed1/instrumented:/work/evo_out/Compress_32f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32f/target/classes:/work/Compress_32f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.compress.archivers.tar.TarArchiveInputStream_ESTest
+JUnit version 4.12
+..........................................
+Time: 0.476
+
+OK (42 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Compress_32/budget60_seed1/jacoco.exec --classfiles /work/Compress_32f/target/classes --csv /workspace/EvoSuite/Result_Round1/Compress_32/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Compress_32/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 202 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/Compress_32f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32b/target/classes:/work/Compress_32b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.compress.archivers.tar.TarArchiveInputStream_ESTest
+JUnit version 4.12
+..........................................
+Time: 0.458
+
+OK (42 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=0.7s]

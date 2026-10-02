@@ -1,0 +1,415 @@
+
+$ defects4j checkout -p Closure -v 115f -w /work/Closure_115f
+Checking out 4597738e to /work/Closure_115f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_115f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_115f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4597738e:2d6e1c78..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-115f.................................... OK
+
+[exit=0 timeout=False time=3.4s]
+
+$ defects4j compile -w /work/Closure_115f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=15.0s]
+
+$ defects4j checkout -p Closure -v 115b -w /work/Closure_115b
+Checking out 4597738e to /work/Closure_115b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_115b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_115b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4597738e:2d6e1c78..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-115b.................................... OK
+
+[exit=0 timeout=False time=3.2s]
+
+$ defects4j compile -w /work/Closure_115b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.5s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_115f/build/classes:/work/Closure_115f/lib/args4j.jar:/work/Closure_115f/lib/guava.jar:/work/Closure_115f/lib/json.jar:/work/Closure_115f/lib/jsr305.jar:/work/Closure_115f/lib/protobuf-java.jar:/work/Closure_115f/build/lib/rhino.jar:/work/Closure_115f/lib/ant.jar:/work/Closure_115f/lib/ant-launcher.jar:/work/Closure_115f/lib/caja-r4314.jar:/work/Closure_115f/lib/jarjar.jar:/work/Closure_115f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.FunctionInjector -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_115f/build/classes:/work/Closure_115f/lib/args4j.jar:/work/Closure_115f/lib/guava.jar:/work/Closure_115f/lib/json.jar:/work/Closure_115f/lib/jsr305.jar:/work/Closure_115f/lib/protobuf-java.jar:/work/Closure_115f/build/lib/rhino.jar:/work/Closure_115f/lib/ant.jar:/work/Closure_115f/lib/ant-launcher.jar:/work/Closure_115f/lib/caja-r4314.jar:/work/Closure_115f/lib/jarjar.jar:/work/Closure_115f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_115f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_115f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.FunctionInjector
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_115f/build/classes
+  - /work/Closure_115f/lib/args4j.jar
+  - /work/Closure_115f/lib/guava.jar
+  - /work/Closure_115f/lib/json.jar
+  - /work/Closure_115f/lib/jsr305.jar
+  - /work/Closure_115f/lib/protobuf-java.jar
+  - /work/Closure_115f/build/lib/rhino.jar
+  - /work/Closure_115f/lib/ant.jar
+  - /work/Closure_115f/lib/ant-launcher.jar
+  - /work/Closure_115f/lib/caja-r4314.jar
+  - /work/Closure_115f/lib/jarjar.jar
+  - /work/Closure_115f/build/test
+[MASTER] 08:25:49.962 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 08:25:49.977 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 08:25:50.395 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.FunctionInjector
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 278
+  - Branch 250
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:===========>                       34%]
+[Progress:>                             1%] [Cov:============>                      35%]
+[Progress:>                             3%] [Cov:>                                  1%]
+[Progress:>                             3%] [Cov:===========>                       34%]
+[Progress:>                             3%] [Cov:============>                      35%]
+[Progress:>                             3%] [Cov:============>                      35%]
+[Progress:=>                            5%] [Cov:===========>                       34%]
+[Progress:=>                            5%] [Cov:============>                      35%][MASTER] 08:25:54.001 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:=>                            6%] [Cov:============>                      37%]
+[Progress:==>                           8%] [Cov:============>                      37%]
+[Progress:==>                           8%] [Cov:============>                      37%]
+[Progress:==>                           8%] [Cov:============>                      37%]
+[Progress:==>                           8%] [Cov:=============>                     38%]
+[Progress:==>                           8%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:=============>                     39%]
+[Progress:====>                         16%] [Cov:=============>                     39%]
+[Progress:====>                         16%] [Cov:=============>                     39%]
+[Progress:====>                         16%] [Cov:=============>                     39%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:=============>                     39%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:=====>                        18%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       20%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:==============>                    40%]
+[Progress:=========>                    30%] [Cov:==============>                    40%]
+[Progress:=========>                    30%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:===========>                  38%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    40%]
+[Progress:============>                 40%] [Cov:==============>                    42%]
+[Progress:============>                 40%] [Cov:===============>                   43%]
+[Progress:============>                 40%] [Cov:===============>                   43%]
+[Progress:============>                 41%] [Cov:===============>                   43%]
+[Progress:============>                 41%] [Cov:===============>                   43%]
+[Progress:============>                 41%] [Cov:===============>                   43%]
+[Progress:============>                 41%] [Cov:===============>                   43%]
+[Progress:============>                 43%] [Cov:===============>                   43%]
+[Progress:============>                 43%] [Cov:===============>                   43%]
+[Progress:============>                 43%] [Cov:===============>                   43%]
+[Progress:============>                 43%] [Cov:===============>                   43%]
+[Progress:============>                 43%] [Cov:===============>                   43%]
+[Progress:=============>                45%] [Cov:===============>                   43%]
+[Progress:=============>                45%] [Cov:===============>                   43%]
+[Progress:=============>                45%] [Cov:===============>                   43%]
+[Progress:=============>                45%] [Cov:===============>                   43%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                45%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:=============>                46%] [Cov:===============>                   44%]
+[Progress:==============>               48%] [Cov:===============>                   44%]
+[Progress:==============>               48%] [Cov:===============>                   44%]
+[Progress:==============>               48%] [Cov:===============>                   44%]
+[Progress:==============>               48%] [Cov:===============>                   44%]
+[Progress:==============>               48%] [Cov:===============>                   44%]
+[Progress:==============>               48%] [Cov:===============>                   44%]
+[Progress:===============>              50%] [Cov:===============>                   44%]
+[Progress:===============>              50%] [Cov:===============>                   44%]
+[Progress:===============>              50%] [Cov:===============>                   44%]
+[Progress:===============>              50%] [Cov:===============>                   44%]
+[Progress:===============>              50%] [Cov:===============>                   44%]
+[Progress:=================>            58%] [Cov:===============>                   44%]
+[Progress:==================>           60%] [Cov:===============>                   44%]
+[Progress:==================>           60%] [Cov:===============>                   44%]
+[Progress:==================>           60%] [Cov:===============>                   44%]
+[Progress:==================>           60%] [Cov:===============>                   44%]
+[Progress:==================>           60%] [Cov:===============>                   44%]
+[Progress:==================>           61%] [Cov:===============>                   44%]
+[Progress:==================>           61%] [Cov:===============>                   44%]
+[Progress:==================>           61%] [Cov:===============>                   44%]
+[Progress:==================>           61%] [Cov:===============>                   44%]
+[Progress:==================>           63%] [Cov:===============>                   44%]
+[Progress:==================>           63%] [Cov:===============>                   44%]
+[Progress:==================>           63%] [Cov:===============>                   44%]
+[Progress:==================>           63%] [Cov:===============>                   44%]
+[Progress:==================>           63%] [Cov:===============>                   44%]
+[Progress:===================>          65%] [Cov:===============>                   44%]
+[Progress:===================>          65%] [Cov:===============>                   44%]
+[Progress:===================>          65%] [Cov:===============>                   44%]
+[Progress:===================>          65%] [Cov:===============>                   44%]
+[Progress:===================>          65%] [Cov:===============>                   44%]
+[Progress:===================>          66%] [Cov:===============>                   44%]
+[Progress:===================>          66%] [Cov:===============>                   44%]
+[Progress:===================>          66%] [Cov:===============>                   44%]
+[Progress:===================>          66%] [Cov:===============>                   44%]
+[Progress:======================>       75%] [Cov:===============>                   44%]
+[Progress:======================>       76%] [Cov:===============>                   44%]
+[Progress:======================>       76%] [Cov:===============>                   44%]
+[Progress:======================>       76%] [Cov:===============>                   44%]
+[Progress:======================>       76%] [Cov:===============>                   44%]
+[Progress:======================>       76%] [Cov:===============>                   44%]
+[Progress:=======================>      78%] [Cov:===============>                   44%]
+[Progress:=======================>      78%] [Cov:===============>                   44%]
+[Progress:=======================>      78%] [Cov:===============>                   44%]
+[Progress:=======================>      78%] [Cov:===============>                   44%]
+[Progress:========================>     80%] [Cov:===============>                   44%]
+[Progress:========================>     80%] [Cov:===============>                   44%]
+[Progress:========================>     80%] [Cov:===============>                   44%]
+[Progress:========================>     80%] [Cov:===============>                   44%]
+[Progress:========================>     81%] [Cov:===============>                   44%]
+[Progress:========================>     81%] [Cov:===============>                   44%]
+[Progress:========================>     81%] [Cov:===============>                   44%]
+[Progress:========================>     81%] [Cov:===============>                   45%]
+[Progress:========================>     81%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:========================>     83%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    85%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:=========================>    86%] [Cov:===============>                   45%]
+[Progress:==========================>   88%] [Cov:===============>                   45%]
+[Progress:==========================>   88%] [Cov:===============>                   45%]
+[Progress:============================> 96%] [Cov:===============>                   45%]
+[Progress:============================> 96%] [Cov:===============>                   45%]
+[Progress:============================> 96%] [Cov:===============>                   45%]
+[Progress:=============================>98%] [Cov:===============>                   45%]
+[Progress:=============================>98%] [Cov:===============>                   45%]
+[Progress:=============================>98%] [Cov:===============>                   45%]
+[Progress:=============================>98%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+[Progress:==============================100%] [Cov:===============>                   45%]
+* Search finished after 61s and 117 generations, 66544 statements, best individual has fitness: 389.5668831168831
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 21%
+* Total number of goals: 278
+* Number of covered goals: 59
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 16%
+* Total number of goals: 250
+* Number of covered goals: 40
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 13
+* Number of covered goals: 13
+* Generated 17 tests with total length 171
+* Resulting test suite's coverage: 46% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 1%
+* Compiling and checking tests
+[MASTER] 08:27:01.583 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Multiple entries with same key: returns=NOT_IMPLEMENTED and returns=RETURN
+[MASTER] 08:27:01.583 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Compiler compiler0 = new Compiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, supplier0, false, false, false);
+Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, "hzI&u");
+NameReferenceGraph.Reference nameReferenceGraph_Reference0 = new NameReferenceGraph.Reference(node0, node0);
+GatherRawExports gatherRawExports0 = new GatherRawExports(compiler0);
+NodeTraversal nodeTraversal0 = new NodeTraversal(compiler0, gatherRawExports0);
+PreprocessorSymbolTable preprocessorSymbolTable0 = new PreprocessorSymbolTable(nameReferenceGraph_Reference0.parent);
+CheckLevel checkLevel0 = CheckLevel.OFF;
+ProcessClosurePrimitives processClosurePrimitives0 = new ProcessClosurePrimitives(compiler0, preprocessorSymbolTable0, checkLevel0);
+Set<String> set0 = processClosurePrimitives0.getExportedVariableNames();
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.DIRECT;
+functionInjector0.canInlineReferenceToFunction(nodeTraversal0, node0, nameReferenceGraph_Reference0.site, set0, functionInjector_InliningMode0, false, true);
+
+[MASTER] 08:27:02.264 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Multiple entries with same key: returns=NOT_IMPLEMENTED and returns=RETURN
+[MASTER] 08:27:02.265 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Compiler compiler0 = new Compiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, supplier0, false, false, false);
+Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, "hzI&u");
+Node node1 = new Node(6, node0, node0, (-3865), (-10));
+NameReferenceGraph.Reference nameReferenceGraph_Reference0 = new NameReferenceGraph.Reference(node0, node1);
+GatherRawExports gatherRawExports0 = new GatherRawExports(compiler0);
+NodeTraversal nodeTraversal0 = new NodeTraversal(compiler0, gatherRawExports0);
+PreprocessorSymbolTable preprocessorSymbolTable0 = new PreprocessorSymbolTable(nameReferenceGraph_Reference0.parent);
+CheckLevel checkLevel0 = CheckLevel.OFF;
+ProcessClosurePrimitives processClosurePrimitives0 = new ProcessClosurePrimitives(compiler0, preprocessorSymbolTable0, checkLevel0);
+Set<String> set0 = processClosurePrimitives0.getExportedVariableNames();
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.BLOCK;
+functionInjector0.canInlineReferenceToFunction(nodeTraversal0, node0, node0, set0, functionInjector_InliningMode0, false, true);
+
+[MASTER] 08:27:02.932 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Multiple entries with same key: returns=NOT_IMPLEMENTED and returns=RETURN
+[MASTER] 08:27:02.932 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Compiler compiler0 = new Compiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, supplier0, false, false, false);
+Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, "hzI&u");
+Node node1 = new Node(6, node0, node0, (-3865), (-10));
+Node node2 = new Node(36, node1, node1);
+NameReferenceGraph.Reference nameReferenceGraph_Reference0 = new NameReferenceGraph.Reference(node2, node1);
+GatherRawExports gatherRawExports0 = new GatherRawExports(compiler0);
+NodeTraversal nodeTraversal0 = new NodeTraversal(compiler0, gatherRawExports0);
+PreprocessorSymbolTable preprocessorSymbolTable0 = new PreprocessorSymbolTable(nameReferenceGraph_Reference0.parent);
+CheckLevel checkLevel0 = CheckLevel.OFF;
+ProcessClosurePrimitives processClosurePrimitives0 = new ProcessClosurePrimitives(compiler0, preprocessorSymbolTable0, checkLevel0);
+Set<String> set0 = processClosurePrimitives0.getExportedVariableNames();
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.BLOCK;
+functionInjector0.canInlineReferenceToFunction(nodeTraversal0, node0, node0, set0, functionInjector_InliningMode0, false, true);
+
+[MASTER] 08:27:03.558 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Multiple entries with same key: returns=NOT_IMPLEMENTED and returns=RETURN
+[MASTER] 08:27:03.558 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Compiler compiler0 = new Compiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, supplier0, false, false, false);
+Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, "hzI&u");
+JSModule jSModule0 = new JSModule("hzI&u");
+CompilerOptions compilerOptions0 = new CompilerOptions();
+Stack<FunctionInjector.Reference> stack0 = new Stack<FunctionInjector.Reference>();
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.DIRECT;
+FunctionInjector.Reference functionInjector_Reference0 = new FunctionInjector.Reference(node0, jSModule0, functionInjector_InliningMode0);
+stack0.add(functionInjector_Reference0);
+ListIterator<FunctionInjector.Reference> listIterator0 = stack0.listIterator();
+ImmutableList<FunctionInjector.Reference> immutableList0 = ImmutableList.copyOf((Iterator<? extends FunctionInjector.Reference>) listIterator0);
+functionInjector0.inliningLowersCost(jSModule0, (Node) null, immutableList0, compilerOptions0.stripTypePrefixes, false, true);
+
+[MASTER] 08:27:04.826 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Multiple entries with same key: returns=NOT_IMPLEMENTED and returns=RETURN
+[MASTER] 08:27:04.826 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Compiler compiler0 = new Compiler();
+Supplier<String> supplier0 = compiler0.getUniqueNameIdSupplier();
+FunctionInjector functionInjector0 = new FunctionInjector(compiler0, supplier0, false, false, false);
+Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, "hzI&u");
+NameReferenceGraph.Reference nameReferenceGraph_Reference0 = new NameReferenceGraph.Reference(node0, node0);
+JSModule jSModule0 = new JSModule("hzI&u");
+FunctionInjector.InliningMode functionInjector_InliningMode0 = FunctionInjector.InliningMode.BLOCK;
+FunctionInjector.Reference functionInjector_Reference0 = new FunctionInjector.Reference(nameReferenceGraph_Reference0.site, jSModule0, functionInjector_InliningMode0);
+ImmutableList<FunctionInjector.Reference> immutableList0 = ImmutableList.of(functionInjector_Reference0, functionInjector_Reference0, functionInjector_Reference0, functionInjector_Reference0, functionInjector_Reference0, functionInjector_Reference0);
+functionInjector0.inliningLowersCost(jSModule0, (Node) null, immutableList0, (Set<String>) null, true, false);
+
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+         writeFileDescriptor: 5
+* Writing tests to file
+* Writing JUnit test case 'FunctionInjector_ESTest' to /work/evo_out/Closure_115f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=85.8s]
+
+$ javac -nowarn -cp /work/Closure_115f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_115f/build/classes:/work/Closure_115f/lib/args4j.jar:/work/Closure_115f/lib/guava.jar:/work/Closure_115f/lib/json.jar:/work/Closure_115f/lib/jsr305.jar:/work/Closure_115f/lib/protobuf-java.jar:/work/Closure_115f/build/lib/rhino.jar:/work/Closure_115f/lib/ant.jar:/work/Closure_115f/lib/ant-launcher.jar:/work/Closure_115f/lib/caja-r4314.jar:/work/Closure_115f/lib/jarjar.jar:/work/Closure_115f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_115f/budget60_seed1/classes /work/evo_out/Closure_115f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionInjector_ESTest.java /work/evo_out/Closure_115f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionInjector_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_115f/build/classes --dest /work/evo_out/Closure_115f/budget60_seed1/instrumented
+[INFO] 1428 classes instrumented to /work/evo_out/Closure_115f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_115/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_115f/budget60_seed1/instrumented:/work/evo_out/Closure_115f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_115f/build/classes:/work/Closure_115f/lib/args4j.jar:/work/Closure_115f/lib/guava.jar:/work/Closure_115f/lib/json.jar:/work/Closure_115f/lib/jsr305.jar:/work/Closure_115f/lib/protobuf-java.jar:/work/Closure_115f/build/lib/rhino.jar:/work/Closure_115f/lib/ant.jar:/work/Closure_115f/lib/ant-launcher.jar:/work/Closure_115f/lib/caja-r4314.jar:/work/Closure_115f/lib/jarjar.jar:/work/Closure_115f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionInjector_ESTest
+JUnit version 4.12
+............
+Time: 1.665
+
+OK (12 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=3.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_115/budget60_seed1/jacoco.exec --classfiles /work/Closure_115f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_115/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_115/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1226 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -cp /work/evo_out/Closure_115f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_115b/build/classes:/work/Closure_115b/lib/args4j.jar:/work/Closure_115b/lib/guava.jar:/work/Closure_115b/lib/json.jar:/work/Closure_115b/lib/jsr305.jar:/work/Closure_115b/lib/protobuf-java.jar:/work/Closure_115b/build/lib/rhino.jar:/work/Closure_115b/lib/ant.jar:/work/Closure_115b/lib/ant-launcher.jar:/work/Closure_115b/lib/caja-r4314.jar:/work/Closure_115b/lib/jarjar.jar:/work/Closure_115b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionInjector_ESTest
+JUnit version 4.12
+............
+Time: 1.552
+
+OK (12 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.9s]

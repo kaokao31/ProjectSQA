@@ -1,0 +1,461 @@
+
+$ defects4j checkout -p Closure -v 122f -w /work/Closure_122f
+Checking out a8a456b1 to /work/Closure_122f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_122f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_122f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8a456b1:f22a0e8b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-122f.................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_122f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.6s]
+
+$ defects4j checkout -p Closure -v 122b -w /work/Closure_122b
+Checking out a8a456b1 to /work/Closure_122b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_122b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_122b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8a456b1:f22a0e8b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-122b.................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_122b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_122f/build/classes:/work/Closure_122f/lib/args4j.jar:/work/Closure_122f/lib/guava.jar:/work/Closure_122f/lib/json.jar:/work/Closure_122f/lib/jsr305.jar:/work/Closure_122f/lib/protobuf-java.jar:/work/Closure_122f/build/lib/rhino.jar:/work/Closure_122f/lib/ant.jar:/work/Closure_122f/lib/ant-launcher.jar:/work/Closure_122f/lib/caja-r4314.jar:/work/Closure_122f/lib/jarjar.jar:/work/Closure_122f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.parsing.IRFactory -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_122f/build/classes:/work/Closure_122f/lib/args4j.jar:/work/Closure_122f/lib/guava.jar:/work/Closure_122f/lib/json.jar:/work/Closure_122f/lib/jsr305.jar:/work/Closure_122f/lib/protobuf-java.jar:/work/Closure_122f/build/lib/rhino.jar:/work/Closure_122f/lib/ant.jar:/work/Closure_122f/lib/ant-launcher.jar:/work/Closure_122f/lib/caja-r4314.jar:/work/Closure_122f/lib/jarjar.jar:/work/Closure_122f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_122f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_122f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.parsing.IRFactory
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_122f/build/classes
+  - /work/Closure_122f/lib/args4j.jar
+  - /work/Closure_122f/lib/guava.jar
+  - /work/Closure_122f/lib/json.jar
+  - /work/Closure_122f/lib/jsr305.jar
+  - /work/Closure_122f/lib/protobuf-java.jar
+  - /work/Closure_122f/build/lib/rhino.jar
+  - /work/Closure_122f/lib/ant.jar
+  - /work/Closure_122f/lib/ant-launcher.jar
+  - /work/Closure_122f/lib/caja-r4314.jar
+  - /work/Closure_122f/lib/jarjar.jar
+  - /work/Closure_122f/build/test
+[MASTER] 09:02:42.332 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 09:02:42.636 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 09:02:42.705 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.parsing.IRFactory
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 684
+  - Branch 656
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:=>                                 3%]
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:============>                      37%]
+[Progress:>                             1%] [Cov:===============>                   43%]
+[Progress:>                             3%] [Cov:=>                                 3%]
+[Progress:>                             3%] [Cov:=>                                 4%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:================>                  46%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:===============>                   43%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:===============>                   43%]
+[Progress:=>                            5%] [Cov:===============>                   45%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:===>                          13%] [Cov:================>                  46%]
+[Progress:====>                         15%] [Cov:================>                  46%]
+[Progress:====>                         15%] [Cov:================>                  46%]
+[Progress:====>                         15%] [Cov:================>                  46%]
+[Progress:====>                         16%] [Cov:================>                  46%]
+[Progress:====>                         16%] [Cov:================>                  46%]
+[Progress:====>                         16%] [Cov:================>                  46%]
+[Progress:=====>                        18%] [Cov:================>                  46%]
+[Progress:=====>                        18%] [Cov:================>                  46%]
+[Progress:=====>                        18%] [Cov:================>                  46%]
+[Progress:======>                       20%] [Cov:================>                  46%]
+[Progress:======>                       20%] [Cov:================>                  46%]
+[Progress:======>                       20%] [Cov:================>                  46%]
+[Progress:======>                       21%] [Cov:================>                  46%]
+[Progress:======>                       21%] [Cov:================>                  46%]
+[Progress:======>                       21%] [Cov:================>                  46%]
+[Progress:======>                       23%] [Cov:================>                  46%]
+[Progress:======>                       23%] [Cov:================>                  47%]
+[Progress:======>                       23%] [Cov:================>                  47%]
+[Progress:=======>                      25%] [Cov:================>                  47%]
+[Progress:=======>                      25%] [Cov:================>                  47%]
+[Progress:=======>                      25%] [Cov:================>                  47%]
+[Progress:=======>                      26%] [Cov:================>                  47%]
+[Progress:=======>                      26%] [Cov:================>                  47%]
+[Progress:=======>                      26%] [Cov:================>                  47%]
+[Progress:========>                     28%] [Cov:================>                  47%]
+[Progress:========>                     28%] [Cov:================>                  47%]
+[Progress:=========>                    30%] [Cov:================>                  47%]
+[Progress:=========>                    30%] [Cov:================>                  47%]
+[Progress:=========>                    30%] [Cov:================>                  47%]
+[Progress:=========>                    31%] [Cov:================>                  47%]
+[Progress:=========>                    31%] [Cov:================>                  47%]
+[Progress:=========>                    31%] [Cov:================>                  47%]
+[Progress:=========>                    33%] [Cov:================>                  47%]
+[Progress:=========>                    33%] [Cov:================>                  47%]
+[Progress:=========>                    33%] [Cov:================>                  47%]
+[Progress:==========>                   35%] [Cov:================>                  47%]
+[Progress:==========>                   35%] [Cov:================>                  47%][MASTER] 09:03:04.541 [logback-1] WARN  TestUsageChecker - class com.google.javascript.rhino.head.ContextFactory$1GlobalSetterImpl looks like an anonymous class, ignoring it (although reflection says false) GlobalSetterImpl
+
+[Progress:==========>                   35%] [Cov:================>                  47%]
+[Progress:==========>                   36%] [Cov:================>                  47%]
+[Progress:==========>                   36%] [Cov:================>                  47%]
+[Progress:==========>                   36%] [Cov:================>                  47%]
+[Progress:===========>                  38%] [Cov:================>                  47%]
+[Progress:===========>                  38%] [Cov:================>                  47%]
+[Progress:===========>                  38%] [Cov:================>                  47%]
+[Progress:============>                 40%] [Cov:================>                  47%]
+[Progress:============>                 40%] [Cov:================>                  47%]
+[Progress:============>                 40%] [Cov:================>                  47%]
+[Progress:============>                 41%] [Cov:================>                  47%]
+[Progress:============>                 41%] [Cov:================>                  47%]
+[Progress:============>                 41%] [Cov:================>                  47%]
+[Progress:============>                 43%] [Cov:================>                  47%]
+[Progress:============>                 43%] [Cov:================>                  47%]
+[Progress:============>                 43%] [Cov:================>                  47%]
+[Progress:=============>                45%] [Cov:================>                  47%]
+[Progress:=============>                45%] [Cov:================>                  47%]
+[Progress:=============>                46%] [Cov:================>                  47%]
+[Progress:=============>                46%] [Cov:================>                  47%]
+[Progress:=============>                46%] [Cov:================>                  47%]
+[Progress:==============>               48%] [Cov:================>                  47%]
+[Progress:==============>               48%] [Cov:================>                  47%]
+[Progress:==============>               48%] [Cov:================>                  47%]
+[Progress:===============>              50%] [Cov:================>                  47%]
+[Progress:===============>              50%] [Cov:================>                  47%]
+[Progress:===============>              50%] [Cov:================>                  47%]
+[Progress:===============>              51%] [Cov:================>                  47%]
+[Progress:===============>              51%] [Cov:================>                  48%]
+[Progress:===============>              51%] [Cov:=================>                 49%]
+[Progress:===============>              53%] [Cov:=================>                 49%]
+[Progress:===============>              53%] [Cov:=================>                 49%]
+[Progress:===============>              53%] [Cov:=================>                 49%]
+[Progress:================>             55%] [Cov:=================>                 49%]
+[Progress:================>             55%] [Cov:=================>                 49%]
+[Progress:================>             55%] [Cov:=================>                 49%]
+[Progress:================>             56%] [Cov:=================>                 49%]
+[Progress:================>             56%] [Cov:=================>                 49%]
+[Progress:================>             56%] [Cov:=================>                 49%]
+[Progress:=================>            58%] [Cov:=================>                 49%]
+[Progress:==================>           60%] [Cov:=================>                 49%]
+[Progress:==================>           61%] [Cov:=================>                 49%]
+[Progress:==================>           61%] [Cov:=================>                 49%]
+[Progress:==================>           63%] [Cov:=================>                 49%]
+[Progress:==================>           63%] [Cov:=================>                 49%]
+[Progress:==================>           63%] [Cov:=================>                 49%]
+[Progress:===================>          65%] [Cov:=================>                 49%]
+[Progress:===================>          65%] [Cov:=================>                 49%]
+[Progress:===================>          65%] [Cov:=================>                 49%]
+[Progress:===================>          66%] [Cov:=================>                 49%]
+[Progress:===================>          66%] [Cov:=================>                 49%]
+[Progress:===================>          66%] [Cov:=================>                 49%]
+[Progress:====================>         68%] [Cov:=================>                 49%]
+[Progress:====================>         68%] [Cov:=================>                 49%]
+[Progress:=====================>        70%] [Cov:=================>                 49%]
+[Progress:=====================>        70%] [Cov:=================>                 49%]
+[Progress:=====================>        70%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        73%] [Cov:=================>                 49%]
+[Progress:=====================>        73%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       76%] [Cov:=================>                 49%]
+[Progress:======================>       76%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     83%] [Cov:=================>                 49%]
+[Progress:========================>     83%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:===========================>  90%] [Cov:=================>                 49%]
+[Progress:===========================>  90%] [Cov:=================>                 49%]
+[Progress:===========================>  91%] [Cov:=================>                 49%]
+[Progress:===========================>  91%] [Cov:=================>                 49%]
+[Progress:===========================>  93%] [Cov:=================>                 49%]
+[Progress:===========================>  93%] [Cov:=================>                 49%]
+[Progress:===========================>  93%] [Cov:=================>                 49%]
+[Progress:============================> 95%] [Cov:=================>                 49%]
+[Progress:============================> 95%] [Cov:=================>                 49%]
+[Progress:============================> 96%] [Cov:=================>                 49%]
+[Progress:============================> 96%] [Cov:=================>                 49%]
+[Progress:=============================>98%] [Cov:=================>                 49%]
+[Progress:=============================>98%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+* Search finished after 62s and 107 generations, 64236 statements, best individual has fitness: 715.4384397517601
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 18%
+* Total number of goals: 684
+* Number of covered goals: 122
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 32%
+* Total number of goals: 656
+* Number of covered goals: 207
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 86%
+* Total number of goals: 7
+* Number of covered goals: 6
+* Generated 14 tests with total length 169
+* Resulting test suite's coverage: 50% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 2%
+* Compiling and checking tests
+[MASTER] 09:03:56.432 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:03:56.432 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Token.CommentType token_CommentType0 = Token.CommentType.JSDOC;
+Comment comment0 = new Comment(0, 0, token_CommentType0, "");
+AstRoot astRoot0 = new AstRoot(2);
+Locale.IsoCountryCode locale_IsoCountryCode0 = Locale.IsoCountryCode.PART1_ALPHA3;
+astRoot0.addComment(comment0);
+Set<String> set0 = Locale.getISOCountries(locale_IsoCountryCode0);
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT3;
+Config config0 = new Config(set0, set0, true, config_LanguageMode0, true);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+SimpleSourceFile simpleSourceFile0 = new SimpleSourceFile("error reporter", true);
+IRFactory.transformTree(astRoot0, simpleSourceFile0, "[9", config0, errorReporter0);
+
+[MASTER] 09:03:56.847 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:03:56.847 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Token.CommentType token_CommentType0 = Token.CommentType.BLOCK_COMMENT;
+Comment comment0 = new Comment(0, 0, token_CommentType0, "v60I:YZj*GLF+");
+AstRoot astRoot0 = new AstRoot(2);
+Locale.IsoCountryCode locale_IsoCountryCode0 = Locale.IsoCountryCode.PART1_ALPHA3;
+astRoot0.addComment(comment0);
+Set<String> set0 = Locale.getISOCountries(locale_IsoCountryCode0);
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT3;
+Config config0 = new Config(set0, set0, true, config_LanguageMode0, true);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+SimpleSourceFile simpleSourceFile0 = new SimpleSourceFile("error reporter", true);
+IRFactory.transformTree(astRoot0, simpleSourceFile0, "[9", config0, errorReporter0);
+
+[MASTER] 09:03:57.202 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:03:57.203 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Token.CommentType token_CommentType0 = Token.CommentType.LINE;
+Comment comment0 = new Comment(0, 0, token_CommentType0, "v60I:YZj*GLF+");
+AstRoot astRoot0 = new AstRoot(2);
+Locale.IsoCountryCode locale_IsoCountryCode0 = Locale.IsoCountryCode.PART1_ALPHA3;
+astRoot0.addComment(comment0);
+Set<String> set0 = Locale.getISOCountries(locale_IsoCountryCode0);
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT3;
+Config config0 = new Config(set0, set0, true, config_LanguageMode0, true);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+SimpleSourceFile simpleSourceFile0 = new SimpleSourceFile("error reporter", true);
+IRFactory.transformTree(astRoot0, simpleSourceFile0, "[9", config0, errorReporter0);
+
+[MASTER] 09:03:57.550 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:03:57.550 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Token.CommentType token_CommentType0 = Token.CommentType.JSDOC;
+Comment comment0 = new Comment(0, 0, token_CommentType0, "v60I:YZj*GL+");
+AstRoot astRoot0 = new AstRoot(2);
+Locale.IsoCountryCode locale_IsoCountryCode0 = Locale.IsoCountryCode.PART1_ALPHA3;
+astRoot0.addComment(comment0);
+Set<String> set0 = Locale.getISOCountries(locale_IsoCountryCode0);
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT3;
+Config config0 = new Config(set0, set0, true, config_LanguageMode0, true);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+SimpleSourceFile simpleSourceFile0 = new SimpleSourceFile("error reporter", true);
+IRFactory.transformTree(astRoot0, simpleSourceFile0, "[9", config0, errorReporter0);
+
+[MASTER] 09:03:57.873 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:03:57.873 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ AstRoot astRoot0 = new AstRoot();
+LinkedHashSet<String> linkedHashSet0 = new LinkedHashSet<String>();
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT5;
+Config config0 = new Config(linkedHashSet0, linkedHashSet0, false, config_LanguageMode0, false);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+IRFactory.transformTree(astRoot0, (StaticSourceFile) null, "", config0, errorReporter0);
+
+[MASTER] 09:03:58.544 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:03:58.544 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Token.CommentType token_CommentType0 = Token.CommentType.JSDOC;
+Comment comment0 = new Comment(0, 0, token_CommentType0, "v60I:YZj*GL+");
+AstRoot astRoot0 = new AstRoot(2);
+astRoot0.addChild(comment0);
+Locale.IsoCountryCode locale_IsoCountryCode0 = Locale.IsoCountryCode.PART1_ALPHA3;
+Set<String> set0 = Locale.getISOCountries(locale_IsoCountryCode0);
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT3;
+Config config0 = new Config(set0, set0, true, config_LanguageMode0, true);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+SimpleSourceFile simpleSourceFile0 = new SimpleSourceFile("error reporter", true);
+ObjectLiteral objectLiteral0 = new ObjectLiteral(19);
+astRoot0.replaceChild(comment0, objectLiteral0);
+IRFactory.transformTree(astRoot0, simpleSourceFile0, "[9", config0, errorReporter0);
+
+[MASTER] 09:03:59.885 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:03:59.886 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Token.CommentType token_CommentType0 = Token.CommentType.JSDOC;
+Comment comment0 = new Comment(0, 0, token_CommentType0, "v60I:YZj*GL+");
+AstRoot astRoot0 = new AstRoot(2);
+comment0.setType(42);
+astRoot0.addChild(comment0);
+Locale.IsoCountryCode locale_IsoCountryCode0 = Locale.IsoCountryCode.PART1_ALPHA3;
+Set<String> set0 = Locale.getISOCountries(locale_IsoCountryCode0);
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT3;
+Config config0 = new Config(set0, set0, true, config_LanguageMode0, true);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+IRFactory.transformTree(astRoot0, (StaticSourceFile) null, "v60I:YZj*GL+", config0, errorReporter0);
+
+[MASTER] 09:04:00.564 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.NullPointerException: null
+[MASTER] 09:04:00.564 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ Token.CommentType token_CommentType0 = Token.CommentType.JSDOC;
+Comment comment0 = new Comment(0, 0, token_CommentType0, "v60I:YZj*GL+");
+AstRoot astRoot0 = new AstRoot(2);
+astRoot0.addChild(comment0);
+Locale.IsoCountryCode locale_IsoCountryCode0 = Locale.IsoCountryCode.PART1_ALPHA3;
+astRoot0.addChildToBack(comment0);
+Set<String> set0 = Locale.getISOCountries(locale_IsoCountryCode0);
+Config.LanguageMode config_LanguageMode0 = Config.LanguageMode.ECMASCRIPT3;
+Config config0 = new Config(set0, set0, true, config_LanguageMode0, true);
+Context context0 = Context.getCurrentContext();
+ErrorReporter errorReporter0 = context0.getErrorReporter();
+IRFactory.transformTree(astRoot0, (StaticSourceFile) null, "v60I:YZj*GL+", config0, errorReporter0);
+
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 2
+* Writing tests to file
+* Writing JUnit test case 'IRFactory_ESTest' to /work/evo_out/Closure_122f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=83.1s]
+
+$ javac -nowarn -cp /work/Closure_122f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_122f/build/classes:/work/Closure_122f/lib/args4j.jar:/work/Closure_122f/lib/guava.jar:/work/Closure_122f/lib/json.jar:/work/Closure_122f/lib/jsr305.jar:/work/Closure_122f/lib/protobuf-java.jar:/work/Closure_122f/build/lib/rhino.jar:/work/Closure_122f/lib/ant.jar:/work/Closure_122f/lib/ant-launcher.jar:/work/Closure_122f/lib/caja-r4314.jar:/work/Closure_122f/lib/jarjar.jar:/work/Closure_122f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_122f/budget60_seed1/classes /work/evo_out/Closure_122f/budget60_seed1/tests/com/google/javascript/jscomp/parsing/IRFactory_ESTest.java /work/evo_out/Closure_122f/budget60_seed1/tests/com/google/javascript/jscomp/parsing/IRFactory_ESTest_scaffolding.java
+Note: /work/evo_out/Closure_122f/budget60_seed1/tests/com/google/javascript/jscomp/parsing/IRFactory_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_122f/build/classes --dest /work/evo_out/Closure_122f/budget60_seed1/instrumented
+[INFO] 1427 classes instrumented to /work/evo_out/Closure_122f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_122/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_122f/budget60_seed1/instrumented:/work/evo_out/Closure_122f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_122f/build/classes:/work/Closure_122f/lib/args4j.jar:/work/Closure_122f/lib/guava.jar:/work/Closure_122f/lib/json.jar:/work/Closure_122f/lib/jsr305.jar:/work/Closure_122f/lib/protobuf-java.jar:/work/Closure_122f/build/lib/rhino.jar:/work/Closure_122f/lib/ant.jar:/work/Closure_122f/lib/ant-launcher.jar:/work/Closure_122f/lib/caja-r4314.jar:/work/Closure_122f/lib/jarjar.jar:/work/Closure_122f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.parsing.IRFactory_ESTest
+JUnit version 4.12
+......
+Time: 1.122
+
+OK (6 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_122/budget60_seed1/jacoco.exec --classfiles /work/Closure_122f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_122/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_122/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1225 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -cp /work/evo_out/Closure_122f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_122b/build/classes:/work/Closure_122b/lib/args4j.jar:/work/Closure_122b/lib/guava.jar:/work/Closure_122b/lib/json.jar:/work/Closure_122b/lib/jsr305.jar:/work/Closure_122b/lib/protobuf-java.jar:/work/Closure_122b/build/lib/rhino.jar:/work/Closure_122b/lib/ant.jar:/work/Closure_122b/lib/ant-launcher.jar:/work/Closure_122b/lib/caja-r4314.jar:/work/Closure_122b/lib/jarjar.jar:/work/Closure_122b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.parsing.IRFactory_ESTest
+JUnit version 4.12
+......
+Time: 1.055
+
+OK (6 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.4s]

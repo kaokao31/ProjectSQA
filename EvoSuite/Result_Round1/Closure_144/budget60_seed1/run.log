@@ -1,0 +1,1200 @@
+
+$ defects4j checkout -p Closure -v 144f -w /work/Closure_144f
+Checking out 465282f1 to /work/Closure_144f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_144f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_144f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_144f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_144f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 465282f1:c9e89727..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-144f.................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_144f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.1s]
+
+$ defects4j checkout -p Closure -v 144b -w /work/Closure_144b
+Checking out 465282f1 to /work/Closure_144b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_144b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_144b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_144b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_144b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 465282f1:c9e89727..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-144b.................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_144b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.1s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.FunctionTypeBuilder -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_144f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_144f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.FunctionTypeBuilder
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_144f/build/classes
+  - /work/Closure_144f/lib/ant_deploy.jar
+  - /work/Closure_144f/lib/args4j_deploy.jar
+  - /work/Closure_144f/lib/google_common_deploy.jar
+  - /work/Closure_144f/lib/hamcrest-core-1.1.jar
+  - /work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar
+  - /work/Closure_144f/lib/protobuf_deploy.jar
+  - /work/Closure_144f/build/test
+[MASTER] 11:23:57.891 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 11:23:57.922 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 11:23:58.144 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.FunctionTypeBuilder
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 234
+  - Branch 197
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 11:23:59.865 [logback-1] WARN  TestCluster - Failed to check cache for com.google.common.collect.ImmutableSet<E> : Type points to itself
+[MASTER] 11:24:00.417 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:============>                      35%]
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:============>                      35%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:>                                  0%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:============>                      35%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     39%]
+[Progress:=>                            6%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:=============>                     39%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    40%]
+[Progress:==>                           8%] [Cov:==============>                    41%]
+[Progress:==>                           8%] [Cov:==============>                    42%]
+[Progress:==>                           8%] [Cov:==============>                    42%]
+[Progress:===>                          10%] [Cov:==============>                    42%]
+[Progress:===>                          10%] [Cov:==============>                    42%]
+[Progress:===>                          10%] [Cov:==============>                    42%]
+[Progress:===>                          10%] [Cov:===============>                   43%]
+[Progress:===>                          10%] [Cov:===============>                   43%]
+[Progress:===>                          10%] [Cov:===============>                   43%]
+[Progress:===>                          10%] [Cov:===============>                   43%]
+[Progress:=====>                        18%] [Cov:===============>                   43%]
+[Progress:======>                       20%] [Cov:===============>                   43%]
+[Progress:======>                       20%] [Cov:===============>                   43%]
+[Progress:======>                       20%] [Cov:===============>                   43%]
+[Progress:======>                       20%] [Cov:===============>                   44%]
+[Progress:======>                       20%] [Cov:===============>                   45%]
+[Progress:======>                       20%] [Cov:================>                  46%]
+[Progress:======>                       20%] [Cov:================>                  47%]
+[Progress:======>                       20%] [Cov:================>                  47%]
+[Progress:======>                       20%] [Cov:================>                  47%]
+[Progress:======>                       20%] [Cov:================>                  47%]
+[Progress:======>                       21%] [Cov:================>                  47%]
+[Progress:======>                       21%] [Cov:================>                  47%]
+[Progress:======>                       21%] [Cov:================>                  47%]
+[Progress:======>                       21%] [Cov:================>                  47%]
+[Progress:======>                       21%] [Cov:================>                  47%]
+[Progress:======>                       21%] [Cov:=================>                 51%]
+[Progress:======>                       21%] [Cov:==================>                54%]
+[Progress:======>                       21%] [Cov:==================>                54%]
+[Progress:======>                       23%] [Cov:==================>                54%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:======>                       23%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:=====================>             60%]
+[Progress:========>                     28%] [Cov:====================>              59%]
+[Progress:========>                     28%] [Cov:=====================>             60%]
+[Progress:========>                     28%] [Cov:=====================>             61%]
+[Progress:========>                     28%] [Cov:=====================>             61%]
+[Progress:========>                     28%] [Cov:=====================>             61%]
+[Progress:========>                     28%] [Cov:=====================>             61%]
+[Progress:========>                     28%] [Cov:=====================>             61%]
+[Progress:========>                     28%] [Cov:=====================>             62%]
+[Progress:=========>                    30%] [Cov:=====================>             62%]
+[Progress:=========>                    30%] [Cov:=====================>             62%]
+[Progress:=========>                    30%] [Cov:=====================>             62%]
+[Progress:=========>                    30%] [Cov:=====================>             62%]
+[Progress:=========>                    30%] [Cov:=====================>             62%]
+[Progress:=========>                    30%] [Cov:======================>            63%]
+[Progress:=========>                    30%] [Cov:======================>            63%]
+[Progress:=========>                    31%] [Cov:======================>            63%]
+[Progress:=========>                    31%] [Cov:======================>            63%]
+[Progress:=========>                    31%] [Cov:======================>            63%]
+[Progress:=========>                    31%] [Cov:======================>            63%]
+[Progress:=========>                    31%] [Cov:======================>            63%]
+[Progress:=========>                    31%] [Cov:======================>            63%]
+[Progress:=========>                    33%] [Cov:======================>            63%]
+[Progress:=========>                    33%] [Cov:======================>            63%]
+[Progress:=========>                    33%] [Cov:======================>            63%]
+[Progress:=========>                    33%] [Cov:======================>            63%]
+[Progress:=========>                    33%] [Cov:======================>            63%]
+[Progress:==========>                   35%] [Cov:======================>            63%]
+[Progress:==========>                   35%] [Cov:======================>            63%]
+[Progress:==========>                   35%] [Cov:======================>            63%]
+[Progress:==========>                   35%] [Cov:======================>            63%]
+[Progress:==========>                   35%] [Cov:======================>            63%]
+[Progress:==========>                   35%] [Cov:======================>            63%]
+[Progress:==========>                   36%] [Cov:======================>            63%]
+[Progress:==========>                   36%] [Cov:======================>            63%]
+[Progress:==========>                   36%] [Cov:======================>            63%]
+[Progress:==========>                   36%] [Cov:======================>            63%]
+[Progress:===========>                  38%] [Cov:======================>            63%]
+[Progress:===========>                  38%] [Cov:======================>            63%]
+[Progress:===========>                  38%] [Cov:======================>            63%]
+[Progress:===========>                  38%] [Cov:======================>            63%]
+[Progress:===========>                  38%] [Cov:======================>            64%]
+[Progress:===========>                  38%] [Cov:======================>            64%]
+[Progress:============>                 40%] [Cov:======================>            64%]
+[Progress:============>                 40%] [Cov:======================>            64%]
+[Progress:============>                 40%] [Cov:======================>            64%]
+[Progress:============>                 40%] [Cov:======================>            64%]
+[Progress:============>                 40%] [Cov:======================>            64%]
+[Progress:============>                 40%] [Cov:======================>            64%]
+[Progress:============>                 41%] [Cov:======================>            64%]
+[Progress:============>                 41%] [Cov:======================>            64%]
+[Progress:============>                 41%] [Cov:======================>            64%]
+[Progress:============>                 41%] [Cov:======================>            64%]
+[Progress:============>                 41%] [Cov:======================>            64%]
+[Progress:============>                 41%] [Cov:======================>            64%]
+[Progress:============>                 43%] [Cov:======================>            64%]
+[Progress:============>                 43%] [Cov:======================>            64%]
+[Progress:============>                 43%] [Cov:======================>            64%]
+[Progress:============>                 43%] [Cov:======================>            64%]
+[Progress:============>                 43%] [Cov:======================>            64%]
+[Progress:============>                 43%] [Cov:======================>            64%]
+[Progress:=============>                45%] [Cov:======================>            64%]
+[Progress:=============>                45%] [Cov:======================>            64%]
+[Progress:=============>                45%] [Cov:======================>            64%]
+[Progress:=============>                45%] [Cov:======================>            64%]
+[Progress:=============>                45%] [Cov:======================>            64%]
+[Progress:=============>                45%] [Cov:======================>            64%]
+[Progress:=============>                46%] [Cov:======================>            64%]
+[Progress:=============>                46%] [Cov:======================>            64%]
+[Progress:=============>                46%] [Cov:======================>            64%]
+[Progress:=============>                46%] [Cov:======================>            64%]
+[Progress:=============>                46%] [Cov:======================>            64%]
+[Progress:=============>                46%] [Cov:======================>            64%]
+[Progress:==============>               48%] [Cov:======================>            64%]
+[Progress:==============>               48%] [Cov:======================>            64%]
+[Progress:==============>               48%] [Cov:======================>            64%]
+[Progress:==============>               48%] [Cov:======================>            64%]
+[Progress:==============>               48%] [Cov:======================>            64%]
+[Progress:==============>               48%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              51%] [Cov:======================>            64%]
+[Progress:===============>              51%] [Cov:======================>            64%]
+[Progress:===============>              51%] [Cov:======================>            64%]
+[Progress:===============>              51%] [Cov:======================>            64%]
+[Progress:===============>              51%] [Cov:======================>            64%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           60%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           61%] [Cov:======================>            64%]
+[Progress:==================>           63%] [Cov:======================>            64%]
+[Progress:==================>           63%] [Cov:======================>            64%]
+[Progress:==================>           63%] [Cov:======================>            64%]
+[Progress:=====================>        71%] [Cov:======================>            64%]
+[Progress:=====================>        71%] [Cov:======================>            64%]
+[Progress:=====================>        71%] [Cov:======================>            64%]
+[Progress:=====================>        73%] [Cov:======================>            64%]
+[Progress:=====================>        73%] [Cov:======================>            64%]
+[Progress:========================>     81%] [Cov:======================>            64%]
+[Progress:========================>     81%] [Cov:======================>            64%]
+[Progress:========================>     81%] [Cov:======================>            64%]
+[Progress:========================>     81%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:========================>     83%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    85%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:=========================>    86%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:==========================>   88%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:===========================>  90%] [Cov:======================>            64%]
+[Progress:===========================>  91%] [Cov:======================>            64%]
+[Progress:===========================>  91%] [Cov:======================>            64%]
+[Progress:===========================>  91%] [Cov:======================>            64%]
+[Progress:===========================>  91%] [Cov:======================>            64%]
+[Progress:===========================>  91%] [Cov:======================>            64%]
+[Progress:===========================>  91%] [Cov:======================>            64%]
+[Progress:===========================>  93%] [Cov:======================>            64%]
+[Progress:===========================>  93%] [Cov:======================>            64%]
+[Progress:===========================>  93%] [Cov:======================>            64%]
+[Progress:===========================>  93%] [Cov:======================>            64%]
+[Progress:===========================>  93%] [Cov:======================>            64%]
+[Progress:============================> 95%] [Cov:======================>            64%]
+[Progress:============================> 95%] [Cov:======================>            64%]
+[Progress:============================> 95%] [Cov:======================>            64%]
+[Progress:============================> 95%] [Cov:======================>            64%]
+[Progress:============================> 95%] [Cov:======================>            64%]
+[Progress:============================> 95%] [Cov:======================>            64%]
+[Progress:============================> 96%] [Cov:======================>            64%]
+[Progress:============================> 96%] [Cov:======================>            64%]
+[Progress:============================> 96%] [Cov:======================>            64%]
+[Progress:============================> 96%] [Cov:======================>            64%]
+[Progress:============================> 96%] [Cov:======================>            64%]
+[Progress:=============================>98%] [Cov:======================>            64%]
+[Progress:=============================>98%] [Cov:======================>            64%]
+[Progress:=============================>98%] [Cov:======================>            64%]
+[Progress:=============================>98%] [Cov:======================>            64%]
+[Progress:=============================>98%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+[Progress:==============================100%] [Cov:======================>            64%]
+* Search finished after 61s and 208 generations, 84324 statements, best individual has fitness: 183.07371794871796
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 56%
+* Total number of goals: 234
+* Number of covered goals: 131
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 39%
+* Total number of goals: 197
+* Number of covered goals: 76
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 11
+* Number of covered goals: 11
+* Generated 31 tests with total length 197
+* Resulting test suite's coverage: 65% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 12%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+* Writing tests to file
+* Writing JUnit test case 'FunctionTypeBuilder_ESTest' to /work/evo_out/Closure_144f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=89.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.TypedScopeCreator -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_144f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_144f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.TypedScopeCreator
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_144f/build/classes
+  - /work/Closure_144f/lib/ant_deploy.jar
+  - /work/Closure_144f/lib/args4j_deploy.jar
+  - /work/Closure_144f/lib/google_common_deploy.jar
+  - /work/Closure_144f/lib/hamcrest-core-1.1.jar
+  - /work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar
+  - /work/Closure_144f/lib/protobuf_deploy.jar
+  - /work/Closure_144f/build/test
+[MASTER] 11:25:27.457 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 11:25:27.480 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 11:25:27.704 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.TypedScopeCreator
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 620
+  - Branch 511
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 11:25:28.271 [logback-1] WARN  TestCluster - Failed to check cache for com.google.common.collect.ImmutableSet<E> : Type points to itself
+[MASTER] 11:25:28.712 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Collection<E> : Type points to itself
+[MASTER] 11:25:29.218 [logback-1] WARN  TestCluster - Failed to check cache for java.util.LinkedHashSet<E> : Type points to itself
+
+[Progress:>                             1%] [Cov:>                                  0%]
+[Progress:>                             1%] [Cov:===========>                       33%][MASTER] 11:25:30.376 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:>                             3%] [Cov:>                                  0%]
+[Progress:>                             3%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:>                                  0%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:===========>                       34%]
+[Progress:=>                            5%] [Cov:===========>                       33%]
+[Progress:=>                            5%] [Cov:===========>                       34%]
+[Progress:=>                            5%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:=>                            6%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          11%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:===========>                       34%]
+[Progress:===>                          13%] [Cov:============>                      36%]
+[Progress:===>                          13%] [Cov:============>                      37%]
+[Progress:===>                          13%] [Cov:============>                      37%]
+[Progress:===>                          13%] [Cov:============>                      37%]
+[Progress:===>                          13%] [Cov:============>                      37%]
+[Progress:===>                          13%] [Cov:============>                      37%]
+[Progress:===>                          13%] [Cov:============>                      37%]
+[Progress:===>                          13%] [Cov:============>                      37%]
+[Progress:====>                         15%] [Cov:=============>                     39%]
+[Progress:====>                         15%] [Cov:==============>                    40%]
+[Progress:====>                         15%] [Cov:==============>                    40%]
+[Progress:====>                         15%] [Cov:==============>                    40%]
+[Progress:====>                         15%] [Cov:==============>                    40%]
+[Progress:====>                         15%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    40%]
+[Progress:====>                         16%] [Cov:==============>                    41%]
+[Progress:====>                         16%] [Cov:==============>                    41%]
+[Progress:====>                         16%] [Cov:==============>                    41%]
+[Progress:=====>                        18%] [Cov:==============>                    41%]
+[Progress:=====>                        18%] [Cov:==============>                    41%]
+[Progress:=====>                        18%] [Cov:==============>                    41%]
+[Progress:=====>                        18%] [Cov:==============>                    41%]
+[Progress:=====>                        18%] [Cov:==============>                    41%]
+[Progress:======>                       20%] [Cov:==============>                    41%]
+[Progress:======>                       20%] [Cov:==============>                    41%]
+[Progress:======>                       20%] [Cov:==============>                    41%]
+[Progress:======>                       20%] [Cov:==============>                    41%]
+[Progress:======>                       21%] [Cov:==============>                    41%]
+[Progress:======>                       21%] [Cov:==============>                    41%]
+[Progress:======>                       21%] [Cov:===============>                   43%]
+[Progress:======>                       21%] [Cov:===============>                   44%]
+[Progress:======>                       21%] [Cov:===============>                   44%]
+[Progress:======>                       21%] [Cov:===============>                   44%]
+[Progress:======>                       23%] [Cov:===============>                   44%]
+[Progress:======>                       23%] [Cov:===============>                   44%]
+[Progress:======>                       23%] [Cov:===============>                   44%]
+[Progress:======>                       23%] [Cov:===============>                   44%]
+[Progress:=======>                      25%] [Cov:===============>                   44%]
+[Progress:=======>                      25%] [Cov:===============>                   44%]
+[Progress:=======>                      25%] [Cov:===============>                   44%]
+[Progress:=======>                      25%] [Cov:===============>                   44%]
+[Progress:=======>                      26%] [Cov:===============>                   44%]
+[Progress:=======>                      26%] [Cov:===============>                   44%]
+[Progress:=======>                      26%] [Cov:===============>                   44%]
+[Progress:=======>                      26%] [Cov:===============>                   44%]
+[Progress:========>                     28%] [Cov:===============>                   44%]
+[Progress:========>                     28%] [Cov:===============>                   44%]
+[Progress:========>                     28%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    30%] [Cov:===============>                   44%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:=========>                    31%] [Cov:===============>                   44%]
+[Progress:=========>                    33%] [Cov:===============>                   44%]
+[Progress:=========>                    33%] [Cov:===============>                   44%]
+[Progress:==========>                   35%] [Cov:===============>                   44%]
+[Progress:==========>                   35%] [Cov:================>                  46%]
+[Progress:==========>                   35%] [Cov:================>                  47%]
+[Progress:==========>                   35%] [Cov:================>                  47%]
+[Progress:==========>                   36%] [Cov:================>                  47%]
+[Progress:==========>                   36%] [Cov:================>                  47%]
+[Progress:===========>                  38%] [Cov:================>                  47%]
+[Progress:===========>                  38%] [Cov:================>                  47%]
+[Progress:===========>                  38%] [Cov:================>                  47%]
+[Progress:============>                 40%] [Cov:================>                  47%]
+[Progress:============>                 40%] [Cov:================>                  47%]
+[Progress:============>                 40%] [Cov:================>                  47%]
+[Progress:============>                 41%] [Cov:================>                  47%]
+[Progress:============>                 41%] [Cov:================>                  47%]
+[Progress:============>                 43%] [Cov:================>                  47%]
+[Progress:============>                 43%] [Cov:================>                  47%]
+[Progress:============>                 43%] [Cov:================>                  47%]
+[Progress:=============>                45%] [Cov:================>                  47%]
+[Progress:=============>                45%] [Cov:================>                  47%]
+[Progress:=============>                45%] [Cov:================>                  47%]
+[Progress:=============>                46%] [Cov:================>                  47%]
+[Progress:=============>                46%] [Cov:================>                  47%]
+[Progress:=============>                46%] [Cov:================>                  47%]
+[Progress:==============>               48%] [Cov:================>                  47%]
+[Progress:==============>               48%] [Cov:================>                  47%]
+[Progress:================>             56%] [Cov:================>                  47%]
+[Progress:=================>            58%] [Cov:================>                  47%]
+[Progress:=================>            58%] [Cov:================>                  47%]
+[Progress:=================>            58%] [Cov:================>                  47%]
+[Progress:==================>           60%] [Cov:================>                  47%]
+[Progress:==================>           60%] [Cov:================>                  47%]
+[Progress:==================>           60%] [Cov:================>                  47%]
+[Progress:==================>           61%] [Cov:================>                  47%]
+[Progress:==================>           61%] [Cov:================>                  47%]
+[Progress:==================>           61%] [Cov:================>                  47%]
+[Progress:==================>           63%] [Cov:================>                  47%]
+[Progress:==================>           63%] [Cov:================>                  47%]
+[Progress:===================>          65%] [Cov:================>                  47%]
+[Progress:===================>          65%] [Cov:================>                  47%]
+[Progress:===================>          66%] [Cov:================>                  47%]
+[Progress:===================>          66%] [Cov:================>                  47%]
+[Progress:===================>          66%] [Cov:================>                  47%]
+[Progress:====================>         68%] [Cov:================>                  47%]
+[Progress:====================>         68%] [Cov:================>                  47%]
+[Progress:=====================>        70%] [Cov:================>                  47%]
+[Progress:=====================>        70%] [Cov:================>                  48%]
+[Progress:=====================>        70%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        73%] [Cov:=================>                 49%]
+[Progress:=====================>        73%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       76%] [Cov:=================>                 49%]
+[Progress:======================>       76%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     83%] [Cov:=================>                 49%]
+[Progress:========================>     83%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:===========================>  90%] [Cov:=================>                 49%]
+[Progress:===========================>  90%] [Cov:=================>                 49%]
+[Progress:===========================>  91%] [Cov:=================>                 49%]
+[Progress:===========================>  91%] [Cov:=================>                 49%]
+[Progress:===========================>  93%] [Cov:=================>                 49%]
+[Progress:===========================>  93%] [Cov:=================>                 49%]
+[Progress:===========================>  93%] [Cov:=================>                 49%]
+[Progress:============================> 95%] [Cov:=================>                 49%]
+[Progress:============================> 95%] [Cov:=================>                 49%]
+[Progress:============================> 96%] [Cov:=================>                 49%]
+[Progress:============================> 96%] [Cov:=================>                 49%]
+[Progress:============================> 96%] [Cov:=================>                 49%]
+[Progress:=============================>98%] [Cov:=================>                 49%]
+[Progress:=============================>98%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+[Progress:==============================100%] [Cov:=================>                 49%]
+* Search finished after 62s and 177 generations, 39835 statements, best individual has fitness: 704.6840000552958
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 30%
+* Total number of goals: 620
+* Number of covered goals: 183
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 19%
+* Total number of goals: 511
+* Number of covered goals: 95
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 7
+* Number of covered goals: 7
+* Generated 10 tests with total length 46
+* Resulting test suite's coverage: 49% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 7%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+         writeFileDescriptor: 4
+* Writing tests to file
+* Writing JUnit test case 'TypedScopeCreator_ESTest' to /work/evo_out/Closure_144f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=77.2s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.rhino.jstype.FunctionBuilder -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_144f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_144f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.rhino.jstype.FunctionBuilder
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_144f/build/classes
+  - /work/Closure_144f/lib/ant_deploy.jar
+  - /work/Closure_144f/lib/args4j_deploy.jar
+  - /work/Closure_144f/lib/google_common_deploy.jar
+  - /work/Closure_144f/lib/hamcrest-core-1.1.jar
+  - /work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar
+  - /work/Closure_144f/lib/protobuf_deploy.jar
+  - /work/Closure_144f/build/test
+[MASTER] 11:26:43.605 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.rhino.jstype.FunctionBuilder
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 46
+  - Branch 14
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:===========>                       33%]
+[Progress:>                             1%] [Cov:=======================>           66%]
+[Progress:>                             1%] [Cov:===================================100%]
+[Progress:>                             1%] [Cov:===================================100%]
+* Search finished after 2s and 0 generations, 4327 statements, best individual has fitness: 0.2
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 100%
+* Total number of goals: 46
+* Number of covered goals: 46
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 100%
+* Total number of goals: 14
+* Number of covered goals: 14
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 4
+* Number of covered goals: 4
+* Generated 13 tests with total length 57
+* Resulting test suite's coverage: 100% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 0%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'FunctionBuilder_ESTest' to /work/evo_out/Closure_144f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=9.5s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.rhino.jstype.FunctionType -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/hamcrest-core-1.1.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_144f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_144f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.rhino.jstype.FunctionType
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_144f/build/classes
+  - /work/Closure_144f/lib/ant_deploy.jar
+  - /work/Closure_144f/lib/args4j_deploy.jar
+  - /work/Closure_144f/lib/google_common_deploy.jar
+  - /work/Closure_144f/lib/hamcrest-core-1.1.jar
+  - /work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar
+  - /work/Closure_144f/lib/protobuf_deploy.jar
+  - /work/Closure_144f/build/test
+[MASTER] 11:26:53.435 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.rhino.jstype.FunctionType
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 324
+  - Branch 281
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:===>                               10%]
+[Progress:>                             1%] [Cov:======>                            18%]
+[Progress:>                             1%] [Cov:=================>                 51%]
+[Progress:>                             1%] [Cov:===================>               56%]
+[Progress:>                             3%] [Cov:==>                                8%]
+[Progress:>                             3%] [Cov:=====>                             15%]
+[Progress:>                             3%] [Cov:================>                  48%]
+[Progress:>                             3%] [Cov:=================>                 50%]
+[Progress:>                             3%] [Cov:=================>                 51%]
+[Progress:>                             3%] [Cov:====================>              58%]
+[Progress:>                             3%] [Cov:===================>               56%]
+[Progress:>                             3%] [Cov:===================>               57%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            5%] [Cov:=================>                 49%]
+[Progress:=>                            5%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:===================>               56%]
+[Progress:=>                            5%] [Cov:=====================>             61%]
+[Progress:=>                            5%] [Cov:===========================>       79%]
+[Progress:=>                            5%] [Cov:============================>      80%]
+[Progress:=>                            5%] [Cov:============================>      80%]
+[Progress:=>                            6%] [Cov:============================>      80%]
+[Progress:=>                            6%] [Cov:============================>      81%]
+[Progress:=>                            6%] [Cov:============================>      81%]
+[Progress:=>                            6%] [Cov:============================>      81%]
+[Progress:==>                           8%] [Cov:============================>      81%]
+[Progress:==>                           8%] [Cov:============================>      82%]
+[Progress:==>                           8%] [Cov:============================>      82%]
+[Progress:==>                           8%] [Cov:============================>      82%]
+[Progress:===>                          10%] [Cov:============================>      82%]
+[Progress:===>                          10%] [Cov:============================>      82%]
+[Progress:===>                          10%] [Cov:============================>      82%]
+[Progress:===>                          11%] [Cov:============================>      82%]
+[Progress:===>                          11%] [Cov:============================>      82%]
+[Progress:===>                          11%] [Cov:============================>      82%]
+[Progress:===>                          11%] [Cov:=============================>     83%]
+[Progress:===>                          11%] [Cov:=============================>     84%]
+[Progress:===>                          13%] [Cov:============================>      82%]
+[Progress:===>                          13%] [Cov:=============================>     83%]
+[Progress:===>                          13%] [Cov:=============================>     85%]
+[Progress:===>                          13%] [Cov:==============================>    86%]
+[Progress:===>                          13%] [Cov:==============================>    86%]
+[Progress:====>                         15%] [Cov:==============================>    86%]
+[Progress:====>                         15%] [Cov:==============================>    86%]
+[Progress:====>                         15%] [Cov:==============================>    86%]
+[Progress:====>                         15%] [Cov:==============================>    86%]
+[Progress:====>                         16%] [Cov:==============================>    86%]
+[Progress:====>                         16%] [Cov:==============================>    86%]
+[Progress:====>                         16%] [Cov:==============================>    86%]
+[Progress:====>                         16%] [Cov:==============================>    86%]
+[Progress:=====>                        18%] [Cov:==============================>    86%]
+[Progress:=====>                        18%] [Cov:==============================>    86%]
+[Progress:=====>                        18%] [Cov:==============================>    86%]
+[Progress:======>                       20%] [Cov:==============================>    86%]
+[Progress:======>                       20%] [Cov:==============================>    86%]
+[Progress:======>                       20%] [Cov:==============================>    86%]
+[Progress:======>                       21%] [Cov:==============================>    86%]
+[Progress:======>                       21%] [Cov:==============================>    86%]
+[Progress:======>                       21%] [Cov:==============================>    86%]
+[Progress:======>                       21%] [Cov:==============================>    86%]
+[Progress:======>                       23%] [Cov:==============================>    86%]
+[Progress:======>                       23%] [Cov:==============================>    86%]
+[Progress:======>                       23%] [Cov:==============================>    86%]
+[Progress:=======>                      25%] [Cov:==============================>    86%]
+[Progress:=======>                      25%] [Cov:==============================>    86%]
+[Progress:=======>                      25%] [Cov:==============================>    86%]
+[Progress:=======>                      25%] [Cov:==============================>    87%]
+[Progress:=======>                      26%] [Cov:==============================>    86%]
+[Progress:=======>                      26%] [Cov:==============================>    87%]
+[Progress:=======>                      26%] [Cov:==============================>    87%]
+[Progress:=======>                      26%] [Cov:==============================>    87%]
+[Progress:========>                     28%] [Cov:==============================>    87%]
+[Progress:========>                     28%] [Cov:==============================>    87%]
+[Progress:========>                     28%] [Cov:==============================>    87%]
+[Progress:=========>                    30%] [Cov:==============================>    87%]
+[Progress:=========>                    30%] [Cov:==============================>    87%]
+[Progress:=========>                    30%] [Cov:==============================>    87%]
+[Progress:=========>                    31%] [Cov:==============================>    87%]
+[Progress:=========>                    31%] [Cov:==============================>    87%]
+[Progress:=========>                    31%] [Cov:==============================>    87%]
+[Progress:=========>                    33%] [Cov:==============================>    87%]
+[Progress:=========>                    33%] [Cov:==============================>    87%]
+[Progress:=========>                    33%] [Cov:==============================>    87%]
+[Progress:==========>                   35%] [Cov:==============================>    87%]
+[Progress:==========>                   35%] [Cov:==============================>    87%]
+[Progress:==========>                   35%] [Cov:==============================>    87%]
+[Progress:==========>                   35%] [Cov:==============================>    87%]
+[Progress:==========>                   36%] [Cov:==============================>    87%]
+[Progress:==========>                   36%] [Cov:==============================>    87%]
+[Progress:==========>                   36%] [Cov:==============================>    87%]
+[Progress:==========>                   36%] [Cov:==============================>    88%]
+[Progress:===========>                  38%] [Cov:==============================>    87%]
+[Progress:===========>                  38%] [Cov:==============================>    88%]
+[Progress:===========>                  38%] [Cov:==============================>    88%]
+[Progress:============>                 40%] [Cov:==============================>    88%]
+[Progress:============>                 40%] [Cov:==============================>    88%]
+[Progress:============>                 40%] [Cov:==============================>    88%]
+[Progress:============>                 41%] [Cov:==============================>    88%]
+[Progress:============>                 41%] [Cov:==============================>    88%]
+[Progress:============>                 43%] [Cov:==============================>    88%]
+[Progress:============>                 43%] [Cov:==============================>    88%]
+[Progress:=============>                45%] [Cov:==============================>    88%]
+[Progress:=============>                45%] [Cov:==============================>    88%]
+[Progress:=============>                45%] [Cov:==============================>    88%]
+[Progress:=============>                45%] [Cov:==============================>    88%]
+[Progress:=============>                46%] [Cov:==============================>    88%]
+[Progress:=============>                46%] [Cov:==============================>    88%]
+[Progress:==============>               48%] [Cov:==============================>    88%]
+[Progress:==============>               48%] [Cov:==============================>    88%]
+[Progress:===============>              50%] [Cov:==============================>    88%]
+[Progress:===============>              50%] [Cov:==============================>    88%]
+[Progress:===============>              50%] [Cov:==============================>    88%]
+[Progress:===============>              51%] [Cov:==============================>    88%]
+[Progress:===============>              51%] [Cov:==============================>    88%]
+[Progress:===============>              51%] [Cov:==============================>    88%]
+[Progress:===============>              53%] [Cov:==============================>    88%]
+[Progress:===============>              53%] [Cov:==============================>    88%]
+[Progress:===============>              53%] [Cov:==============================>    88%]
+[Progress:================>             55%] [Cov:==============================>    88%]
+[Progress:================>             55%] [Cov:==============================>    88%]
+[Progress:================>             55%] [Cov:===============================>   89%]
+[Progress:================>             55%] [Cov:===============================>   89%]
+[Progress:================>             56%] [Cov:===============================>   89%]
+[Progress:================>             56%] [Cov:===============================>   89%]
+[Progress:================>             56%] [Cov:===============================>   89%]
+[Progress:=================>            58%] [Cov:===============================>   89%]
+[Progress:=================>            58%] [Cov:===============================>   89%]
+[Progress:=================>            58%] [Cov:===============================>   89%]
+[Progress:==================>           60%] [Cov:===============================>   89%]
+[Progress:==================>           60%] [Cov:===============================>   89%]
+[Progress:==================>           61%] [Cov:===============================>   89%]
+[Progress:==================>           61%] [Cov:===============================>   89%]
+[Progress:==================>           61%] [Cov:===============================>   89%]
+[Progress:==================>           63%] [Cov:===============================>   89%]
+[Progress:==================>           63%] [Cov:===============================>   89%]
+[Progress:==================>           63%] [Cov:===============================>   89%]
+[Progress:===================>          65%] [Cov:===============================>   89%]
+[Progress:===================>          65%] [Cov:===============================>   89%]
+[Progress:===================>          65%] [Cov:===============================>   89%]
+[Progress:===================>          65%] [Cov:===============================>   89%]
+[Progress:===================>          66%] [Cov:===============================>   89%]
+[Progress:===================>          66%] [Cov:===============================>   89%]
+[Progress:===================>          66%] [Cov:===============================>   89%]
+[Progress:====================>         68%] [Cov:===============================>   89%]
+[Progress:====================>         68%] [Cov:===============================>   89%]
+[Progress:====================>         68%] [Cov:===============================>   89%]
+[Progress:=====================>        70%] [Cov:===============================>   89%]
+[Progress:=====================>        70%] [Cov:===============================>   89%]
+[Progress:=====================>        70%] [Cov:===============================>   89%]
+[Progress:=====================>        71%] [Cov:===============================>   89%]
+[Progress:=====================>        71%] [Cov:===============================>   89%]
+[Progress:=====================>        71%] [Cov:===============================>   89%]
+[Progress:=====================>        71%] [Cov:===============================>   90%]
+[Progress:=====================>        73%] [Cov:===============================>   90%]
+[Progress:=====================>        73%] [Cov:===============================>   90%]
+[Progress:=====================>        73%] [Cov:===============================>   90%]
+[Progress:======================>       75%] [Cov:===============================>   90%]
+[Progress:======================>       75%] [Cov:===============================>   90%]
+[Progress:======================>       76%] [Cov:===============================>   90%]
+[Progress:======================>       76%] [Cov:===============================>   90%]
+[Progress:======================>       76%] [Cov:===============================>   90%]
+[Progress:======================>       76%] [Cov:===============================>   90%]
+[Progress:=======================>      78%] [Cov:===============================>   90%]
+[Progress:=======================>      78%] [Cov:===============================>   90%]
+[Progress:=======================>      78%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     80%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     81%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   90%]
+[Progress:========================>     83%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    85%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:=========================>    86%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:==========================>   88%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  90%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  91%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:===========================>  93%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 95%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:============================> 96%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:=============================>98%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+[Progress:==============================100%] [Cov:===============================>   91%]
+* Search finished after 61s and 127 generations, 81235 statements, best individual has fitness: 59.71845472777699
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 90%
+* Total number of goals: 324
+* Number of covered goals: 292
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 85%
+* Total number of goals: 281
+* Number of covered goals: 238
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 93%
+* Total number of goals: 27
+* Number of covered goals: 25
+* Generated 78 tests with total length 485
+* Resulting test suite's coverage: 92% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 40%
+* Compiling and checking tests
+[MASTER] 11:28:19.574 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: null
+[MASTER] 11:28:19.575 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ SimpleErrorReporter simpleErrorReporter0 = new SimpleErrorReporter();
+JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry(simpleErrorReporter0, false);
+FunctionType functionType0 = jSTypeRegistry0.createInterfaceType("\"GMBcq", (Node) null);
+assertTrue(functionType0.isFunctionType());
+assertTrue(functionType0.hasCachedValues());
+
+JSType[] jSTypeArray0 = new JSType[2];
+jSTypeArray0[0] = (JSType) functionType0;
+jSTypeArray0[1] = (JSType) functionType0;
+JSType jSType0 = jSTypeRegistry0.createUnionType(jSTypeArray0);
+assertFalse(jSType0.isConstructor());
+assertTrue(jSType0.isInterface());
+
+
+[MASTER] 11:28:21.055 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 11:28:21.056 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ SimpleErrorReporter simpleErrorReporter0 = new SimpleErrorReporter();
+JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry(simpleErrorReporter0, false);
+VoidType voidType0 = new VoidType(jSTypeRegistry0);
+JSType jSType0 = jSTypeRegistry0.createDefaultObjectUnion(voidType0);
+JSType[] jSTypeArray0 = new JSType[2];
+jSTypeArray0[1] = (JSType) voidType0;
+FunctionType functionType0 = jSTypeRegistry0.createFunctionTypeWithVarArgs(jSType0, jSTypeArray0);
+FunctionPrototypeType functionPrototypeType0 = new FunctionPrototypeType(jSTypeRegistry0, functionType0, functionType0, false);
+functionType0.setPrototype(functionPrototypeType0);
+functionType0.setPrototypeBasedOn(functionPrototypeType0);
+functionType0.isSubtype(functionPrototypeType0);
+
+[MASTER] 11:28:27.949 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 11:28:27.950 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ SimpleErrorReporter simpleErrorReporter0 = new SimpleErrorReporter();
+JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry(simpleErrorReporter0, false);
+JSTypeNative jSTypeNative0 = JSTypeNative.LEAST_FUNCTION_TYPE;
+FunctionType functionType0 = jSTypeRegistry0.getNativeFunctionType(jSTypeNative0);
+List<JSType> list0 = List.of((JSType) functionType0, (JSType) functionType0, (JSType) functionType0, (JSType) functionType0);
+FunctionType functionType1 = jSTypeRegistry0.createFunctionTypeWithVarArgs((JSType) functionType0, list0);
+functionType0.setInstanceType(functionType1);
+functionType0.toDebugHashCodeString();
+
+[MASTER] 11:28:29.072 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test11 -> class java.lang.StackOverflowError: null
+[MASTER] 11:28:29.073 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ SimpleErrorReporter simpleErrorReporter0 = new SimpleErrorReporter();
+JSTypeRegistry jSTypeRegistry0 = new JSTypeRegistry(simpleErrorReporter0, false);
+JSTypeNative jSTypeNative0 = JSTypeNative.LEAST_FUNCTION_TYPE;
+FunctionType functionType0 = jSTypeRegistry0.getNativeFunctionType(jSTypeNative0);
+functionType0.setInstanceType(functionType0);
+functionType0.getGreatestSubtype(functionType0);
+
+* Writing tests to file
+* Writing JUnit test case 'FunctionType_ESTest' to /work/evo_out/Closure_144f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=98.8s]
+
+$ javac -nowarn -cp /work/Closure_144f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_144f/budget60_seed1/classes /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionTypeBuilder_ESTest.java /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionTypeBuilder_ESTest_scaffolding.java /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/jscomp/TypedScopeCreator_ESTest.java /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/jscomp/TypedScopeCreator_ESTest_scaffolding.java /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/rhino/jstype/FunctionBuilder_ESTest.java /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/rhino/jstype/FunctionBuilder_ESTest_scaffolding.java /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/rhino/jstype/FunctionType_ESTest.java /work/evo_out/Closure_144f/budget60_seed1/tests/com/google/javascript/rhino/jstype/FunctionType_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_144f/build/classes --dest /work/evo_out/Closure_144f/budget60_seed1/instrumented
+[INFO] 1049 classes instrumented to /work/evo_out/Closure_144f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_144/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_144f/budget60_seed1/instrumented:/work/evo_out/Closure_144f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_144f/build/classes:/work/Closure_144f/lib/ant_deploy.jar:/work/Closure_144f/lib/args4j_deploy.jar:/work/Closure_144f/lib/google_common_deploy.jar:/work/Closure_144f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144f/lib/protobuf_deploy.jar:/work/Closure_144f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionTypeBuilder_ESTest com.google.javascript.jscomp.TypedScopeCreator_ESTest com.google.javascript.rhino.jstype.FunctionBuilder_ESTest com.google.javascript.rhino.jstype.FunctionType_ESTest
+JUnit version 4.12
+.................................................................................................................................
+Time: 2.85
+
+OK (129 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=4.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_144/budget60_seed1/jacoco.exec --classfiles /work/Closure_144f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_144/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_144/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 894 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -cp /work/evo_out/Closure_144f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_144b/build/classes:/work/Closure_144b/lib/ant_deploy.jar:/work/Closure_144b/lib/args4j_deploy.jar:/work/Closure_144b/lib/google_common_deploy.jar:/work/Closure_144b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_144b/lib/protobuf_deploy.jar:/work/Closure_144b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionTypeBuilder_ESTest com.google.javascript.jscomp.TypedScopeCreator_ESTest com.google.javascript.rhino.jstype.FunctionBuilder_ESTest com.google.javascript.rhino.jstype.FunctionType_ESTest
+JUnit version 4.12
+..............E..E..........................E............................E...........................................................
+Time: 2.72
+There were 4 failures:
+1) test24(com.google.javascript.jscomp.FunctionTypeBuilder_ESTest)
+java.lang.NoSuchMethodError: 'com.google.javascript.jscomp.FunctionTypeBuilder com.google.javascript.jscomp.FunctionTypeBuilder.inferReturnStatements(com.google.javascript.rhino.Node)'
+	at com.google.javascript.jscomp.FunctionTypeBuilder_ESTest.test24(FunctionTypeBuilder_ESTest.java:398)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test23(com.google.javascript.jscomp.FunctionTypeBuilder_ESTest)
+java.lang.NoSuchMethodError: 'com.google.javascript.jscomp.FunctionTypeBuilder com.google.javascript.jscomp.FunctionTypeBuilder.inferReturnStatements(com.google.javascript.rhino.Node)'
+	at com.google.javascript.jscomp.FunctionTypeBuilder_ESTest.test23(FunctionTypeBuilder_ESTest.java:381)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test09(com.google.javascript.rhino.jstype.FunctionBuilder_ESTest)
+java.lang.NoSuchMethodError: 'com.google.javascript.rhino.jstype.FunctionBuilder com.google.javascript.rhino.jstype.FunctionBuilder.withReturnType(com.google.javascript.rhino.jstype.JSType, boolean)'
+	at com.google.javascript.rhino.jstype.FunctionBuilder_ESTest.test09(FunctionBuilder_ESTest.java:152)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) test66(com.google.javascript.rhino.jstype.FunctionType_ESTest)
+java.lang.AssertionError: Expecting exception: IllegalArgumentException
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.google.javascript.rhino.jstype.FunctionType_ESTest.test66(FunctionType_ESTest.java:1040)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 129,  Failures: 4
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=3.2s]

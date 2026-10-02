@@ -1,0 +1,531 @@
+
+$ defects4j checkout -p JacksonCore -v 24f -w /work/JacksonCore_24f
+Checking out c4dd84e4 to /work/JacksonCore_24f............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/JacksonCore_24f/maven-build.xml............... OK
+Backing up build file: /work/JacksonCore_24f/pom.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c4dd84e4:35f3ab4d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-24f................................. OK
+
+[exit=0 timeout=False time=2.5s]
+
+$ defects4j compile -w /work/JacksonCore_24f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.6s]
+
+$ defects4j checkout -p JacksonCore -v 24b -w /work/JacksonCore_24b
+Checking out c4dd84e4 to /work/JacksonCore_24b............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/JacksonCore_24b/maven-build.xml............... OK
+Backing up build file: /work/JacksonCore_24b/pom.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c4dd84e4:35f3ab4d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-24b................................. OK
+
+[exit=0 timeout=False time=2.4s]
+
+$ defects4j compile -w /work/JacksonCore_24b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.5s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes org.evosuite.EvoSuite -generateSuite -class com.fasterxml.jackson.core.base.ParserBase -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JacksonCore_24f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JacksonCore_24f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.fasterxml.jackson.core.base.ParserBase
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JacksonCore_24f/target/classes
+  - /work/JacksonCore_24f/target/test-classes
+[MASTER] 02:31:24.644 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 02:31:24.674 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.fasterxml.jackson.core.base.ParserBase
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 391
+  - Branch 286
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  1%]
+[Progress:>                             0%] [Cov:============>                      35%]
+[Progress:>                             1%] [Cov:>                                  0%]
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:>                                  0%]
+[Progress:===>                          10%] [Cov:>                                  1%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:=====>                        18%] [Cov:>                                  0%]
+[Progress:=====>                        18%] [Cov:===========>                       33%]
+[Progress:=====>                        18%] [Cov:===========>                       34%]
+[Progress:=====>                        18%] [Cov:============>                      37%]
+[Progress:=======>                      26%] [Cov:>                                  0%]
+[Progress:=======>                      26%] [Cov:===========>                       33%]
+[Progress:=======>                      26%] [Cov:===========>                       34%]
+[Progress:=======>                      26%] [Cov:============>                      37%]
+[Progress:==========>                   35%] [Cov:>                                  0%]
+[Progress:==========>                   35%] [Cov:===========>                       34%]
+[Progress:==========>                   35%] [Cov:============>                      37%]
+[Progress:==========>                   35%] [Cov:============>                      37%]
+[Progress:==========>                   36%] [Cov:===========>                       34%]
+[Progress:==========>                   36%] [Cov:============>                      35%]
+[Progress:==========>                   36%] [Cov:============>                      36%][MASTER] 02:31:47.008 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.filter.FilteringGeneratorDelegate due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.util.JsonGeneratorDelegate due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8JsonGenerator due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   36%] [Cov:============>                      37%]
+[Progress:==========>                   36%] [Cov:===============>                   43%][MASTER] 02:31:47.310 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Cannot apply field to this callee
+
+[Progress:==========>                   36%] [Cov:===============>                   43%]
+[Progress:==========>                   36%] [Cov:===============>                   43%]
+[Progress:==========>                   36%] [Cov:===============>                   43%]
+[Progress:===========>                  38%] [Cov:===============>                   43%]
+[Progress:===========>                  38%] [Cov:===============>                   43%]
+[Progress:===========>                  38%] [Cov:===============>                   44%]
+[Progress:===========>                  38%] [Cov:===============>                   44%]
+[Progress:===========>                  38%] [Cov:===============>                   44%][MASTER] 02:31:48.704 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 02:31:48.743 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 02:31:48.810 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.util.JsonGeneratorDelegate due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.filter.FilteringGeneratorDelegate due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.util.JsonGeneratorDelegate due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===========>                  38%] [Cov:===============>                   44%]
+[Progress:============>                 40%] [Cov:===============>                   44%][MASTER] 02:31:48.951 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:============>                 40%] [Cov:===============>                   44%][MASTER] 02:31:49.051 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.ObjectInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:============>                 40%] [Cov:===============>                   44%]
+[Progress:============>                 40%] [Cov:===============>                   44%]
+[Progress:============>                 40%] [Cov:===============>                   44%]
+[Progress:============>                 40%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   44%]
+[Progress:============>                 41%] [Cov:===============>                   45%]
+[Progress:============>                 43%] [Cov:===============>                   44%]
+[Progress:============>                 43%] [Cov:===============>                   45%]
+[Progress:============>                 43%] [Cov:===============>                   45%]
+[Progress:=============>                45%] [Cov:===============>                   45%]
+[Progress:=============>                45%] [Cov:===============>                   45%]
+[Progress:=============>                45%] [Cov:===============>                   45%]
+[Progress:=============>                45%] [Cov:===============>                   45%]
+[Progress:=============>                46%] [Cov:===============>                   45%]
+[Progress:=============>                46%] [Cov:===============>                   45%]
+[Progress:=============>                46%] [Cov:===============>                   45%]
+[Progress:=============>                46%] [Cov:===============>                   45%]
+[Progress:==============>               48%] [Cov:===============>                   45%]
+[Progress:==============>               48%] [Cov:===============>                   45%]
+[Progress:==============>               48%] [Cov:===============>                   45%]
+[Progress:==============>               48%] [Cov:===============>                   45%]
+[Progress:==============>               48%] [Cov:===============>                   45%]
+[Progress:===============>              50%] [Cov:===============>                   45%]
+[Progress:===============>              50%] [Cov:===============>                   45%]
+[Progress:===============>              50%] [Cov:===============>                   45%]
+[Progress:===============>              50%] [Cov:===============>                   45%]
+[Progress:===============>              51%] [Cov:===============>                   45%]
+[Progress:===============>              51%] [Cov:===============>                   45%]
+[Progress:===============>              51%] [Cov:===============>                   45%]
+[Progress:===============>              51%] [Cov:===============>                   45%]
+[Progress:===============>              51%] [Cov:===============>                   45%]
+[Progress:===============>              53%] [Cov:===============>                   45%]
+[Progress:===============>              53%] [Cov:================>                  46%]
+[Progress:===============>              53%] [Cov:================>                  46%]
+[Progress:===============>              53%] [Cov:================>                  46%]
+[Progress:================>             55%] [Cov:================>                  46%]
+[Progress:================>             55%] [Cov:================>                  46%]
+[Progress:================>             55%] [Cov:================>                  46%]
+[Progress:================>             55%] [Cov:================>                  46%]
+[Progress:================>             56%] [Cov:================>                  46%]
+[Progress:================>             56%] [Cov:================>                  46%]
+[Progress:================>             56%] [Cov:================>                  46%]
+[Progress:=================>            58%] [Cov:================>                  46%]
+[Progress:=================>            58%] [Cov:================>                  47%]
+[Progress:=================>            58%] [Cov:================>                  47%]
+[Progress:==================>           60%] [Cov:================>                  47%]
+[Progress:==================>           60%] [Cov:================>                  47%]
+[Progress:==================>           61%] [Cov:================>                  47%]
+[Progress:==================>           61%] [Cov:================>                  47%]
+[Progress:==================>           61%] [Cov:================>                  47%]
+[Progress:==================>           61%] [Cov:================>                  48%]
+[Progress:==================>           63%] [Cov:================>                  47%]
+[Progress:==================>           63%] [Cov:================>                  48%]
+[Progress:==================>           63%] [Cov:================>                  48%]
+[Progress:==================>           63%] [Cov:=================>                 49%]
+[Progress:===================>          65%] [Cov:=================>                 49%]
+[Progress:===================>          65%] [Cov:=================>                 49%]
+[Progress:===================>          65%] [Cov:=================>                 49%]
+[Progress:===================>          66%] [Cov:=================>                 49%]
+[Progress:===================>          66%] [Cov:=================>                 49%]
+[Progress:===================>          66%] [Cov:=================>                 49%]
+[Progress:===================>          66%] [Cov:=================>                 49%]
+[Progress:====================>         68%] [Cov:=================>                 49%]
+[Progress:====================>         68%] [Cov:=================>                 49%]
+[Progress:====================>         68%] [Cov:=================>                 49%]
+[Progress:====================>         68%] [Cov:=================>                 49%]
+[Progress:=====================>        70%] [Cov:=================>                 49%]
+[Progress:=====================>        70%] [Cov:=================>                 49%]
+[Progress:=====================>        70%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        71%] [Cov:=================>                 49%]
+[Progress:=====================>        73%] [Cov:=================>                 49%]
+[Progress:=====================>        73%] [Cov:=================>                 49%]
+[Progress:=====================>        73%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       75%] [Cov:=================>                 49%]
+[Progress:======================>       76%] [Cov:=================>                 49%]
+[Progress:======================>       76%] [Cov:=================>                 49%]
+[Progress:======================>       76%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:=======================>      78%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     80%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     81%] [Cov:=================>                 49%]
+[Progress:========================>     83%] [Cov:=================>                 49%]
+[Progress:========================>     83%] [Cov:=================>                 49%]
+[Progress:========================>     83%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    85%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:=========================>    86%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:==========================>   88%] [Cov:=================>                 49%]
+[Progress:===========================>  90%] [Cov:=================>                 49%]
+[Progress:===========================>  90%] [Cov:=================>                 49%]
+[Progress:===========================>  90%] [Cov:=================>                 50%]
+[Progress:===========================>  90%] [Cov:=================>                 51%]
+[Progress:===========================>  90%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 96%] [Cov:=================>                 51%]
+[Progress:============================> 96%] [Cov:=================>                 51%]
+[Progress:============================> 96%] [Cov:=================>                 51%]
+[Progress:=============================>98%] [Cov:=================>                 51%]
+[Progress:=============================>98%] [Cov:=================>                 51%]
+[Progress:==============================100%] [Cov:=================>                 51%]
+[Progress:==============================100%] [Cov:=================>                 51%]
+* Search finished after 65s and 98 generations, 72604 statements, best individual has fitness: 393.3199082274485
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 34%
+* Total number of goals: 391
+* Number of covered goals: 132
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 22%
+* Total number of goals: 286
+* Number of covered goals: 63
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 10
+* Number of covered goals: 10
+* Generated 31 tests with total length 205
+* Resulting test suite's coverage: 52% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 4%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'ParserBase_ESTest' to /work/evo_out/JacksonCore_24f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=78.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes org.evosuite.EvoSuite -generateSuite -class com.fasterxml.jackson.core.base.ParserMinimalBase -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/JacksonCore_24f/budget60_seed1/tests -Dreport_dir=/work/evo_out/JacksonCore_24f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.fasterxml.jackson.core.base.ParserMinimalBase
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/JacksonCore_24f/target/classes
+  - /work/JacksonCore_24f/target/test-classes
+[MASTER] 02:32:43.500 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 02:32:43.532 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class com.fasterxml.jackson.core.base.ParserMinimalBase
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 209
+  - Branch 214
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:>                                  1%]
+[Progress:>                             0%] [Cov:>                                  2%]
+[Progress:>                             0%] [Cov:============>                      35%]
+[Progress:==>                           8%] [Cov:>                                  0%]
+[Progress:==>                           8%] [Cov:===========>                       33%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:============>                      35%]
+[Progress:==>                           8%] [Cov:=============>                     39%]
+[Progress:===>                          10%] [Cov:>                                  0%]
+[Progress:===>                          10%] [Cov:===========>                       33%]
+[Progress:===>                          10%] [Cov:===========>                       34%]
+[Progress:===>                          10%] [Cov:============>                      36%]
+[Progress:===>                          10%] [Cov:=============>                     39%]
+[Progress:=====>                        18%] [Cov:>                                  0%]
+[Progress:=====>                        18%] [Cov:===========>                       34%]
+[Progress:=====>                        18%] [Cov:============>                      36%]
+[Progress:=====>                        18%] [Cov:============>                      37%]
+[Progress:=======>                      26%] [Cov:>                                  1%]
+[Progress:=======>                      26%] [Cov:>                                  2%]
+[Progress:=======>                      26%] [Cov:============>                      36%]
+[Progress:=======>                      26%] [Cov:=============>                     39%][MASTER] 02:33:00.150 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 02:33:00.180 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.SequenceInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.DataInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=======>                      26%] [Cov:=================>                 49%][MASTER] 02:33:00.398 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.DataInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.evosuite.runtime.mock.java.io.MockFileInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==========>                   35%] [Cov:=================>                 49%]
+[Progress:==========>                   35%] [Cov:=================>                 49%]
+[Progress:==========>                   36%] [Cov:=================>                 49%]
+[Progress:=============>                45%] [Cov:=================>                 49%]
+[Progress:=============>                45%] [Cov:=================>                 49%][MASTER] 02:33:10.837 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=============>                45%] [Cov:=================>                 50%]
+[Progress:=============>                45%] [Cov:=================>                 50%]
+[Progress:=============>                45%] [Cov:=================>                 50%][MASTER] 02:33:11.166 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=============>                45%] [Cov:=================>                 50%]
+[Progress:=============>                45%] [Cov:=================>                 50%][MASTER] 02:33:11.510 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=============>                45%] [Cov:=================>                 50%]
+[Progress:=============>                46%] [Cov:=================>                 50%]
+[Progress:=============>                46%] [Cov:=================>                 50%]
+[Progress:=============>                46%] [Cov:=================>                 50%]
+[Progress:================>             55%] [Cov:=================>                 50%]
+[Progress:================>             55%] [Cov:=================>                 50%]
+[Progress:================>             55%] [Cov:=================>                 50%]
+[Progress:================>             55%] [Cov:=================>                 50%]
+[Progress:================>             55%] [Cov:=================>                 50%][MASTER] 02:33:17.575 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PushbackInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 02:33:17.624 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.DataInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.SequenceInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:================>             56%] [Cov:=================>                 50%]
+[Progress:================>             56%] [Cov:=================>                 50%]
+[Progress:================>             56%] [Cov:=================>                 50%][MASTER] 02:33:17.891 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.DataInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:================>             56%] [Cov:=================>                 50%][MASTER] 02:33:18.047 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:================>             56%] [Cov:=================>                 50%]
+[Progress:================>             56%] [Cov:=================>                 50%]
+[Progress:================>             56%] [Cov:=================>                 50%]
+[Progress:================>             56%] [Cov:=================>                 50%]
+[Progress:=================>            58%] [Cov:=================>                 50%]
+[Progress:=================>            58%] [Cov:=================>                 50%]
+[Progress:=================>            58%] [Cov:=================>                 50%][MASTER] 02:33:19.020 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=================>            58%] [Cov:=================>                 50%][MASTER] 02:33:19.160 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.DataInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PushbackInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=================>            58%] [Cov:=================>                 50%]
+[Progress:=================>            58%] [Cov:=================>                 50%]
+[Progress:=================>            58%] [Cov:=================>                 50%]
+[Progress:===================>          66%] [Cov:=================>                 50%]
+[Progress:====================>         68%] [Cov:=================>                 50%]
+[Progress:====================>         68%] [Cov:=================>                 50%]
+[Progress:======================>       76%] [Cov:=================>                 50%]
+[Progress:======================>       76%] [Cov:=================>                 50%][MASTER] 02:33:29.944 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.evosuite.runtime.mock.java.io.MockFileInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.evosuite.runtime.mock.java.io.MockFile due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:======================>       76%] [Cov:=================>                 50%]
+[Progress:======================>       76%] [Cov:=================>                 50%]
+[Progress:======================>       76%] [Cov:=================>                 50%][MASTER] 02:33:30.312 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 02:33:30.416 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 02:33:30.423 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.json.UTF8DataInputJsonParser canUseFunctionalMocks=false, canBeMocked: false
+
+[Progress:======================>       76%] [Cov:=================>                 50%]
+[Progress:======================>       76%] [Cov:=================>                 50%]
+[Progress:=======================>      78%] [Cov:=================>                 50%]
+[Progress:=======================>      78%] [Cov:=================>                 50%]
+[Progress:=======================>      78%] [Cov:=================>                 50%]
+[Progress:=======================>      78%] [Cov:=================>                 50%][MASTER] 02:33:31.088 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8DataInputJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.DataInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.ObjectInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 02:33:31.113 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.ReaderBasedJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Have no generator for class com.fasterxml.jackson.core.io.IOContext canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=======================>      78%] [Cov:=================>                 50%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:=======================>      78%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     80%] [Cov:=================>                 51%][MASTER] 02:33:32.483 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.BufferedInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PipedInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:========================>     80%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%][MASTER] 02:33:32.683 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.SequenceInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PipedInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PipedOutputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PipedInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:========================>     81%] [Cov:=================>                 51%]
+[Progress:===========================>  90%] [Cov:=================>                 51%]
+[Progress:===========================>  90%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%]
+[Progress:===========================>  91%] [Cov:=================>                 51%][MASTER] 02:33:39.557 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.io.IOContext due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.fasterxml.jackson.core.json.UTF8StreamJsonParser due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PushbackInputStream due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for java.io.PipedInputStream due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:===========================>  93%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 95%] [Cov:=================>                 51%]
+[Progress:============================> 96%] [Cov:=================>                 51%]
+[Progress:============================> 96%] [Cov:=================>                 51%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+* Search finished after 66s and 80 generations, 58395 statements, best individual has fitness: 248.571529159651
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 34%
+* Total number of goals: 209
+* Number of covered goals: 71
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 23%
+* Total number of goals: 214
+* Number of covered goals: 49
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 9
+* Number of covered goals: 9
+* Generated 35 tests with total length 243
+* Resulting test suite's coverage: 52% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 15%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 2
+* Writing tests to file
+* Writing JUnit test case 'ParserMinimalBase_ESTest' to /work/evo_out/JacksonCore_24f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=78.4s]
+
+$ javac -nowarn -cp /work/JacksonCore_24f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/JacksonCore_24f/budget60_seed1/classes /work/evo_out/JacksonCore_24f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserBase_ESTest.java /work/evo_out/JacksonCore_24f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserBase_ESTest_scaffolding.java /work/evo_out/JacksonCore_24f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserMinimalBase_ESTest.java /work/evo_out/JacksonCore_24f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserMinimalBase_ESTest_scaffolding.java
+Note: /work/evo_out/JacksonCore_24f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserBase_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /work/evo_out/JacksonCore_24f/budget60_seed1/tests/com/fasterxml/jackson/core/base/ParserBase_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/JacksonCore_24f/target/classes --dest /work/evo_out/JacksonCore_24f/budget60_seed1/instrumented
+[INFO] 126 classes instrumented to /work/evo_out/JacksonCore_24f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/JacksonCore_24/budget60_seed1/jacoco.exec -cp /work/evo_out/JacksonCore_24f/budget60_seed1/instrumented:/work/evo_out/JacksonCore_24f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.base.ParserBase_ESTest com.fasterxml.jackson.core.base.ParserMinimalBase_ESTest
+JUnit version 4.12
+..................................................................
+Time: 1.277
+
+OK (66 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/JacksonCore_24/budget60_seed1/jacoco.exec --classfiles /work/JacksonCore_24f/target/classes --csv /workspace/EvoSuite/Result_Round1/JacksonCore_24/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/JacksonCore_24/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 103 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/JacksonCore_24f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24b/target/classes:/work/JacksonCore_24b/target/test-classes:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.fasterxml.jackson.core.base.ParserBase_ESTest com.fasterxml.jackson.core.base.ParserMinimalBase_ESTest
+JUnit version 4.12
+..................................................................
+Time: 1.177
+
+OK (66 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.4s]

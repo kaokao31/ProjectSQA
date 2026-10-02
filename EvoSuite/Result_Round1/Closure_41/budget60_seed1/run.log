@@ -1,0 +1,1612 @@
+
+$ defects4j checkout -p Closure -v 41f -w /work/Closure_41f
+Checking out 00b1517c to /work/Closure_41f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_41f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_41f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 00b1517c:974027e9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-41f..................................... OK
+
+[exit=0 timeout=False time=3.2s]
+
+$ defects4j compile -w /work/Closure_41f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.6s]
+
+$ defects4j checkout -p Closure -v 41b -w /work/Closure_41b
+Checking out 00b1517c to /work/Closure_41b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_41b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_41b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 00b1517c:974027e9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-41b..................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_41b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.6s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.FunctionTypeBuilder -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_41f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_41f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.FunctionTypeBuilder
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_41f/build/classes
+  - /work/Closure_41f/lib/args4j.jar
+  - /work/Closure_41f/lib/guava.jar
+  - /work/Closure_41f/lib/json.jar
+  - /work/Closure_41f/lib/jsr305.jar
+  - /work/Closure_41f/lib/protobuf-java.jar
+  - /work/Closure_41f/build/lib/rhino.jar
+  - /work/Closure_41f/lib/ant.jar
+  - /work/Closure_41f/lib/ant-launcher.jar
+  - /work/Closure_41f/lib/caja-r4314.jar
+  - /work/Closure_41f/lib/jarjar.jar
+  - /work/Closure_41f/build/test
+[MASTER] 15:06:37.456 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 15:06:37.471 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 15:06:37.734 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.FunctionTypeBuilder
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 327
+  - Branch 261
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:>                                  2%]
+[Progress:>                             1%] [Cov:============>                      36%]
+[Progress:>                             1%] [Cov:=============>                     38%][MASTER] 15:06:39.728 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:>                             3%] [Cov:=>                                 3%]
+[Progress:>                             3%] [Cov:=>                                 4%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:==============>                    42%]
+[Progress:>                             3%] [Cov:==============>                    42%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:==============>                    42%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:=================>                 49%]
+[Progress:=>                            5%] [Cov:=================>                 50%]
+[Progress:=>                            6%] [Cov:=================>                 50%]
+[Progress:=>                            6%] [Cov:=================>                 50%]
+[Progress:=>                            6%] [Cov:=================>                 50%]
+[Progress:=>                            6%] [Cov:==================>                52%]
+[Progress:=>                            6%] [Cov:==================>                53%]
+[Progress:=>                            6%] [Cov:==================>                53%]
+[Progress:=>                            6%] [Cov:==================>                54%]
+[Progress:==>                           8%] [Cov:==================>                54%]
+[Progress:==>                           8%] [Cov:==================>                54%]
+[Progress:==>                           8%] [Cov:==================>                54%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               56%]
+[Progress:===>                          10%] [Cov:===================>               56%]
+[Progress:===>                          10%] [Cov:===================>               56%]
+[Progress:===>                          10%] [Cov:===================>               56%]
+[Progress:===>                          11%] [Cov:===================>               56%]
+[Progress:===>                          11%] [Cov:===================>               56%]
+[Progress:===>                          11%] [Cov:===================>               56%]
+[Progress:===>                          11%] [Cov:===================>               56%]
+[Progress:===>                          11%] [Cov:===================>               56%]
+[Progress:===>                          13%] [Cov:===================>               56%]
+[Progress:===>                          13%] [Cov:===================>               56%]
+[Progress:===>                          13%] [Cov:===================>               56%]
+[Progress:===>                          13%] [Cov:===================>               56%]
+[Progress:===>                          13%] [Cov:===================>               56%]
+[Progress:===>                          13%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:===================>               56%]
+[Progress:====>                         16%] [Cov:===================>               56%]
+[Progress:====>                         16%] [Cov:===================>               56%]
+[Progress:====>                         16%] [Cov:===================>               56%]
+[Progress:====>                         16%] [Cov:===================>               56%]
+[Progress:====>                         16%] [Cov:===================>               56%]
+[Progress:====>                         16%] [Cov:===================>               56%]
+[Progress:=====>                        18%] [Cov:===================>               56%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:=======>                      25%] [Cov:===================>               57%]
+[Progress:=======>                      25%] [Cov:===================>               57%]
+[Progress:=======>                      25%] [Cov:===================>               57%]
+[Progress:=======>                      25%] [Cov:====================>              58%]
+[Progress:=======>                      25%] [Cov:====================>              59%]
+[Progress:=======>                      25%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:=======>                      26%] [Cov:====================>              59%]
+[Progress:========>                     28%] [Cov:====================>              59%]
+[Progress:========>                     28%] [Cov:=====================>             60%]
+[Progress:========>                     28%] [Cov:=====================>             60%]
+[Progress:========>                     28%] [Cov:=====================>             60%]
+[Progress:=========>                    30%] [Cov:=====================>             60%]
+[Progress:=========>                    30%] [Cov:=====================>             60%]
+[Progress:=========>                    30%] [Cov:=====================>             60%]
+[Progress:=========>                    31%] [Cov:=====================>             60%]
+[Progress:=========>                    31%] [Cov:=====================>             60%]
+[Progress:=========>                    31%] [Cov:=====================>             60%]
+[Progress:=========>                    31%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:=========>                    33%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   35%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             60%]
+[Progress:==========>                   36%] [Cov:=====================>             60%]
+[Progress:===========>                  38%] [Cov:=====================>             60%]
+[Progress:===========>                  38%] [Cov:=====================>             60%]
+[Progress:===========>                  38%] [Cov:=====================>             60%]
+[Progress:===========>                  38%] [Cov:=====================>             60%]
+[Progress:============>                 40%] [Cov:=====================>             60%]
+[Progress:============>                 40%] [Cov:=====================>             60%]
+[Progress:============>                 40%] [Cov:=====================>             61%]
+[Progress:============>                 40%] [Cov:=====================>             61%]
+[Progress:============>                 41%] [Cov:=====================>             61%]
+[Progress:============>                 41%] [Cov:=====================>             61%]
+[Progress:============>                 43%] [Cov:=====================>             61%]
+[Progress:============>                 43%] [Cov:=====================>             61%]
+[Progress:============>                 43%] [Cov:=====================>             61%]
+[Progress:=============>                45%] [Cov:=====================>             61%]
+[Progress:=============>                45%] [Cov:=====================>             61%]
+[Progress:=============>                45%] [Cov:=====================>             61%]
+[Progress:=============>                45%] [Cov:=====================>             61%]
+[Progress:=============>                46%] [Cov:=====================>             61%]
+[Progress:=============>                46%] [Cov:=====================>             61%]
+[Progress:=============>                46%] [Cov:=====================>             61%]
+[Progress:=============>                46%] [Cov:=====================>             61%]
+[Progress:==============>               48%] [Cov:=====================>             61%]
+[Progress:==============>               48%] [Cov:=====================>             61%]
+[Progress:==============>               48%] [Cov:=====================>             61%]
+[Progress:==============>               48%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              50%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              51%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:===============>              53%] [Cov:=====================>             61%]
+[Progress:================>             55%] [Cov:=====================>             61%]
+[Progress:================>             55%] [Cov:=====================>             61%]
+[Progress:================>             55%] [Cov:=====================>             61%]
+[Progress:================>             55%] [Cov:=====================>             61%]
+[Progress:================>             56%] [Cov:=====================>             61%]
+[Progress:================>             56%] [Cov:=====================>             61%]
+[Progress:================>             56%] [Cov:=====================>             61%]
+[Progress:=================>            58%] [Cov:=====================>             61%]
+[Progress:=================>            58%] [Cov:=====================>             61%]
+[Progress:=================>            58%] [Cov:=====================>             61%]
+[Progress:=================>            58%] [Cov:=====================>             61%]
+[Progress:==================>           60%] [Cov:=====================>             61%]
+[Progress:==================>           60%] [Cov:=====================>             61%]
+[Progress:==================>           60%] [Cov:=====================>             61%]
+[Progress:==================>           60%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:===================>          65%] [Cov:=====================>             61%]
+[Progress:===================>          65%] [Cov:=====================>             61%]
+[Progress:===================>          65%] [Cov:=====================>             61%]
+[Progress:===================>          65%] [Cov:=====================>             61%]
+[Progress:===================>          65%] [Cov:=====================>             61%]
+[Progress:===================>          66%] [Cov:=====================>             61%]
+[Progress:===================>          66%] [Cov:=====================>             61%]
+[Progress:===================>          66%] [Cov:=====================>             61%]
+[Progress:===================>          66%] [Cov:=====================>             61%]
+[Progress:====================>         68%] [Cov:=====================>             61%]
+[Progress:====================>         68%] [Cov:=====================>             61%]
+[Progress:====================>         68%] [Cov:=====================>             61%]
+[Progress:====================>         68%] [Cov:=====================>             61%]
+[Progress:=====================>        70%] [Cov:=====================>             61%]
+[Progress:=====================>        70%] [Cov:=====================>             61%]
+[Progress:=====================>        70%] [Cov:=====================>             61%]
+[Progress:=====================>        70%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:======================>       75%] [Cov:=====================>             61%]
+[Progress:======================>       75%] [Cov:=====================>             61%]
+[Progress:======================>       75%] [Cov:=====================>             61%]
+[Progress:======================>       75%] [Cov:=====================>             61%]
+[Progress:======================>       76%] [Cov:=====================>             61%]
+[Progress:======================>       76%] [Cov:=====================>             61%]
+[Progress:======================>       76%] [Cov:=====================>             61%]
+[Progress:=======================>      78%] [Cov:=====================>             61%]
+[Progress:=======================>      78%] [Cov:=====================>             61%]
+[Progress:=======================>      78%] [Cov:=====================>             61%]
+[Progress:=======================>      78%] [Cov:=====================>             61%]
+[Progress:========================>     80%] [Cov:=====================>             61%]
+[Progress:========================>     80%] [Cov:=====================>             61%]
+[Progress:========================>     80%] [Cov:=====================>             61%]
+[Progress:========================>     80%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:========================>     81%] [Cov:=====================>             61%]
+[Progress:========================>     83%] [Cov:=====================>             61%]
+[Progress:========================>     83%] [Cov:=====================>             61%]
+[Progress:========================>     83%] [Cov:=====================>             61%]
+[Progress:========================>     83%] [Cov:=====================>             61%]
+[Progress:=========================>    85%] [Cov:=====================>             61%]
+[Progress:=========================>    85%] [Cov:=====================>             61%]
+[Progress:=========================>    85%] [Cov:=====================>             61%]
+[Progress:=========================>    86%] [Cov:=====================>             61%]
+[Progress:=========================>    86%] [Cov:=====================>             61%]
+[Progress:=========================>    86%] [Cov:=====================>             61%]
+[Progress:=========================>    86%] [Cov:=====================>             61%]
+[Progress:==========================>   88%] [Cov:=====================>             61%]
+[Progress:==========================>   88%] [Cov:=====================>             61%]
+[Progress:==========================>   88%] [Cov:=====================>             61%]
+[Progress:==========================>   88%] [Cov:=====================>             61%]
+[Progress:===========================>  90%] [Cov:=====================>             61%]
+[Progress:===========================>  90%] [Cov:=====================>             61%]
+[Progress:===========================>  90%] [Cov:=====================>             61%]
+[Progress:===========================>  90%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:===========================>  91%] [Cov:=====================>             61%]
+[Progress:===========================>  93%] [Cov:=====================>             61%]
+[Progress:===========================>  93%] [Cov:=====================>             61%]
+[Progress:===========================>  93%] [Cov:=====================>             61%]
+[Progress:===========================>  93%] [Cov:=====================>             61%]
+[Progress:============================> 95%] [Cov:=====================>             61%]
+[Progress:============================> 95%] [Cov:=====================>             61%]
+[Progress:============================> 95%] [Cov:=====================>             61%]
+[Progress:============================> 95%] [Cov:=====================>             61%]
+[Progress:============================> 96%] [Cov:=====================>             61%]
+[Progress:============================> 96%] [Cov:=====================>             61%]
+[Progress:============================> 96%] [Cov:=====================>             61%]
+[Progress:============================> 96%] [Cov:=====================>             62%]
+[Progress:=============================>98%] [Cov:=====================>             62%]
+[Progress:=============================>98%] [Cov:=====================>             62%]
+[Progress:=============================>98%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+* Search finished after 61s and 183 generations, 92797 statements, best individual has fitness: 265.6190828402367
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 49%
+* Total number of goals: 327
+* Number of covered goals: 159
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 38%
+* Total number of goals: 261
+* Number of covered goals: 98
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 7
+* Number of covered goals: 7
+* Generated 36 tests with total length 184
+* Resulting test suite's coverage: 62% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 12%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+* Writing tests to file
+* Writing JUnit test case 'FunctionTypeBuilder_ESTest' to /work/evo_out/Closure_41f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 15:07:46.761 [logback-2] ERROR JUnitAnalyzer - Compilation failed on compilation units: [SimpleFileObject[/tmp/EvoSuite_29_1789942066706/com/google/javascript/jscomp/FunctionTypeBuilder_29_tmp__ESTest.java], SimpleFileObject[/tmp/EvoSuite_29_1789942066706/com/google/javascript/jscomp/FunctionTypeBuilder_29_tmp__ESTest_scaffolding.java]]
+[MASTER] 15:07:46.761 [logback-2] ERROR JUnitAnalyzer - Classpath: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test
+[MASTER] 15:07:46.761 [logback-2] ERROR JUnitAnalyzer - evosuiteCP: /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test
+[MASTER] 15:07:46.763 [logback-2] ERROR JUnitAnalyzer - Diagnostic: cannot find symbol
+  symbol:   method contains(java.lang.String)
+  location: variable iterable0 of type java.lang.Iterable<java.lang.String>: 25
+[MASTER] 15:07:46.764 [logback-2] ERROR JUnitAnalyzer - SimpleFileObject[/tmp/EvoSuite_29_1789942066706/com/google/javascript/jscomp/FunctionTypeBuilder_29_tmp__ESTest.java]
+1: /*
+2:  * This file was automatically generated by EvoSuite
+3:  * Sun Sep 20 22:07:46 GMT 2026
+4:  */
+5: 
+6: package com.google.javascript.jscomp;
+7: 
+8: import org.junit.Test;
+9: import static org.junit.Assert.*;
+10: import com.google.javascript.jscomp.FunctionTypeBuilder;
+11: import com.google.javascript.rhino.Node;
+12: import org.evosuite.runtime.EvoRunner;
+13: import org.evosuite.runtime.EvoRunnerParameters;
+14: import org.junit.runner.RunWith;
+15: 
+16: @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true) 
+17: public class FunctionTypeBuilder_29_tmp__ESTest extends FunctionTypeBuilder_29_tmp__ESTest_scaffolding {
+18: 
+19:   @Test(timeout = 4000)
+20:   public void test0()  throws Throwable  {
+21:       FunctionTypeBuilder.AstFunctionContents functionTypeBuilder_AstFunctionContents0 = new FunctionTypeBuilder.AstFunctionContents((Node) null);
+22:       functionTypeBuilder_AstFunctionContents0.recordEscapedVarName("e9W'o~");
+23:       Iterable<String> iterable0 = functionTypeBuilder_AstFunctionContents0.getEscapedVarNames();
+24:       assertFalse(functionTypeBuilder_AstFunctionContents0.mayHaveNonEmptyReturns());
+25:       assertTrue(iterable0.contains("e9W'o~"));
+26:   }
+27: }
+SimpleFileObject[/tmp/EvoSuite_29_1789942066706/com/google/javascript/jscomp/FunctionTypeBuilder_29_tmp__ESTest.java]
+1: /**
+2:  * Scaffolding file used to store all the setups needed to run 
+3:  * tests automatically generated by EvoSuite
+4:  * Sun Sep 20 22:07:46 GMT 2026
+5:  */
+6: 
+7: package com.google.javascript.jscomp;
+8: 
+9: import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
+10: import org.junit.BeforeClass;
+11: import org.junit.Before;
+12: import org.junit.After;
+13: import org.junit.AfterClass;
+14: import org.evosuite.runtime.sandbox.Sandbox;
+15: import org.evosuite.runtime.sandbox.Sandbox.SandboxMode;
+16: 
+17: @EvoSuiteClassExclude
+18: public class FunctionTypeBuilder_29_tmp__ESTest_scaffolding {
+19: 
+20:   @org.junit.Rule
+21:   public org.evosuite.runtime.vnet.NonFunctionalRequirementRule nfr = new org.evosuite.runtime.vnet.NonFunctionalRequirementRule();
+22: 
+23:   private static final java.util.Properties defaultProperties = (java.util.Properties) java.lang.System.getProperties().clone(); 
+24: 
+25:   private org.evosuite.runtime.thread.ThreadStopper threadStopper =  new org.evosuite.runtime.thread.ThreadStopper (org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
+26: 
+27: 
+28:   @BeforeClass
+29:   public static void initEvoSuiteFramework() { 
+30:     org.evosuite.runtime.RuntimeSettings.className = "com.google.javascript.jscomp.FunctionTypeBuilder"; 
+31:     org.evosuite.runtime.GuiSupport.initialize(); 
+32:     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
+33:     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
+34:     org.evosuite.runtime.RuntimeSettings.mockSystemIn = true; 
+35:     org.evosuite.runtime.RuntimeSettings.sandboxMode = org.evosuite.runtime.sandbox.Sandbox.SandboxMode.RECOMMENDED; 
+36:     org.evosuite.runtime.sandbox.Sandbox.initializeSecurityManagerForSUT(); 
+37:     org.evosuite.runtime.classhandling.JDKClassResetter.init();
+38:     setSystemProperties();
+39:     initializeClasses();
+40:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+41:   } 
+42: 
+43:   @AfterClass
+44:   public static void clearEvoSuiteFramework(){ 
+45:     Sandbox.resetDefaultSecurityManager(); 
+46:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+47:   } 
+48: 
+49:   @Before
+50:   public void initTestCase(){ 
+51:     threadStopper.storeCurrentThreads();
+52:     threadStopper.startRecordingTime();
+53:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().initHandler(); 
+54:     org.evosuite.runtime.sandbox.Sandbox.goingToExecuteSUTCode(); 
+55:     setSystemProperties(); 
+56:     org.evosuite.runtime.GuiSupport.setHeadless(); 
+57:     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
+58:     org.evosuite.runtime.agent.InstrumentingAgent.activate(); 
+59:   } 
+60: 
+61:   @After
+62:   public void doneWithTestCase(){ 
+63:     threadStopper.killAndJoinClientThreads();
+64:     org.evosuite.runtime.jvm.ShutdownHookHandler.getInstance().safeExecuteAddedHooks(); 
+65:     org.evosuite.runtime.classhandling.JDKClassResetter.reset(); 
+66:     resetClasses(); 
+67:     org.evosuite.runtime.sandbox.Sandbox.doneWithExecutingSUTCode(); 
+68:     org.evosuite.runtime.agent.InstrumentingAgent.deactivate(); 
+69:     org.evosuite.runtime.GuiSupport.restoreHeadlessMode(); 
+70:   } 
+71: 
+72:   public static void setSystemProperties() {
+73:  
+74:     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
+75:     java.lang.System.setProperty("user.dir", "/work/Closure_41f"); 
+76:     java.lang.System.setProperty("java.io.tmpdir", "/tmp"); 
+77:   }
+78: 
+79:   private static void initializeClasses() {
+80:     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(FunctionTypeBuilder_29_tmp__ESTest_scaffolding.class.getClassLoader() ,
+81:       "com.google.common.collect.ArrayListMultimap",
+82:       "com.google.common.collect.Collections2",
+83:       "com.google.common.collect.PeekingIterator",
+84:       "com.google.javascript.jscomp.NodeTraversal$Callback",
+85:       "com.google.javascript.rhino.head.jdk13.VMBridge_jdk13",
+86:       "com.google.javascript.jscomp.CheckSideEffects",
+87:       "com.google.javascript.rhino.head.ast.Yield",
+88:       "com.google.javascript.jscomp.Scope$Arguments",
+89:       "com.google.javascript.jscomp.graph.Graph",
+90:       "com.google.javascript.rhino.jstype.StaticScope",
+91:       "com.google.javascript.rhino.jstype.InstanceObjectType",
+92:       "com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher",
+93:       "com.google.common.collect.AbstractMapBasedMultiset$1",
+94:       "com.google.javascript.jscomp.JSModule",
+95:       "com.google.javascript.rhino.jstype.ObjectType",
+96:       "com.google.common.collect.ImmutableSet$ArrayImmutableSet",
+97:       "com.google.common.collect.RegularImmutableMap",
+98:       "com.google.javascript.rhino.Node$NodeMismatch",
+99:       "com.google.javascript.rhino.jstype.RecordType",
+100:       "com.google.javascript.rhino.head.ast.Jump",
+101:       "com.google.javascript.jscomp.Tracer",
+102:       "com.google.javascript.jscomp.HotSwapCompilerPass",
+103:       "com.google.javascript.jscomp.SourceFile$Builder",
+104:       "com.google.javascript.rhino.jstype.JSType$1",
+105:       "com.google.javascript.jscomp.CodingConvention",
+106:       "com.google.javascript.jscomp.SourceMap$DetailLevel",
+107:       "com.google.javascript.jscomp.MemoizedScopeCreator",
+108:       "com.google.common.base.Joiner",
+109:       "com.google.javascript.jscomp.CheckAccessControls",
+110:       "com.google.javascript.jscomp.CheckDebuggerStatement",
+111:       "com.google.common.collect.SingletonImmutableMap",
+112:       "com.google.javascript.rhino.head.ast.XmlFragment",
+113:       "com.google.javascript.rhino.jstype.ProxyObjectType",
+114:       "com.google.javascript.rhino.head.ast.CatchClause",
+115:       "com.google.javascript.jscomp.AnonymousFunctionNamingPolicy",
+116:       "com.google.javascript.rhino.InputId",
+117:       "com.google.common.collect.RegularImmutableMap$LinkedEntry",
+118:       "com.google.common.collect.Lists$Partition",
+119:       "com.google.javascript.rhino.head.ast.AstRoot",
+120:       "com.google.javascript.rhino.head.ast.NewExpression",
+121:       "com.google.javascript.rhino.ErrorReporter",
+122:       "com.google.javascript.rhino.jstype.ValueType",
+123:       "com.google.javascript.rhino.Token",
+124:       "com.google.javascript.rhino.head.ast.ParenthesizedExpression",
+125:       "com.google.javascript.rhino.jstype.BooleanType",
+126:       "com.google.javascript.jscomp.FunctionTypeBuilder$FunctionContents",
+127:       "com.google.javascript.jscomp.CssRenamingMap",
+128:       "com.google.javascript.rhino.head.Context$ClassShutterSetter",
+129:       "com.google.common.base.CharMatcher$5",
+130:       "com.google.common.base.CharMatcher$4",
+131:       "com.google.common.base.CharMatcher$3",
+132:       "com.google.javascript.jscomp.MakeDeclaredNamesUnique$ContextualRenamer",
+133:       "com.google.common.base.CharMatcher$2",
+134:       "com.google.common.base.CharMatcher$9",
+135:       "com.google.common.base.CharMatcher$8",
+136:       "com.google.common.base.CharMatcher$7",
+137:       "com.google.javascript.rhino.head.ast.Label",
+138:       "com.google.common.base.CharMatcher$6",
+139:       "com.google.javascript.jscomp.SuppressDocWarningsGuard",
+140:       "com.google.javascript.jscomp.MessageFormatter",
+141:       "com.google.javascript.rhino.JSDocInfo",
+142:       "com.google.javascript.jscomp.SourceExcerptProvider$ExcerptFormatter",
+143:       "com.google.common.base.CharMatcher$1",
+144:       "com.google.javascript.jscomp.parsing.Config",
+145:       "com.google.common.collect.EmptyImmutableList",
+146:       "com.google.common.collect.ImmutableEntry",
+147:       "com.google.javascript.rhino.head.CompilerEnvirons",
+148:       "com.google.common.base.Joiner$1",
+149:       "com.google.common.base.Joiner$2",
+150:       "com.google.javascript.rhino.head.Callable",
+151:       "com.google.javascript.jscomp.SourceFile$Preloaded",
+152:       "com.google.common.collect.ImmutableCollection",
+153:       "com.google.javascript.rhino.ScriptRuntime",
+154:       "com.google.javascript.rhino.head.ast.ScriptNode",
+155:       "com.google.javascript.rhino.head.ast.XmlString",
+156:       "com.google.javascript.jscomp.StrictModeCheck",
+157:       "com.google.javascript.rhino.head.ast.WhileLoop",
+158:       "com.google.javascript.jscomp.Result",
+159:       "com.google.javascript.jscomp.CompilerPass",
+160:       "com.google.javascript.rhino.jstype.EnumElementType",
+161:       "com.google.javascript.jscomp.VariableRenamingPolicy",
+162:       "com.google.javascript.rhino.head.ast.IfStatement",
+163:       "com.google.javascript.jscomp.CodeChangeHandler",
+164:       "com.google.common.collect.Lists$AbstractListWrapper",
+165:       "com.google.javascript.jscomp.FunctionTypeBuilder",
+166:       "com.google.javascript.jscomp.MakeDeclaredNamesUnique$Renamer",
+167:       "com.google.javascript.jscomp.FunctionInformationMap",
+168:       "com.google.common.collect.AbstractMapBasedMultiset",
+169:       "com.google.javascript.rhino.jstype.EnumType",
+170:       "com.google.javascript.jscomp.NodeUtil$MayBeStringResultPredicate",
+171:       "com.google.javascript.jscomp.JsMessageVisitor$MalformedException",
+172:       "com.google.javascript.rhino.head.Evaluator",
+173:       "com.google.javascript.jscomp.CodingConventions$DefaultCodingConvention",
+174:       "com.google.common.base.CharMatcher$LookupTable",
+175:       "com.google.javascript.rhino.head.ast.XmlElemRef",
+176:       "com.google.javascript.rhino.head.ast.VariableDeclaration",
+177:       "com.google.javascript.rhino.head.TokenStream",
+178:       "com.google.common.collect.RegularImmutableList$1",
+179:       "com.google.javascript.rhino.head.ast.ObjectLiteral",
+180:       "com.google.common.collect.Lists$2",
+181:       "com.google.javascript.jscomp.ChainableReverseAbstractInterpreter",
+182:       "com.google.javascript.jscomp.JSSourceFile",
+183:       "com.google.javascript.jscomp.CodingConventions",
+184:       "com.google.common.collect.Lists$1",
+185:       "com.google.javascript.rhino.jstype.StaticReference",
+186:       "com.google.javascript.rhino.head.ast.InfixExpression",
+187:       "com.google.common.collect.Multiset",
+188:       "com.google.javascript.rhino.head.BaseFunction",
+189:       "com.google.common.base.Supplier",
+190:       "com.google.protobuf.MessageOrBuilder",
+191:       "com.google.javascript.jscomp.GlobalVarReferenceMap",
+192:       "com.google.javascript.jscomp.graph.LinkedDirectedGraph",
+193:       "com.google.javascript.rhino.head.ast.XmlPropRef",
+194:       "com.google.javascript.jscomp.TypeValidator",
+195:       "com.google.common.collect.ImmutableList",
+196:       "com.google.protobuf.GeneratedMessage",
+197:       "com.google.javascript.rhino.Node$AbstractPropListItem",
+198:       "com.google.javascript.rhino.jstype.ObjectType$Property",
+199:       "com.google.common.collect.AbstractMultimap$KeySet",
+200:       "com.google.javascript.rhino.head.ast.VariableInitializer",
+201:       "com.google.javascript.rhino.jstype.NoResolvedType",
+202:       "com.google.javascript.rhino.head.ast.ThrowStatement",
+203:       "com.google.protobuf.MessageLiteOrBuilder",
+204:       "com.google.protobuf.MessageLite",
+205:       "com.google.common.collect.Maps$EntryTransformer",
+206:       "com.google.javascript.jscomp.CustomPassExecutionTime",
+207:       "com.google.javascript.jscomp.SyntacticScopeCreator",
+208:       "com.google.javascript.rhino.head.debug.DebuggableScript",
+209:       "com.google.javascript.jscomp.CompilerOptions$TweakProcessing",
+210:       "com.google.common.collect.Hashing",
+211:       "com.google.javascript.rhino.head.DefaultErrorReporter",
+212:       "com.google.javascript.rhino.jstype.NoType",
+213:       "com.google.javascript.jscomp.SourceMap$Format",
+214:       "com.google.javascript.rhino.head.Script",
+215:       "com.google.javascript.rhino.head.ScriptRuntime$DefaultMessageProvider",
+216:       "com.google.common.collect.AbstractMultimap$WrappedCollection",
+217:       "com.google.javascript.rhino.jstype.FunctionParamBuilder",
+218:       "com.google.javascript.rhino.head.ast.Comment",
+219:       "com.google.javascript.jscomp.CodingConventions$Proxy",
+220:       "com.google.javascript.jscomp.SourceExcerptProvider$SourceExcerpt",
+221:       "com.google.javascript.jscomp.FunctionTypeBuilder$ThisTypeValidator",
+222:       "com.google.common.collect.LinkedHashMultimap",
+223:       "com.google.javascript.rhino.head.optimizer.Codegen",
+224:       "com.google.javascript.rhino.head.ast.FunctionCall",
+225:       "com.google.javascript.jscomp.RhinoErrorReporter$NewRhinoErrorReporter",
+226:       "com.google.common.collect.RegularImmutableSet",
+227:       "com.google.javascript.jscomp.NodeUtil",
+228:       "com.google.javascript.jscomp.JsMessageVisitor",
+229:       "com.google.javascript.jscomp.CompilerTestCase",
+230:       "com.google.javascript.rhino.head.EcmaError",
+231:       "com.google.javascript.rhino.head.FunctionObject",
+232:       "com.google.javascript.rhino.head.NativeContinuation",
+233:       "com.google.javascript.rhino.head.Node$NodeIterator",
+234:       "com.google.common.collect.ImmutableAsList",
+235:       "com.google.javascript.jscomp.PassConfig",
+236:       "com.google.common.collect.SingletonImmutableSet",
+237:       "com.google.javascript.jscomp.Normalize$NormalizeStatements",
+238:       "com.google.javascript.rhino.head.InterpretedFunction",
+239:       "com.google.javascript.rhino.jstype.ParameterizedType",
+240:       "com.google.javascript.rhino.Node$SideEffectFlags",
+241:       "com.google.javascript.jscomp.ReferenceCollectingCallback$ReferenceMap",
+242:       "com.google.javascript.rhino.jstype.NullType",
+243:       "com.google.common.collect.EmptyImmutableList$1",
+244:       "com.google.javascript.jscomp.LightweightMessageFormatter",
+245:       "com.google.javascript.jscomp.Compiler$CodeBuilder",
+246:       "com.google.javascript.jscomp.FunctionInformationMapOrBuilder",
+247:       "com.google.javascript.rhino.jstype.NoObjectType",
+248:       "com.google.javascript.rhino.head.ScriptableObject$GetterSlot",
+249:       "com.google.common.collect.AbstractIterator",
+250:       "com.google.javascript.jscomp.BasicErrorManager$ErrorWithLevel",
+251:       "com.google.common.base.CharMatcher$And",
+252:       "com.google.javascript.jscomp.DiagnosticType",
+253:       "com.google.javascript.jscomp.CompilerOptions$NullAliasTransformationHandler$NullAliasTransformation",
+254:       "com.google.javascript.jscomp.PrepareAst",
+255:       "com.google.javascript.rhino.head.ast.ForLoop",
+256:       "com.google.javascript.jscomp.CompilerInput",
+257:       "com.google.javascript.rhino.head.ast.FunctionNode",
+258:       "com.google.javascript.jscomp.AbstractCompiler",
+259:       "com.google.common.collect.UnmodifiableIterator",
+260:       "com.google.javascript.rhino.head.Context",
+261:       "com.google.common.collect.ImmutableSet$TransformedImmutableSet",
+262:       "com.google.javascript.jscomp.DiagnosticGroup",
+263:       "com.google.common.collect.AbstractMultimap$WrappedList",
+264:       "com.google.javascript.jscomp.CodeChangeHandler$RecentChange",
+265:       "com.google.javascript.jscomp.SyntacticScopeCreator$RedeclarationHandler",
+266:       "com.google.javascript.jscomp.NodeUtil$Visitor",
+267:       "com.google.javascript.rhino.head.NativeBoolean",
+268:       "com.google.javascript.rhino.Node$AncestorIterable",
+269:       "com.google.javascript.rhino.head.ast.Name",
+270:       "com.google.common.collect.AbstractMultimap$RandomAccessWrappedList",
+271:       "com.google.common.collect.ImmutableEnumSet",
+272:       "com.google.common.collect.HashMultiset",
+273:       "com.google.javascript.rhino.jstype.UnresolvedTypeExpression",
+274:       "com.google.protobuf.AbstractMessageLite",
+275:       "com.google.javascript.jscomp.ErrorManager",
+276:       "com.google.javascript.jscomp.NodeUtil$NumbericResultPredicate",
+277:       "com.google.common.collect.SingletonImmutableList",
+278:       "com.google.javascript.rhino.head.ast.ConditionalExpression",
+279:       "com.google.javascript.jscomp.CheckLevel",
+280:       "com.google.javascript.rhino.jstype.StaticSlot",
+281:       "com.google.javascript.rhino.head.ast.PropertyGet",
+282:       "com.google.javascript.rhino.head.ContextFactory",
+283:       "com.google.common.collect.AbstractSetMultimap",
+284:       "com.google.common.base.Function",
+285:       "com.google.javascript.rhino.head.VMBridge",
+286:       "com.google.common.collect.ImmutableMap",
+287:       "com.google.common.collect.Multiset$Entry",
+288:       "com.google.javascript.rhino.head.ast.Loop",
+289:       "com.google.javascript.jscomp.Region",
+290:       "com.google.javascript.rhino.IR",
+291:       "com.google.javascript.jscomp.NodeTraversal$AbstractPostOrderCallback",
+292:       "com.google.javascript.rhino.jstype.BooleanLiteralSet",
+293:       "com.google.javascript.jscomp.DefaultPassConfig",
+294:       "com.google.javascript.jscomp.Normalize",
+295:       "com.google.javascript.jscomp.CompilerOptions$TracerMode",
+296:       "com.google.javascript.jscomp.RhinoErrorReporter$OldRhinoErrorReporter",
+297:       "com.google.common.collect.AbstractMultiset",
+298:       "com.google.common.collect.Iterators",
+299:       "com.google.javascript.rhino.head.IdFunctionCall",
+300:       "com.google.javascript.jscomp.ProcessTweaks$TweakFunction",
+301:       "com.google.javascript.rhino.head.ast.SwitchStatement",
+302:       "com.google.javascript.jscomp.DependencyOptions",
+303:       "com.google.common.collect.Multisets$EntrySet",
+304:       "com.google.javascript.rhino.head.ast.DoLoop",
+305:       "com.google.javascript.jscomp.SourceFile$OnDisk",
+306:       "com.google.javascript.rhino.head.ScriptRuntime",
+307:       "com.google.javascript.rhino.jstype.JSTypeNative",
+308:       "com.google.javascript.rhino.jstype.AllType",
+309:       "com.google.common.collect.Maps",
+310:       "com.google.common.primitives.Ints",
+311:       "com.google.javascript.rhino.head.ast.ExpressionStatement",
+312:       "com.google.common.collect.SetMultimap",
+313:       "com.google.javascript.rhino.jstype.FunctionType$Kind",
+314:       "com.google.javascript.rhino.JSTypeExpression",
+315:       "com.google.javascript.rhino.head.ScriptableObject",
+316:       "com.google.javascript.rhino.head.IdScriptableObject",
+317:       "com.google.javascript.rhino.head.NativeFunction",
+318:       "com.google.common.collect.RegularImmutableMap$Values",
+319:       "com.google.javascript.rhino.head.ast.ObjectProperty",
+320:       "com.google.javascript.rhino.head.Icode",
+321:       "com.google.javascript.jscomp.MakeDeclaredNamesUnique",
+322:       "com.google.javascript.jscomp.CompilerOptions$LanguageMode",
+323:       "com.google.javascript.rhino.head.ast.UnaryExpression",
+324:       "com.google.javascript.rhino.jstype.PrototypeObjectType",
+325:       "com.google.javascript.rhino.jstype.ArrowType",
+326:       "com.google.common.collect.Lists$RandomAccessPartition",
+327:       "com.google.javascript.rhino.head.WrappedException",
+328:       "com.google.javascript.jscomp.FunctionTypeBuilder$AstFunctionContents",
+329:       "com.google.javascript.rhino.jstype.NumberType",
+330:       "com.google.javascript.rhino.head.debug.DebuggableObject",
+331:       "com.google.javascript.rhino.head.Function",
+332:       "com.google.javascript.jscomp.PassFactory",
+333:       "com.google.javascript.rhino.Node$IntPropListItem",
+334:       "com.google.common.collect.Sets$2",
+335:       "com.google.common.collect.Sets$3",
+336:       "com.google.javascript.rhino.head.ast.LetNode",
+337:       "com.google.common.collect.Sets$1",
+338:       "com.google.javascript.jscomp.parsing.IRFactory$1",
+339:       "com.google.javascript.jscomp.ControlFlowGraph",
+340:       "com.google.javascript.jscomp.graph.GraphvizGraph",
+341:       "com.google.javascript.rhino.head.ContextFactory$Listener",
+342:       "com.google.common.collect.AbstractMapEntry",
+343:       "com.google.common.collect.Iterators$12",
+344:       "com.google.common.collect.Iterators$11",
+345:       "com.google.javascript.jscomp.ClosureCodingConvention",
+346:       "com.google.common.base.Predicate",
+347:       "com.google.javascript.jscomp.DenormalizeTest",
+348:       "com.google.common.collect.AbstractMultimap$AsMap",
+349:       "com.google.javascript.jscomp.ControlStructureCheck",
+350:       "com.google.javascript.jscomp.VariableReferenceCheck",
+351:       "com.google.javascript.jscomp.WarningsGuard",
+352:       "com.google.javascript.jscomp.SourceMap",
+353:       "com.google.javascript.rhino.head.ast.ForInLoop",
+354:       "com.google.javascript.rhino.Node$SiblingNodeIterable",
+355:       "com.google.javascript.jscomp.parsing.TypeSafeDispatcher",
+356:       "com.google.javascript.jscomp.LightweightMessageFormatter$LineNumberingFormatter",
+357:       "com.google.common.collect.AbstractListMultimap",
+358:       "com.google.javascript.jscomp.CompilerOptions",
+359:       "com.google.javascript.rhino.Node$StringNode",
+360:       "com.google.javascript.rhino.jstype.TemplateType",
+361:       "com.google.javascript.rhino.jstype.NamedType",
+362:       "com.google.common.collect.Iterators$14",
+363:       "com.google.common.collect.Iterators$13",
+364:       "com.google.common.collect.Lists",
+365:       "com.google.javascript.jscomp.CheckProvides",
+366:       "com.google.javascript.rhino.head.ast.Block",
+367:       "com.google.common.collect.UnmodifiableListIterator",
+368:       "com.google.javascript.rhino.head.ast.SwitchCase",
+369:       "com.google.javascript.jscomp.RhinoErrorReporter",
+370:       "com.google.javascript.jscomp.CompilerOptions$AliasTransformation",
+371:       "com.google.javascript.rhino.jstype.UnknownType",
+372:       "com.google.common.base.Charsets",
+373:       "com.google.javascript.rhino.head.ast.StringLiteral",
+374:       "com.google.javascript.jscomp.CheckGlobalNames",
+375:       "com.google.javascript.rhino.Node$FileLevelJsDocBuilder",
+376:       "com.google.javascript.rhino.jstype.StaticSourceFile",
+377:       "org.mozilla.classfile.ClassFileWriter$ClassFileFormatException",
+378:       "com.google.javascript.rhino.head.ScriptableObject$Slot",
+379:       "com.google.javascript.rhino.head.ast.ReturnStatement",
+380:       "com.google.common.base.CharMatcher",
+381:       "com.google.common.base.Joiner$MapJoiner",
+382:       "com.google.javascript.rhino.jstype.JSType$TypePair",
+383:       "com.google.javascript.jscomp.CheckRegExp",
+384:       "com.google.javascript.jscomp.CheckGlobalThis",
+385:       "com.google.common.collect.RegularImmutableMap$NonTerminalEntry",
+386:       "com.google.common.collect.AbstractMultiset$EntrySet",
+387:       "com.google.javascript.jscomp.SourceExcerptProvider$SourceExcerpt$2",
+388:       "com.google.javascript.jscomp.DiagnosticGroupWarningsGuard",
+389:       "com.google.common.base.Preconditions",
+390:       "com.google.javascript.jscomp.SourceExcerptProvider$SourceExcerpt$1",
+391:       "com.google.javascript.rhino.head.ast.ArrayLiteral",
+392:       "com.google.javascript.rhino.head.ast.RegExpLiteral",
+393:       "com.google.javascript.jscomp.BasicErrorManager",
+394:       "com.google.javascript.jscomp.PerformanceTracker",
+395:       "com.google.javascript.rhino.jstype.IndexedType",
+396:       "com.google.javascript.jscomp.ComposeWarningsGuard$GuardComparator",
+397:       "com.google.javascript.jscomp.ProcessDefines",
+398:       "com.google.javascript.rhino.head.NativeArray",
+399:       "com.google.javascript.rhino.Node$NumberNode",
+400:       "com.google.javascript.jscomp.Scope",
+401:       "com.google.javascript.rhino.head.Parser",
+402:       "com.google.javascript.jscomp.ErrorFormat$2",
+403:       "com.google.common.collect.Iterators$6",
+404:       "com.google.javascript.jscomp.Scope$Var",
+405:       "com.google.javascript.rhino.head.NativeString",
+406:       "com.google.common.collect.BiMap",
+407:       "com.google.javascript.jscomp.ErrorFormat$3",
+408:       "com.google.common.collect.Iterators$7",
+409:       "com.google.javascript.jscomp.ErrorFormat$4",
+410:       "com.google.javascript.rhino.head.ast.XmlRef",
+411:       "com.google.common.collect.ImmutableSet",
+412:       "com.google.javascript.rhino.jstype.JSTypeRegistry$ResolveMode",
+413:       "com.google.javascript.rhino.head.ast.ElementGet",
+414:       "com.google.common.collect.Iterators$1",
+415:       "com.google.javascript.jscomp.DisambiguateProperties$Warnings",
+416:       "com.google.common.collect.Iterators$2",
+417:       "com.google.common.collect.Iterators$3",
+418:       "com.google.javascript.jscomp.parsing.Annotation",
+419:       "com.google.javascript.jscomp.AbstractMessageFormatter",
+420:       "com.google.common.collect.Lists$StringAsImmutableList",
+421:       "com.google.javascript.rhino.head.JavaScriptException",
+422:       "com.google.javascript.rhino.head.ast.IdeErrorReporter",
+423:       "com.google.javascript.jscomp.ProcessTweaks",
+424:       "com.google.javascript.rhino.head.ast.TryStatement",
+425:       "com.google.javascript.jscomp.parsing.IRFactory",
+426:       "com.google.javascript.rhino.head.TopLevel",
+427:       "com.google.javascript.jscomp.ErrorFormat$1",
+428:       "com.google.javascript.jscomp.Compiler$3",
+429:       "com.google.javascript.jscomp.PrepareAst$PrepareAnnotations",
+430:       "com.google.javascript.jscomp.Scope$1",
+431:       "com.google.common.collect.AbstractMultimap",
+432:       "com.google.javascript.jscomp.FunctionTypeBuilder$UnknownFunctionContents",
+433:       "com.google.common.collect.EmptyImmutableSet",
+434:       "com.google.javascript.jscomp.NodeUtil$MatchNotFunction",
+435:       "com.google.javascript.jscomp.parsing.Config$LanguageMode",
+436:       "com.google.javascript.rhino.head.ast.ArrayComprehension",
+437:       "com.google.protobuf.AbstractMessage",
+438:       "com.google.javascript.rhino.head.ScriptRuntime$1",
+439:       "com.google.javascript.jscomp.PassFactory$1",
+440:       "com.google.javascript.rhino.head.ObjToIntMap",
+441:       "com.google.javascript.jscomp.SemanticReverseAbstractInterpreter",
+442:       "com.google.common.collect.ImmutableMap$Builder",
+443:       "com.google.javascript.rhino.head.ConstProperties",
+444:       "com.google.javascript.jscomp.deps.SortedDependencies$MissingProvideException",
+445:       "com.google.common.collect.ListMultimap",
+446:       "com.google.javascript.rhino.JSDocInfo$Visibility",
+447:       "com.google.javascript.rhino.head.ast.DestructuringForm",
+448:       "com.google.javascript.jscomp.SourceMap$Format$4",
+449:       "com.google.javascript.jscomp.SourceMap$Format$3",
+450:       "com.google.javascript.jscomp.SourceMap$Format$2",
+451:       "com.google.javascript.jscomp.SourceMap$Format$1",
+452:       "com.google.javascript.jscomp.SourceAst",
+453:       "com.google.common.collect.RegularImmutableList",
+454:       "com.google.javascript.jscomp.CheckUnreachableCode",
+455:       "com.google.javascript.jscomp.SourceExcerptProvider",
+456:       "com.google.javascript.rhino.head.ScriptableObject$RelinkedSlot",
+457:       "com.google.common.collect.Lists$TransformingRandomAccessList",
+458:       "com.google.javascript.jscomp.ReferenceCollectingCallback$Behavior",
+459:       "com.google.javascript.rhino.Node$PropListItem",
+460:       "com.google.common.collect.RegularImmutableMap$KeySet",
+461:       "com.google.common.collect.Maps$KeySet",
+462:       "com.google.javascript.rhino.Node",
+463:       "com.google.javascript.rhino.head.RhinoException",
+464:       "com.google.javascript.rhino.head.ast.EmptyExpression",
+465:       "com.google.javascript.rhino.head.ast.XmlLiteral",
+466:       "com.google.javascript.rhino.head.ast.ContinueStatement",
+467:       "com.google.javascript.jscomp.LoggerErrorManager",
+468:       "com.google.javascript.jscomp.ComposeWarningsGuard",
+469:       "com.google.javascript.jscomp.NodeTraversal",
+470:       "com.google.javascript.rhino.head.ErrorReporter",
+471:       "com.google.common.collect.Multisets",
+472:       "com.google.javascript.jscomp.VariableMap",
+473:       "com.google.javascript.jscomp.JsAst",
+474:       "com.google.javascript.rhino.head.ast.XmlMemberGet",
+475:       "com.google.javascript.jscomp.ErrorFormat",
+476:       "com.google.javascript.rhino.head.ast.Scope",
+477:       "com.google.javascript.jscomp.AbstractCompiler$LifeCycleStage",
+478:       "com.google.javascript.rhino.head.Scriptable",
+479:       "com.google.javascript.jscomp.NodeUtil$BooleanResultPredicate",
+480:       "com.google.javascript.rhino.jstype.VoidType",
+481:       "com.google.javascript.jscomp.CompilerOptions$NullAliasTransformationHandler",
+482:       "com.google.javascript.rhino.jstype.JSType",
+483:       "com.google.common.collect.Sets$SetView",
+484:       "com.google.javascript.jscomp.DiagnosticGroups",
+485:       "com.google.javascript.rhino.jstype.UnionTypeBuilder",
+486:       "com.google.javascript.jscomp.ScopeCreator",
+487:       "com.google.common.collect.RegularImmutableMap$TerminalEntry",
+488:       "com.google.javascript.jscomp.graph.AdjacencyGraph",
+489:       "com.google.javascript.jscomp.deps.SortedDependencies$CircularDependencyException",
+490:       "com.google.javascript.rhino.head.NativeNumber",
+491:       "com.google.common.collect.Lists$TransformingSequentialList",
+492:       "com.google.javascript.jscomp.SourceFile",
+493:       "com.google.javascript.rhino.head.ast.BreakStatement",
+494:       "com.google.javascript.jscomp.PropertyRenamingPolicy",
+495:       "com.google.javascript.rhino.jstype.FunctionBuilder",
+496:       "com.google.javascript.rhino.head.ast.WithStatement",
+497:       "com.google.javascript.rhino.head.ScriptRuntime$MessageProvider",
+498:       "com.google.common.collect.MapDifference",
+499:       "com.google.javascript.jscomp.CompilerOptions$AliasTransformationHandler",
+500:       "com.google.javascript.rhino.jstype.ErrorFunctionType",
+501:       "com.google.javascript.jscomp.SourceFile$Generated",
+502:       "com.google.javascript.rhino.jstype.FunctionType",
+503:       "com.google.javascript.rhino.head.ast.AstNode",
+504:       "com.google.javascript.jscomp.Compiler",
+505:       "com.google.javascript.jscomp.NodeTraversal$ScopedCallback",
+506:       "com.google.javascript.jscomp.TypedScopeCreator",
+507:       "com.google.common.base.CharMatcher$12",
+508:       "com.google.common.base.CharMatcher$11",
+509:       "com.google.javascript.rhino.head.Node",
+510:       "com.google.common.base.CharMatcher$10",
+511:       "com.google.javascript.rhino.jstype.TernaryValue",
+512:       "com.google.javascript.jscomp.JSError",
+513:       "com.google.common.base.CharMatcher$15",
+514:       "com.google.common.base.CharMatcher$14",
+515:       "com.google.common.collect.Lists$RandomAccessListWrapper",
+516:       "com.google.common.base.CharMatcher$13",
+517:       "com.google.common.base.Platform",
+518:       "com.google.javascript.jscomp.TypedScopeCreator$GlobalScopeBuilder",
+519:       "com.google.javascript.rhino.head.ast.KeywordLiteral",
+520:       "com.google.javascript.rhino.head.ast.Assignment",
+521:       "com.google.common.collect.ImmutableList$ReverseImmutableList",
+522:       "com.google.javascript.rhino.jstype.UnionType",
+523:       "com.google.javascript.rhino.jstype.JSTypeRegistry$1",
+524:       "com.google.javascript.rhino.head.ast.LabeledStatement",
+525:       "com.google.common.collect.AbstractIndexedListIterator",
+526:       "com.google.javascript.rhino.head.ast.XmlExpression",
+527:       "com.google.javascript.jscomp.JSModuleGraph",
+528:       "com.google.common.collect.AbstractMultimap$SortedKeySet",
+529:       "com.google.javascript.jscomp.SyntacticScopeCreator$DefaultRedeclarationHandler",
+530:       "com.google.common.collect.Sets",
+531:       "com.google.common.collect.ImmutableCollection$EmptyImmutableCollection",
+532:       "com.google.javascript.rhino.head.Kit",
+533:       "com.google.javascript.jscomp.TypedScopeCreator$LocalScopeBuilder",
+534:       "com.google.javascript.jscomp.BasicErrorManager$LeveledJSErrorComparator",
+535:       "com.google.javascript.rhino.Node$ObjectPropListItem",
+536:       "com.google.javascript.rhino.head.jdk15.VMBridge_jdk15",
+537:       "com.google.javascript.rhino.head.ContextAction",
+538:       "com.google.javascript.rhino.head.EvaluatorException",
+539:       "com.google.javascript.rhino.head.ast.NumberLiteral",
+540:       "com.google.common.collect.AbstractMultimap$SortedAsMap",
+541:       "com.google.javascript.jscomp.Compiler$IntermediateState",
+542:       "com.google.javascript.rhino.head.ast.ErrorNode",
+543:       "com.google.common.collect.EmptyImmutableMap",
+544:       "com.google.common.collect.Multimap",
+545:       "com.google.javascript.jscomp.SourceMap$DetailLevel$2",
+546:       "com.google.javascript.jscomp.SourceMap$DetailLevel$1",
+547:       "com.google.javascript.jscomp.VarCheck",
+548:       "com.google.javascript.jscomp.CompilerOptions$DevMode",
+549:       "com.google.javascript.jscomp.TypedScopeCreator$AbstractScopeBuilder",
+550:       "com.google.javascript.rhino.head.Interpreter",
+551:       "com.google.javascript.rhino.jstype.StringType",
+552:       "com.google.javascript.rhino.head.ImporterTopLevel",
+553:       "com.google.javascript.rhino.jstype.StaticSymbolTable",
+554:       "com.google.javascript.jscomp.JSModuleGraph$ModuleDependenceException",
+555:       "com.google.javascript.rhino.jstype.JSTypeRegistry",
+556:       "com.google.javascript.jscomp.graph.DiGraph",
+557:       "com.google.common.base.Platform$1",
+558:       "com.google.javascript.jscomp.ReverseAbstractInterpreter",
+559:       "com.google.javascript.jscomp.parsing.ParserRunner",
+560:       "com.google.common.collect.RegularImmutableMap$EntrySet",
+561:       "com.google.javascript.rhino.head.ast.XmlDotQuery",
+562:       "com.google.javascript.jscomp.ConstCheck",
+563:       "com.google.javascript.rhino.jstype.Visitor",
+564:       "com.google.javascript.jscomp.TypeCheck",
+565:       "com.google.javascript.jscomp.SymbolTable",
+566:       "com.google.javascript.jscomp.deps.DependencyInfo",
+567:       "com.google.javascript.jscomp.WarningsGuard$Priority",
+568:       "com.google.javascript.jscomp.Compiler$10",
+569:       "com.google.javascript.rhino.head.ContextFactory$GlobalSetter",
+570:       "com.google.common.base.CharMatcher$Or",
+571:       "com.google.javascript.rhino.head.ast.NodeVisitor",
+572:       "com.google.protobuf.Message",
+573:       "com.google.javascript.rhino.head.ast.ArrayComprehensionLoop",
+574:       "com.google.javascript.rhino.head.Parser$ParserException",
+575:       "com.google.javascript.rhino.head.NativeObject"
+576:     );
+577:   } 
+578: 
+579:   private static void resetClasses() {
+580:     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(FunctionTypeBuilder_29_tmp__ESTest_scaffolding.class.getClassLoader()); 
+581: 
+582:     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
+583:       "com.google.javascript.jscomp.DiagnosticType",
+584:       "com.google.javascript.jscomp.CheckLevel",
+585:       "com.google.javascript.jscomp.FunctionTypeBuilder",
+586:       "com.google.javascript.jscomp.FunctionTypeBuilder$UnknownFunctionContents",
+587:       "com.google.javascript.jscomp.FunctionTypeBuilder$ExtendedTypeValidator",
+588:       "com.google.javascript.jscomp.FunctionTypeBuilder$ImplementedTypeValidator",
+589:       "com.google.javascript.jscomp.FunctionTypeBuilder$ThisTypeValidator",
+590:       "com.google.javascript.jscomp.FunctionTypeBuilder$AstFunctionContents",
+591:       "com.google.javascript.rhino.jstype.JSTypeNative",
+592:       "com.google.javascript.jscomp.AbstractCompiler",
+593:       "com.google.javascript.jscomp.Compiler",
+594:       "com.google.javascript.jscomp.AbstractCompiler$LifeCycleStage",
+595:       "com.google.javascript.jscomp.CodingConventions$Proxy",
+596:       "com.google.javascript.jscomp.ClosureCodingConvention",
+597:       "com.google.javascript.jscomp.CodingConventions",
+598:       "com.google.javascript.jscomp.CodingConventions$DefaultCodingConvention",
+599:       "com.google.common.collect.ImmutableCollection$EmptyImmutableCollection",
+600:       "com.google.common.collect.ImmutableCollection",
+601:       "com.google.common.collect.ImmutableSet",
+602:       "com.google.common.collect.Hashing",
+603:       "com.google.common.collect.ImmutableSet$ArrayImmutableSet",
+604:       "com.google.common.collect.RegularImmutableSet",
+605:       "com.google.javascript.jscomp.RhinoErrorReporter",
+606:       "com.google.javascript.jscomp.RhinoErrorReporter$OldRhinoErrorReporter",
+607:       "com.google.javascript.rhino.ScriptRuntime",
+608:       "com.google.javascript.rhino.head.Kit",
+609:       "com.google.javascript.rhino.head.optimizer.Codegen",
+610:       "com.google.javascript.rhino.head.Icode",
+611:       "com.google.javascript.rhino.head.Interpreter",
+612:       "com.google.javascript.rhino.head.Context",
+613:       "com.google.javascript.rhino.head.ContextFactory",
+614:       "com.google.javascript.rhino.head.ScriptableObject",
+615:       "com.google.javascript.rhino.head.ScriptRuntime$DefaultMessageProvider",
+616:       "com.google.javascript.rhino.head.ScriptRuntime",
+617:       "com.google.javascript.rhino.head.jdk13.VMBridge_jdk13",
+618:       "com.google.javascript.rhino.head.jdk15.VMBridge_jdk15",
+619:       "com.google.javascript.rhino.head.VMBridge",
+620:       "com.google.common.collect.ImmutableMap",
+621:       "com.google.common.collect.RegularImmutableMap",
+622:       "com.google.common.base.Preconditions",
+623:       "com.google.common.base.Joiner",
+624:       "com.google.common.collect.Collections2",
+625:       "com.google.common.base.Joiner$MapJoiner",
+626:       "com.google.common.collect.Maps",
+627:       "com.google.common.collect.AbstractMapEntry",
+628:       "com.google.common.collect.ImmutableEntry",
+629:       "com.google.common.collect.RegularImmutableMap$TerminalEntry",
+630:       "com.google.javascript.jscomp.RhinoErrorReporter$NewRhinoErrorReporter",
+631:       "com.google.javascript.jscomp.PassFactory",
+632:       "com.google.javascript.jscomp.Compiler$3",
+633:       "com.google.javascript.jscomp.CodeChangeHandler$RecentChange",
+634:       "com.google.common.collect.Lists",
+635:       "com.google.javascript.rhino.Node",
+636:       "com.google.javascript.rhino.Node$NumberNode",
+637:       "com.google.javascript.jscomp.Scope$1",
+638:       "com.google.javascript.jscomp.Scope",
+639:       "com.google.javascript.rhino.jstype.JSTypeRegistry",
+640:       "com.google.common.collect.ImmutableList",
+641:       "com.google.common.collect.UnmodifiableIterator",
+642:       "com.google.common.collect.UnmodifiableListIterator",
+643:       "com.google.common.collect.EmptyImmutableList$1",
+644:       "com.google.common.collect.EmptyImmutableList",
+645:       "com.google.javascript.jscomp.AbstractPeepholeOptimization",
+646:       "com.google.javascript.jscomp.NodeUtil$NumbericResultPredicate",
+647:       "com.google.javascript.jscomp.NodeUtil$BooleanResultPredicate",
+648:       "com.google.javascript.jscomp.NodeUtil$MayBeStringResultPredicate",
+649:       "com.google.javascript.jscomp.NodeUtil$MatchNotFunction",
+650:       "com.google.javascript.jscomp.NodeUtil",
+651:       "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax$1",
+652:       "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax",
+653:       "com.google.javascript.jscomp.PeepholeRemoveDeadCode",
+654:       "com.google.javascript.rhino.SimpleErrorReporter",
+655:       "com.google.common.collect.AbstractMultimap",
+656:       "com.google.common.collect.AbstractSetMultimap",
+657:       "com.google.common.collect.LinkedHashMultimap",
+658:       "com.google.common.collect.Sets",
+659:       "com.google.common.collect.AbstractListMultimap",
+660:       "com.google.common.collect.ArrayListMultimap",
+661:       "com.google.javascript.rhino.jstype.JSTypeRegistry$ResolveMode",
+662:       "com.google.javascript.rhino.jstype.JSType$1",
+663:       "com.google.javascript.rhino.jstype.JSType",
+664:       "com.google.javascript.rhino.jstype.ValueType",
+665:       "com.google.javascript.rhino.jstype.BooleanType",
+666:       "com.google.javascript.rhino.jstype.NullType",
+667:       "com.google.javascript.rhino.jstype.NumberType",
+668:       "com.google.javascript.rhino.jstype.StringType",
+669:       "com.google.javascript.rhino.jstype.ObjectType",
+670:       "com.google.javascript.rhino.jstype.UnknownType",
+671:       "com.google.javascript.rhino.jstype.VoidType",
+672:       "com.google.javascript.rhino.jstype.AllType",
+673:       "com.google.javascript.rhino.jstype.PrototypeObjectType",
+674:       "com.google.javascript.rhino.jstype.FunctionType",
+675:       "com.google.javascript.rhino.jstype.FunctionParamBuilder",
+676:       "com.google.javascript.rhino.Node$StringNode",
+677:       "com.google.javascript.rhino.Node$AbstractPropListItem",
+678:       "com.google.javascript.rhino.Node$IntPropListItem",
+679:       "com.google.javascript.rhino.jstype.ArrowType",
+680:       "com.google.javascript.rhino.jstype.FunctionType$Kind",
+681:       "com.google.javascript.rhino.jstype.InstanceObjectType",
+682:       "com.google.javascript.rhino.jstype.ObjectType$Property",
+683:       "com.google.javascript.rhino.jstype.NoObjectType",
+684:       "com.google.javascript.rhino.jstype.NoType",
+685:       "com.google.javascript.rhino.jstype.NoResolvedType",
+686:       "com.google.javascript.rhino.jstype.ErrorFunctionType",
+687:       "com.google.javascript.rhino.jstype.UnionTypeBuilder",
+688:       "com.google.common.collect.Iterators$1",
+689:       "com.google.common.collect.Iterators$2",
+690:       "com.google.common.collect.Iterators",
+691:       "com.google.javascript.rhino.jstype.UnionType",
+692:       "com.google.common.collect.RegularImmutableList",
+693:       "com.google.javascript.rhino.jstype.FunctionBuilder",
+694:       "com.google.javascript.rhino.jstype.JSTypeRegistry$1",
+695:       "com.google.javascript.jscomp.BasicErrorManager",
+696:       "com.google.javascript.jscomp.LoggerErrorManager",
+697:       "com.google.javascript.jscomp.ErrorFormat",
+698:       "com.google.javascript.jscomp.AbstractMessageFormatter",
+699:       "com.google.javascript.jscomp.LightweightMessageFormatter$LineNumberingFormatter",
+700:       "com.google.javascript.jscomp.LightweightMessageFormatter",
+701:       "com.google.javascript.jscomp.BasicErrorManager$LeveledJSErrorComparator",
+702:       "com.google.common.collect.RegularImmutableMap$NonTerminalEntry",
+703:       "com.google.javascript.jscomp.NodeTraversal$AbstractPostOrderCallback",
+704:       "com.google.javascript.jscomp.ConvertToDottedProperties",
+705:       "com.google.javascript.jscomp.NodeTraversal",
+706:       "com.google.javascript.jscomp.SyntacticScopeCreator",
+707:       "com.google.javascript.jscomp.SyntacticScopeCreator$DefaultRedeclarationHandler",
+708:       "com.google.javascript.jscomp.ControlFlowAnalysis",
+709:       "com.google.javascript.jscomp.GatherRawExports",
+710:       "com.google.javascript.jscomp.PeepholeFoldWithTypes",
+711:       "com.google.javascript.jscomp.CompilerTestCase",
+712:       "com.google.javascript.jscomp.DenormalizeTest",
+713:       "com.google.javascript.jscomp.SourceFile",
+714:       "com.google.javascript.jscomp.JSSourceFile",
+715:       "com.google.javascript.jscomp.SourceFile$Builder",
+716:       "com.google.common.base.Charsets",
+717:       "com.google.javascript.jscomp.SourceFile$Preloaded",
+718:       "com.google.javascript.jscomp.CompilerOptions$NullAliasTransformationHandler$NullAliasTransformation",
+719:       "com.google.javascript.jscomp.CompilerOptions$NullAliasTransformationHandler",
+720:       "com.google.javascript.jscomp.CompilerOptions",
+721:       "com.google.javascript.jscomp.DependencyOptions",
+722:       "com.google.javascript.jscomp.WarningsGuard",
+723:       "com.google.javascript.jscomp.ComposeWarningsGuard",
+724:       "com.google.common.primitives.Ints",
+725:       "com.google.javascript.jscomp.ComposeWarningsGuard$GuardComparator",
+726:       "com.google.javascript.jscomp.SourceMap$DetailLevel",
+727:       "com.google.javascript.jscomp.SourceMap$Format",
+728:       "com.google.javascript.jscomp.CompilerOptions$LanguageMode",
+729:       "com.google.javascript.jscomp.CompilerOptions$DevMode",
+730:       "com.google.javascript.jscomp.VariableRenamingPolicy",
+731:       "com.google.javascript.jscomp.PropertyRenamingPolicy",
+732:       "com.google.javascript.jscomp.AnonymousFunctionNamingPolicy",
+733:       "com.google.javascript.jscomp.CompilerOptions$TweakProcessing",
+734:       "com.google.javascript.jscomp.CompilerOptions$TracerMode",
+735:       "com.google.javascript.jscomp.CheckGlobalThis",
+736:       "com.google.javascript.jscomp.DiagnosticGroup",
+737:       "com.google.common.collect.SingletonImmutableSet",
+738:       "com.google.javascript.jscomp.CheckAccessControls",
+739:       "com.google.common.collect.AbstractIndexedListIterator",
+740:       "com.google.common.collect.Iterators$11",
+741:       "com.google.javascript.jscomp.TypeValidator",
+742:       "com.google.javascript.jscomp.VarCheck",
+743:       "com.google.javascript.jscomp.CheckGlobalNames",
+744:       "com.google.javascript.jscomp.VariableReferenceCheck",
+745:       "com.google.javascript.jscomp.ProcessDefines",
+746:       "com.google.common.base.CharMatcher$11",
+747:       "com.google.common.base.CharMatcher$12",
+748:       "com.google.common.base.CharMatcher$Or",
+749:       "com.google.common.base.Platform$1",
+750:       "com.google.common.base.Platform",
+751:       "com.google.common.base.CharMatcher$LookupTable",
+752:       "com.google.common.base.CharMatcher$15",
+753:       "com.google.common.base.CharMatcher$8",
+754:       "com.google.common.base.CharMatcher$1",
+755:       "com.google.common.base.CharMatcher$2",
+756:       "com.google.common.base.CharMatcher$3",
+757:       "com.google.common.base.CharMatcher$4",
+758:       "com.google.common.base.CharMatcher$5",
+759:       "com.google.common.base.CharMatcher$6",
+760:       "com.google.common.base.CharMatcher$7",
+761:       "com.google.common.base.CharMatcher",
+762:       "com.google.javascript.jscomp.ProcessTweaks$TweakFunction",
+763:       "com.google.javascript.jscomp.ProcessTweaks",
+764:       "com.google.javascript.jscomp.TypedScopeCreator",
+765:       "com.google.javascript.jscomp.TypeCheck",
+766:       "com.google.javascript.jscomp.CheckDebuggerStatement",
+767:       "com.google.javascript.jscomp.CheckRegExp",
+768:       "com.google.javascript.jscomp.CheckSideEffects",
+769:       "com.google.javascript.jscomp.CheckUnreachableCode",
+770:       "com.google.javascript.jscomp.ConstCheck",
+771:       "com.google.javascript.jscomp.DisambiguateProperties$Warnings",
+772:       "com.google.javascript.jscomp.ControlStructureCheck",
+773:       "com.google.javascript.jscomp.StrictModeCheck",
+774:       "com.google.javascript.jscomp.CheckProvides",
+775:       "com.google.javascript.jscomp.JsMessageVisitor",
+776:       "com.google.javascript.jscomp.DiagnosticGroups",
+777:       "com.google.javascript.jscomp.DiagnosticGroupWarningsGuard",
+778:       "com.google.javascript.jscomp.WarningsGuard$Priority",
+779:       "com.google.javascript.jscomp.GoogleCodingConvention",
+780:       "com.google.javascript.jscomp.JSModule",
+781:       "com.google.javascript.jscomp.CompilerInput",
+782:       "com.google.javascript.jscomp.JsAst",
+783:       "com.google.javascript.rhino.InputId",
+784:       "com.google.javascript.jscomp.SuppressDocWarningsGuard",
+785:       "com.google.common.collect.RegularImmutableMap$EntrySet",
+786:       "com.google.javascript.rhino.IR",
+787:       "com.google.javascript.jscomp.Tracer$1",
+788:       "com.google.javascript.jscomp.Tracer$Stat",
+789:       "com.google.javascript.jscomp.Tracer",
+790:       "com.google.javascript.jscomp.Tracer$ThreadTrace",
+791:       "com.google.javascript.jscomp.Compiler$10",
+792:       "com.google.javascript.jscomp.parsing.Config$LanguageMode",
+793:       "com.google.javascript.jscomp.parsing.ParserRunner",
+794:       "com.google.javascript.jscomp.parsing.Config",
+795:       "com.google.common.collect.ImmutableMap$Builder",
+796:       "com.google.javascript.jscomp.parsing.Annotation",
+797:       "com.google.javascript.rhino.head.DefaultErrorReporter",
+798:       "com.google.javascript.rhino.head.CompilerEnvirons",
+799:       "com.google.javascript.rhino.head.Parser",
+800:       "com.google.javascript.rhino.head.TokenStream",
+801:       "com.google.javascript.rhino.head.ObjToIntMap",
+802:       "com.google.javascript.rhino.head.Node",
+803:       "com.google.javascript.rhino.head.ast.AstNode",
+804:       "com.google.javascript.rhino.head.ast.Jump",
+805:       "com.google.javascript.rhino.head.ast.Scope",
+806:       "com.google.javascript.rhino.head.ast.ScriptNode",
+807:       "com.google.javascript.rhino.head.ast.AstRoot",
+808:       "com.google.javascript.jscomp.parsing.IRFactory",
+809:       "com.google.javascript.rhino.Node$FileLevelJsDocBuilder",
+810:       "com.google.javascript.jscomp.parsing.TypeSafeDispatcher",
+811:       "com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher",
+812:       "com.google.javascript.rhino.Node$ObjectPropListItem",
+813:       "com.google.javascript.jscomp.parsing.IRFactory$1",
+814:       "com.google.javascript.rhino.head.Node$NodeIterator",
+815:       "com.google.javascript.jscomp.PrepareAst",
+816:       "com.google.javascript.jscomp.PrepareAst$PrepareAnnotations",
+817:       "com.google.javascript.jscomp.NodeUtil$MatchNodeType",
+818:       "com.google.common.base.Predicates",
+819:       "com.google.common.base.Predicates$OrPredicate",
+820:       "com.google.javascript.rhino.JSDocInfo",
+821:       "com.google.javascript.jscomp.SourceFile$OnDisk",
+822:       "com.google.javascript.jscomp.ProcessCommonJSModules",
+823:       "com.google.javascript.jscomp.Normalize",
+824:       "com.google.javascript.rhino.head.ast.Name",
+825:       "com.google.javascript.rhino.head.ast.ExpressionStatement",
+826:       "com.google.javascript.jscomp.Normalize$NormalizeStatements",
+827:       "com.google.javascript.jscomp.MakeDeclaredNamesUnique",
+828:       "com.google.javascript.jscomp.MakeDeclaredNamesUnique$ContextualRenamer",
+829:       "com.google.common.collect.AbstractMultiset",
+830:       "com.google.common.collect.AbstractMapBasedMultiset",
+831:       "com.google.common.collect.HashMultiset",
+832:       "com.google.common.collect.Multisets",
+833:       "com.google.common.collect.Multisets$EntrySet",
+834:       "com.google.common.collect.AbstractMultiset$EntrySet",
+835:       "com.google.common.collect.AbstractMapBasedMultiset$1",
+836:       "com.google.javascript.jscomp.JSError",
+837:       "com.google.javascript.jscomp.BasicErrorManager$ErrorWithLevel",
+838:       "com.google.javascript.rhino.head.Parser$ParserException",
+839:       "com.google.javascript.rhino.head.ast.EmptyExpression",
+840:       "com.google.javascript.rhino.head.RhinoException",
+841:       "com.google.javascript.rhino.head.EvaluatorException",
+842:       "com.google.javascript.jscomp.PrintStreamErrorManager",
+843:       "com.google.javascript.jscomp.PeepholeReplaceKnownMethods",
+844:       "com.google.javascript.rhino.Node$NodeMismatch",
+845:       "com.google.javascript.rhino.Token",
+846:       "com.google.javascript.rhino.head.ast.NumberLiteral",
+847:       "com.google.javascript.jscomp.StatementFusion",
+848:       "com.google.javascript.rhino.JSDocInfo$LazilyInitializedInfo",
+849:       "com.google.javascript.jscomp.LineNumberCheck",
+850:       "com.google.javascript.jscomp.ChainableReverseAbstractInterpreter",
+851:       "com.google.javascript.jscomp.SemanticReverseAbstractInterpreter$1",
+852:       "com.google.javascript.jscomp.SemanticReverseAbstractInterpreter$2",
+853:       "com.google.javascript.jscomp.SemanticReverseAbstractInterpreter$3",
+854:       "com.google.javascript.jscomp.SemanticReverseAbstractInterpreter$4",
+855:       "com.google.javascript.jscomp.SemanticReverseAbstractInterpreter",
+856:       "com.google.javascript.jscomp.ChainableReverseAbstractInterpreter$1",
+857:       "com.google.javascript.jscomp.ChainableReverseAbstractInterpreter$2",
+858:       "com.google.javascript.jscomp.SemanticReverseAbstractInterpreter$5",
+859:       "com.google.javascript.jscomp.LinkedFlowScope",
+860:       "com.google.javascript.jscomp.LinkedFlowScope$FlatFlowScopeCache",
+861:       "com.google.common.collect.EmptyImmutableMap",
+862:       "com.google.javascript.jscomp.RuntimeTypeCheck$1",
+863:       "com.google.javascript.jscomp.RuntimeTypeCheck",
+864:       "com.google.common.io.CharStreams",
+865:       "com.google.javascript.rhino.head.ast.UnaryExpression",
+866:       "com.google.javascript.rhino.head.Token",
+867:       "com.google.javascript.jscomp.PreprocessorSymbolTable",
+868:       "com.google.javascript.rhino.head.ast.InfixExpression",
+869:       "com.google.javascript.rhino.head.ast.PropertyGet",
+870:       "com.google.javascript.jscomp.Compiler$IntermediateState",
+871:       "com.google.javascript.jscomp.PassConfig",
+872:       "com.google.javascript.jscomp.DefaultPassConfig",
+873:       "com.google.javascript.jscomp.CrossModuleMethodMotion$IdGenerator",
+874:       "com.google.javascript.jscomp.DefaultPassConfig$HotSwapPassFactory",
+875:       "com.google.javascript.jscomp.DefaultPassConfig$1",
+876:       "com.google.javascript.jscomp.DefaultPassConfig$2",
+877:       "com.google.javascript.jscomp.DefaultPassConfig$3",
+878:       "com.google.javascript.jscomp.DefaultPassConfig$4",
+879:       "com.google.javascript.jscomp.DefaultPassConfig$5",
+880:       "com.google.javascript.jscomp.DefaultPassConfig$6",
+881:       "com.google.javascript.jscomp.DefaultPassConfig$7",
+882:       "com.google.javascript.jscomp.DefaultPassConfig$8",
+883:       "com.google.javascript.jscomp.DefaultPassConfig$9",
+884:       "com.google.javascript.jscomp.DefaultPassConfig$10",
+885:       "com.google.javascript.jscomp.DefaultPassConfig$11",
+886:       "com.google.javascript.jscomp.DefaultPassConfig$12",
+887:       "com.google.javascript.jscomp.DefaultPassConfig$13",
+888:       "com.google.javascript.jscomp.DefaultPassConfig$14",
+889:       "com.google.javascript.jscomp.DefaultPassConfig$15",
+890:       "com.google.javascript.jscomp.DefaultPassConfig$16",
+891:       "com.google.javascript.jscomp.DefaultPassConfig$17",
+892:       "com.google.javascript.jscomp.DefaultPassConfig$18",
+893:       "com.google.javascript.jscomp.DefaultPassConfig$19",
+894:       "com.google.javascript.jscomp.DefaultPassConfig$20",
+895:       "com.google.javascript.jscomp.DefaultPassConfig$21",
+896:       "com.google.javascript.jscomp.DefaultPassConfig$22",
+897:       "com.google.javascript.jscomp.DefaultPassConfig$23",
+898:       "com.google.javascript.jscomp.DefaultPassConfig$24",
+899:       "com.google.javascript.jscomp.DefaultPassConfig$25",
+900:       "com.google.javascript.jscomp.DefaultPassConfig$26",
+901:       "com.google.javascript.jscomp.DefaultPassConfig$27",
+902:       "com.google.javascript.jscomp.DefaultPassConfig$28",
+903:       "com.google.javascript.jscomp.DefaultPassConfig$29",
+904:       "com.google.javascript.jscomp.DefaultPassConfig$30",
+905:       "com.google.javascript.jscomp.DefaultPassConfig$31",
+906:       "com.google.javascript.jscomp.DefaultPassConfig$32",
+907:       "com.google.javascript.jscomp.DefaultPassConfig$33",
+908:       "com.google.javascript.jscomp.DefaultPassConfig$34",
+909:       "com.google.javascript.jscomp.DefaultPassConfig$35",
+910:       "com.google.javascript.jscomp.DefaultPassConfig$36",
+911:       "com.google.javascript.jscomp.DefaultPassConfig$37",
+912:       "com.google.javascript.jscomp.DefaultPassConfig$38",
+913:       "com.google.javascript.jscomp.DefaultPassConfig$39",
+914:       "com.google.javascript.jscomp.DefaultPassConfig$40",
+915:       "com.google.javascript.jscomp.DefaultPassConfig$41",
+916:       "com.google.javascript.jscomp.DefaultPassConfig$42",
+917:       "com.google.javascript.jscomp.DefaultPassConfig$43",
+918:       "com.google.javascript.jscomp.DefaultPassConfig$44",
+919:       "com.google.javascript.jscomp.DefaultPassConfig$45",
+920:       "com.google.javascript.jscomp.DefaultPassConfig$46",
+921:       "com.google.javascript.jscomp.DefaultPassConfig$47",
+922:       "com.google.javascript.jscomp.DefaultPassConfig$48",
+923:       "com.google.javascript.jscomp.DefaultPassConfig$49",
+924:       "com.google.javascript.jscomp.DefaultPassConfig$50",
+925:       "com.google.javascript.jscomp.DefaultPassConfig$51",
+926:       "com.google.javascript.jscomp.DefaultPassConfig$52",
+927:       "com.google.javascript.jscomp.DefaultPassConfig$53",
+928:       "com.google.javascript.jscomp.DefaultPassConfig$54",
+929:       "com.google.javascript.jscomp.DefaultPassConfig$55",
+930:       "com.google.javascript.jscomp.DefaultPassConfig$56",
+931:       "com.google.javascript.jscomp.DefaultPassConfig$57",
+932:       "com.google.javascript.jscomp.DefaultPassConfig$58",
+933:       "com.google.javascript.jscomp.DefaultPassConfig$59",
+934:       "com.google.javascript.jscomp.DefaultPassConfig$60",
+935:       "com.google.javascript.jscomp.DefaultPassConfig$61",
+936:       "com.google.javascript.jscomp.DefaultPassConfig$62",
+937:       "com.google.javascript.jscomp.DefaultPassConfig$63",
+938:       "com.google.javascript.jscomp.DefaultPassConfig$64",
+939:       "com.google.javascript.jscomp.DefaultPassConfig$65",
+940:       "com.google.javascript.jscomp.DefaultPassConfig$66",
+941:       "com.google.javascript.jscomp.DefaultPassConfig$67",
+942:       "com.google.javascript.jscomp.DefaultPassConfig$68",
+943:       "com.google.javascript.jscomp.DefaultPassConfig$69",
+944:       "com.google.javascript.jscomp.DefaultPassConfig$70",
+945:       "com.google.javascript.jscomp.DefaultPassConfig$71",
+946:       "com.google.javascript.jscomp.DefaultPassConfig$72",
+947:       "com.google.javascript.jscomp.DefaultPassConfig$73",
+948:       "com.google.javascript.jscomp.DefaultPassConfig$74",
+949:       "com.google.javascript.jscomp.DefaultPassConfig$75",
+950:       "com.google.javascript.jscomp.DefaultPassConfig$76",
+951:       "com.google.javascript.jscomp.DefaultPassConfig$77",
+952:       "com.google.javascript.jscomp.DefaultPassConfig$78",
+953:       "com.google.javascript.jscomp.DefaultPassConfig$79",
+954:       "com.google.javascript.jscomp.DefaultPassConfig$80",
+955:       "com.google.javascript.jscomp.DefaultPassConfig$81",
+956:       "com.google.javascript.jscomp.DefaultPassConfig$82",
+957:       "com.google.javascript.jscomp.DefaultPassConfig$83",
+958:       "com.google.javascript.jscomp.DefaultPassConfig$84",
+959:       "com.google.javascript.jscomp.DefaultPassConfig$85",
+960:       "com.google.javascript.jscomp.DefaultPassConfig$86",
+961:       "com.google.javascript.jscomp.DefaultPassConfig$87",
+962:       "com.google.javascript.jscomp.DefaultPassConfig$88",
+963:       "com.google.javascript.jscomp.DefaultPassConfig$89",
+964:       "com.google.javascript.jscomp.DefaultPassConfig$90",
+965:       "com.google.javascript.jscomp.DefaultPassConfig$91",
+966:       "com.google.javascript.jscomp.DefaultPassConfig$92",
+967:       "com.google.javascript.jscomp.DefaultPassConfig$93",
+968:       "com.google.javascript.jscomp.DefaultPassConfig$97",
+969:       "com.google.javascript.jscomp.DefaultPassConfig$98",
+970:       "com.google.javascript.jscomp.PassConfig$State",
+971:       "com.google.javascript.rhino.testing.BaseJSTypeTestCase",
+972:       "com.google.javascript.jscomp.PeepholeSimplifyRegExp",
+973:       "com.google.common.collect.EmptyImmutableSet",
+974:       "com.google.javascript.rhino.Node$SiblingNodeIterable",
+975:       "com.google.javascript.jscomp.JSModuleGraph",
+976:       "com.google.javascript.jscomp.TightenTypes",
+977:       "com.google.javascript.jscomp.TightenTypes$ConcreteScope",
+978:       "com.google.javascript.jscomp.SimpleDefinitionFinder",
+979:       "com.google.javascript.jscomp.DeadAssignmentsElimination$1",
+980:       "com.google.javascript.jscomp.DeadAssignmentsElimination",
+981:       "com.google.javascript.jscomp.NodeTraversal$AbstractNodeTypePruningCallback",
+982:       "com.google.javascript.jscomp.NodeTraversalTest$PruningCallback",
+983:       "com.google.javascript.jscomp.DefaultPassConfig$32$1",
+984:       "com.google.javascript.jscomp.PassConfig$PassConfigDelegate",
+985:       "com.google.javascript.jscomp.ExploitAssigns",
+986:       "com.google.javascript.jscomp.CodePrinter$Builder",
+987:       "com.google.javascript.jscomp.CodePrinter$Format",
+988:       "com.google.javascript.jscomp.CodePrinter",
+989:       "com.google.javascript.jscomp.CodeConsumer",
+990:       "com.google.javascript.jscomp.CodePrinter$MappedCodePrinter",
+991:       "com.google.javascript.jscomp.CodePrinter$CompactCodePrinter",
+992:       "com.google.javascript.jscomp.CodeGenerator",
+993:       "com.google.javascript.jscomp.CodeGenerator$Context",
+994:       "com.google.javascript.jscomp.AstValidator",
+995:       "com.google.javascript.jscomp.AstValidator$1",
+996:       "com.google.javascript.jscomp.CompilerTestCase$BlackHoleErrorManager",
+997:       "com.google.javascript.jscomp.DenormalizeTest$NormalizeAndDenormalizePass",
+998:       "com.google.javascript.jscomp.Denormalize",
+999:       "com.google.javascript.jscomp.GlobalNamespace$Name",
+1000:       "com.google.javascript.jscomp.GlobalNamespace$Name$Type",
+1001:       "com.google.javascript.rhino.Node$AncestorIterable",
+1002:       "com.google.javascript.rhino.Node$AncestorIterable$1",
+1003:       "com.google.javascript.jscomp.CompilerTestCase$1",
+1004:       "com.google.common.base.Predicates$ObjectPredicate",
+1005:       "com.google.javascript.jscomp.DefaultPassConfig$94",
+1006:       "com.google.javascript.jscomp.ControlFlowAnalysis$1",
+1007:       "com.google.common.collect.HashMultimap",
+1008:       "com.google.common.collect.Iterators$12",
+1009:       "com.google.javascript.jscomp.SyntheticAst",
+1010:       "com.google.javascript.rhino.jstype.ProxyObjectType",
+1011:       "com.google.javascript.rhino.jstype.NamedType",
+1012:       "com.google.javascript.jscomp.PeepholeFoldConstants",
+1013:       "com.google.javascript.jscomp.Normalize$VerifyConstants",
+1014:       "com.google.javascript.jscomp.JqueryCodingConvention",
+1015:       "com.google.javascript.jscomp.NodeTraversal$AbstractShallowStatementCallback",
+1016:       "com.google.javascript.jscomp.TypedScopeCreator$DiscoverEnumsAndTypedefs",
+1017:       "com.google.javascript.jscomp.Scope$Var",
+1018:       "com.google.javascript.jscomp.SourceInformationAnnotator",
+1019:       "com.google.javascript.jscomp.Compiler$2",
+1020:       "com.google.javascript.rhino.head.ast.Symbol",
+1021:       "com.google.javascript.rhino.head.ast.FunctionNode",
+1022:       "com.google.javascript.rhino.head.ast.FunctionNode$Form",
+1023:       "com.google.javascript.rhino.head.Parser$PerFunctionVariables",
+1024:       "com.google.javascript.rhino.head.ast.Block",
+1025:       "com.google.javascript.rhino.head.ast.ReturnStatement",
+1026:       "com.google.javascript.jscomp.ReferenceCollectingCallback$1",
+1027:       "com.google.javascript.jscomp.ReferenceCollectingCallback",
+1028:       "com.google.javascript.jscomp.VerboseMessageFormatter",
+1029:       "com.google.javascript.rhino.jstype.EnumType",
+1030:       "com.google.javascript.rhino.jstype.EnumElementType",
+1031:       "com.google.javascript.jscomp.GlobalNamespace$Ref",
+1032:       "com.google.javascript.jscomp.CheckAccidentalSemicolon",
+1033:       "com.google.javascript.jscomp.GlobalNamespace",
+1034:       "com.google.javascript.jscomp.ReorderConstantExpression",
+1035:       "com.google.javascript.jscomp.Result",
+1036:       "com.google.javascript.jscomp.LoggerErrorManager$1",
+1037:       "com.google.javascript.jscomp.JSError$1",
+1038:       "com.google.javascript.jscomp.AbstractMessageFormatter$1",
+1039:       "com.google.javascript.jscomp.AbstractMessageFormatter$Color",
+1040:       "com.google.javascript.jscomp.graph.Graph",
+1041:       "com.google.javascript.jscomp.graph.DiGraph",
+1042:       "com.google.javascript.jscomp.graph.LinkedDirectedGraph",
+1043:       "com.google.javascript.jscomp.ControlFlowGraph",
+1044:       "com.google.javascript.rhino.jstype.TemplateType",
+1045:       "com.google.javascript.jscomp.MinimizeExitPoints",
+1046:       "com.google.javascript.rhino.jstype.SimpleSlot",
+1047:       "com.google.javascript.jscomp.CheckMissingGetCssName",
+1048:       "com.google.javascript.jscomp.NameReferenceGraphConstruction",
+1049:       "com.google.javascript.jscomp.NameReferenceGraph",
+1050:       "com.google.javascript.jscomp.NameReferenceGraph$Name",
+1051:       "com.google.javascript.jscomp.graph.LinkedDirectedGraph$LinkedDirectedGraphNode",
+1052:       "com.google.javascript.jscomp.graph.LinkedDirectedGraph$AnnotatedLinkedDirectedGraphNode",
+1053:       "com.google.javascript.jscomp.Scope$Arguments",
+1054:       "com.google.javascript.jscomp.SpecializeModule",
+1055:       "com.google.javascript.jscomp.CustomPassExecutionTime",
+1056:       "com.google.javascript.jscomp.PhaseOptimizer",
+1057:       "com.google.common.collect.Iterators$13",
+1058:       "com.google.javascript.jscomp.PhaseOptimizer$Loop",
+1059:       "com.google.javascript.jscomp.PhaseOptimizer$LoopInternal",
+1060:       "com.google.javascript.jscomp.PhaseOptimizer$NamedPass",
+1061:       "com.google.javascript.jscomp.PhaseOptimizer$PassFactoryDelegate",
+1062:       "com.google.javascript.jscomp.ExternExportsPass",
+1063:       "com.google.javascript.jscomp.SymbolTable",
+1064:       "com.google.javascript.jscomp.RemoveTryCatch",
+1065:       "com.google.javascript.jscomp.RemoveTryCatch$RemoveTryCatchCode",
+1066:       "com.google.javascript.jscomp.Compiler$5",
+1067:       "com.google.javascript.jscomp.CombinedCompilerPass",
+1068:       "com.google.common.io.Files",
+1069:       "com.google.common.io.Files$1",
+1070:       "com.google.common.io.ByteStreams",
+1071:       "com.google.javascript.jscomp.Compiler$4",
+1072:       "com.google.javascript.jscomp.FunctionInjector$InliningMode",
+1073:       "com.google.javascript.jscomp.FunctionInjector$CanInlineResult",
+1074:       "com.google.javascript.jscomp.FunctionInjectorTest",
+1075:       "com.google.javascript.jscomp.FunctionInjectorTest$TestCallback",
+1076:       "com.google.javascript.jscomp.PeepholeCollectPropertyAssignments",
+1077:       "com.google.javascript.jscomp.SourceFile$Generated",
+1078:       "com.google.javascript.jscomp.CheckMissingReturn$1",
+1079:       "com.google.javascript.jscomp.CheckMissingReturn$2",
+1080:       "com.google.javascript.jscomp.CheckMissingReturn",
+1081:       "com.google.javascript.jscomp.MemoizedScopeCreator",
+1082:       "com.google.javascript.jscomp.Compiler$1",
+1083:       "com.google.javascript.jscomp.TypedScopeCreator$AbstractScopeBuilder",
+1084:       "com.google.javascript.jscomp.TypedScopeCreator$LocalScopeBuilder",
+1085:       "com.google.common.collect.AbstractMultimap$WrappedCollection",
+1086:       "com.google.common.collect.AbstractMultimap$WrappedList",
+1087:       "com.google.common.collect.AbstractMultimap$RandomAccessWrappedList",
+1088:       "com.google.common.collect.AbstractMultimap$WrappedCollection$WrappedIterator",
+1089:       "com.google.javascript.jscomp.UnreachableCodeElimination",
+1090:       "com.google.javascript.jscomp.RemoveUnusedClassProperties",
+1091:       "com.google.javascript.jscomp.InferJSDocInfo",
+1092:       "com.google.javascript.jscomp.NameReferenceGraph$Reference",
+1093:       "com.google.javascript.jscomp.Compiler$7",
+1094:       "com.google.javascript.rhino.jstype.JSType$TypePair",
+1095:       "com.google.javascript.jscomp.ExpandJqueryAliases",
+1096:       "com.google.javascript.jscomp.CodeChangeHandler$ForbiddenChange",
+1097:       "com.google.javascript.jscomp.NodeTraversal$AbstractScopedCallback",
+1098:       "com.google.javascript.jscomp.TypedScopeCreator$FirstOrderFunctionAnalyzer",
+1099:       "com.google.javascript.jscomp.TypedScopeCreator$GlobalScopeBuilder",
+1100:       "com.google.javascript.jscomp.FunctionRewriter",
+1101:       "com.google.javascript.jscomp.ReplaceStrings",
+1102:       "com.google.javascript.jscomp.MoveFunctionDeclarations",
+1103:       "com.google.javascript.rhino.jstype.TernaryValue",
+1104:       "com.google.javascript.jscomp.NameAnalyzer$1",
+1105:       "com.google.javascript.jscomp.NameAnalyzer",
+1106:       "com.google.javascript.jscomp.RenameLabels",
+1107:       "com.google.javascript.jscomp.RenameLabels$DefaultNameSupplier",
+1108:       "com.google.javascript.jscomp.NameGenerator",
+1109:       "com.google.javascript.jscomp.RenameLabels$ProcessLabels",
+1110:       "com.google.javascript.jscomp.RenameLabels$LabelNamespace",
+1111:       "com.google.javascript.jscomp.GlobalVarReferenceMap",
+1112:       "com.google.javascript.rhino.head.ast.Label",
+1113:       "com.google.javascript.rhino.head.ast.LabeledStatement",
+1114:       "com.google.common.collect.Multimaps$Values",
+1115:       "com.google.common.collect.AbstractMultimap$2",
+1116:       "com.google.common.collect.Multimaps$Entries",
+1117:       "com.google.common.collect.AbstractMultimap$4",
+1118:       "com.google.common.collect.AbstractMultimap$EntryIterator",
+1119:       "com.google.common.collect.Multimaps$Values$1",
+1120:       "com.google.javascript.jscomp.Denormalize$StripConstantAnnotations",
+1121:       "com.google.javascript.jscomp.GroupVariableDeclarations",
+1122:       "com.google.javascript.rhino.Node$SideEffectFlags",
+1123:       "com.google.javascript.rhino.jstype.SimpleSourceFile",
+1124:       "com.google.common.collect.ImmutableCollection$Builder",
+1125:       "com.google.common.collect.ImmutableList$Builder",
+1126:       "com.google.common.collect.AbstractIterator",
+1127:       "com.google.common.collect.Iterators$7",
+1128:       "com.google.common.collect.AbstractIterator$State",
+1129:       "com.google.javascript.jscomp.Compiler$CodeBuilder",
+1130:       "com.google.javascript.jscomp.Compiler$9",
+1131:       "com.google.common.collect.Iterables",
+1132:       "com.google.common.collect.Iterables$IterableWithToString",
+1133:       "com.google.common.collect.Iterables$2",
+1134:       "com.google.javascript.jscomp.TransformAMDToCJSModule",
+1135:       "com.google.javascript.jscomp.SourceExcerptProvider$SourceExcerpt",
+1136:       "com.google.javascript.rhino.jstype.BooleanLiteralSet"
+1137:     );
+1138:   }
+1139: }
+
+[MASTER] 15:07:46.764 [logback-2] ERROR JUnitAnalyzer - Failed to compile test case:
+FunctionTypeBuilder.AstFunctionContents functionTypeBuilder_AstFunctionContents0 = new FunctionTypeBuilder.AstFunctionContents((Node) null);
+functionTypeBuilder_AstFunctionContents0.recordEscapedVarName("e9W'o~");
+Iterable<String> iterable0 = functionTypeBuilder_AstFunctionContents0.getEscapedVarNames();
+assertFalse(functionTypeBuilder_AstFunctionContents0.mayHaveNonEmptyReturns());
+assertTrue(iterable0.contains("e9W'o~"));
+
+
+
+[exit=0 timeout=False time=94.0s]
+
+$ javac -nowarn -cp /work/Closure_41f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_41f/budget60_seed1/classes /work/evo_out/Closure_41f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionTypeBuilder_ESTest.java /work/evo_out/Closure_41f/budget60_seed1/tests/com/google/javascript/jscomp/FunctionTypeBuilder_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_41f/build/classes --dest /work/evo_out/Closure_41f/budget60_seed1/instrumented
+[INFO] 1322 classes instrumented to /work/evo_out/Closure_41f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_41/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_41f/budget60_seed1/instrumented:/work/evo_out/Closure_41f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_41f/build/classes:/work/Closure_41f/lib/args4j.jar:/work/Closure_41f/lib/guava.jar:/work/Closure_41f/lib/json.jar:/work/Closure_41f/lib/jsr305.jar:/work/Closure_41f/lib/protobuf-java.jar:/work/Closure_41f/build/lib/rhino.jar:/work/Closure_41f/lib/ant.jar:/work/Closure_41f/lib/ant-launcher.jar:/work/Closure_41f/lib/caja-r4314.jar:/work/Closure_41f/lib/jarjar.jar:/work/Closure_41f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionTypeBuilder_ESTest
+JUnit version 4.12
+...................................
+Time: 1.713
+
+OK (35 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=3.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_41/budget60_seed1/jacoco.exec --classfiles /work/Closure_41f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_41/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_41/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1127 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -cp /work/evo_out/Closure_41f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_41b/build/classes:/work/Closure_41b/lib/args4j.jar:/work/Closure_41b/lib/guava.jar:/work/Closure_41b/lib/json.jar:/work/Closure_41b/lib/jsr305.jar:/work/Closure_41b/lib/protobuf-java.jar:/work/Closure_41b/build/lib/rhino.jar:/work/Closure_41b/lib/ant.jar:/work/Closure_41b/lib/ant-launcher.jar:/work/Closure_41b/lib/caja-r4314.jar:/work/Closure_41b/lib/jarjar.jar:/work/Closure_41b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.FunctionTypeBuilder_ESTest
+JUnit version 4.12
+...................................
+Time: 1.527
+
+OK (35 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.9s]

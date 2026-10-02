@@ -1,0 +1,376 @@
+
+$ defects4j checkout -p Collections -v 24f -w /work/Collections_24f
+Checking out 539be680 to /work/Collections_24f............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Collections_24f/default.properties............ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 539be680:72784c46..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Collections-24f................................. OK
+
+[exit=0 timeout=False time=1.5s]
+
+$ defects4j compile -w /work/Collections_24f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=6.3s]
+
+$ defects4j checkout -p Collections -v 24b -w /work/Collections_24b
+Checking out 539be680 to /work/Collections_24b............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Collections_24b/default.properties............ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 539be680:72784c46..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Collections-24b................................. OK
+
+[exit=0 timeout=False time=1.5s]
+
+$ defects4j compile -w /work/Collections_24b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=6.2s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Collections_24f/target/classes:/work/Collections_24f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar org.evosuite.EvoSuite -generateSuite -class org.apache.commons.collections4.collection.UnmodifiableBoundedCollection -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_24f/target/classes:/work/Collections_24f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Collections_24f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Collections_24f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.commons.collections4.collection.UnmodifiableBoundedCollection
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Collections_24f/target/classes
+  - /work/Collections_24f/target/tests
+  - /opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar
+* Finished analyzing classpath
+* Generating tests for class org.apache.commons.collections4.collection.UnmodifiableBoundedCollection
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 28
+  - Branch 24
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 18:26:59.926 [logback-1] WARN  TestCluster - Failed to check cache for org.apache.commons.collections4.collection.IndexedCollection<K, C> : Type points to itself
+[MASTER] 18:27:00.466 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Collection<E> : Type points to itself
+[MASTER] 18:27:00.544 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.547 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.551 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.556 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.559 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.565 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.569 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.574 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.579 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.583 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.587 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.591 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.594 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.598 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.602 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.605 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.609 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.612 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.615 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.620 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.623 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.626 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.629 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.632 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.636 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.639 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.643 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.646 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.650 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.lang.Integer>
+[MASTER] 18:27:00.736 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.738 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.740 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.742 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.745 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.750 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.752 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.754 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.756 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.759 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.761 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.764 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.766 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.769 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.771 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.774 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.777 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.779 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.782 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.785 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.788 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.791 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.794 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.797 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.800 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.804 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.807 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.811 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:00.814 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.Collection<E> for wildcard ? extends java.util.Collection<java.util.Collection<E>>
+[MASTER] 18:27:01.169 [logback-1] WARN  TestCluster - Failed to check cache for org.apache.commons.collections4.Predicate<T> : Type points to itself
+[MASTER] 18:27:02.038 [logback-1] WARN  TestCluster - Failed to check cache for org.apache.commons.collections4.Transformer<I, O> : Type points to itself
+[MASTER] 18:27:06.450 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.LinkedList<E> for type Variable C with bounds [java.util.Collection<V>] of declaration MultiValueMap#multiValueMap. The owner var map is {K=org.apache.commons.collections4.Predicate<java.lang.Object>, V=org.apache.commons.collections4.collection.IndexedCollection<org.apache.commons.collections4.collection.IndexedCollection<K, C>, java.lang.Object>}
+[MASTER] 18:27:06.687 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.collection.TransformedCollection<E> for wildcard ? extends E
+[MASTER] 18:27:06.688 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.689 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.690 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.692 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.693 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.694 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.695 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.696 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:06.698 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.bag.TransformedBag<E> for wildcard ? extends E
+[MASTER] 18:27:06.749 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.bag.TransformedBag<E> for wildcard ? extends E
+[MASTER] 18:27:08.165 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.166 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.167 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.167 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.170 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.171 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.172 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.173 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.174 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<org.apache.commons.collections4.Predicate<java.lang.Object>, java.lang.Integer>
+[MASTER] 18:27:08.177 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.bag.TransformedSortedBag<E> for wildcard ? extends E
+[MASTER] 18:27:08.562 [logback-1] WARN  TestCluster - Failed to check cache for org.apache.commons.collections4.bag.TransformedSortedBag<E> : Type points to itself
+[MASTER] 18:27:08.663 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.bag.TransformedSortedBag<E> for wildcard ? extends E
+[MASTER] 18:27:10.128 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.129 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.130 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.131 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.133 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.136 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.137 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.138 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.139 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.142 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.collection.TransformedCollection<E> for wildcard ? extends E
+[MASTER] 18:27:10.195 [logback-1] WARN  CastClassManager - Nothing is assignable after adding java.util.LinkedList<E> for type Variable C with bounds [java.util.Collection<V>] of declaration MultiValueMap#multiValueMap. The owner var map is {K=class java.lang.Object, V=org.apache.commons.collections4.collection.IndexedCollection<org.apache.commons.collections4.collection.TransformedCollection<E>, java.lang.Object>}
+[MASTER] 18:27:10.285 [logback-1] WARN  TestCluster - Failed to check cache for java.util.LinkedList<E> : Type points to itself
+[MASTER] 18:27:10.412 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.412 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.413 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.416 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.417 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.418 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.419 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.420 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.Transformer<I, O> for wildcard ? extends org.apache.commons.collections4.Transformer<java.lang.Object, java.lang.Object>
+[MASTER] 18:27:10.619 [logback-1] WARN  CastClassManager - Nothing is assignable after adding org.apache.commons.collections4.bag.TransformedBag<E> for wildcard ? extends E
+
+[Progress:======>                       20%] [Cov:====>                              13%]
+[Progress:======>                       20%] [Cov:========>                          24%]
+[Progress:======>                       20%] [Cov:===================>               57%][MASTER] 18:27:12.379 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:======>                       20%] [Cov:=====================>             60%]
+[Progress:======>                       20%] [Cov:=====================>             61%]
+[Progress:======>                       20%] [Cov:=======================>           66%]
+[Progress:======>                       21%] [Cov:=>                                 4%]
+[Progress:======>                       21%] [Cov:==>                                7%]
+[Progress:======>                       21%] [Cov:==============>                    40%]
+[Progress:======>                       21%] [Cov:=======================>           66%]
+[Progress:======>                       21%] [Cov:========================>          69%]
+[Progress:======>                       21%] [Cov:========================>          69%]
+[Progress:======>                       23%] [Cov:============>                      35%]
+[Progress:======>                       23%] [Cov:============>                      37%]
+[Progress:======>                       23%] [Cov:===================>               55%]
+[Progress:======>                       23%] [Cov:=====================>             60%]
+[Progress:======>                       23%] [Cov:==========================>        76%]
+[Progress:=======>                      25%] [Cov:==========================>        76%]
+[Progress:=======>                      25%] [Cov:==========================>        76%]
+[Progress:=======>                      26%] [Cov:==========================>        76%]
+[Progress:========>                     28%] [Cov:==========================>        76%]
+[Progress:=========>                    30%] [Cov:==========================>        76%]
+[Progress:=========>                    30%] [Cov:==========================>        76%]
+[Progress:=========>                    31%] [Cov:==========================>        76%]
+[Progress:=========>                    33%] [Cov:==========================>        76%]
+[Progress:=========>                    33%] [Cov:==========================>        76%]
+[Progress:==========>                   35%] [Cov:==========================>        76%]
+[Progress:==========>                   36%] [Cov:==========================>        76%]
+[Progress:==========>                   36%] [Cov:==========================>        76%]
+[Progress:===========>                  38%] [Cov:==========================>        76%]
+[Progress:============>                 40%] [Cov:==========================>        76%]
+[Progress:============>                 41%] [Cov:==========================>        76%]
+[Progress:============>                 41%] [Cov:==========================>        76%]
+[Progress:============>                 43%] [Cov:==========================>        76%]
+[Progress:============>                 43%] [Cov:==========================>        76%]
+[Progress:=============>                45%] [Cov:==========================>        76%]
+[Progress:=============>                45%] [Cov:==========================>        76%]
+[Progress:=============>                46%] [Cov:==========================>        76%]
+[Progress:==============>               48%] [Cov:==========================>        76%]
+[Progress:==============>               48%] [Cov:==========================>        76%]
+[Progress:==============>               48%] [Cov:==========================>        76%]
+[Progress:===============>              50%] [Cov:==========================>        76%]
+[Progress:===============>              51%] [Cov:==========================>        76%]
+[Progress:===============>              51%] [Cov:==========================>        76%]
+[Progress:===============>              53%] [Cov:==========================>        76%]
+[Progress:===============>              53%] [Cov:==========================>        76%]
+[Progress:================>             55%] [Cov:==========================>        76%]
+[Progress:================>             55%] [Cov:==========================>        76%]
+[Progress:================>             56%] [Cov:==========================>        76%]
+[Progress:================>             56%] [Cov:==========================>        76%]
+[Progress:=================>            58%] [Cov:==========================>        76%]
+[Progress:=================>            58%] [Cov:==========================>        76%]
+[Progress:==================>           60%] [Cov:==========================>        76%]
+[Progress:==================>           60%] [Cov:==========================>        76%]
+[Progress:==================>           61%] [Cov:==========================>        76%]
+[Progress:==================>           63%] [Cov:==========================>        76%]
+[Progress:==================>           63%] [Cov:==========================>        76%]
+[Progress:===================>          65%] [Cov:==========================>        76%]
+[Progress:===================>          65%] [Cov:==========================>        76%]
+[Progress:===================>          66%] [Cov:==========================>        76%]
+[Progress:===================>          66%] [Cov:==========================>        76%]
+[Progress:====================>         68%] [Cov:==========================>        76%]
+[Progress:====================>         68%] [Cov:==========================>        76%]
+[Progress:=====================>        70%] [Cov:==========================>        76%]
+[Progress:=====================>        70%] [Cov:==========================>        76%]
+[Progress:=====================>        71%] [Cov:==========================>        76%]
+[Progress:=====================>        73%] [Cov:==========================>        76%]
+[Progress:=====================>        73%] [Cov:==========================>        76%]
+[Progress:======================>       75%] [Cov:==========================>        76%]
+[Progress:======================>       76%] [Cov:==========================>        76%]
+[Progress:======================>       76%] [Cov:==========================>        76%]
+[Progress:=======================>      78%] [Cov:==========================>        76%]
+[Progress:========================>     80%] [Cov:==========================>        76%]
+[Progress:========================>     81%] [Cov:==========================>        76%]
+[Progress:========================>     81%] [Cov:==========================>        76%]
+[Progress:========================>     83%] [Cov:==========================>        76%]
+[Progress:========================>     83%] [Cov:==========================>        76%]
+[Progress:=========================>    85%] [Cov:==========================>        76%]
+[Progress:=========================>    86%] [Cov:==========================>        76%]
+[Progress:==========================>   88%] [Cov:==========================>        76%]
+[Progress:==========================>   88%] [Cov:==========================>        76%]
+[Progress:===========================>  90%] [Cov:==========================>        76%]
+[Progress:===========================>  91%] [Cov:==========================>        76%]
+[Progress:===========================>  93%] [Cov:==========================>        76%]
+[Progress:===========================>  93%] [Cov:==========================>        76%]
+[Progress:============================> 95%] [Cov:==========================>        76%]
+[Progress:============================> 96%] [Cov:==========================>        76%]
+[Progress:============================> 96%] [Cov:==========================>        76%]
+[Progress:=============================>98%] [Cov:==========================>        76%]
+[Progress:==============================100%] [Cov:==========================>        76%]
+[Progress:==============================100%] [Cov:==========================>        76%]
+[Progress:==============================100%] [Cov:==========================>        76%]
+[Progress:==============================100%] [Cov:==========================>        76%]
+* Search finished after 61s and 30 generations, 5660 statements, best individual has fitness: 10.233333333333334
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 68%
+* Total number of goals: 28
+* Number of covered goals: 19
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 62%
+* Total number of goals: 24
+* Number of covered goals: 15
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Generated 5 tests with total length 18
+* Resulting test suite's coverage: 77% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 19%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'UnmodifiableBoundedCollection_ESTest' to /work/evo_out/Collections_24f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=66.8s]
+
+$ javac -nowarn -cp /work/Collections_24f/target/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_24f/target/classes:/work/Collections_24f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Collections_24f/budget60_seed1/classes /work/evo_out/Collections_24f/budget60_seed1/tests/org/apache/commons/collections4/collection/UnmodifiableBoundedCollection_ESTest.java /work/evo_out/Collections_24f/budget60_seed1/tests/org/apache/commons/collections4/collection/UnmodifiableBoundedCollection_ESTest_scaffolding.java
+Note: /work/evo_out/Collections_24f/budget60_seed1/tests/org/apache/commons/collections4/collection/UnmodifiableBoundedCollection_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Collections_24f/target/classes --dest /work/evo_out/Collections_24f/budget60_seed1/instrumented
+[INFO] 446 classes instrumented to /work/evo_out/Collections_24f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Collections_24/budget60_seed1/jacoco.exec -cp /work/evo_out/Collections_24f/budget60_seed1/instrumented:/work/evo_out/Collections_24f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_24f/target/classes:/work/Collections_24f/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest
+JUnit version 4.12
+.....
+Time: 0.828
+
+OK (5 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Collections_24/budget60_seed1/jacoco.exec --classfiles /work/Collections_24f/target/classes --csv /workspace/EvoSuite/Result_Round1/Collections_24/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Collections_24/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 385 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -cp /work/evo_out/Collections_24f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_24b/target/classes:/work/Collections_24b/target/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest
+JUnit version 4.12
+.....E
+Time: 0.787
+There was 1 failure:
+1) test3(org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest)
+java.lang.AssertionError: expected same:<org.apache.commons.collections4.collection.UnmodifiableBoundedCollection@0000000003> was not:<org.apache.commons.collections4.list.FixedSizeList@0000000002>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotSame(Assert.java:828)
+	at org.junit.Assert.assertSame(Assert.java:771)
+	at org.junit.Assert.assertSame(Assert.java:782)
+	at org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest.test3(UnmodifiableBoundedCollection_ESTest.java:93)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 5,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=1.0s]

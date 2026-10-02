@@ -1,0 +1,400 @@
+
+$ defects4j checkout -p Chart -v 15f -w /work/Chart_15f
+Checking out 749 to /work/Chart_15f........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 749:747............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-15f....................................... OK
+
+[exit=0 timeout=False time=3.7s]
+
+$ defects4j compile -w /work/Chart_15f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=8.5s]
+
+$ defects4j checkout -p Chart -v 15b -w /work/Chart_15b
+Checking out 749 to /work/Chart_15b........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 749:747............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-15b....................................... OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Chart_15b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.8s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_15f/build:/work/Chart_15f/lib/servlet.jar:/work/Chart_15f/build-tests org.evosuite.EvoSuite -generateSuite -class org.jfree.chart.plot.PiePlot -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_15f/build:/work/Chart_15f/lib/servlet.jar:/work/Chart_15f/build-tests -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Chart_15f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Chart_15f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.jfree.chart.plot.PiePlot
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Chart_15f/build
+  - /work/Chart_15f/lib/servlet.jar
+  - /work/Chart_15f/build-tests
+[MASTER] 07:10:15.072 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 07:10:15.523 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 07:10:17.029 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class org.jfree.chart.plot.PiePlot
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 831
+  - Branch 392
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             1%] [Cov:=>                                 3%]
+[Progress:>                             1%] [Cov:=>                                 4%]
+[Progress:>                             1%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:>                                  2%]
+[Progress:>                             3%] [Cov:=>                                 4%]
+[Progress:>                             3%] [Cov:============>                      37%]
+[Progress:>                             3%] [Cov:=============>                     38%]
+[Progress:>                             3%] [Cov:==============>                    40%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:===============>                   44%]
+[Progress:=>                            6%] [Cov:>                                  2%]
+[Progress:=>                            6%] [Cov:============>                      35%]
+[Progress:=>                            6%] [Cov:=============>                     39%]
+[Progress:=>                            6%] [Cov:==============>                    40%]
+[Progress:=>                            6%] [Cov:==============>                    41%]
+[Progress:==>                           8%] [Cov:======================>            65%]
+[Progress:==>                           8%] [Cov:=======================>           66%]
+[Progress:==>                           8%] [Cov:=======================>           66%]
+[Progress:===>                          10%] [Cov:=======================>           66%]
+[Progress:===>                          10%] [Cov:=======================>           66%][MASTER] 07:10:24.179 [logback-1] WARN  TestCluster - Failed to check cache for javax.swing.RowFilter<M, I>.ComparisonType : Type points to itself
+
+[Progress:===>                          11%] [Cov:=======================>           66%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:===>                          13%] [Cov:=======================>           67%]
+[Progress:====>                         15%] [Cov:=======================>           67%]
+[Progress:====>                         15%] [Cov:=======================>           67%]
+[Progress:====>                         16%] [Cov:=======================>           67%]
+[Progress:====>                         16%] [Cov:=======================>           67%]
+[Progress:=====>                        18%] [Cov:=======================>           67%]
+[Progress:======>                       20%] [Cov:=======================>           67%]
+[Progress:======>                       21%] [Cov:=======================>           67%]
+[Progress:======>                       21%] [Cov:=======================>           67%]
+[Progress:======>                       23%] [Cov:=======================>           67%]
+[Progress:=======>                      25%] [Cov:=======================>           67%]
+[Progress:=======>                      25%] [Cov:=======================>           68%]
+[Progress:=======>                      26%] [Cov:=======================>           68%]
+[Progress:========>                     28%] [Cov:=======================>           68%][MASTER] 07:10:35.416 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Stack<E> : Type points to itself
+
+[Progress:=========>                    30%] [Cov:=======================>           68%]
+[Progress:=========>                    30%] [Cov:=======================>           68%]
+[Progress:=========>                    31%] [Cov:=======================>           68%]
+[Progress:=========>                    31%] [Cov:=======================>           68%]
+[Progress:=========>                    33%] [Cov:=======================>           68%]
+[Progress:=========>                    33%] [Cov:=======================>           68%]
+[Progress:==========>                   35%] [Cov:=======================>           68%]
+[Progress:==========>                   35%] [Cov:=======================>           68%]
+[Progress:==========>                   36%] [Cov:=======================>           68%]
+[Progress:==========>                   36%] [Cov:=======================>           68%]
+[Progress:===========>                  38%] [Cov:=======================>           68%]
+[Progress:===========>                  38%] [Cov:=======================>           68%]
+[Progress:============>                 40%] [Cov:=======================>           68%]
+[Progress:============>                 40%] [Cov:=======================>           68%]
+[Progress:============>                 41%] [Cov:=======================>           68%]
+[Progress:============>                 41%] [Cov:=======================>           68%]
+[Progress:============>                 43%] [Cov:=======================>           68%]
+[Progress:=============>                45%] [Cov:=======================>           68%]
+[Progress:=============>                46%] [Cov:=======================>           68%]
+[Progress:==============>               48%] [Cov:=======================>           68%]
+[Progress:===============>              50%] [Cov:=======================>           68%]
+[Progress:===============>              50%] [Cov:=======================>           68%]
+[Progress:===============>              51%] [Cov:=======================>           68%]
+[Progress:===============>              53%] [Cov:=======================>           68%]
+[Progress:================>             55%] [Cov:=======================>           68%]
+[Progress:================>             56%] [Cov:=======================>           68%]
+[Progress:=================>            58%] [Cov:=======================>           68%]
+[Progress:=================>            58%] [Cov:=======================>           68%]
+[Progress:==================>           60%] [Cov:=======================>           68%]
+[Progress:==================>           60%] [Cov:=======================>           68%]
+[Progress:==================>           61%] [Cov:=======================>           68%]
+[Progress:==================>           63%] [Cov:=======================>           68%]
+[Progress:==================>           63%] [Cov:=======================>           68%]
+[Progress:===================>          65%] [Cov:=======================>           68%]
+[Progress:===================>          65%] [Cov:=======================>           68%]
+[Progress:===================>          66%] [Cov:=======================>           68%]
+[Progress:===================>          66%] [Cov:=======================>           68%]
+[Progress:====================>         68%] [Cov:=======================>           68%]
+[Progress:====================>         68%] [Cov:=======================>           68%]
+[Progress:====================>         68%] [Cov:========================>          69%]
+[Progress:=====================>        70%] [Cov:=======================>           68%]
+[Progress:=====================>        70%] [Cov:========================>          69%]
+[Progress:=====================>        71%] [Cov:========================>          69%]
+[Progress:=====================>        73%] [Cov:========================>          69%]
+[Progress:=====================>        73%] [Cov:========================>          69%]
+[Progress:======================>       75%] [Cov:========================>          69%]
+[Progress:======================>       76%] [Cov:========================>          69%]
+[Progress:=======================>      78%] [Cov:========================>          69%]
+[Progress:=======================>      78%] [Cov:========================>          69%]
+[Progress:========================>     80%] [Cov:========================>          69%]
+[Progress:========================>     81%] [Cov:========================>          69%]
+[Progress:========================>     81%] [Cov:========================>          69%]
+[Progress:========================>     83%] [Cov:========================>          69%]
+[Progress:=========================>    85%] [Cov:========================>          69%]
+[Progress:=========================>    86%] [Cov:========================>          69%]
+[Progress:=========================>    86%] [Cov:========================>          69%]
+[Progress:==========================>   88%] [Cov:========================>          69%]
+[Progress:==========================>   88%] [Cov:========================>          69%]
+[Progress:===========================>  90%] [Cov:========================>          69%]
+[Progress:===========================>  90%] [Cov:========================>          70%]
+[Progress:===========================>  90%] [Cov:========================>          71%]
+[Progress:===========================>  93%] [Cov:========================>          71%]
+[Progress:============================> 95%] [Cov:========================>          71%]
+[Progress:============================> 96%] [Cov:========================>          71%]
+[Progress:=============================>98%] [Cov:========================>          71%]
+[Progress:=============================>98%] [Cov:========================>          71%]
+[Progress:==============================100%] [Cov:========================>          71%]
+[Progress:==============================100%] [Cov:========================>          71%]
+[Progress:==============================100%] [Cov:========================>          71%]
+[Progress:==============================100%] [Cov:========================>          71%]
+* Search finished after 61s and 48 generations, 27323 statements, best individual has fitness: 249.276594862273
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 57%
+* Total number of goals: 831
+* Number of covered goals: 477
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 56%
+* Total number of goals: 392
+* Number of covered goals: 221
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 33
+* Number of covered goals: 33
+* Generated 122 tests with total length 455
+* Resulting test suite's coverage: 71% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 20%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'PiePlot_ESTest' to /work/evo_out/Chart_15f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 07:11:12.710 [logback-2] ERROR ClientNodeImpl - Cannot inform master of change of state
+java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.UnmarshalException: error unmarshalling arguments; nested exception is: 
+	java.io.OptionalDataException
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:391)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+	at java.rmi/sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:303)
+	at java.rmi/sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:279)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:164)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:217)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:162)
+	at com.sun.proxy.$Proxy7.evosuite_collectStatistics(Unknown Source)
+	at org.evosuite.rmi.service.ClientNodeImpl.updateStatistics(ClientNodeImpl.java:251)
+	at org.evosuite.statistics.StatisticsSender.sendIndividualToMaster(StatisticsSender.java:62)
+	at org.evosuite.statistics.StatisticsListener.lambda$new$0(StatisticsListener.java:76)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.rmi.UnmarshalException: error unmarshalling arguments; nested exception is: 
+	java.io.OptionalDataException
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:350)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	... 1 common frames omitted
+Caused by: java.io.OptionalDataException: null
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1710)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+	at java.base/java.util.HashMap.readObject(HashMap.java:1464)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1046)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2357)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2496)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2390)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+	at java.base/java.util.HashMap.readObject(HashMap.java:1464)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1046)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2357)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2496)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2390)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+	at java.rmi/sun.rmi.server.UnicastRef.unmarshalValue(UnicastRef.java:327)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:339)
+	... 12 common frames omitted
+
+[exit=0 timeout=False time=125.0s]
+
+$ javac -nowarn -cp /work/Chart_15f/build:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_15f/lib/servlet.jar:/work/Chart_15f/build:/work/Chart_15f/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Chart_15f/budget60_seed1/classes /work/evo_out/Chart_15f/budget60_seed1/tests/org/jfree/chart/plot/PiePlot_ESTest.java /work/evo_out/Chart_15f/budget60_seed1/tests/org/jfree/chart/plot/PiePlot_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Chart_15f/build --dest /work/evo_out/Chart_15f/budget60_seed1/instrumented
+[INFO] 607 classes instrumented to /work/evo_out/Chart_15f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Chart_15/budget60_seed1/jacoco.exec -cp /work/evo_out/Chart_15f/budget60_seed1/instrumented:/work/evo_out/Chart_15f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_15f/lib/servlet.jar:/work/Chart_15f/build:/work/Chart_15f/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.jfree.chart.plot.PiePlot_ESTest
+JUnit version 4.12
+..........................................................................................................................
+Time: 2.39
+
+OK (122 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=4.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Chart_15/budget60_seed1/jacoco.exec --classfiles /work/Chart_15f/build --csv /workspace/EvoSuite/Result_Round1/Chart_15/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Chart_15/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 513 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -cp /work/evo_out/Chart_15f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_15b/lib/servlet.jar:/work/Chart_15b/build:/work/Chart_15b/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.jfree.chart.plot.PiePlot_ESTest
+JUnit version 4.12
+...............E....................................................E................................................E.......
+Time: 1.967
+There were 3 failures:
+1) test027(org.jfree.chart.plot.PiePlot_ESTest)
+org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Null 'dataset' argument.
+	at org.jfree.data.general.DatasetUtilities.calculatePieDatasetTotal(DatasetUtilities.java:153)
+	at org.jfree.chart.plot.PiePlot.initialise(PiePlot.java:2051)
+	at org.jfree.chart.plot.RingPlot.initialise(RingPlot.java:322)
+	at org.jfree.chart.plot.PiePlot.drawPie(PiePlot.java:2115)
+	at org.jfree.chart.plot.PiePlot_ESTest.test027(PiePlot_ESTest.java:596)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) test109(org.jfree.chart.plot.PiePlot_ESTest)
+org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Null 'dataset' argument.
+	at org.jfree.data.general.DatasetUtilities.calculatePieDatasetTotal(DatasetUtilities.java:153)
+	at org.jfree.chart.plot.PiePlot.initialise(PiePlot.java:2051)
+	at org.jfree.chart.plot.PiePlot3D.draw(PiePlot3D.java:280)
+	at org.jfree.chart.JFreeChart.draw(JFreeChart.java:1219)
+	at org.jfree.chart.JFreeChart.createBufferedImage(JFreeChart.java:1393)
+	at org.jfree.chart.JFreeChart.createBufferedImage(JFreeChart.java:1373)
+	at org.jfree.chart.JFreeChart.createBufferedImage(JFreeChart.java:1358)
+	at org.jfree.chart.plot.PiePlot_ESTest.test109(PiePlot_ESTest.java:2013)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) test012(org.jfree.chart.plot.PiePlot_ESTest)
+org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Null 'dataset' argument.
+	at org.jfree.data.general.DatasetUtilities.calculatePieDatasetTotal(DatasetUtilities.java:153)
+	at org.jfree.chart.plot.PiePlot.initialise(PiePlot.java:2051)
+	at org.jfree.chart.plot.RingPlot.initialise(RingPlot.java:322)
+	at org.jfree.chart.plot.PiePlot_ESTest.test012(PiePlot_ESTest.java:326)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 122,  Failures: 3
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=1 timeout=False time=2.4s]

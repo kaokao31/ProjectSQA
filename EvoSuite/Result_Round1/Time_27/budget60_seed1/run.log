@@ -1,0 +1,275 @@
+
+$ defects4j checkout -p Time -v 27f -w /work/Time_27f
+Checking out e0559c50 to /work/Time_27f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Time_27f/build.xml............................ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e0559c50:d090b642..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-27f........................................ OK
+
+[exit=0 timeout=False time=4.1s]
+
+$ defects4j compile -w /work/Time_27f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=11.3s]
+
+$ defects4j checkout -p Time -v 27b -w /work/Time_27b
+Checking out e0559c50 to /work/Time_27b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Time_27b/build.xml............................ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e0559c50:d090b642..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-27b........................................ OK
+
+[exit=0 timeout=False time=4.1s]
+
+$ defects4j compile -w /work/Time_27b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=11.9s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Time_27f/build/classes:/work/Time_27f/build/tests:/work/Time_27f/src/test/java org.evosuite.EvoSuite -generateSuite -class org.joda.time.format.PeriodFormatterBuilder -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_27f/build/classes:/work/Time_27f/build/tests:/work/Time_27f/src/test/java -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Time_27f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Time_27f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.joda.time.format.PeriodFormatterBuilder
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Time_27f/build/classes
+  - /work/Time_27f/build/tests
+  - /work/Time_27f/src/test/java
+[MASTER] 03:31:36.058 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+* Finished analyzing classpath
+* Generating tests for class org.joda.time.format.PeriodFormatterBuilder
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 670
+  - Branch 569
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+
+[Progress:>                             0%] [Cov:====>                              12%]
+[Progress:>                             0%] [Cov:======>                            19%]
+[Progress:>                             0%] [Cov:==================>                52%]
+[Progress:>                             1%] [Cov:===>                               10%]
+[Progress:>                             1%] [Cov:=====>                             15%]
+[Progress:>                             1%] [Cov:================>                  48%]
+[Progress:>                             1%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:===>                               10%]
+[Progress:>                             3%] [Cov:=====>                             16%]
+[Progress:>                             3%] [Cov:=================>                 49%]
+[Progress:>                             3%] [Cov:=================>                 50%]
+[Progress:>                             3%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:==>                                8%]
+[Progress:=>                            5%] [Cov:====>                              12%]
+[Progress:=>                            5%] [Cov:================>                  46%]
+[Progress:=>                            5%] [Cov:=================>                 51%]
+[Progress:=>                            5%] [Cov:==================>                52%]
+[Progress:=>                            6%] [Cov:===============>                   45%]
+[Progress:=>                            6%] [Cov:================>                  48%]
+[Progress:=>                            6%] [Cov:=================>                 49%]
+[Progress:=>                            6%] [Cov:=================>                 50%]
+[Progress:=>                            6%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:==>                           8%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           67%]
+[Progress:===>                          10%] [Cov:=======================>           68%]
+[Progress:===>                          10%] [Cov:========================>          69%]
+[Progress:===>                          11%] [Cov:=======================>           67%]
+[Progress:===>                          11%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:========================>          69%]
+[Progress:===>                          13%] [Cov:========================>          69%]
+[Progress:====>                         15%] [Cov:========================>          69%]
+[Progress:====>                         15%] [Cov:========================>          69%]
+[Progress:====>                         16%] [Cov:========================>          69%]
+[Progress:====>                         16%] [Cov:========================>          70%]
+[Progress:=====>                        18%] [Cov:========================>          70%]
+[Progress:=====>                        18%] [Cov:========================>          70%]
+[Progress:======>                       20%] [Cov:========================>          70%]
+[Progress:======>                       21%] [Cov:========================>          70%]
+[Progress:======>                       21%] [Cov:========================>          70%]
+[Progress:======>                       23%] [Cov:========================>          70%]
+[Progress:=======>                      25%] [Cov:========================>          70%]
+[Progress:=======>                      25%] [Cov:========================>          70%]
+[Progress:=======>                      26%] [Cov:========================>          70%]
+[Progress:=======>                      26%] [Cov:========================>          70%]
+[Progress:========>                     28%] [Cov:========================>          70%]
+[Progress:========>                     28%] [Cov:========================>          70%]
+[Progress:=========>                    30%] [Cov:========================>          70%]
+[Progress:=========>                    31%] [Cov:========================>          70%]
+[Progress:=========>                    31%] [Cov:========================>          70%]
+[Progress:=========>                    33%] [Cov:========================>          70%]
+[Progress:=========>                    33%] [Cov:========================>          70%]
+[Progress:==========>                   35%] [Cov:========================>          70%]
+[Progress:==========>                   35%] [Cov:========================>          70%]
+[Progress:==========>                   36%] [Cov:========================>          70%]
+[Progress:==========>                   36%] [Cov:========================>          70%]
+[Progress:===========>                  38%] [Cov:========================>          70%]
+[Progress:===========>                  38%] [Cov:========================>          71%]
+[Progress:============>                 40%] [Cov:========================>          71%]
+[Progress:============>                 40%] [Cov:========================>          71%]
+[Progress:============>                 41%] [Cov:========================>          71%]
+[Progress:============>                 41%] [Cov:========================>          71%]
+[Progress:============>                 43%] [Cov:========================>          71%]
+[Progress:=============>                45%] [Cov:========================>          71%]
+[Progress:=============>                46%] [Cov:========================>          71%]
+[Progress:==============>               48%] [Cov:========================>          71%]
+[Progress:===============>              50%] [Cov:========================>          71%]
+[Progress:===============>              51%] [Cov:========================>          71%]
+[Progress:===============>              53%] [Cov:========================>          71%]
+[Progress:================>             55%] [Cov:========================>          71%]
+[Progress:================>             55%] [Cov:========================>          71%]
+[Progress:================>             56%] [Cov:========================>          71%]
+[Progress:================>             56%] [Cov:========================>          71%]
+[Progress:=================>            58%] [Cov:========================>          71%]
+[Progress:=================>            58%] [Cov:=========================>         72%]
+[Progress:==================>           60%] [Cov:=========================>         72%]
+[Progress:==================>           61%] [Cov:=========================>         72%]
+[Progress:==================>           63%] [Cov:=========================>         72%]
+[Progress:==================>           63%] [Cov:=========================>         73%]
+[Progress:===================>          65%] [Cov:=========================>         72%]
+[Progress:===================>          66%] [Cov:=========================>         73%]
+[Progress:====================>         68%] [Cov:=========================>         73%]
+[Progress:====================>         68%] [Cov:=========================>         73%]
+[Progress:====================>         68%] [Cov:=========================>         74%]
+[Progress:=====================>        70%] [Cov:=========================>         73%]
+[Progress:=====================>        71%] [Cov:==========================>        75%]
+[Progress:=====================>        73%] [Cov:==========================>        75%]
+[Progress:=====================>        73%] [Cov:==========================>        75%]
+[Progress:======================>       75%] [Cov:==========================>        75%]
+[Progress:======================>       75%] [Cov:==========================>        75%]
+[Progress:======================>       76%] [Cov:==========================>        75%]
+[Progress:=======================>      78%] [Cov:==========================>        75%]
+[Progress:========================>     80%] [Cov:==========================>        75%]
+[Progress:========================>     81%] [Cov:==========================>        75%]
+[Progress:========================>     83%] [Cov:==========================>        75%]
+[Progress:========================>     83%] [Cov:==========================>        75%]
+[Progress:=========================>    85%] [Cov:==========================>        75%]
+[Progress:=========================>    85%] [Cov:==========================>        76%]
+[Progress:=========================>    86%] [Cov:==========================>        76%]
+[Progress:==========================>   88%] [Cov:==========================>        76%]
+[Progress:===========================>  90%] [Cov:==========================>        76%]
+[Progress:===========================>  91%] [Cov:==========================>        76%]
+[Progress:===========================>  91%] [Cov:==========================>        76%]
+[Progress:===========================>  93%] [Cov:==========================>        76%]
+[Progress:===========================>  93%] [Cov:==========================>        76%]
+[Progress:============================> 95%] [Cov:==========================>        76%]
+[Progress:============================> 95%] [Cov:==========================>        76%]
+[Progress:============================> 96%] [Cov:==========================>        76%]
+[Progress:============================> 96%] [Cov:==========================>        76%]
+[Progress:=============================>98%] [Cov:==========================>        76%]
+[Progress:=============================>98%] [Cov:==========================>        76%]
+[Progress:=============================>98%] [Cov:==========================>        77%]
+[Progress:==============================100%] [Cov:==========================>        76%]
+[Progress:==============================100%] [Cov:==========================>        77%]
+* Search finished after 62s and 45 generations, 31672 statements, best individual has fitness: 375.0162750979255
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 73%
+* Total number of goals: 670
+* Number of covered goals: 486
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 58%
+* Total number of goals: 569
+* Number of covered goals: 332
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 21
+* Number of covered goals: 21
+* Generated 87 tests with total length 413
+* Resulting test suite's coverage: 77% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 23%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 8
+* Writing tests to file
+* Writing JUnit test case 'PeriodFormatterBuilder_ESTest' to /work/evo_out/Time_27f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=111.9s]
+
+$ javac -nowarn -cp /work/Time_27f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_27f/build/classes:/work/Time_27f/build/tests:/work/Time_27f/src/test/java:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Time_27f/budget60_seed1/classes /work/evo_out/Time_27f/budget60_seed1/tests/org/joda/time/format/PeriodFormatterBuilder_ESTest.java /work/evo_out/Time_27f/budget60_seed1/tests/org/joda/time/format/PeriodFormatterBuilder_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Time_27f/build/classes --dest /work/evo_out/Time_27f/budget60_seed1/instrumented
+[INFO] 226 classes instrumented to /work/evo_out/Time_27f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Time_27/budget60_seed1/jacoco.exec -cp /work/evo_out/Time_27f/budget60_seed1/instrumented:/work/evo_out/Time_27f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_27f/build/classes:/work/Time_27f/build/tests:/work/Time_27f/src/test/java:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.joda.time.format.PeriodFormatterBuilder_ESTest
+JUnit version 4.12
+.......................................................................................
+Time: 1.893
+
+OK (87 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=3.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Time_27/budget60_seed1/jacoco.exec --classfiles /work/Time_27f/build/classes --csv /workspace/EvoSuite/Result_Round1/Time_27/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Time_27/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 202 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -cp /work/evo_out/Time_27f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_27b/build/classes:/work/Time_27b/build/tests:/work/Time_27b/src/test/java:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.joda.time.format.PeriodFormatterBuilder_ESTest
+JUnit version 4.12
+.......................................................................................
+Time: 1.87
+
+OK (87 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=2.4s]

@@ -1,0 +1,439 @@
+
+$ defects4j checkout -p Closure -v 18f -w /work/Closure_18f
+Checking out ea119a2d to /work/Closure_18f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_18f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_18f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea119a2d:686146c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-18f..................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Closure_18f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.5s]
+
+$ defects4j checkout -p Closure -v 18b -w /work/Closure_18b
+Checking out ea119a2d to /work/Closure_18b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_18b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_18b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea119a2d:686146c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-18b..................................... OK
+
+[exit=0 timeout=False time=3.2s]
+
+$ defects4j compile -w /work/Closure_18b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=14.4s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Closure_18f/build/classes:/work/Closure_18f/lib/args4j.jar:/work/Closure_18f/lib/guava.jar:/work/Closure_18f/lib/json.jar:/work/Closure_18f/lib/jsr305.jar:/work/Closure_18f/lib/protobuf-java.jar:/work/Closure_18f/build/lib/rhino.jar:/work/Closure_18f/lib/ant.jar:/work/Closure_18f/lib/ant-launcher.jar:/work/Closure_18f/lib/caja-r4314.jar:/work/Closure_18f/lib/jarjar.jar:/work/Closure_18f/build/test org.evosuite.EvoSuite -generateSuite -class com.google.javascript.jscomp.Compiler -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_18f/build/classes:/work/Closure_18f/lib/args4j.jar:/work/Closure_18f/lib/guava.jar:/work/Closure_18f/lib/json.jar:/work/Closure_18f/lib/jsr305.jar:/work/Closure_18f/lib/protobuf-java.jar:/work/Closure_18f/build/lib/rhino.jar:/work/Closure_18f/lib/ant.jar:/work/Closure_18f/lib/ant-launcher.jar:/work/Closure_18f/lib/caja-r4314.jar:/work/Closure_18f/lib/jarjar.jar:/work/Closure_18f/build/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Closure_18f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Closure_18f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: com.google.javascript.jscomp.Compiler
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Closure_18f/build/classes
+  - /work/Closure_18f/lib/args4j.jar
+  - /work/Closure_18f/lib/guava.jar
+  - /work/Closure_18f/lib/json.jar
+  - /work/Closure_18f/lib/jsr305.jar
+  - /work/Closure_18f/lib/protobuf-java.jar
+  - /work/Closure_18f/build/lib/rhino.jar
+  - /work/Closure_18f/lib/ant.jar
+  - /work/Closure_18f/lib/ant-launcher.jar
+  - /work/Closure_18f/lib/caja-r4314.jar
+  - /work/Closure_18f/lib/jarjar.jar
+  - /work/Closure_18f/build/test
+[MASTER] 12:51:25.458 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 12:51:25.551 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 12:51:26.350 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class com.google.javascript.jscomp.Compiler
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 978
+  - Branch 565
+  - Exception 0
+* Using seed 1
+
+[Progress:>                             0%] [Cov:>                                  0%]* Starting evolution
+[MASTER] 12:51:27.313 [logback-1] WARN  TestCluster - Failed to check cache for com.google.javascript.jscomp.DisambiguateProperties<T> : Type points to itself
+
+[Progress:>                             1%] [Cov:>                                  0%]
+[Progress:>                             1%] [Cov:===========>                       33%]
+[Progress:>                             1%] [Cov:============>                      35%][MASTER] 12:51:28.604 [logback-1] WARN  MSecurityManager - SUT asked for a runtime permission that EvoSuite does not recognize: getStackWalkerWithClassReference
+
+[Progress:>                             3%] [Cov:==>                                6%]
+[Progress:>                             3%] [Cov:===>                               11%]
+[Progress:>                             3%] [Cov:===============>                   44%]
+[Progress:>                             3%] [Cov:================>                  47%]
+[Progress:=>                            5%] [Cov:==>                                7%]
+[Progress:=>                            5%] [Cov:====>                              14%]
+[Progress:=>                            5%] [Cov:================>                  47%]
+[Progress:=>                            6%] [Cov:>                                  1%]
+[Progress:=>                            6%] [Cov:>                                  2%]
+[Progress:=>                            6%] [Cov:============>                      35%]
+[Progress:=>                            6%] [Cov:=============>                     39%]
+[Progress:=>                            6%] [Cov:==============>                    40%]
+[Progress:=>                            6%] [Cov:===============>                   45%][MASTER] 12:51:31.205 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Enumeration<E> : Type points to itself
+
+[Progress:=>                            6%] [Cov:================>                  46%]
+[Progress:=>                            6%] [Cov:================>                  47%]
+[Progress:==>                           8%] [Cov:===========>                       34%]
+[Progress:==>                           8%] [Cov:============>                      35%]
+[Progress:==>                           8%] [Cov:============>                      37%]
+[Progress:==>                           8%] [Cov:=============>                     38%]
+[Progress:==>                           8%] [Cov:================>                  46%]
+[Progress:==>                           8%] [Cov:================>                  47%]
+[Progress:==>                           8%] [Cov:================>                  48%]
+[Progress:==>                           8%] [Cov:=====================>             61%][MASTER] 12:51:32.761 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for com.google.javascript.jscomp.DisambiguateProperties<com.google.javascript.jscomp.JSSourceFile> canUseFunctionalMocks=true, canBeMocked: false
+
+[Progress:===>                          10%] [Cov:=====================>             61%]
+[Progress:===>                          10%] [Cov:=====================>             61%]
+[Progress:=====>                        18%] [Cov:=====================>             61%]
+[Progress:======>                       20%] [Cov:=====================>             61%]
+[Progress:========>                     28%] [Cov:=====================>             61%]
+[Progress:========>                     28%] [Cov:=====================>             61%]
+[Progress:=========>                    30%] [Cov:=====================>             61%]
+[Progress:=========>                    30%] [Cov:=====================>             61%]
+[Progress:=========>                    31%] [Cov:=====================>             61%]
+[Progress:============>                 40%] [Cov:=====================>             61%]
+[Progress:============>                 40%] [Cov:=====================>             62%]
+[Progress:============>                 40%] [Cov:======================>            63%]
+[Progress:============>                 40%] [Cov:======================>            63%]
+[Progress:============>                 41%] [Cov:======================>            63%]
+[Progress:============>                 41%] [Cov:======================>            63%]
+[Progress:============>                 43%] [Cov:======================>            63%]
+[Progress:============>                 43%] [Cov:======================>            63%]
+[Progress:=============>                45%] [Cov:======================>            63%]
+[Progress:=============>                45%] [Cov:======================>            63%]
+[Progress:=============>                46%] [Cov:======================>            63%]
+[Progress:=============>                46%] [Cov:======================>            64%]
+[Progress:==============>               48%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              50%] [Cov:======================>            64%]
+[Progress:===============>              51%] [Cov:======================>            64%]
+[Progress:===============>              51%] [Cov:======================>            64%]
+[Progress:===============>              53%] [Cov:======================>            64%]
+[Progress:================>             55%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:================>             56%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            64%]
+[Progress:=================>            58%] [Cov:======================>            65%]
+[Progress:==================>           60%] [Cov:======================>            65%]
+[Progress:==================>           61%] [Cov:======================>            65%]
+[Progress:==================>           63%] [Cov:======================>            65%]
+[Progress:===================>          65%] [Cov:======================>            65%]
+[Progress:===================>          66%] [Cov:======================>            65%]
+[Progress:===================>          66%] [Cov:=======================>           66%]
+[Progress:====================>         68%] [Cov:======================>            65%]
+[Progress:=====================>        70%] [Cov:=======================>           66%]
+[Progress:=====================>        71%] [Cov:=======================>           66%]
+[Progress:=====================>        73%] [Cov:=======================>           66%]
+[Progress:======================>       75%] [Cov:=======================>           66%]
+[Progress:======================>       75%] [Cov:=======================>           66%]
+[Progress:======================>       76%] [Cov:=======================>           66%]
+[Progress:=======================>      78%] [Cov:=======================>           66%]
+[Progress:========================>     80%] [Cov:=======================>           66%]
+[Progress:========================>     81%] [Cov:=======================>           66%]
+[Progress:========================>     83%] [Cov:=======================>           66%]
+[Progress:=========================>    85%] [Cov:=======================>           66%]
+[Progress:=========================>    85%] [Cov:=======================>           66%]
+[Progress:=========================>    86%] [Cov:=======================>           66%]
+[Progress:==========================>   88%] [Cov:=======================>           66%]
+[Progress:===========================>  90%] [Cov:=======================>           66%]
+[Progress:===========================>  90%] [Cov:=======================>           67%]
+[Progress:===========================>  91%] [Cov:=======================>           67%]
+[Progress:===========================>  93%] [Cov:=======================>           67%]
+[Progress:===========================>  93%] [Cov:=======================>           67%]
+[Progress:============================> 95%] [Cov:=======================>           67%]
+[Progress:============================> 96%] [Cov:=======================>           67%]
+[Progress:=============================>98%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+[Progress:==============================100%] [Cov:=======================>           67%]
+* Search finished after 62s and 30 generations, 10471 statements, best individual has fitness: 485.1758830119526
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 55%
+* Total number of goals: 978
+* Number of covered goals: 537
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 46%
+* Total number of goals: 565
+* Number of covered goals: 262
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 99%
+* Total number of goals: 86
+* Number of covered goals: 85
+* Generated 132 tests with total length 438
+* Resulting test suite's coverage: 67% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 12%
+* Compiling and checking tests
+[MASTER] 12:53:08.391 [logback-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.AssertionError: Expecting exception: IllegalArgumentException
+[MASTER] 12:53:08.391 [logback-1] WARN  JUnitAnalyzer - Failing test:
+ DenormalizeTest denormalizeTest0 = new DenormalizeTest();
+denormalizeTest0.testInOperatorNotInsideFor();
+
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         getStackWalkerWithClassReference: 1
+         writeFileDescriptor: 1
+* Writing tests to file
+* Writing JUnit test case 'Compiler_ESTest' to /work/evo_out/Closure_18f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+
+[exit=0 timeout=False time=141.3s]
+
+$ javac -nowarn -cp /work/Closure_18f/build/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_18f/build/classes:/work/Closure_18f/lib/args4j.jar:/work/Closure_18f/lib/guava.jar:/work/Closure_18f/lib/json.jar:/work/Closure_18f/lib/jsr305.jar:/work/Closure_18f/lib/protobuf-java.jar:/work/Closure_18f/build/lib/rhino.jar:/work/Closure_18f/lib/ant.jar:/work/Closure_18f/lib/ant-launcher.jar:/work/Closure_18f/lib/caja-r4314.jar:/work/Closure_18f/lib/jarjar.jar:/work/Closure_18f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Closure_18f/budget60_seed1/classes /work/evo_out/Closure_18f/budget60_seed1/tests/com/google/javascript/jscomp/Compiler_ESTest.java /work/evo_out/Closure_18f/budget60_seed1/tests/com/google/javascript/jscomp/Compiler_ESTest_scaffolding.java
+Note: /work/evo_out/Closure_18f/budget60_seed1/tests/com/google/javascript/jscomp/Compiler_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Closure_18f/build/classes --dest /work/evo_out/Closure_18f/budget60_seed1/instrumented
+[INFO] 1360 classes instrumented to /work/evo_out/Closure_18f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Closure_18/budget60_seed1/jacoco.exec -cp /work/evo_out/Closure_18f/budget60_seed1/instrumented:/work/evo_out/Closure_18f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_18f/build/classes:/work/Closure_18f/lib/args4j.jar:/work/Closure_18f/lib/guava.jar:/work/Closure_18f/lib/json.jar:/work/Closure_18f/lib/jsr305.jar:/work/Closure_18f/lib/protobuf-java.jar:/work/Closure_18f/build/lib/rhino.jar:/work/Closure_18f/lib/ant.jar:/work/Closure_18f/lib/ant-launcher.jar:/work/Closure_18f/lib/caja-r4314.jar:/work/Closure_18f/lib/jarjar.jar:/work/Closure_18f/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.Compiler_ESTest
+JUnit version 4.12
+...................................E.................................................................................................
+Time: 2.955
+There was 1 failure:
+1) test094(com.google.javascript.jscomp.Compiler_ESTest)
+java.lang.ExceptionInInitializerError
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.severe(Logger.java:1776)
+	at com.google.javascript.jscomp.LoggerErrorManager.println(LoggerErrorManager.java:53)
+	at com.google.javascript.jscomp.BasicErrorManager.generateReport(BasicErrorManager.java:58)
+	at com.google.javascript.jscomp.Compiler.compile(Compiler.java:547)
+	at com.google.javascript.jscomp.Compiler_ESTest.test094(Compiler_ESTest.java:1443)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.SecurityException: Security manager blocks ("java.lang.RuntimePermission" "getStackWalkerWithClassReference")
+java.base/java.lang.Thread.getStackTrace(Thread.java:1602)
+org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:424)
+java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+java.base/java.security.AccessController.doPrivileged(Native Method)
+java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+java.logging/java.util.logging.Logger.log(Logger.java:979)
+java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+java.logging/java.util.logging.Logger.log(Logger.java:1029)
+java.logging/java.util.logging.Logger.severe(Logger.java:1776)
+com.google.javascript.jscomp.LoggerErrorManager.println(LoggerErrorManager.java:53)
+com.google.javascript.jscomp.BasicErrorManager.generateReport(BasicErrorManager.java:58)
+com.google.javascript.jscomp.Compiler.compile(Compiler.java:547)
+com.google.javascript.jscomp.Compiler_ESTest.test094(Compiler_ESTest.java:1443)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:566)
+org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+java.base/java.lang.Thread.run(Thread.java:829)
+
+	at org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:436)
+	at java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+	... 25 more
+
+FAILURES!!!
+Tests run: 132,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+com.google.javascript.rhino.head.Kit.codeBug(Kit.java:449)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+com.google.javascript.rhino.head.Kit.codeBug(Kit.java:449)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+
+[exit=1 timeout=False time=5.5s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Closure_18/budget60_seed1/jacoco.exec --classfiles /work/Closure_18f/build/classes --csv /workspace/EvoSuite/Result_Round1/Closure_18/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Closure_18/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 1162 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -cp /work/evo_out/Closure_18f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_18b/build/classes:/work/Closure_18b/lib/args4j.jar:/work/Closure_18b/lib/guava.jar:/work/Closure_18b/lib/json.jar:/work/Closure_18b/lib/jsr305.jar:/work/Closure_18b/lib/protobuf-java.jar:/work/Closure_18b/build/lib/rhino.jar:/work/Closure_18b/lib/ant.jar:/work/Closure_18b/lib/ant-launcher.jar:/work/Closure_18b/lib/caja-r4314.jar:/work/Closure_18b/lib/jarjar.jar:/work/Closure_18b/build/test:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore com.google.javascript.jscomp.Compiler_ESTest
+JUnit version 4.12
+...................................E.................................................................................................
+Time: 2.776
+There was 1 failure:
+1) test094(com.google.javascript.jscomp.Compiler_ESTest)
+java.lang.ExceptionInInitializerError
+	at java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+	at java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+	at java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+	at java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+	at java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.log(Logger.java:1029)
+	at java.logging/java.util.logging.Logger.severe(Logger.java:1776)
+	at com.google.javascript.jscomp.LoggerErrorManager.println(LoggerErrorManager.java:53)
+	at com.google.javascript.jscomp.BasicErrorManager.generateReport(BasicErrorManager.java:58)
+	at com.google.javascript.jscomp.Compiler.compile(Compiler.java:547)
+	at com.google.javascript.jscomp.Compiler_ESTest.test094(Compiler_ESTest.java:1443)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.SecurityException: Security manager blocks ("java.lang.RuntimePermission" "getStackWalkerWithClassReference")
+java.base/java.lang.Thread.getStackTrace(Thread.java:1602)
+org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:424)
+java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+java.base/java.security.AccessController.doPrivileged(Native Method)
+java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+java.logging/java.util.logging.LogRecord.inferCaller(LogRecord.java:683)
+java.logging/java.util.logging.LogRecord.getSourceClassName(LogRecord.java:352)
+java.logging/java.util.logging.SimpleFormatter.format(SimpleFormatter.java:160)
+java.logging/java.util.logging.StreamHandler.publish(StreamHandler.java:199)
+java.logging/java.util.logging.ConsoleHandler.publish(ConsoleHandler.java:95)
+java.logging/java.util.logging.Logger.log(Logger.java:979)
+java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+java.logging/java.util.logging.Logger.log(Logger.java:1029)
+java.logging/java.util.logging.Logger.severe(Logger.java:1776)
+com.google.javascript.jscomp.LoggerErrorManager.println(LoggerErrorManager.java:53)
+com.google.javascript.jscomp.BasicErrorManager.generateReport(BasicErrorManager.java:58)
+com.google.javascript.jscomp.Compiler.compile(Compiler.java:547)
+com.google.javascript.jscomp.Compiler_ESTest.test094(Compiler_ESTest.java:1443)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:566)
+org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+java.base/java.lang.Thread.run(Thread.java:829)
+
+	at org.evosuite.runtime.sandbox.MSecurityManager.checkPermission(MSecurityManager.java:436)
+	at java.base/java.lang.StackWalker.checkPermission(StackWalker.java:424)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:365)
+	at java.base/java.lang.StackWalker.getInstance(StackWalker.java:336)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.lambda$static$0(LogRecord.java:700)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.logging/java.util.logging.LogRecord$CallerFinder.<clinit>(LogRecord.java:701)
+	... 25 more
+
+FAILURES!!!
+Tests run: 132,  Failures: 1
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+com.google.javascript.rhino.head.Kit.codeBug(Kit.java:449)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+com.google.javascript.rhino.head.Kit.codeBug(Kit.java:449)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+<evosuite>.<evosuite>(<evosuite>)
+
+[exit=1 timeout=False time=3.2s]
