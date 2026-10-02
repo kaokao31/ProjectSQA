@@ -1,0 +1,295 @@
+
+$ defects4j checkout -p Chart -v 18f -w /work/Chart_18f
+Checking out 621 to /work/Chart_18f........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 621:620............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-18f....................................... OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ defects4j compile -w /work/Chart_18f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=103.4s]
+
+$ defects4j checkout -p Chart -v 18b -w /work/Chart_18b
+Checking out 621 to /work/Chart_18b........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 621:620............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-18b....................................... OK
+
+[exit=0 timeout=False time=8.3s]
+
+$ defects4j compile -w /work/Chart_18b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=131.8s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.jfree.data.DefaultKeyedValues,org.jfree.data.DefaultKeyedValues2D --fixed-cp /work/Chart_18f/build:/work/Chart_18f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_18f/build-tests --buggy-cp /work/Chart_18b/build:/work/Chart_18b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_18b/build-tests --out /workspace/jqwik/Auto/Chart_18 --max-methods 150
+generated test classes: 2 / 2
+
+[exit=0 timeout=False time=1.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Chart_18f/build:/work/Chart_18f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_18f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Chart_18/org/jfree/data/DefaultKeyedValues2D_AutoPbtTest.java /workspace/jqwik/Auto/Chart_18/org/jfree/data/DefaultKeyedValues_AutoPbtTest.java
+
+[exit=0 timeout=False time=4.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Chart_18b/build:/work/Chart_18b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_18b/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Chart_18/org/jfree/data/DefaultKeyedValues2D_AutoPbtTest.java /workspace/jqwik/Auto/Chart_18/org/jfree/data/DefaultKeyedValues_AutoPbtTest.java
+
+[exit=0 timeout=False time=4.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_18f:/work/Chart_18b:/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f:/work/Chart_18f/build:/work/Chart_18f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_18f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/reports_record
+-------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:51:00.344112, DefaultKeyedValues AutoPbtTest:m000 addValue = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   ├─[0m [36mDefaultKeyedValues2D AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 getRowKeys[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 getValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm016 removeRow[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 getRowIndex[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 removeColumn[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 getRowCount[0m [32m✔[0m
+[36m   │  ├─[0m [34mm014 removeColumn[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 clear[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 removeValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 hashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 setValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 getColumnKey[0m [32m✔[0m
+[36m   │  ├─[0m [34mm017 removeRow[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 getRowKey[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 getColumnKeys[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getColumnIndex[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 addValue[0m [32m✔[0m
+[36m   │  └─[0m [34mm003 getColumnCount[0m [32m✔[0m
+[36m   └─[0m [36mDefaultKeyedValues AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm012 insertValue[0m [32m✔[0m
+[36m      ├─[0m [34mm011 insertValue[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm017 sortByKeys[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getIndex[0m [32m✔[0m
+[36m      ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm018 sortByValues[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getKey[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getItemCount[0m [32m✔[0m
+[36m      ├─[0m [34mm002 clear[0m [32m✔[0m
+[36m      ├─[0m [34mm010 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm014 removeValue[0m [32m✔[0m
+[36m      ├─[0m [34mm016 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getKeys[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addValue[0m [32m✔[0m
+[36m      ├─[0m [34mm015 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm013 removeValue[0m [32m✔[0m
+[36m      └─[0m [34mm000 addValue[0m [32m✔[0m
+
+Test run finished after 17506 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        41 tests found           ]
+[         0 tests skipped         ]
+[        41 tests started         ]
+[         0 tests aborted         ]
+[        41 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=22.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_18f:/work/Chart_18b:/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f:/work/Chart_18f/build:/work/Chart_18f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_18f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/reports_fixed
+-------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:51:37.503061, DefaultKeyedValues AutoPbtTest:m000 addValue = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   ├─[0m [36mDefaultKeyedValues2D AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 getRowKeys[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 getValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm016 removeRow[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 getRowIndex[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 removeColumn[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 getRowCount[0m [32m✔[0m
+[36m   │  ├─[0m [34mm014 removeColumn[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 clear[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 removeValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 hashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 setValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 getColumnKey[0m [32m✔[0m
+[36m   │  ├─[0m [34mm017 removeRow[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 getRowKey[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 getColumnKeys[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getColumnIndex[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 addValue[0m [32m✔[0m
+[36m   │  └─[0m [34mm003 getColumnCount[0m [32m✔[0m
+[36m   └─[0m [36mDefaultKeyedValues AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm012 insertValue[0m [32m✔[0m
+[36m      ├─[0m [34mm011 insertValue[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm017 sortByKeys[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getIndex[0m [32m✔[0m
+[36m      ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm018 sortByValues[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getKey[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getItemCount[0m [32m✔[0m
+[36m      ├─[0m [34mm002 clear[0m [32m✔[0m
+[36m      ├─[0m [34mm010 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm014 removeValue[0m [32m✔[0m
+[36m      ├─[0m [34mm016 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getKeys[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addValue[0m [32m✔[0m
+[36m      ├─[0m [34mm015 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm013 removeValue[0m [32m✔[0m
+[36m      └─[0m [34mm000 addValue[0m [32m✔[0m
+
+Test run finished after 22156 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        41 tests found           ]
+[         0 tests skipped         ]
+[        41 tests started         ]
+[         0 tests aborted         ]
+[        41 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=48.5s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/jacoco.exec --classfiles /work/Chart_18f/build --csv /workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 513 classes.
+
+[exit=0 timeout=False time=5.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_18f:/work/Chart_18b:/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_b:/work/Chart_18b/build:/work/Chart_18b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_18b/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_18/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_18/tries200_seed1/reports_buggy
+=void | this=obj org.jfree.data.DefaultKeyedValues[0m
+[36m      ├─[0m [34mm016 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getKeys[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addValue[0m [32m✔[0m
+[36m      ├─[0m [34mm015 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm013 removeValue[0m [32m✔[0m
+[36m      └─[0m [34mm000 addValue[0m [32m✔[0m
+
+Failures (2):
+  jqwik (JUnit Platform):DefaultKeyedValues2D AutoPbtTest:m015 removeColumn
+    MethodSource [className = 'org.jfree.data.DefaultKeyedValues2D_AutoPbtTest', methodName = 'm015_removeColumn', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.jfree.data.DefaultKeyedValues2D.removeColumn(java.lang.Comparable)
+  input:    new DefaultKeyedValues2D.<init>[Boolean:false].removeColumn[null]
+  expected: throws java.lang.IllegalArgumentException | this=obj org.jfree.data.DefaultKeyedValues2D
+  actual:   ret=void | this=obj org.jfree.data.DefaultKeyedValues2D
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.jfree.data.DefaultKeyedValues2D_AutoPbtTest.m015_removeColumn(DefaultKeyedValues2D_AutoPbtTest.java:166)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):DefaultKeyedValues AutoPbtTest:m014 removeValue
+    MethodSource [className = 'org.jfree.data.DefaultKeyedValues_AutoPbtTest', methodName = 'm014_removeValue', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.jfree.data.DefaultKeyedValues.removeValue(java.lang.Comparable)
+  input:    new DefaultKeyedValues.<init>[].removeValue["-0xCd3d157feda119"]
+  expected: throws org.jfree.data.UnknownKeyException | this=obj org.jfree.data.DefaultKeyedValues
+  actual:   ret=void | this=obj org.jfree.data.DefaultKeyedValues
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.jfree.data.DefaultKeyedValues_AutoPbtTest.m014_removeValue(DefaultKeyedValues_AutoPbtTest.java:155)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 12417 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        41 tests found           ]
+[         0 tests skipped         ]
+[        41 tests started         ]
+[         0 tests aborted         ]
+[        39 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=17.7s]

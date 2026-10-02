@@ -1,0 +1,26 @@
+{
+ "fixed": {
+  "passed": 37,
+  "failed": {}
+ },
+ "buggy": {
+  "passed": 35,
+  "failed": {
+   "com.fasterxml.jackson.core.io.NumberInput_AutoPbtTest#m006 parseBigDecimal": {
+    "type": "AssertionError",
+    "message": "[regression] com.fasterxml.jackson.core.io.NumberInput.parseBigDecimal(char[],int,int)   input:    parseBigDecimal[char['-', '0', 'x', 'C', 'd', '3', 'd', '1', '5', '7', 'f', 'e', 'd', 'a', '1', '1', '9'], Integer:1, Integer:-6979]   expected: throws java.lang.StringIndexOutOfBoundsException | arg0=char['-','0','x','C','d','3','d','1','5','7','f','e','d','a','1','1','9']   actual:   throws java.lang.NumberFormatException | arg0=char['-','0','x','C','d','3','d','1','5','7','f','e','d','a','1','1','9']",
+    "trace": "java.lang.AssertionError: [regression] com.fasterxml.jackson.core.io.NumberInput.parseBigDecimal(char[],int,int)\n  input:    parseBigDecimal[char['-', '0', 'x', 'C', 'd', '3', 'd', '1', '5', '7', 'f', 'e', 'd', 'a', '1', '1', '9'], Integer:1, Integer:-6979]\n  expected: throws java.lang.StringIndexOutOfBoundsException | arg0=char['-','0','x','C','d','3','d','1','5','7','f','e','d','a','1','1','9']\n  actual:   throws java.lang.NumberFormatException | arg0=char['-','0','x','C','d','3','d','1','5','7','f','e','d','a','1','1','9']\n\tat pbt.auto.AutoTarget.check(AutoTarget.java:127)\n\tat com.fasterxml"
+   },
+   "com.fasterxml.jackson.core.util.TextBuffer_AutoPbtTest#m004 contentsAsDecimal": {
+    "type": "AssertionError",
+    "message": "[regression] com.fasterxml.jackson.core.util.TextBuffer.contentsAsDecimal()   input:    new TextBuffer.<init>[new BufferRecycler.<init>[]].contentsAsDecimal[]   expected: throws java.lang.NumberFormatException | this=TextBuffer:   actual:   throws java.lang.NullPointerException | this=TextBuffer:",
+    "trace": "java.lang.AssertionError: [regression] com.fasterxml.jackson.core.util.TextBuffer.contentsAsDecimal()\n  input:    new TextBuffer.<init>[new BufferRecycler.<init>[]].contentsAsDecimal[]\n  expected: throws java.lang.NumberFormatException | this=TextBuffer:\n  actual:   throws java.lang.NullPointerException | this=TextBuffer:\n\tat pbt.auto.AutoTarget.check(AutoTarget.java:127)\n\tat com.fasterxml.jackson.core.util.TextBuffer_AutoPbtTest.m004_contentsAsDecimal(TextBuffer_AutoPbtTest.java:55)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.r"
+   }
+  }
+ },
+ "detecting": [
+  "com.fasterxml.jackson.core.io.NumberInput_AutoPbtTest#m006 parseBigDecimal",
+  "com.fasterxml.jackson.core.util.TextBuffer_AutoPbtTest#m004 contentsAsDecimal"
+ ],
+ "false_alarm": []
+}

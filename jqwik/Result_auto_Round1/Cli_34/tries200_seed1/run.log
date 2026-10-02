@@ -1,0 +1,299 @@
+
+$ defects4j checkout -p Cli -v 34f -w /work/Cli_34f
+Checking out 62a3b36e to /work/Cli_34f..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Cli_34f/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 62a3b36e:40c4892e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-34f......................................... OK
+
+[exit=0 timeout=False time=1.7s]
+
+$ defects4j compile -w /work/Cli_34f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.3s]
+
+$ defects4j checkout -p Cli -v 34b -w /work/Cli_34b
+Checking out 62a3b36e to /work/Cli_34b..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Cli_34b/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 62a3b36e:40c4892e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-34b......................................... OK
+
+[exit=0 timeout=False time=1.4s]
+
+$ defects4j compile -w /work/Cli_34b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.cli.Option,org.apache.commons.cli.OptionBuilder --fixed-cp /work/Cli_34f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.2/junit-3.8.2.jar:/opt/defects4j/framework/projects/Cli/lib/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/work/Cli_34f/target/test-classes --buggy-cp /work/Cli_34b/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.2/junit-3.8.2.jar:/opt/defects4j/framework/projects/Cli/lib/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/work/Cli_34b/target/test-classes --out /workspace/jqwik/Auto/Cli_34 --max-methods 150
+generated test classes: 2 / 2
+
+[exit=0 timeout=False time=0.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Cli_34f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.2/junit-3.8.2.jar:/opt/defects4j/framework/projects/Cli/lib/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/work/Cli_34f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Cli_34/org/apache/commons/cli/OptionBuilder_AutoPbtTest.java /workspace/jqwik/Auto/Cli_34/org/apache/commons/cli/Option_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Cli_34b/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.2/junit-3.8.2.jar:/opt/defects4j/framework/projects/Cli/lib/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/work/Cli_34b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Cli_34/org/apache/commons/cli/OptionBuilder_AutoPbtTest.java /workspace/jqwik/Auto/Cli_34/org/apache/commons/cli/Option_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_34f:/work/Cli_34b:/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f:/work/Cli_34f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.2/junit-3.8.2.jar:/opt/defects4j/framework/projects/Cli/lib/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/work/Cli_34f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/reports_record
+y generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   ├─[0m [36mOptionBuilder AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 withArgName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 create[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 isRequired[0m [32m✔[0m
+[36m   │  ├─[0m [34mm014 withLongOpt[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 isRequired[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 create[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 withType[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 hasArgs[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 hasArg[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 hasOptionalArgs[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 withDescription[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 create[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 hasOptionalArg[0m [32m✔[0m
+[36m   │  ├─[0m [34mm017 withValueSeparator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm016 withValueSeparator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 hasArgs[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 hasOptionalArgs[0m [32m✔[0m
+[36m   │  └─[0m [34mm004 hasArg[0m [32m✔[0m
+[36m   └─[0m [36mOption AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm022 hasLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getId[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm031 setLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm033 setRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm028 setArgName[0m [32m✔[0m
+[36m      ├─[0m [34mm025 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm000 acceptsArg[0m [32m✔[0m
+[36m      ├─[0m [34mm026 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm036 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getDescription[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getValuesList[0m [32m✔[0m
+[36m      ├─[0m [34mm029 setArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm034 setType[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm024 hasValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm035 setValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm019 hasArg[0m [32m✔[0m
+[36m      ├─[0m [34mm030 setDescription[0m [32m✔[0m
+[36m      ├─[0m [34mm002 addValueForProcessing[0m [32m✔[0m
+[36m      ├─[0m [34mm027 requiresArg[0m [32m✔[0m
+[36m      ├─[0m [34mm020 hasArgName[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getValues[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getArgName[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm032 setOptionalArg[0m [32m✔[0m
+[36m      ├─[0m [34mm003 clearValues[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm023 hasOptionalArg[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addValue[0m [32m✔[0m
+[36m      ├─[0m [34mm004 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getType[0m [32m✔[0m
+[36m      └─[0m [34mm009 getKey[0m [32m✔[0m
+
+Test run finished after 5638 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        56 tests found           ]
+[         0 tests skipped         ]
+[        56 tests started         ]
+[         0 tests aborted         ]
+[        56 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=7.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_34f:/work/Cli_34b:/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f:/work/Cli_34f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.2/junit-3.8.2.jar:/opt/defects4j/framework/projects/Cli/lib/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/work/Cli_34f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/reports_fixed
+y generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   ├─[0m [36mOptionBuilder AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 withArgName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 create[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 isRequired[0m [32m✔[0m
+[36m   │  ├─[0m [34mm014 withLongOpt[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 isRequired[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 create[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 withType[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 hasArgs[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 hasArg[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 hasOptionalArgs[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 withDescription[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 create[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 hasOptionalArg[0m [32m✔[0m
+[36m   │  ├─[0m [34mm017 withValueSeparator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm016 withValueSeparator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 hasArgs[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 hasOptionalArgs[0m [32m✔[0m
+[36m   │  └─[0m [34mm004 hasArg[0m [32m✔[0m
+[36m   └─[0m [36mOption AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm022 hasLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getId[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm031 setLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm033 setRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm028 setArgName[0m [32m✔[0m
+[36m      ├─[0m [34mm025 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm000 acceptsArg[0m [32m✔[0m
+[36m      ├─[0m [34mm026 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm036 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getDescription[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getValuesList[0m [32m✔[0m
+[36m      ├─[0m [34mm029 setArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm034 setType[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm024 hasValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm035 setValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm019 hasArg[0m [32m✔[0m
+[36m      ├─[0m [34mm030 setDescription[0m [32m✔[0m
+[36m      ├─[0m [34mm002 addValueForProcessing[0m [32m✔[0m
+[36m      ├─[0m [34mm027 requiresArg[0m [32m✔[0m
+[36m      ├─[0m [34mm020 hasArgName[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getValues[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getArgName[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm032 setOptionalArg[0m [32m✔[0m
+[36m      ├─[0m [34mm003 clearValues[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm023 hasOptionalArg[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addValue[0m [32m✔[0m
+[36m      ├─[0m [34mm004 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getType[0m [32m✔[0m
+[36m      └─[0m [34mm009 getKey[0m [32m✔[0m
+
+Test run finished after 5459 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        56 tests found           ]
+[         0 tests skipped         ]
+[        56 tests started         ]
+[         0 tests aborted         ]
+[        56 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=12.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/jacoco.exec --classfiles /work/Cli_34f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 22 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_34f:/work/Cli_34b:/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_b:/work/Cli_34b/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.2/junit-3.8.2.jar:/opt/defects4j/framework/projects/Cli/lib/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/work/Cli_34b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_34/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_34/tries200_seed1/reports_buggy
+dAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):Option AutoPbtTest:m012 getType
+    MethodSource [className = 'org.apache.commons.cli.Option_AutoPbtTest', methodName = 'm012_getType', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.cli.Option.getType()
+  input:    new Option.<init>["hYTC", "XPqblEgNVLs"].getType[]
+  expected: ret=class java.lang.String | this=Option:[ option: hYTC  :: XPqblEgNVLs :: class java.lang.String ]
+  actual:   ret=null | this=Option:[ option: hYTC  :: XPqblEgNVLs ]
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.cli.Option_AutoPbtTest.m012_getType(Option_AutoPbtTest.java:137)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):Option AutoPbtTest:m009 getKey
+    MethodSource [className = 'org.apache.commons.cli.Option_AutoPbtTest', methodName = 'm009_getKey', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.cli.Option.getKey()
+  input:    new Option.<init>["hYTC", "XPqblEgNVLs"].getKey[]
+  expected: ret="hYTC" | this=Option:[ option: hYTC  :: XPqblEgNVLs :: class java.lang.String ]
+  actual:   ret="hYTC" | this=Option:[ option: hYTC  :: XPqblEgNVLs ]
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.cli.Option_AutoPbtTest.m009_getKey(Option_AutoPbtTest.java:107)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 3631 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        56 tests found           ]
+[         0 tests skipped         ]
+[        56 tests started         ]
+[         0 tests aborted         ]
+[        17 tests successful      ]
+[        39 tests failed          ]
+
+
+[exit=1 timeout=False time=5.2s]

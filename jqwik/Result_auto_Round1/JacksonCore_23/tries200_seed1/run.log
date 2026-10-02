@@ -1,0 +1,309 @@
+
+$ defects4j checkout -p JacksonCore -v 23f -w /work/JacksonCore_23f
+Checking out 157f2c49 to /work/JacksonCore_23f............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/JacksonCore_23f/maven-build.xml............... OK
+Backing up build file: /work/JacksonCore_23f/pom.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 157f2c49:dc5c82e4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-23f................................. OK
+
+[exit=0 timeout=False time=7.8s]
+
+$ defects4j compile -w /work/JacksonCore_23f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=50.9s]
+
+$ defects4j checkout -p JacksonCore -v 23b -w /work/JacksonCore_23b
+Checking out 157f2c49 to /work/JacksonCore_23b............................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/JacksonCore_23b/maven-build.xml............... OK
+Backing up build file: /work/JacksonCore_23b/pom.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 157f2c49:dc5c82e4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-23b................................. OK
+
+[exit=0 timeout=False time=8.4s]
+
+$ defects4j compile -w /work/JacksonCore_23b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=52.0s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.fasterxml.jackson.core.util.DefaultPrettyPrinter --fixed-cp /work/JacksonCore_23f/target/classes:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/JacksonCore/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/JacksonCore_23f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.8.2/junit-4.8.2.jar --buggy-cp /work/JacksonCore_23b/target/classes:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/JacksonCore/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/JacksonCore_23b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.8.2/junit-4.8.2.jar --out /workspace/jqwik/Auto/JacksonCore_23 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=1.1s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JacksonCore_23f/target/classes:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/JacksonCore/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/JacksonCore_23f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.8.2/junit-4.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/JacksonCore_23/com/fasterxml/jackson/core/util/DefaultPrettyPrinter_AutoPbtTest.java
+
+[exit=0 timeout=False time=5.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JacksonCore_23b/target/classes:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/JacksonCore/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/JacksonCore_23b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.8.2/junit-4.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/JacksonCore_23/com/fasterxml/jackson/core/util/DefaultPrettyPrinter_AutoPbtTest.java
+
+[exit=0 timeout=False time=4.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JacksonCore_23f:/work/JacksonCore_23b:/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f:/work/JacksonCore_23f/target/classes:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/JacksonCore/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/JacksonCore_23f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.8.2/junit-4.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/reports_record
+E        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:34:13.568829, DefaultPrettyPrinter AutoPbtTest:m010 withSeparators = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:34:13.918095, DefaultPrettyPrinter AutoPbtTest:m020 writeStartObject = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:34:14.469205, DefaultPrettyPrinter AutoPbtTest:m008 withRootSeparator = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDefaultPrettyPrinter AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000  withSpaces[0m [32m✔[0m
+[36m      ├─[0m [34mm004 indentArraysWith[0m [32m✔[0m
+[36m      ├─[0m [34mm016 writeObjectEntrySeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm001 beforeArrayValues[0m [32m✔[0m
+[36m      ├─[0m [34mm006 withArrayIndenter[0m [32m✔[0m
+[36m      ├─[0m [34mm005 indentObjectsWith[0m [32m✔[0m
+[36m      ├─[0m [34mm012 withoutSpacesInObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm015 writeEndObject[0m [32m✔[0m
+[36m      ├─[0m [34mm019 writeStartArray[0m [32m✔[0m
+[36m      ├─[0m [34mm018 writeRootValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm013 writeArrayValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm014 writeEndArray[0m [32m✔[0m
+[36m      ├─[0m [34mm011 withSpacesInObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm007 withObjectIndenter[0m [32m✔[0m
+[36m      ├─[0m [34mm009 withRootSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm017 writeObjectFieldValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm003 createInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm002 beforeObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm010 withSeparators[0m [32m✔[0m
+[36m      ├─[0m [34mm020 writeStartObject[0m [32m✔[0m
+[36m      └─[0m [34mm008 withRootSeparator[0m [32m✔[0m
+
+Test run finished after 11983 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        21 tests found           ]
+[         0 tests skipped         ]
+[        21 tests started         ]
+[         0 tests aborted         ]
+[        21 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=17.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JacksonCore_23f:/work/JacksonCore_23b:/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f:/work/JacksonCore_23f/target/classes:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/JacksonCore/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/JacksonCore_23f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.8.2/junit-4.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/reports_fixed
+E        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:34:33.886460, DefaultPrettyPrinter AutoPbtTest:m010 withSeparators = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:34:34.137263, DefaultPrettyPrinter AutoPbtTest:m020 writeStartObject = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:34:34.259050, DefaultPrettyPrinter AutoPbtTest:m008 withRootSeparator = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDefaultPrettyPrinter AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000  withSpaces[0m [32m✔[0m
+[36m      ├─[0m [34mm004 indentArraysWith[0m [32m✔[0m
+[36m      ├─[0m [34mm016 writeObjectEntrySeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm001 beforeArrayValues[0m [32m✔[0m
+[36m      ├─[0m [34mm006 withArrayIndenter[0m [32m✔[0m
+[36m      ├─[0m [34mm005 indentObjectsWith[0m [32m✔[0m
+[36m      ├─[0m [34mm012 withoutSpacesInObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm015 writeEndObject[0m [32m✔[0m
+[36m      ├─[0m [34mm019 writeStartArray[0m [32m✔[0m
+[36m      ├─[0m [34mm018 writeRootValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm013 writeArrayValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm014 writeEndArray[0m [32m✔[0m
+[36m      ├─[0m [34mm011 withSpacesInObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm007 withObjectIndenter[0m [32m✔[0m
+[36m      ├─[0m [34mm009 withRootSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm017 writeObjectFieldValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm003 createInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm002 beforeObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm010 withSeparators[0m [32m✔[0m
+[36m      ├─[0m [34mm020 writeStartObject[0m [32m✔[0m
+[36m      └─[0m [34mm008 withRootSeparator[0m [32m✔[0m
+
+Test run finished after 12049 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        21 tests found           ]
+[         0 tests skipped         ]
+[        21 tests started         ]
+[         0 tests aborted         ]
+[        21 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=27.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/jacoco.exec --classfiles /work/JacksonCore_23f/target/classes --csv /workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 101 classes.
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JacksonCore_23f:/work/JacksonCore_23b:/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_b:/work/JacksonCore_23b/target/classes:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/JacksonCore/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/JacksonCore_23b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/JacksonCore/lib/junit/junit/4.8.2/junit-4.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JacksonCore_23/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JacksonCore_23/tries200_seed1/reports_buggy
+NE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:35:04.038934, DefaultPrettyPrinter AutoPbtTest:m010 withSeparators = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:35:04.152960, DefaultPrettyPrinter AutoPbtTest:m020 writeStartObject = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:35:04.326370, DefaultPrettyPrinter AutoPbtTest:m008 withRootSeparator = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDefaultPrettyPrinter AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000  withSpaces[0m [32m✔[0m
+[36m      ├─[0m [34mm004 indentArraysWith[0m [32m✔[0m
+[36m      ├─[0m [34mm016 writeObjectEntrySeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm001 beforeArrayValues[0m [32m✔[0m
+[36m      ├─[0m [34mm006 withArrayIndenter[0m [32m✔[0m
+[36m      ├─[0m [34mm005 indentObjectsWith[0m [32m✔[0m
+[36m      ├─[0m [34mm012 withoutSpacesInObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm015 writeEndObject[0m [32m✔[0m
+[36m      ├─[0m [34mm019 writeStartArray[0m [32m✔[0m
+[36m      ├─[0m [34mm018 writeRootValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm013 writeArrayValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm014 writeEndArray[0m [32m✔[0m
+[36m      ├─[0m [34mm011 withSpacesInObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm007 withObjectIndenter[0m [32m✔[0m
+[36m      ├─[0m [34mm009 withRootSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm017 writeObjectFieldValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm003 createInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm002 beforeObjectEntries[0m [32m✔[0m
+[36m      ├─[0m [34mm010 withSeparators[0m [32m✔[0m
+[36m      ├─[0m [34mm020 writeStartObject[0m [32m✔[0m
+[36m      └─[0m [34mm008 withRootSeparator[0m [32m✔[0m
+
+Test run finished after 9448 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        21 tests found           ]
+[         0 tests skipped         ]
+[        21 tests started         ]
+[         0 tests aborted         ]
+[        21 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=14.2s]

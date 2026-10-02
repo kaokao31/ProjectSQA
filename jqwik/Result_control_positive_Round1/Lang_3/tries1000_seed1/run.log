@@ -1,0 +1,126 @@
+
+$ defects4j compile -w /work/Lang_3f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.9s]
+
+$ defects4j checkout -p Lang -v 3b -w /work/Lang_3b
+Checking out 8a104295 to /work/Lang_3b..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Lang_3b/default.properties.................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8a104295:64cfee77..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-3b......................................... OK
+
+[exit=0 timeout=False time=3.8s]
+
+$ defects4j compile -w /work/Lang_3b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=6.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Lang_3f/target/classes:/work/Lang_3f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Lang_3/control_positive_round1_tries1000_seed1/classes_f jqwik/Controls/Positive/Lang_3/TriggerAsExample.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Lang_3b/target/classes:/work/Lang_3b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Lang_3/control_positive_round1_tries1000_seed1/classes_b jqwik/Controls/Positive/Lang_3/TriggerAsExample.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=1000 -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_3/control_positive_round1_tries1000_seed1/classes_f:/work/Lang_3f/target/classes:/work/Lang_3f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_3/control_positive_round1_tries1000_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/reports_fixed
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTriggerAsExample[0m [32m✔[0m
+[36m      └─[0m [34mnoPrecisionLoss[0m [32m✔[0m
+
+Test run finished after 622 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         1 tests found           ]
+[         0 tests skipped         ]
+[         1 tests started         ]
+[         0 tests aborted         ]
+[         1 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=6.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/jacoco.exec --classfiles /work/Lang_3f/target/classes --csv /workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/jacoco.exec.
+[INFO] Analyzing 158 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=1000 -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_3/control_positive_round1_tries1000_seed1/classes_b:/work/Lang_3b/target/classes:/work/Lang_3b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_3/control_positive_round1_tries1000_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_control_positive_Round1/Lang_3/tries1000_seed1/reports_buggy
+timestamp = 2026-09-26T10:20:51.778585, TriggerAsExample:noPrecisionLoss = 
+  java.lang.AssertionError
+
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 0          | # of all combined edge cases
+edge-cases#tried = 0          | # of edge cases tried in current run
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTriggerAsExample[0m [32m✔[0m
+[36m      └─[0m [31mnoPrecisionLoss[0m [31m✘[0m [31mjava.lang.AssertionError[0m
+
+Failures (1):
+  jqwik (JUnit Platform):TriggerAsExample:noPrecisionLoss
+    MethodSource [className = 'org.apache.commons.lang3.math.TriggerAsExample', methodName = 'noPrecisionLoss', methodParameterTypes = '']
+    => java.lang.AssertionError
+       org.junit.Assert.fail(Assert.java:87)
+       org.junit.Assert.assertTrue(Assert.java:42)
+       org.junit.Assert.assertTrue(Assert.java:53)
+       org.apache.commons.lang3.math.TriggerAsExample.noPrecisionLoss(TriggerAsExample.java:11)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       [...]
+
+Test run finished after 338 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         1 tests found           ]
+[         0 tests skipped         ]
+[         1 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=1.3s]

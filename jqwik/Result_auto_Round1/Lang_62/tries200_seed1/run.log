@@ -1,0 +1,308 @@
+
+$ defects4j checkout -p Lang -v 62f -w /work/Lang_62f
+Checking out d8b6f5b5 to /work/Lang_62f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Rename enum package in src................................................. OK
+Move enum package in src................................................... OK
+Rename enum package in test................................................ OK
+Move enum package in test.................................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Lang_62f/project.properties................... OK
+Backing up build file: /work/Lang_62f/default.properties................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d8b6f5b5:8fde2caf..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-62f........................................ OK
+
+[exit=0 timeout=False time=7.1s]
+
+$ defects4j compile -w /work/Lang_62f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=49.9s]
+
+$ defects4j compile -w /work/Lang_62b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=10.6s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.lang.Entities --fixed-cp /work/Lang_62f/target/classes:/work/Lang_62f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --buggy-cp /work/Lang_62b/target/classes:/work/Lang_62b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --out /workspace/jqwik/Auto/Lang_62 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=1.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Lang_62f/target/classes:/work/Lang_62f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Lang_62/org/apache/commons/lang/Entities_AutoPbtTest.java
+
+[exit=0 timeout=False time=5.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Lang_62b/target/classes:/work/Lang_62b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Lang_62/org/apache/commons/lang/Entities_AutoPbtTest.java
+
+[exit=0 timeout=False time=6.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Lang_62f:/work/Lang_62b:/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f:/work/Lang_62f/target/classes:/work/Lang_62f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/reports_record
+      | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:54:38.154407, Entities AutoPbtTest:m008 unescape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:54:38.941891, Entities AutoPbtTest:m007 unescape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:54:39.173417, Entities AutoPbtTest:m001 addEntity = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:54:39.872411, Entities AutoPbtTest:m004 escape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mEntities AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 fillWithHtml40Entities[0m [32m✔[0m
+[36m      ├─[0m [34mm002 entityName[0m [32m✔[0m
+[36m      ├─[0m [34mm005 escape[0m [32m✔[0m
+[36m      ├─[0m [34mm003 entityValue[0m [32m✔[0m
+[36m      ├─[0m [34mm000 addEntities[0m [32m✔[0m
+[36m      ├─[0m [34mm008 unescape[0m [32m✔[0m
+[36m      ├─[0m [34mm007 unescape[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addEntity[0m [32m✔[0m
+[36m      └─[0m [34mm004 escape[0m [32m✔[0m
+
+Test run finished after 10035 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=16.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Lang_62f:/work/Lang_62b:/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f:/work/Lang_62f/target/classes:/work/Lang_62f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/reports_fixed
+      | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:02.415064, Entities AutoPbtTest:m008 unescape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:03.087646, Entities AutoPbtTest:m007 unescape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:03.518577, Entities AutoPbtTest:m001 addEntity = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:03.953390, Entities AutoPbtTest:m004 escape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mEntities AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 fillWithHtml40Entities[0m [32m✔[0m
+[36m      ├─[0m [34mm002 entityName[0m [32m✔[0m
+[36m      ├─[0m [34mm005 escape[0m [32m✔[0m
+[36m      ├─[0m [34mm003 entityValue[0m [32m✔[0m
+[36m      ├─[0m [34mm000 addEntities[0m [32m✔[0m
+[36m      ├─[0m [34mm008 unescape[0m [32m✔[0m
+[36m      ├─[0m [34mm007 unescape[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addEntity[0m [32m✔[0m
+[36m      └─[0m [34mm004 escape[0m [32m✔[0m
+
+Test run finished after 14534 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=40.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/jacoco.exec --classfiles /work/Lang_62f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 119 classes.
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Lang_62f:/work/Lang_62b:/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_b:/work/Lang_62b/target/classes:/work/Lang_62b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_62/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Lang_62/tries200_seed1/reports_buggy
+       | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:41.742921, Entities AutoPbtTest:m008 unescape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:42.161108, Entities AutoPbtTest:m007 unescape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:42.317743, Entities AutoPbtTest:m001 addEntity = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:55:42.596757, Entities AutoPbtTest:m004 escape = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mEntities AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 fillWithHtml40Entities[0m [32m✔[0m
+[36m      ├─[0m [34mm002 entityName[0m [32m✔[0m
+[36m      ├─[0m [34mm005 escape[0m [32m✔[0m
+[36m      ├─[0m [34mm003 entityValue[0m [32m✔[0m
+[36m      ├─[0m [34mm000 addEntities[0m [32m✔[0m
+[36m      ├─[0m [34mm008 unescape[0m [32m✔[0m
+[36m      ├─[0m [34mm007 unescape[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addEntity[0m [32m✔[0m
+[36m      └─[0m [34mm004 escape[0m [32m✔[0m
+
+Test run finished after 8417 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=13.0s]

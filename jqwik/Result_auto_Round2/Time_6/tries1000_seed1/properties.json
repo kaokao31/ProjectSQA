@@ -1,0 +1,26 @@
+{
+ "fixed": {
+  "passed": 22,
+  "failed": {}
+ },
+ "buggy": {
+  "passed": 20,
+  "failed": {
+   "org.joda.time.chrono.GJChronology_AutoPbtTest#m003 getDateTimeMillis": {
+    "type": "AssertionError",
+    "message": "[regression] org.joda.time.chrono.GJChronology.getDateTimeMillis(int,int,int,int,int,int,int)   input:    new GJChronology.getInstance[new DateTimeZone.getDefault[], Long:-381254383307473386, Integer:2].getDateTimeMillis[Integer:-2147483648, Integer:57, Integer:-1, Integer:4, Integer:0, Integer:18, Integer:1]   expected: receiver throws java.lang.IllegalArgumentException   actual:   throws org.joda.time.IllegalFieldValueException | this=GJChronology:GJChronology[America/Los_Angeles,cutover=-12079501-07-17T12:48:46.614Z,mdfw=2]",
+    "trace": "java.lang.AssertionError: [regression] org.joda.time.chrono.GJChronology.getDateTimeMillis(int,int,int,int,int,int,int)\n  input:    new GJChronology.getInstance[new DateTimeZone.getDefault[], Long:-381254383307473386, Integer:2].getDateTimeMillis[Integer:-2147483648, Integer:57, Integer:-1, Integer:4, Integer:0, Integer:18, Integer:1]\n  expected: receiver throws java.lang.IllegalArgumentException\n  actual:   throws org.joda.time.IllegalFieldValueException | this=GJChronology:GJChronology[America/Los_Angeles,cutover=-12079501-07-17T12:48:46.614Z,mdfw=2]\n\tat pbt.auto.AutoTarget.check(AutoTarget."
+   },
+   "org.joda.time.chrono.GJChronology_AutoPbtTest#m007 getInstance": {
+    "type": "AssertionError",
+    "message": "[regression] org.joda.time.chrono.GJChronology.getInstance(org.joda.time.DateTimeZone,long,int)   input:    getInstance[new DateTimeZone.getDefault[], Long:-8620195893647277358, Integer:3]   expected: throws java.lang.IllegalArgumentException   actual:   ret=GJChronology:GJChronology[America/Los_Angeles,cutover=-273161164-06-12T21:32:02.642Z,mdfw=3]",
+    "trace": "java.lang.AssertionError: [regression] org.joda.time.chrono.GJChronology.getInstance(org.joda.time.DateTimeZone,long,int)\n  input:    getInstance[new DateTimeZone.getDefault[], Long:-8620195893647277358, Integer:3]\n  expected: throws java.lang.IllegalArgumentException\n  actual:   ret=GJChronology:GJChronology[America/Los_Angeles,cutover=-273161164-06-12T21:32:02.642Z,mdfw=3]\n\tat pbt.auto.AutoTarget.check(AutoTarget.java:127)\n\tat org.joda.time.chrono.GJChronology_AutoPbtTest.m007_getInstance(GJChronology_AutoPbtTest.java:90)\n\tat jdk.internal.reflect.GeneratedMethodAccessor31.invoke(Unknown Sour"
+   }
+  }
+ },
+ "detecting": [
+  "org.joda.time.chrono.GJChronology_AutoPbtTest#m003 getDateTimeMillis",
+  "org.joda.time.chrono.GJChronology_AutoPbtTest#m007 getInstance"
+ ],
+ "false_alarm": []
+}

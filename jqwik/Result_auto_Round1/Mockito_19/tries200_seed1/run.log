@@ -1,0 +1,55 @@
+
+$ defects4j checkout -p Mockito -v 19f -w /work/Mockito_19f
+Checking out 110ffa80 to /work/Mockito_19f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: -e expression #1, char 84: unterminated `s' command
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 110ffa80:03028f00..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-19f..................................... OK
+
+[exit=0 timeout=False time=4.4s]
+
+$ defects4j compile -w /work/Mockito_19f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=82.4s]
+
+$ defects4j checkout -p Mockito -v 19b -w /work/Mockito_19b
+Checking out 110ffa80 to /work/Mockito_19b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: -e expression #1, char 84: unterminated `s' command
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 110ffa80:03028f00..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-19b..................................... OK
+
+[exit=0 timeout=False time=4.6s]
+
+$ defects4j compile -w /work/Mockito_19b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=78.9s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter,org.mockito.internal.configuration.injection.filter.MockCandidateFilter,org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter,org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter,org.mockito.internal.configuration.injection.PropertyAndSetterInjection --fixed-cp /work/Mockito_19f/build/classes/java/main:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_19f/build/classes/java/test:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_19f/compileLib/byte-buddy-0.6.8.jar --buggy-cp /work/Mockito_19b/build/classes/java/main:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_19b/build/classes/java/test:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_19b/compileLib/byte-buddy-0.6.8.jar --out /workspace/jqwik/Auto/Mockito_19 --max-methods 150
+generated test classes: 0 / 5
+
+[exit=0 timeout=False time=0.3s]

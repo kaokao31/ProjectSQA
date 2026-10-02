@@ -1,0 +1,322 @@
+
+$ defects4j checkout -p Math -v 52f -w /work/Math_52f
+Checking out 8b418000 to /work/Math_52f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8b418000:3defe734..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-52f........................................ OK
+
+[exit=0 timeout=False time=4.4s]
+
+$ defects4j compile -w /work/Math_52f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.2s]
+
+$ defects4j checkout -p Math -v 52b -w /work/Math_52b
+Checking out 8b418000 to /work/Math_52b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8b418000:3defe734..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-52b........................................ OK
+
+[exit=0 timeout=False time=3.9s]
+
+$ defects4j compile -w /work/Math_52b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.4s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math.geometry.euclidean.threed.Rotation --fixed-cp /work/Math_52f/target/classes:/work/Math_52f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_52b/target/classes:/work/Math_52b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_52 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_52f/target/classes:/work/Math_52f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_52/org/apache/commons/math/geometry/euclidean/threed/Rotation_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_52b/target/classes:/work/Math_52b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_52/org/apache/commons/math/geometry/euclidean/threed/Rotation_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_52/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_52f:/work/Math_52b:/work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f:/work/Math_52f/target/classes:/work/Math_52f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/reports_record
+is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:01.295329, Rotation AutoPbtTest:m002 applyTo = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:01.642915, Rotation AutoPbtTest:m007 getAxis = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:02.051726, Rotation AutoPbtTest:m006 getAngles = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:02.238819, Rotation AutoPbtTest:m011 getQ2 = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mRotation AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 distance[0m [32m✔[0m
+[36m      ├─[0m [34mm001 applyInverseTo[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getQ3[0m [32m✔[0m
+[36m      ├─[0m [34mm013 revert[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getQ0[0m [32m✔[0m
+[36m      ├─[0m [34mm000 applyInverseTo[0m [32m✔[0m
+[36m      ├─[0m [34mm003 applyTo[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getAngle[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getQ1[0m [32m✔[0m
+[36m      ├─[0m [34mm002 applyTo[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getAxis[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getAngles[0m [32m✔[0m
+[36m      └─[0m [34mm011 getQ2[0m [32m✔[0m
+
+Test run finished after 8509 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        14 tests found           ]
+[         0 tests skipped         ]
+[        14 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=9.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_52/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_52f:/work/Math_52b:/work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f:/work/Math_52f/target/classes:/work/Math_52f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/reports_fixed
+is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:12.697531, Rotation AutoPbtTest:m002 applyTo = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:12.919417, Rotation AutoPbtTest:m007 getAxis = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:13.148976, Rotation AutoPbtTest:m006 getAngles = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:13.413679, Rotation AutoPbtTest:m011 getQ2 = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mRotation AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 distance[0m [32m✔[0m
+[36m      ├─[0m [34mm001 applyInverseTo[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getQ3[0m [32m✔[0m
+[36m      ├─[0m [34mm013 revert[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getQ0[0m [32m✔[0m
+[36m      ├─[0m [34mm000 applyInverseTo[0m [32m✔[0m
+[36m      ├─[0m [34mm003 applyTo[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getAngle[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getQ1[0m [32m✔[0m
+[36m      ├─[0m [34mm002 applyTo[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getAxis[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getAngles[0m [32m✔[0m
+[36m      └─[0m [34mm011 getQ2[0m [32m✔[0m
+
+Test run finished after 9094 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        14 tests found           ]
+[         0 tests skipped         ]
+[        14 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=17.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/jacoco.exec --classfiles /work/Math_52f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 573 classes.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_52/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_52f:/work/Math_52b:/work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_b:/work/Math_52b/target/classes:/work/Math_52b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_52/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_52/tries200_seed1/reports_buggy
+is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:30.446632, Rotation AutoPbtTest:m002 applyTo = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:30.887709, Rotation AutoPbtTest:m007 getAxis = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:31.248525, Rotation AutoPbtTest:m006 getAngles = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:10:31.586602, Rotation AutoPbtTest:m011 getQ2 = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mRotation AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 distance[0m [32m✔[0m
+[36m      ├─[0m [34mm001 applyInverseTo[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getQ3[0m [32m✔[0m
+[36m      ├─[0m [34mm013 revert[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getQ0[0m [32m✔[0m
+[36m      ├─[0m [34mm000 applyInverseTo[0m [32m✔[0m
+[36m      ├─[0m [34mm003 applyTo[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getAngle[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getQ1[0m [32m✔[0m
+[36m      ├─[0m [34mm002 applyTo[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getAxis[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getAngles[0m [32m✔[0m
+[36m      └─[0m [34mm011 getQ2[0m [32m✔[0m
+
+Test run finished after 9279 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        14 tests found           ]
+[         0 tests skipped         ]
+[        14 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=10.3s]

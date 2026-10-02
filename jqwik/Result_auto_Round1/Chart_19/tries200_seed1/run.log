@@ -1,0 +1,263 @@
+
+$ defects4j checkout -p Chart -v 19f -w /work/Chart_19f
+Checking out 434 to /work/Chart_19f........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 434:430............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-19f....................................... OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ defects4j compile -w /work/Chart_19f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=107.0s]
+
+$ defects4j checkout -p Chart -v 19b -w /work/Chart_19b
+Checking out 434 to /work/Chart_19b........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 434:430............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-19b....................................... OK
+
+[exit=0 timeout=False time=5.9s]
+
+$ defects4j compile -w /work/Chart_19b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=134.2s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.jfree.chart.plot.CategoryPlot --fixed-cp /work/Chart_19f/build:/work/Chart_19f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_19f/build-tests --buggy-cp /work/Chart_19b/build:/work/Chart_19b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_19b/build-tests --out /workspace/jqwik/Auto/Chart_19 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=1.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Chart_19f/build:/work/Chart_19f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_19f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Chart_19/org/jfree/chart/plot/CategoryPlot_AutoPbtTest.java
+
+[exit=0 timeout=False time=5.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Chart_19b/build:/work/Chart_19b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_19b/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Chart_19/org/jfree/chart/plot/CategoryPlot_AutoPbtTest.java
+
+[exit=0 timeout=False time=5.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_19f:/work/Chart_19b:/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f:/work/Chart_19f/build:/work/Chart_19f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_19f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/reports_record
+[34mm128 setRangeAxisLocation[0m [32m✔[0m
+[36m      ├─[0m [34mm020 draw[0m [32m✔[0m
+[36m      ├─[0m [34mm045 getDomainAxisEdge[0m [32m✔[0m
+[36m      ├─[0m [34mm036 getColumnRenderingOrder[0m [32m✔[0m
+[36m      ├─[0m [34mm076 getRangeGridlinePaint[0m [32m✔[0m
+[36m      ├─[0m [34mm082 getRendererForDataset[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addDomainMarker[0m [32m✔[0m
+[36m      ├─[0m [34mm060 getIndexOf[0m [32m✔[0m
+[36m      ├─[0m [34mm029 drawRangeMarkers[0m [32m✔[0m
+[36m      ├─[0m [34mm104 setDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm094 removeAnnotation[0m [32m✔[0m
+[36m      ├─[0m [34mm147 zoomDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm062 getOrientation[0m [32m✔[0m
+[36m      ├─[0m [34mm024 drawDomainGridlines[0m [32m✔[0m
+[36m      ├─[0m [34mm053 getDomainGridlineStroke[0m [32m✔[0m
+[36m      ├─[0m [34mm107 setDomainAxis[0m [32m✔[0m
+[36m      ├─[0m [34mm103 setDatasetRenderingOrder[0m [32m✔[0m
+[36m      ├─[0m [34mm052 getDomainGridlinePosition[0m [32m✔[0m
+[36m      ├─[0m [34mm027 drawRangeGridlines[0m [32m✔[0m
+[36m      ├─[0m [34mm033 getAxisOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm006 addRangeMarker[0m [32m✔[0m
+[36m      ├─[0m [34mm137 setRangeGridlinesVisible[0m [32m✔[0m
+[36m      ├─[0m [34mm112 setDomainGridlinePaint[0m [32m✔[0m
+[36m      ├─[0m [34mm009 calculateRangeAxisSpace[0m [32m✔[0m
+[36m      ├─[0m [34mm083 getRowRenderingOrder[0m [32m✔[0m
+[36m      ├─[0m [34mm000 addAnnotation[0m [32m✔[0m
+[36m      ├─[0m [34mm109 setDomainAxisLocation[0m [32m✔[0m
+[36m      ├─[0m [34mm144 setWeight[0m [32m✔[0m
+[36m      ├─[0m [34mm146 zoomDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm054 getDomainMarkers[0m [32m✔[0m
+[36m      ├─[0m [34mm037 getDataRange[0m [32m✔[0m
+[36m      ├─[0m [34mm011 clearDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm075 getRangeCrosshairValue[0m [32m✔[0m
+[36m      ├─[0m [34mm079 getRangeMarkers[0m [32m✔[0m
+[36m      └─[0m [34mm136 setRangeGridlineStroke[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):CategoryPlot AutoPbtTest:contract equalsHashCode
+    MethodSource [className = 'org.jfree.chart.plot.CategoryPlot_AutoPbtTest', methodName = 'contract_equalsHashCode', methodParameterTypes = 'pbt.auto.Recipe']
+    => java.lang.AssertionError: [contract] equal objects with different hashCode: new CategoryPlot.<init>[null, new CategoryAxis.<init>["14191.094387e+376d"], null, null]
+       pbt.auto.AutoTarget.checkEqualsContract(AutoTarget.java:157)
+       org.jfree.chart.plot.CategoryPlot_AutoPbtTest.contract_equalsHashCode(CategoryPlot_AutoPbtTest.java:1521)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 71414 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[       151 tests found           ]
+[         0 tests skipped         ]
+[       151 tests started         ]
+[         0 tests aborted         ]
+[       150 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=78.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_19f:/work/Chart_19b:/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f:/work/Chart_19f/build:/work/Chart_19f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_19f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/reports_fixed
+[34mm128 setRangeAxisLocation[0m [32m✔[0m
+[36m      ├─[0m [34mm020 draw[0m [32m✔[0m
+[36m      ├─[0m [34mm045 getDomainAxisEdge[0m [32m✔[0m
+[36m      ├─[0m [34mm036 getColumnRenderingOrder[0m [32m✔[0m
+[36m      ├─[0m [34mm076 getRangeGridlinePaint[0m [32m✔[0m
+[36m      ├─[0m [34mm082 getRendererForDataset[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addDomainMarker[0m [32m✔[0m
+[36m      ├─[0m [34mm060 getIndexOf[0m [32m✔[0m
+[36m      ├─[0m [34mm029 drawRangeMarkers[0m [32m✔[0m
+[36m      ├─[0m [34mm104 setDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm094 removeAnnotation[0m [32m✔[0m
+[36m      ├─[0m [34mm147 zoomDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm062 getOrientation[0m [32m✔[0m
+[36m      ├─[0m [34mm024 drawDomainGridlines[0m [32m✔[0m
+[36m      ├─[0m [34mm053 getDomainGridlineStroke[0m [32m✔[0m
+[36m      ├─[0m [34mm107 setDomainAxis[0m [32m✔[0m
+[36m      ├─[0m [34mm103 setDatasetRenderingOrder[0m [32m✔[0m
+[36m      ├─[0m [34mm052 getDomainGridlinePosition[0m [32m✔[0m
+[36m      ├─[0m [34mm027 drawRangeGridlines[0m [32m✔[0m
+[36m      ├─[0m [34mm033 getAxisOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm006 addRangeMarker[0m [32m✔[0m
+[36m      ├─[0m [34mm137 setRangeGridlinesVisible[0m [32m✔[0m
+[36m      ├─[0m [34mm112 setDomainGridlinePaint[0m [32m✔[0m
+[36m      ├─[0m [34mm009 calculateRangeAxisSpace[0m [32m✔[0m
+[36m      ├─[0m [34mm083 getRowRenderingOrder[0m [32m✔[0m
+[36m      ├─[0m [34mm000 addAnnotation[0m [32m✔[0m
+[36m      ├─[0m [34mm109 setDomainAxisLocation[0m [32m✔[0m
+[36m      ├─[0m [34mm144 setWeight[0m [32m✔[0m
+[36m      ├─[0m [34mm146 zoomDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm054 getDomainMarkers[0m [32m✔[0m
+[36m      ├─[0m [34mm037 getDataRange[0m [32m✔[0m
+[36m      ├─[0m [34mm011 clearDomainAxes[0m [32m✔[0m
+[36m      ├─[0m [34mm075 getRangeCrosshairValue[0m [32m✔[0m
+[36m      ├─[0m [34mm079 getRangeMarkers[0m [32m✔[0m
+[36m      └─[0m [34mm136 setRangeGridlineStroke[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):CategoryPlot AutoPbtTest:contract equalsHashCode
+    MethodSource [className = 'org.jfree.chart.plot.CategoryPlot_AutoPbtTest', methodName = 'contract_equalsHashCode', methodParameterTypes = 'pbt.auto.Recipe']
+    => java.lang.AssertionError: [contract] equal objects with different hashCode: new CategoryPlot.<init>[null, new CategoryAxis.<init>["14191.094387e+376d"], null, null]
+       pbt.auto.AutoTarget.checkEqualsContract(AutoTarget.java:157)
+       org.jfree.chart.plot.CategoryPlot_AutoPbtTest.contract_equalsHashCode(CategoryPlot_AutoPbtTest.java:1521)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 58911 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[       151 tests found           ]
+[         0 tests skipped         ]
+[       151 tests started         ]
+[         0 tests aborted         ]
+[       150 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=81.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/jacoco.exec --classfiles /work/Chart_19f/build --csv /workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 514 classes.
+
+[exit=0 timeout=False time=5.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_19f:/work/Chart_19b:/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_b:/work/Chart_19b/build:/work/Chart_19b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_19b/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_19/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_19/tries200_seed1/reports_buggy
+va.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):CategoryPlot AutoPbtTest:m070 getRangeAxisIndex
+    MethodSource [className = 'org.jfree.chart.plot.CategoryPlot_AutoPbtTest', methodName = 'm070_getRangeAxisIndex', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.jfree.chart.plot.CategoryPlot.getRangeAxisIndex(org.jfree.chart.axis.ValueAxis)
+  input:    new CategoryPlot.<init>[null, new CategoryAxis.<init>["14191.094387e+376d"], null, null].getRangeAxisIndex[null]
+  expected: throws java.lang.IllegalArgumentException | this=obj org.jfree.chart.plot.CategoryPlot
+  actual:   ret=Integer:0 | this=obj org.jfree.chart.plot.CategoryPlot
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.jfree.chart.plot.CategoryPlot_AutoPbtTest.m070_getRangeAxisIndex(CategoryPlot_AutoPbtTest.java:716)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):CategoryPlot AutoPbtTest:contract equalsHashCode
+    MethodSource [className = 'org.jfree.chart.plot.CategoryPlot_AutoPbtTest', methodName = 'contract_equalsHashCode', methodParameterTypes = 'pbt.auto.Recipe']
+    => java.lang.AssertionError: [contract] equal objects with different hashCode: new CategoryPlot.<init>[null, new CategoryAxis.<init>["14191.094387e+376d"], null, null]
+       pbt.auto.AutoTarget.checkEqualsContract(AutoTarget.java:157)
+       org.jfree.chart.plot.CategoryPlot_AutoPbtTest.contract_equalsHashCode(CategoryPlot_AutoPbtTest.java:1521)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 50578 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[       151 tests found           ]
+[         0 tests skipped         ]
+[       151 tests started         ]
+[         0 tests aborted         ]
+[       148 tests successful      ]
+[         3 tests failed          ]
+
+
+[exit=1 timeout=False time=56.7s]

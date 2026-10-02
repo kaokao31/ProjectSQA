@@ -1,0 +1,34 @@
+{
+ "fixed": {
+  "passed": 23,
+  "failed": {
+   "org.joda.time.Partial_AutoPbtTest#m020 withFieldAddWrapped": {
+    "type": "AssertionError",
+    "message": "[regression] org.joda.time.Partial.withFieldAddWrapped(org.joda.time.DurationFieldType,int)   input:    new Partial.<init>[null, DateTimeFieldType[new DateTimeFieldType.dayOfWeek[], new DateTimeFieldType.dayOfYear[], new DateTimeFieldType.centuryOfEra[], new DateTimeFieldType.dayOfMonth[], new DateTimeFieldType.clockhourOfHalfday[]], int[Integer:991]].withFieldAddWrapped[new DurationFieldType.days[], Integer:-2147483648]   expected: throws java.lang.ArrayIndexOutOfBoundsException | this=Partial:Partial:toString-throws java.lang.ArrayIndexOutOfBoundsException   actual:   TIMEOUT",
+    "trace": "java.lang.AssertionError: [regression] org.joda.time.Partial.withFieldAddWrapped(org.joda.time.DurationFieldType,int)\n  input:    new Partial.<init>[null, DateTimeFieldType[new DateTimeFieldType.dayOfWeek[], new DateTimeFieldType.dayOfYear[], new DateTimeFieldType.centuryOfEra[], new DateTimeFieldType.dayOfMonth[], new DateTimeFieldType.clockhourOfHalfday[]], int[Integer:991]].withFieldAddWrapped[new DurationFieldType.days[], Integer:-2147483648]\n  expected: throws java.lang.ArrayIndexOutOfBoundsException | this=Partial:Partial:toString-throws java.lang.ArrayIndexOutOfBoundsException\n  actual:"
+   }
+  }
+ },
+ "buggy": {
+  "passed": 22,
+  "failed": {
+   "org.joda.time.Partial_AutoPbtTest#m017 with": {
+    "type": "AssertionError",
+    "message": "[regression] org.joda.time.Partial.with(org.joda.time.DateTimeFieldType,int)   input:    new Partial.<init>[null, DateTimeFieldType[new DateTimeFieldType.dayOfMonth[], new DateTimeFieldType.dayOfYear[], new DateTimeFieldType.dayOfMonth[]], int[Integer:-4721430, Integer:-2, Integer:1, Integer:22]].with[new DateTimeFieldType.clockhourOfHalfday[], Integer:114]   expected: throws java.lang.IllegalArgumentException | this=Partial:[dayOfMonth=-4721430, dayOfYear=-2, dayOfMonth=1]   actual:   throws java.lang.NullPointerException | this=Partial:[dayOfMonth=-4721430, dayOfYear=-2, dayOfMonth=1]",
+    "trace": "java.lang.AssertionError: [regression] org.joda.time.Partial.with(org.joda.time.DateTimeFieldType,int)\n  input:    new Partial.<init>[null, DateTimeFieldType[new DateTimeFieldType.dayOfMonth[], new DateTimeFieldType.dayOfYear[], new DateTimeFieldType.dayOfMonth[]], int[Integer:-4721430, Integer:-2, Integer:1, Integer:22]].with[new DateTimeFieldType.clockhourOfHalfday[], Integer:114]\n  expected: throws java.lang.IllegalArgumentException | this=Partial:[dayOfMonth=-4721430, dayOfYear=-2, dayOfMonth=1]\n  actual:   throws java.lang.NullPointerException | this=Partial:[dayOfMonth=-4721430, dayOfYea"
+   },
+   "org.joda.time.Partial_AutoPbtTest#m007 isMatch": {
+    "type": "AssertionError",
+    "message": "[regression] org.joda.time.Partial.isMatch(org.joda.time.ReadableInstant)   input:    new Partial.<init>[new DateTimeFieldType.clockhourOfHalfday[], Integer:7, null].isMatch[null]   expected: ret=Boolean:true | this=Partial:[clockhourOfHalfday=7]   actual:   ret=Boolean:false | this=Partial:[clockhourOfHalfday=7]",
+    "trace": "java.lang.AssertionError: [regression] org.joda.time.Partial.isMatch(org.joda.time.ReadableInstant)\n  input:    new Partial.<init>[new DateTimeFieldType.clockhourOfHalfday[], Integer:7, null].isMatch[null]\n  expected: ret=Boolean:true | this=Partial:[clockhourOfHalfday=7]\n  actual:   ret=Boolean:false | this=Partial:[clockhourOfHalfday=7]\n\tat pbt.auto.AutoTarget.check(AutoTarget.java:127)\n\tat org.joda.time.Partial_AutoPbtTest.m007_isMatch(Partial_AutoPbtTest.java:93)\n\tat jdk.internal.reflect.GeneratedMethodAccessor19.invoke(Unknown Source)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAcc"
+   }
+  }
+ },
+ "detecting": [
+  "org.joda.time.Partial_AutoPbtTest#m017 with",
+  "org.joda.time.Partial_AutoPbtTest#m007 isMatch"
+ ],
+ "false_alarm": [
+  "org.joda.time.Partial_AutoPbtTest#m020 withFieldAddWrapped"
+ ]
+}

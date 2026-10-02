@@ -1,0 +1,317 @@
+
+$ defects4j checkout -p Chart -v 25f -w /work/Chart_25f
+Checking out 164 to /work/Chart_25f........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 164:162............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-25f....................................... OK
+
+[exit=0 timeout=False time=20.2s]
+
+$ defects4j compile -w /work/Chart_25f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=89.2s]
+
+$ defects4j checkout -p Chart -v 25b -w /work/Chart_25b
+Checking out 164 to /work/Chart_25b........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 164:162............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-25b....................................... OK
+
+[exit=0 timeout=False time=16.1s]
+
+$ defects4j compile -w /work/Chart_25b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=49.8s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.jfree.chart.renderer.category.StatisticalBarRenderer --fixed-cp /work/Chart_25f/build:/work/Chart_25f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_25f/build-tests --buggy-cp /work/Chart_25b/build:/work/Chart_25b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_25b/build-tests --out /workspace/jqwik/Auto/Chart_25 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=1.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Chart_25f/build:/work/Chart_25f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_25f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Chart_25/org/jfree/chart/renderer/category/StatisticalBarRenderer_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Chart_25b/build:/work/Chart_25b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_25b/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Chart_25/org/jfree/chart/renderer/category/StatisticalBarRenderer_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_25f:/work/Chart_25b:/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f:/work/Chart_25f/build:/work/Chart_25f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_25f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/reports_record
+ixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:02.952041, StatisticalBarRenderer AutoPbtTest:contract equalsHashCode = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:03.321851, StatisticalBarRenderer AutoPbtTest:m000 drawHorizontalItem = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:03.604997, StatisticalBarRenderer AutoPbtTest:m002 drawVerticalItem = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:03.645561, StatisticalBarRenderer AutoPbtTest:m004 getErrorIndicatorPaint = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mStatisticalBarRenderer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 drawItem[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getErrorIndicatorStroke[0m [32m✔[0m
+[36m      ├─[0m [34mm006 setErrorIndicatorPaint[0m [32m✔[0m
+[36m      ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm007 setErrorIndicatorStroke[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm000 drawHorizontalItem[0m [32m✔[0m
+[36m      ├─[0m [34mm002 drawVerticalItem[0m [32m✔[0m
+[36m      └─[0m [34mm004 getErrorIndicatorPaint[0m [32m✔[0m
+
+Test run finished after 3298 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+java.nio.file.FileSystemException: /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/snapshots/org.jfree.chart.renderer.category.StatisticalBarRenderer_drawVerticalItem_java.awt.Graphics2D_org.jfree.chart.renderer.category.CategoryItemRendererState_java.awt.geom.Rectangle2D_org.jfree.chart.plot.CategoryPlot_org.jfree.chart.axis.CategoryAxis_org.jfree.chart.axis.ValueAxis_org.jfree.data.statistics.StatisticalCategoryDataset_int_int_.snap: File name too long
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:219)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:478)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:220)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:2920)
+	at pbt.auto.AutoTarget.flush(AutoTarget.java:295)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+[exit=0 timeout=False time=5.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_25f:/work/Chart_25b:/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f:/work/Chart_25f/build:/work/Chart_25f/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_25f/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/reports_fixed
+ixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:11.074212, StatisticalBarRenderer AutoPbtTest:contract equalsHashCode = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:11.500328, StatisticalBarRenderer AutoPbtTest:m000 drawHorizontalItem = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:11.724620, StatisticalBarRenderer AutoPbtTest:m002 drawVerticalItem = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:11.755035, StatisticalBarRenderer AutoPbtTest:m004 getErrorIndicatorPaint = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mStatisticalBarRenderer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 drawItem[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getErrorIndicatorStroke[0m [32m✔[0m
+[36m      ├─[0m [34mm006 setErrorIndicatorPaint[0m [32m✔[0m
+[36m      ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm007 setErrorIndicatorStroke[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm000 drawHorizontalItem[0m [32m✔[0m
+[36m      ├─[0m [34mm002 drawVerticalItem[0m [32m✔[0m
+[36m      └─[0m [34mm004 getErrorIndicatorPaint[0m [32m✔[0m
+
+Test run finished after 4730 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=20.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/jacoco.exec --classfiles /work/Chart_25f/build --csv /workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 516 classes.
+
+[exit=0 timeout=False time=2.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Chart_25f:/work/Chart_25b:/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_b:/work/Chart_25b/build:/work/Chart_25b/lib/servlet.jar:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_25b/build-tests:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Chart_25/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Chart_25/tries200_seed1/reports_buggy
+ixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:33.280443, StatisticalBarRenderer AutoPbtTest:contract equalsHashCode = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:33.620699, StatisticalBarRenderer AutoPbtTest:m000 drawHorizontalItem = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:33.906040, StatisticalBarRenderer AutoPbtTest:m002 drawVerticalItem = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T06:00:33.972897, StatisticalBarRenderer AutoPbtTest:m004 getErrorIndicatorPaint = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mStatisticalBarRenderer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 drawItem[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getErrorIndicatorStroke[0m [32m✔[0m
+[36m      ├─[0m [34mm006 setErrorIndicatorPaint[0m [32m✔[0m
+[36m      ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm007 setErrorIndicatorStroke[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm000 drawHorizontalItem[0m [32m✔[0m
+[36m      ├─[0m [34mm002 drawVerticalItem[0m [32m✔[0m
+[36m      └─[0m [34mm004 getErrorIndicatorPaint[0m [32m✔[0m
+
+Test run finished after 2923 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=5.5s]

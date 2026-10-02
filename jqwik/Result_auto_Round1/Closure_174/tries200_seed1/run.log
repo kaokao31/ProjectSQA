@@ -1,0 +1,303 @@
+
+$ defects4j checkout -p Closure -v 174f -w /work/Closure_174f
+Checking out d2b3ca66 to /work/Closure_174f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_174f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_174f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d2b3ca66:095dd84b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-174f.................................... OK
+
+[exit=0 timeout=False time=3.8s]
+
+$ defects4j compile -w /work/Closure_174f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=20.2s]
+
+$ defects4j checkout -p Closure -v 174b -w /work/Closure_174b
+Checking out d2b3ca66 to /work/Closure_174b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_174b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_174b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d2b3ca66:095dd84b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-174b.................................... OK
+
+[exit=0 timeout=False time=3.7s]
+
+$ defects4j compile -w /work/Closure_174b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=25.2s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.javascript.jscomp.JsAst,com.google.javascript.jscomp.NodeUtil,com.google.javascript.jscomp.ScopedAliases --fixed-cp /work/Closure_174f/build/classes:/work/Closure_174f/lib/args4j.jar:/work/Closure_174f/lib/guava.jar:/work/Closure_174f/lib/json.jar:/work/Closure_174f/lib/jsr305.jar:/work/Closure_174f/lib/protobuf-java.jar:/work/Closure_174f/build/lib/rhino.jar:/work/Closure_174f/lib/ant.jar:/work/Closure_174f/lib/ant-launcher.jar:/work/Closure_174f/lib/caja-r4314.jar:/work/Closure_174f/lib/jarjar.jar:/work/Closure_174f/lib/junit.jar:/work/Closure_174f/build/test --buggy-cp /work/Closure_174b/build/classes:/work/Closure_174b/lib/args4j.jar:/work/Closure_174b/lib/guava.jar:/work/Closure_174b/lib/json.jar:/work/Closure_174b/lib/jsr305.jar:/work/Closure_174b/lib/protobuf-java.jar:/work/Closure_174b/build/lib/rhino.jar:/work/Closure_174b/lib/ant.jar:/work/Closure_174b/lib/ant-launcher.jar:/work/Closure_174b/lib/caja-r4314.jar:/work/Closure_174b/lib/jarjar.jar:/work/Closure_174b/lib/junit.jar:/work/Closure_174b/build/test --out /workspace/jqwik/Auto/Closure_174 --max-methods 150
+generated test classes: 3 / 3
+
+[exit=0 timeout=False time=0.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_174f/build/classes:/work/Closure_174f/lib/args4j.jar:/work/Closure_174f/lib/guava.jar:/work/Closure_174f/lib/json.jar:/work/Closure_174f/lib/jsr305.jar:/work/Closure_174f/lib/protobuf-java.jar:/work/Closure_174f/build/lib/rhino.jar:/work/Closure_174f/lib/ant.jar:/work/Closure_174f/lib/ant-launcher.jar:/work/Closure_174f/lib/caja-r4314.jar:/work/Closure_174f/lib/jarjar.jar:/work/Closure_174f/lib/junit.jar:/work/Closure_174f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Closure_174/com/google/javascript/jscomp/JsAst_AutoPbtTest.java /workspace/jqwik/Auto/Closure_174/com/google/javascript/jscomp/NodeUtil_AutoPbtTest.java /workspace/jqwik/Auto/Closure_174/com/google/javascript/jscomp/ScopedAliases_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.9s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_174b/build/classes:/work/Closure_174b/lib/args4j.jar:/work/Closure_174b/lib/guava.jar:/work/Closure_174b/lib/json.jar:/work/Closure_174b/lib/jsr305.jar:/work/Closure_174b/lib/protobuf-java.jar:/work/Closure_174b/build/lib/rhino.jar:/work/Closure_174b/lib/ant.jar:/work/Closure_174b/lib/ant-launcher.jar:/work/Closure_174b/lib/caja-r4314.jar:/work/Closure_174b/lib/jarjar.jar:/work/Closure_174b/lib/junit.jar:/work/Closure_174b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Closure_174/com/google/javascript/jscomp/JsAst_AutoPbtTest.java /workspace/jqwik/Auto/Closure_174/com/google/javascript/jscomp/NodeUtil_AutoPbtTest.java /workspace/jqwik/Auto/Closure_174/com/google/javascript/jscomp/ScopedAliases_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_174f:/work/Closure_174b:/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f:/work/Closure_174f/build/classes:/work/Closure_174f/lib/args4j.jar:/work/Closure_174f/lib/guava.jar:/work/Closure_174f/lib/json.jar:/work/Closure_174f/lib/jsr305.jar:/work/Closure_174f/lib/protobuf-java.jar:/work/Closure_174f/build/lib/rhino.jar:/work/Closure_174f/lib/ant.jar:/work/Closure_174f/lib/ant-launcher.jar:/work/Closure_174f/lib/caja-r4314.jar:/work/Closure_174f/lib/jarjar.jar:/work/Closure_174f/lib/junit.jar:/work/Closure_174f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/reports_record
+g[0m [32m✔[0m
+[36m   │  ├─[0m [34mm130 newCallNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 canBeSideEffected[0m [32m✔[0m
+[36m   │  ├─[0m [34mm069 isControlStructureCodeBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 containsType[0m [32m✔[0m
+[36m   │  ├─[0m [34mm060 isBleedingFunctionName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm120 isWithinLoop[0m [32m✔[0m
+[36m   │  ├─[0m [34mm126 mayEffectMutableState[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 booleanNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm138 newUndefinedNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm088 isLiteralValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm049 getSourceFile[0m [32m✔[0m
+[36m   │  ├─[0m [34mm099 isPrototypePropertyDeclaration[0m [32m✔[0m
+[36m   │  ├─[0m [34mm110 isTryCatchNodeContainer[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 containsFunction[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 callHasLocalResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm139 newVarNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm057 hasFinally[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 arrayToString[0m [32m✔[0m
+[36m   │  ├─[0m [34mm032 getFunctionParameters[0m [32m✔[0m
+[36m   │  ├─[0m [34mm143 opToStr[0m [32m✔[0m
+[36m   │  ├─[0m [34mm045 getPrototypePropertyName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm072 isExecutedExactlyOnce[0m [32m✔[0m
+[36m   │  ├─[0m [34mm085 isImmutableValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm124 mayBeStringHelper[0m [32m✔[0m
+[36m   │  ├─[0m [34mm089 isLoopStructure[0m [32m✔[0m
+[36m   │  ├─[0m [34mm058 isAssignmentOp[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 canBeSideEffected[0m [32m✔[0m
+[36m   │  ├─[0m [34mm062 isBooleanResultHelper[0m [32m✔[0m
+[36m   │  ├─[0m [34mm121 mapMainToClone[0m [32m✔[0m
+[36m   │  ├─[0m [34mm073 isExprAssign[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 getBestJSDocInfo[0m [32m✔[0m
+[36m   │  ├─[0m [34mm146 precedenceWithDefault[0m [32m✔[0m
+[36m   │  ├─[0m [34mm081 isGet[0m [32m✔[0m
+[36m   │  ├─[0m [34mm020 getArrayElementStringValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm107 isStrWhiteSpaceChar[0m [32m✔[0m
+[36m   │  ├─[0m [34mm065 isCommutative[0m [32m✔[0m
+[36m   │  ├─[0m [34mm066 isConstantByConvention[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 getArgumentForCallOrNew[0m [32m✔[0m
+[36m   │  ├─[0m [34mm084 isImmutableResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 constructorCallHasSideEffects[0m [32m✔[0m
+[36m   │  ├─[0m [34mm048 getRootOfQualifiedName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 getArgumentForFunction[0m [32m✔[0m
+[36m   │  ├─[0m [34mm102 isSimpleOperator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm041 getObjectLitKeyName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 allResultsMatch[0m [32m✔[0m
+[36m   │  ├─[0m [34mm132 newHasLocalResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 constructorCallHasSideEffects[0m [32m✔[0m
+[36m   │  ├─[0m [34mm026 getCatchBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm040 getNumberValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm105 isStatementBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm118 isVarDeclaration[0m [32m✔[0m
+[36m   │  └─[0m [34mm036 getLoopCodeBlock[0m [32m✔[0m
+[36m   └─[0m [36mJsAst AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getSourceFile[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getInputId[0m [32m✔[0m
+[36m      ├─[0m [34mm000 clearAst[0m [32m✔[0m
+[36m      ├─[0m [34mm004 setSourceFile[0m [32m✔[0m
+[36m      └─[0m [34mm001 getAstRoot[0m [32m✔[0m
+
+Test run finished after 13754 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[       157 tests found           ]
+[         0 tests skipped         ]
+[       157 tests started         ]
+[         0 tests aborted         ]
+[       157 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=15.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_174f:/work/Closure_174b:/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f:/work/Closure_174f/build/classes:/work/Closure_174f/lib/args4j.jar:/work/Closure_174f/lib/guava.jar:/work/Closure_174f/lib/json.jar:/work/Closure_174f/lib/jsr305.jar:/work/Closure_174f/lib/protobuf-java.jar:/work/Closure_174f/build/lib/rhino.jar:/work/Closure_174f/lib/ant.jar:/work/Closure_174f/lib/ant-launcher.jar:/work/Closure_174f/lib/caja-r4314.jar:/work/Closure_174f/lib/jarjar.jar:/work/Closure_174f/lib/junit.jar:/work/Closure_174f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/reports_fixed
+g[0m [32m✔[0m
+[36m   │  ├─[0m [34mm130 newCallNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 canBeSideEffected[0m [32m✔[0m
+[36m   │  ├─[0m [34mm069 isControlStructureCodeBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 containsType[0m [32m✔[0m
+[36m   │  ├─[0m [34mm060 isBleedingFunctionName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm120 isWithinLoop[0m [32m✔[0m
+[36m   │  ├─[0m [34mm126 mayEffectMutableState[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 booleanNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm138 newUndefinedNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm088 isLiteralValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm049 getSourceFile[0m [32m✔[0m
+[36m   │  ├─[0m [34mm099 isPrototypePropertyDeclaration[0m [32m✔[0m
+[36m   │  ├─[0m [34mm110 isTryCatchNodeContainer[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 containsFunction[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 callHasLocalResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm139 newVarNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm057 hasFinally[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 arrayToString[0m [32m✔[0m
+[36m   │  ├─[0m [34mm032 getFunctionParameters[0m [32m✔[0m
+[36m   │  ├─[0m [34mm143 opToStr[0m [32m✔[0m
+[36m   │  ├─[0m [34mm045 getPrototypePropertyName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm072 isExecutedExactlyOnce[0m [32m✔[0m
+[36m   │  ├─[0m [34mm085 isImmutableValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm124 mayBeStringHelper[0m [32m✔[0m
+[36m   │  ├─[0m [34mm089 isLoopStructure[0m [32m✔[0m
+[36m   │  ├─[0m [34mm058 isAssignmentOp[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 canBeSideEffected[0m [32m✔[0m
+[36m   │  ├─[0m [34mm062 isBooleanResultHelper[0m [32m✔[0m
+[36m   │  ├─[0m [34mm121 mapMainToClone[0m [32m✔[0m
+[36m   │  ├─[0m [34mm073 isExprAssign[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 getBestJSDocInfo[0m [32m✔[0m
+[36m   │  ├─[0m [34mm146 precedenceWithDefault[0m [32m✔[0m
+[36m   │  ├─[0m [34mm081 isGet[0m [32m✔[0m
+[36m   │  ├─[0m [34mm020 getArrayElementStringValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm107 isStrWhiteSpaceChar[0m [32m✔[0m
+[36m   │  ├─[0m [34mm065 isCommutative[0m [32m✔[0m
+[36m   │  ├─[0m [34mm066 isConstantByConvention[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 getArgumentForCallOrNew[0m [32m✔[0m
+[36m   │  ├─[0m [34mm084 isImmutableResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 constructorCallHasSideEffects[0m [32m✔[0m
+[36m   │  ├─[0m [34mm048 getRootOfQualifiedName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 getArgumentForFunction[0m [32m✔[0m
+[36m   │  ├─[0m [34mm102 isSimpleOperator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm041 getObjectLitKeyName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 allResultsMatch[0m [32m✔[0m
+[36m   │  ├─[0m [34mm132 newHasLocalResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 constructorCallHasSideEffects[0m [32m✔[0m
+[36m   │  ├─[0m [34mm026 getCatchBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm040 getNumberValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm105 isStatementBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm118 isVarDeclaration[0m [32m✔[0m
+[36m   │  └─[0m [34mm036 getLoopCodeBlock[0m [32m✔[0m
+[36m   └─[0m [36mJsAst AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getSourceFile[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getInputId[0m [32m✔[0m
+[36m      ├─[0m [34mm000 clearAst[0m [32m✔[0m
+[36m      ├─[0m [34mm004 setSourceFile[0m [32m✔[0m
+[36m      └─[0m [34mm001 getAstRoot[0m [32m✔[0m
+
+Test run finished after 12419 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[       157 tests found           ]
+[         0 tests skipped         ]
+[       157 tests started         ]
+[         0 tests aborted         ]
+[       157 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=21.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/jacoco.exec --classfiles /work/Closure_174f/build/classes --csv /workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 1226 classes.
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_174f:/work/Closure_174b:/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_b:/work/Closure_174b/build/classes:/work/Closure_174b/lib/args4j.jar:/work/Closure_174b/lib/guava.jar:/work/Closure_174b/lib/json.jar:/work/Closure_174b/lib/jsr305.jar:/work/Closure_174b/lib/protobuf-java.jar:/work/Closure_174b/build/lib/rhino.jar:/work/Closure_174b/lib/ant.jar:/work/Closure_174b/lib/ant-launcher.jar:/work/Closure_174b/lib/caja-r4314.jar:/work/Closure_174b/lib/jarjar.jar:/work/Closure_174b/lib/junit.jar:/work/Closure_174b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_174/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_174/tries200_seed1/reports_buggy
+g[0m [32m✔[0m
+[36m   │  ├─[0m [34mm130 newCallNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 canBeSideEffected[0m [32m✔[0m
+[36m   │  ├─[0m [34mm069 isControlStructureCodeBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 containsType[0m [32m✔[0m
+[36m   │  ├─[0m [34mm060 isBleedingFunctionName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm120 isWithinLoop[0m [32m✔[0m
+[36m   │  ├─[0m [34mm126 mayEffectMutableState[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 booleanNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm138 newUndefinedNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm088 isLiteralValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm049 getSourceFile[0m [32m✔[0m
+[36m   │  ├─[0m [34mm099 isPrototypePropertyDeclaration[0m [32m✔[0m
+[36m   │  ├─[0m [34mm110 isTryCatchNodeContainer[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 containsFunction[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 callHasLocalResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm139 newVarNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm057 hasFinally[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 arrayToString[0m [32m✔[0m
+[36m   │  ├─[0m [34mm032 getFunctionParameters[0m [32m✔[0m
+[36m   │  ├─[0m [34mm143 opToStr[0m [32m✔[0m
+[36m   │  ├─[0m [34mm045 getPrototypePropertyName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm072 isExecutedExactlyOnce[0m [32m✔[0m
+[36m   │  ├─[0m [34mm085 isImmutableValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm124 mayBeStringHelper[0m [32m✔[0m
+[36m   │  ├─[0m [34mm089 isLoopStructure[0m [32m✔[0m
+[36m   │  ├─[0m [34mm058 isAssignmentOp[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 canBeSideEffected[0m [32m✔[0m
+[36m   │  ├─[0m [34mm062 isBooleanResultHelper[0m [32m✔[0m
+[36m   │  ├─[0m [34mm121 mapMainToClone[0m [32m✔[0m
+[36m   │  ├─[0m [34mm073 isExprAssign[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 getBestJSDocInfo[0m [32m✔[0m
+[36m   │  ├─[0m [34mm146 precedenceWithDefault[0m [32m✔[0m
+[36m   │  ├─[0m [34mm081 isGet[0m [32m✔[0m
+[36m   │  ├─[0m [34mm020 getArrayElementStringValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm107 isStrWhiteSpaceChar[0m [32m✔[0m
+[36m   │  ├─[0m [34mm065 isCommutative[0m [32m✔[0m
+[36m   │  ├─[0m [34mm066 isConstantByConvention[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 getArgumentForCallOrNew[0m [32m✔[0m
+[36m   │  ├─[0m [34mm084 isImmutableResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 constructorCallHasSideEffects[0m [32m✔[0m
+[36m   │  ├─[0m [34mm048 getRootOfQualifiedName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 getArgumentForFunction[0m [32m✔[0m
+[36m   │  ├─[0m [34mm102 isSimpleOperator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm041 getObjectLitKeyName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 allResultsMatch[0m [32m✔[0m
+[36m   │  ├─[0m [34mm132 newHasLocalResult[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 constructorCallHasSideEffects[0m [32m✔[0m
+[36m   │  ├─[0m [34mm026 getCatchBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm040 getNumberValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm105 isStatementBlock[0m [32m✔[0m
+[36m   │  ├─[0m [34mm118 isVarDeclaration[0m [32m✔[0m
+[36m   │  └─[0m [34mm036 getLoopCodeBlock[0m [32m✔[0m
+[36m   └─[0m [36mJsAst AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getSourceFile[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getInputId[0m [32m✔[0m
+[36m      ├─[0m [34mm000 clearAst[0m [32m✔[0m
+[36m      ├─[0m [34mm004 setSourceFile[0m [32m✔[0m
+[36m      └─[0m [34mm001 getAstRoot[0m [32m✔[0m
+
+Test run finished after 13052 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[       157 tests found           ]
+[         0 tests skipped         ]
+[       157 tests started         ]
+[         0 tests aborted         ]
+[       157 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=14.2s]

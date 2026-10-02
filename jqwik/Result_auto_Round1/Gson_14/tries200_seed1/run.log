@@ -1,0 +1,311 @@
+
+$ defects4j checkout -p Gson -v 14f -w /work/Gson_14f
+Checking out a3001480 to /work/Gson_14f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a3001480:5848096f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-14f........................................ OK
+
+[exit=0 timeout=False time=0.7s]
+
+$ defects4j compile -w /work/Gson_14f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=44.4s]
+
+$ defects4j checkout -p Gson -v 14b -w /work/Gson_14b
+Checking out a3001480 to /work/Gson_14b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a3001480:5848096f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-14b........................................ OK
+
+[exit=0 timeout=False time=2.7s]
+
+$ defects4j compile -w /work/Gson_14b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=52.8s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.gson.internal.$Gson$Types --fixed-cp /work/Gson_14f/target/classes:/opt/defects4j/framework/projects/Gson/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Gson/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/Gson_14f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/defects4j/framework/projects/Gson/lib/junit/junit/3.8.2/junit-3.8.2.jar --buggy-cp /work/Gson_14b/target/classes:/opt/defects4j/framework/projects/Gson/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Gson/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/Gson_14b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/defects4j/framework/projects/Gson/lib/junit/junit/3.8.2/junit-3.8.2.jar --out /workspace/jqwik/Auto/Gson_14 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=1.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Gson_14f/target/classes:/opt/defects4j/framework/projects/Gson/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Gson/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/Gson_14f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/defects4j/framework/projects/Gson/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Gson_14/com/google/gson/internal/_Gson_Types_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Gson_14b/target/classes:/opt/defects4j/framework/projects/Gson/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Gson/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/Gson_14b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/defects4j/framework/projects/Gson/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Gson_14/com/google/gson/internal/_Gson_Types_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Gson_14f:/work/Gson_14b:/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f:/work/Gson_14f/target/classes:/opt/defects4j/framework/projects/Gson/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Gson/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/Gson_14f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/defects4j/framework/projects/Gson/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/reports_record
+calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:00.312101,  Gson Types AutoPbtTest:m004 equals = 
+                              |-----------------------jqwik-----------------------
+tries = 4                     | # of calls to property
+checks = 4                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:00.339303,  Gson Types AutoPbtTest:m007 getGenericSupertype = 
+                              |-----------------------jqwik-----------------------
+tries = 98                    | # of calls to property
+checks = 98                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:00.584146,  Gson Types AutoPbtTest:m003 equal = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36m Gson Types AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getSupertype[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getCollectionElementType[0m [32m✔[0m
+[36m      ├─[0m [34mm012 newParameterizedTypeWithOwner[0m [32m✔[0m
+[36m      ├─[0m [34mm011 hashCodeOrZero[0m [32m✔[0m
+[36m      ├─[0m [34mm017 typeToString[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getRawType[0m [32m✔[0m
+[36m      ├─[0m [34mm014 resolveTypeVariable[0m [32m✔[0m
+[36m      ├─[0m [34mm001 canonicalize[0m [32m✔[0m
+[36m      ├─[0m [34mm015 subtypeOf[0m [32m✔[0m
+[36m      ├─[0m [34mm016 supertypeOf[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getMapKeyAndValueTypes[0m [32m✔[0m
+[36m      ├─[0m [34mm002 checkNotPrimitive[0m [32m✔[0m
+[36m      ├─[0m [34mm000 arrayOf[0m [32m✔[0m
+[36m      ├─[0m [34mm013 resolve[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getArrayComponentType[0m [32m✔[0m
+[36m      ├─[0m [34mm004 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getGenericSupertype[0m [32m✔[0m
+[36m      └─[0m [34mm003 equal[0m [32m✔[0m
+
+Test run finished after 7028 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=11.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Gson_14f:/work/Gson_14b:/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f:/work/Gson_14f/target/classes:/opt/defects4j/framework/projects/Gson/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Gson/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/Gson_14f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/defects4j/framework/projects/Gson/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/reports_fixed
+calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:18.839120,  Gson Types AutoPbtTest:m004 equals = 
+                              |-----------------------jqwik-----------------------
+tries = 4                     | # of calls to property
+checks = 4                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:18.951516,  Gson Types AutoPbtTest:m007 getGenericSupertype = 
+                              |-----------------------jqwik-----------------------
+tries = 98                    | # of calls to property
+checks = 98                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:19.302689,  Gson Types AutoPbtTest:m003 equal = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36m Gson Types AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getSupertype[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getCollectionElementType[0m [32m✔[0m
+[36m      ├─[0m [34mm012 newParameterizedTypeWithOwner[0m [32m✔[0m
+[36m      ├─[0m [34mm011 hashCodeOrZero[0m [32m✔[0m
+[36m      ├─[0m [34mm017 typeToString[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getRawType[0m [32m✔[0m
+[36m      ├─[0m [34mm014 resolveTypeVariable[0m [32m✔[0m
+[36m      ├─[0m [34mm001 canonicalize[0m [32m✔[0m
+[36m      ├─[0m [34mm015 subtypeOf[0m [32m✔[0m
+[36m      ├─[0m [34mm016 supertypeOf[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getMapKeyAndValueTypes[0m [32m✔[0m
+[36m      ├─[0m [34mm002 checkNotPrimitive[0m [32m✔[0m
+[36m      ├─[0m [34mm000 arrayOf[0m [32m✔[0m
+[36m      ├─[0m [34mm013 resolve[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getArrayComponentType[0m [32m✔[0m
+[36m      ├─[0m [34mm004 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getGenericSupertype[0m [32m✔[0m
+[36m      └─[0m [34mm003 equal[0m [32m✔[0m
+
+Test run finished after 7900 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=33.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/jacoco.exec --classfiles /work/Gson_14f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 156 classes.
+
+[exit=0 timeout=False time=2.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Gson_14f:/work/Gson_14b:/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_b:/work/Gson_14b/target/classes:/opt/defects4j/framework/projects/Gson/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Gson/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/Gson_14b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar:/opt/defects4j/framework/projects/Gson/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Gson_14/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Gson_14/tries200_seed1/reports_buggy
+calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:51.149520,  Gson Types AutoPbtTest:m004 equals = 
+                              |-----------------------jqwik-----------------------
+tries = 4                     | # of calls to property
+checks = 4                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:51.255295,  Gson Types AutoPbtTest:m007 getGenericSupertype = 
+                              |-----------------------jqwik-----------------------
+tries = 98                    | # of calls to property
+checks = 98                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:07:51.684647,  Gson Types AutoPbtTest:m003 equal = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36m Gson Types AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getSupertype[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getCollectionElementType[0m [32m✔[0m
+[36m      ├─[0m [34mm012 newParameterizedTypeWithOwner[0m [32m✔[0m
+[36m      ├─[0m [34mm011 hashCodeOrZero[0m [32m✔[0m
+[36m      ├─[0m [34mm017 typeToString[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getRawType[0m [32m✔[0m
+[36m      ├─[0m [34mm014 resolveTypeVariable[0m [32m✔[0m
+[36m      ├─[0m [34mm001 canonicalize[0m [32m✔[0m
+[36m      ├─[0m [34mm015 subtypeOf[0m [32m✔[0m
+[36m      ├─[0m [34mm016 supertypeOf[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getMapKeyAndValueTypes[0m [32m✔[0m
+[36m      ├─[0m [34mm002 checkNotPrimitive[0m [32m✔[0m
+[36m      ├─[0m [34mm000 arrayOf[0m [32m✔[0m
+[36m      ├─[0m [34mm013 resolve[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getArrayComponentType[0m [32m✔[0m
+[36m      ├─[0m [34mm004 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getGenericSupertype[0m [32m✔[0m
+[36m      └─[0m [34mm003 equal[0m [32m✔[0m
+
+Test run finished after 5993 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=10.8s]

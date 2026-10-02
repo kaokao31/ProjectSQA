@@ -1,0 +1,328 @@
+
+$ defects4j checkout -p Math -v 54f -w /work/Math_54f
+Checking out ec6dbad4 to /work/Math_54f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ec6dbad4:1df5ae52..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-54f........................................ OK
+
+[exit=0 timeout=False time=5.1s]
+
+$ defects4j compile -w /work/Math_54f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=27.7s]
+
+$ defects4j checkout -p Math -v 54b -w /work/Math_54b
+Checking out ec6dbad4 to /work/Math_54b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ec6dbad4:1df5ae52..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-54b........................................ OK
+
+[exit=0 timeout=False time=4.3s]
+
+$ defects4j compile -w /work/Math_54b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=17.7s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math.dfp.Dfp --fixed-cp /work/Math_54f/target/classes:/work/Math_54f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_54b/target/classes:/work/Math_54b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_54 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_54f/target/classes:/work/Math_54f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_54/org/apache/commons/math/dfp/Dfp_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_54b/target/classes:/work/Math_54b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_54/org/apache/commons/math/dfp/Dfp_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_54/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_54f:/work/Math_54b:/work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f:/work/Math_54f/target/classes:/work/Math_54f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/reports_record
+752, Dfp AutoPbtTest:m000 add = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDfp AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm024 log10[0m [32m✔[0m
+[36m      ├─[0m [34mm035 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm034 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getField[0m [32m✔[0m
+[36m      ├─[0m [34mm033 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm012 floor[0m [32m✔[0m
+[36m      ├─[0m [34mm041 rint[0m [32m✔[0m
+[36m      ├─[0m [34mm045 sqrt[0m [32m✔[0m
+[36m      ├─[0m [34mm027 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm032 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm038 power10[0m [32m✔[0m
+[36m      ├─[0m [34mm003 classify[0m [32m✔[0m
+[36m      ├─[0m [34mm021 isInfinite[0m [32m✔[0m
+[36m      ├─[0m [34mm026 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm011 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm031 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getTwo[0m [32m✔[0m
+[36m      ├─[0m [34mm002 ceil[0m [32m✔[0m
+[36m      ├─[0m [34mm030 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm050 trap[0m [32m✔[0m
+[36m      ├─[0m [34mm042 round[0m [32m✔[0m
+[36m      ├─[0m [34mm019 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm043 shiftLeft[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getOne[0m [32m✔[0m
+[36m      ├─[0m [34mm004 complement[0m [32m✔[0m
+[36m      ├─[0m [34mm020 intValue[0m [32m✔[0m
+[36m      ├─[0m [34mm025 log10K[0m [32m✔[0m
+[36m      ├─[0m [34mm008 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm001 align[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isNaN[0m [32m✔[0m
+[36m      ├─[0m [34mm051 trunc[0m [32m✔[0m
+[36m      ├─[0m [34mm006 dfp2sci[0m [32m✔[0m
+[36m      ├─[0m [34mm052 unequal[0m [32m✔[0m
+[36m      ├─[0m [34mm040 remainder[0m [32m✔[0m
+[36m      ├─[0m [34mm047 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm049 toString[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [36m358367 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm023 lessThan[0m [32m✔[0m
+[36m      ├─[0m [34mm028 negate[0m [32m✔[0m
+[36m      ├─[0m [34mm039 power10K[0m [32m✔[0m
+[36m      ├─[0m [34mm048 toSplitDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm007 dfp2string[0m [32m✔[0m
+[36m      ├─[0m [34mm046 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm044 shiftRight[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getZero[0m [32m✔[0m
+[36m      ├─[0m [34mm037 nextAfter[0m [32m✔[0m
+[36m      ├─[0m [34mm018 greaterThan[0m [32m✔[0m
+[36m      ├─[0m [34mm010 dotrap[0m [32m✔[0m
+[36m      ├─[0m [34mm029 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm005 copysign[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getRadixDigits[0m [32m✔[0m
+[36m      ├─[0m [34mm009 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm036 newInstance[0m [32m✔[0m
+[36m      └─[0m [34mm000 add[0m [32m✔[0m
+
+Test run finished after 681012 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        54 tests found           ]
+[         0 tests skipped         ]
+[        54 tests started         ]
+[         0 tests aborted         ]
+[        54 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=683.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_54/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_54f:/work/Math_54b:/work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f:/work/Math_54f/target/classes:/work/Math_54f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/reports_fixed
+293, Dfp AutoPbtTest:m000 add = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDfp AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm024 log10[0m [32m✔[0m
+[36m      ├─[0m [34mm035 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm034 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getField[0m [32m✔[0m
+[36m      ├─[0m [34mm033 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm012 floor[0m [32m✔[0m
+[36m      ├─[0m [34mm041 rint[0m [32m✔[0m
+[36m      ├─[0m [34mm045 sqrt[0m [32m✔[0m
+[36m      ├─[0m [34mm027 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm032 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm038 power10[0m [32m✔[0m
+[36m      ├─[0m [34mm003 classify[0m [32m✔[0m
+[36m      ├─[0m [34mm021 isInfinite[0m [32m✔[0m
+[36m      ├─[0m [34mm026 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm011 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm031 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getTwo[0m [32m✔[0m
+[36m      ├─[0m [34mm002 ceil[0m [32m✔[0m
+[36m      ├─[0m [34mm030 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm050 trap[0m [32m✔[0m
+[36m      ├─[0m [34mm042 round[0m [32m✔[0m
+[36m      ├─[0m [34mm019 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm043 shiftLeft[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getOne[0m [32m✔[0m
+[36m      ├─[0m [34mm004 complement[0m [32m✔[0m
+[36m      ├─[0m [34mm020 intValue[0m [32m✔[0m
+[36m      ├─[0m [34mm025 log10K[0m [32m✔[0m
+[36m      ├─[0m [34mm008 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm001 align[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isNaN[0m [32m✔[0m
+[36m      ├─[0m [34mm051 trunc[0m [32m✔[0m
+[36m      ├─[0m [34mm006 dfp2sci[0m [32m✔[0m
+[36m      ├─[0m [34mm052 unequal[0m [32m✔[0m
+[36m      ├─[0m [34mm040 remainder[0m [32m✔[0m
+[36m      ├─[0m [34mm047 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm049 toString[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [36m358501 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm023 lessThan[0m [32m✔[0m
+[36m      ├─[0m [34mm028 negate[0m [32m✔[0m
+[36m      ├─[0m [34mm039 power10K[0m [32m✔[0m
+[36m      ├─[0m [34mm048 toSplitDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm007 dfp2string[0m [32m✔[0m
+[36m      ├─[0m [34mm046 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm044 shiftRight[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getZero[0m [32m✔[0m
+[36m      ├─[0m [34mm037 nextAfter[0m [32m✔[0m
+[36m      ├─[0m [34mm018 greaterThan[0m [32m✔[0m
+[36m      ├─[0m [34mm010 dotrap[0m [32m✔[0m
+[36m      ├─[0m [34mm029 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm005 copysign[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getRadixDigits[0m [32m✔[0m
+[36m      ├─[0m [34mm009 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm036 newInstance[0m [32m✔[0m
+[36m      └─[0m [34mm000 add[0m [32m✔[0m
+
+Test run finished after 680799 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        54 tests found           ]
+[         0 tests skipped         ]
+[        54 tests started         ]
+[         0 tests aborted         ]
+[        54 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=687.5s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/jacoco.exec --classfiles /work/Math_54f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 498 classes.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_54/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_54f:/work/Math_54b:/work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_b:/work/Math_54b/target/classes:/work/Math_54b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_54/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_54/tries200_seed1/reports_buggy
+218, Dfp AutoPbtTest:m000 add = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDfp AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm024 log10[0m [32m✔[0m
+[36m      ├─[0m [34mm035 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm034 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getField[0m [32m✔[0m
+[36m      ├─[0m [34mm033 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm012 floor[0m [32m✔[0m
+[36m      ├─[0m [34mm041 rint[0m [32m✔[0m
+[36m      ├─[0m [34mm045 sqrt[0m [32m✔[0m
+[36m      ├─[0m [34mm027 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm032 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm038 power10[0m [32m✔[0m
+[36m      ├─[0m [34mm003 classify[0m [32m✔[0m
+[36m      ├─[0m [34mm021 isInfinite[0m [32m✔[0m
+[36m      ├─[0m [34mm026 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm011 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm031 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getTwo[0m [32m✔[0m
+[36m      ├─[0m [34mm002 ceil[0m [32m✔[0m
+[36m      ├─[0m [34mm030 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm050 trap[0m [32m✔[0m
+[36m      ├─[0m [34mm042 round[0m [32m✔[0m
+[36m      ├─[0m [34mm019 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm043 shiftLeft[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getOne[0m [32m✔[0m
+[36m      ├─[0m [34mm004 complement[0m [32m✔[0m
+[36m      ├─[0m [34mm020 intValue[0m [32m✔[0m
+[36m      ├─[0m [34mm025 log10K[0m [32m✔[0m
+[36m      ├─[0m [34mm008 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm001 align[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isNaN[0m [32m✔[0m
+[36m      ├─[0m [34mm051 trunc[0m [32m✔[0m
+[36m      ├─[0m [34mm006 dfp2sci[0m [32m✔[0m
+[36m      ├─[0m [34mm052 unequal[0m [32m✔[0m
+[36m      ├─[0m [34mm040 remainder[0m [32m✔[0m
+[36m      ├─[0m [34mm047 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm049 toString[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [36m358401 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm023 lessThan[0m [32m✔[0m
+[36m      ├─[0m [34mm028 negate[0m [32m✔[0m
+[36m      ├─[0m [34mm039 power10K[0m [32m✔[0m
+[36m      ├─[0m [34mm048 toSplitDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm007 dfp2string[0m [32m✔[0m
+[36m      ├─[0m [34mm046 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm044 shiftRight[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getZero[0m [32m✔[0m
+[36m      ├─[0m [34mm037 nextAfter[0m [32m✔[0m
+[36m      ├─[0m [34mm018 greaterThan[0m [32m✔[0m
+[36m      ├─[0m [34mm010 dotrap[0m [32m✔[0m
+[36m      ├─[0m [34mm029 newInstance[0m [32m✔[0m
+[36m      ├─[0m [34mm005 copysign[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getRadixDigits[0m [32m✔[0m
+[36m      ├─[0m [34mm009 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm036 newInstance[0m [32m✔[0m
+[36m      └─[0m [34mm000 add[0m [32m✔[0m
+
+Test run finished after 679987 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        54 tests found           ]
+[         0 tests skipped         ]
+[        54 tests started         ]
+[         0 tests aborted         ]
+[        54 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=681.3s]

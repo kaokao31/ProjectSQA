@@ -1,0 +1,171 @@
+
+$ defects4j checkout -p Closure -v 111f -w /work/Closure_111f
+Checking out 6f981f77 to /work/Closure_111f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_111f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_111f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6f981f77:450f0f6e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-111f.................................... OK
+
+[exit=0 timeout=False time=3.4s]
+
+$ defects4j compile -w /work/Closure_111f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=18.7s]
+
+$ defects4j checkout -p Closure -v 111b -w /work/Closure_111b
+Checking out 6f981f77 to /work/Closure_111b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_111b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_111b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6f981f77:450f0f6e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-111b.................................... OK
+
+[exit=0 timeout=False time=3.5s]
+
+$ defects4j compile -w /work/Closure_111b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=24.9s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter --fixed-cp /work/Closure_111f/build/classes:/work/Closure_111f/lib/args4j.jar:/work/Closure_111f/lib/guava.jar:/work/Closure_111f/lib/json.jar:/work/Closure_111f/lib/jsr305.jar:/work/Closure_111f/lib/protobuf-java.jar:/work/Closure_111f/build/lib/rhino.jar:/work/Closure_111f/lib/ant.jar:/work/Closure_111f/lib/ant-launcher.jar:/work/Closure_111f/lib/caja-r4314.jar:/work/Closure_111f/lib/jarjar.jar:/work/Closure_111f/lib/junit.jar:/work/Closure_111f/build/test --buggy-cp /work/Closure_111b/build/classes:/work/Closure_111b/lib/args4j.jar:/work/Closure_111b/lib/guava.jar:/work/Closure_111b/lib/json.jar:/work/Closure_111b/lib/jsr305.jar:/work/Closure_111b/lib/protobuf-java.jar:/work/Closure_111b/build/lib/rhino.jar:/work/Closure_111b/lib/ant.jar:/work/Closure_111b/lib/ant-launcher.jar:/work/Closure_111b/lib/caja-r4314.jar:/work/Closure_111b/lib/jarjar.jar:/work/Closure_111b/lib/junit.jar:/work/Closure_111b/build/test --out /workspace/jqwik/Auto/Closure_111 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_111f/build/classes:/work/Closure_111f/lib/args4j.jar:/work/Closure_111f/lib/guava.jar:/work/Closure_111f/lib/json.jar:/work/Closure_111f/lib/jsr305.jar:/work/Closure_111f/lib/protobuf-java.jar:/work/Closure_111f/build/lib/rhino.jar:/work/Closure_111f/lib/ant.jar:/work/Closure_111f/lib/ant-launcher.jar:/work/Closure_111f/lib/caja-r4314.jar:/work/Closure_111f/lib/jarjar.jar:/work/Closure_111f/lib/junit.jar:/work/Closure_111f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Closure_111/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_111b/build/classes:/work/Closure_111b/lib/args4j.jar:/work/Closure_111b/lib/guava.jar:/work/Closure_111b/lib/json.jar:/work/Closure_111b/lib/jsr305.jar:/work/Closure_111b/lib/protobuf-java.jar:/work/Closure_111b/build/lib/rhino.jar:/work/Closure_111b/lib/ant.jar:/work/Closure_111b/lib/ant-launcher.jar:/work/Closure_111b/lib/caja-r4314.jar:/work/Closure_111b/lib/jarjar.jar:/work/Closure_111b/lib/junit.jar:/work/Closure_111b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Closure_111/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_111f:/work/Closure_111b:/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f:/work/Closure_111f/build/classes:/work/Closure_111f/lib/args4j.jar:/work/Closure_111f/lib/guava.jar:/work/Closure_111f/lib/json.jar:/work/Closure_111f/lib/jsr305.jar:/work/Closure_111f/lib/protobuf-java.jar:/work/Closure_111f/build/lib/rhino.jar:/work/Closure_111f/lib/ant.jar:/work/Closure_111f/lib/ant-launcher.jar:/work/Closure_111f/lib/caja-r4314.jar:/work/Closure_111f/lib/jarjar.jar:/work/Closure_111f/lib/junit.jar:/work/Closure_111f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/reports_record
+timestamp = 2026-09-30T22:00:34.623985, ClosureReverseAbstractInterpreter AutoPbtTest:m000 getPreciserScopeKnowingConditionOutcome = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mClosureReverseAbstractInterpreter AutoPbtTest[0m [32m✔[0m
+[36m      └─[0m [34mm000 getPreciserScopeKnowingConditionOutcome[0m [32m✔[0m
+
+Test run finished after 1377 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         1 tests found           ]
+[         0 tests skipped         ]
+[         1 tests started         ]
+[         0 tests aborted         ]
+[         1 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=2.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_111f:/work/Closure_111b:/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f:/work/Closure_111f/build/classes:/work/Closure_111f/lib/args4j.jar:/work/Closure_111f/lib/guava.jar:/work/Closure_111f/lib/json.jar:/work/Closure_111f/lib/jsr305.jar:/work/Closure_111f/lib/protobuf-java.jar:/work/Closure_111f/build/lib/rhino.jar:/work/Closure_111f/lib/ant.jar:/work/Closure_111f/lib/ant-launcher.jar:/work/Closure_111f/lib/caja-r4314.jar:/work/Closure_111f/lib/jarjar.jar:/work/Closure_111f/lib/junit.jar:/work/Closure_111f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/reports_fixed
+timestamp = 2026-09-30T22:00:38.338552, ClosureReverseAbstractInterpreter AutoPbtTest:m000 getPreciserScopeKnowingConditionOutcome = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mClosureReverseAbstractInterpreter AutoPbtTest[0m [32m✔[0m
+[36m      └─[0m [34mm000 getPreciserScopeKnowingConditionOutcome[0m [32m✔[0m
+
+Test run finished after 1747 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         1 tests found           ]
+[         0 tests skipped         ]
+[         1 tests started         ]
+[         0 tests aborted         ]
+[         1 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=11.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/jacoco.exec --classfiles /work/Closure_111f/build/classes --csv /workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 1230 classes.
+
+[exit=0 timeout=False time=1.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_111f:/work/Closure_111b:/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_b:/work/Closure_111b/build/classes:/work/Closure_111b/lib/args4j.jar:/work/Closure_111b/lib/guava.jar:/work/Closure_111b/lib/json.jar:/work/Closure_111b/lib/jsr305.jar:/work/Closure_111b/lib/protobuf-java.jar:/work/Closure_111b/build/lib/rhino.jar:/work/Closure_111b/lib/ant.jar:/work/Closure_111b/lib/ant-launcher.jar:/work/Closure_111b/lib/caja-r4314.jar:/work/Closure_111b/lib/jarjar.jar:/work/Closure_111b/lib/junit.jar:/work/Closure_111b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_111/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_111/tries200_seed1/reports_buggy
+timestamp = 2026-09-30T22:00:52.426765, ClosureReverseAbstractInterpreter AutoPbtTest:m000 getPreciserScopeKnowingConditionOutcome = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mClosureReverseAbstractInterpreter AutoPbtTest[0m [32m✔[0m
+[36m      └─[0m [34mm000 getPreciserScopeKnowingConditionOutcome[0m [32m✔[0m
+
+Test run finished after 1832 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         1 tests found           ]
+[         0 tests skipped         ]
+[         1 tests started         ]
+[         0 tests aborted         ]
+[         1 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=3.4s]

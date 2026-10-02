@@ -1,0 +1,385 @@
+
+$ defects4j checkout -p Math -v 53f -w /work/Math_53f
+Checking out 2123f780 to /work/Math_53f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2123f780:fe761c28..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-53f........................................ OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ defects4j compile -w /work/Math_53f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=15.9s]
+
+$ defects4j checkout -p Math -v 53b -w /work/Math_53b
+Checking out 2123f780 to /work/Math_53b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2123f780:fe761c28..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-53b........................................ OK
+
+[exit=0 timeout=False time=4.1s]
+
+$ defects4j compile -w /work/Math_53b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=15.2s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math.complex.Complex --fixed-cp /work/Math_53f/target/classes:/work/Math_53f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_53b/target/classes:/work/Math_53b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_53 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_53f/target/classes:/work/Math_53f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_53/org/apache/commons/math/complex/Complex_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_53b/target/classes:/work/Math_53b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_53/org/apache/commons/math/complex/Complex_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_53/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_53f:/work/Math_53b:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/Math_53f/target/classes:/work/Math_53f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_record
+timestamp = 2026-09-29T23:10:28.585035, Complex AutoPbtTest:m023 nthRoot = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+Sep 29, 2026 11:10:35 PM net.jqwik.engine.JqwikTestEngine execute
+SEVERE: Java heap space
+java.lang.OutOfMemoryError: Java heap space
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+
+[exit=1 timeout=False time=14.1s]
+
+[no results - JVM crashed?] retrying once with -Xmx3g
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx3g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_53/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_53f:/work/Math_53b:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/Math_53f/target/classes:/work/Math_53f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_record
+cted calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:11:11.084241, Complex AutoPbtTest:m031 tan = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:11:11.107679, Complex AutoPbtTest:m032 tanh = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mComplex AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm023 nthRoot[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getField[0m [32m✔[0m
+[36m      ├─[0m [34mm005 conjugate[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getArgument[0m [32m✔[0m
+[36m      ├─[0m [34mm029 sqrt1z[0m [36m13251 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm022 negate[0m [32m✔[0m
+[36m      ├─[0m [34mm001 acos[0m [32m✔[0m
+[36m      ├─[0m [34mm003 asin[0m [32m✔[0m
+[36m      ├─[0m [34mm004 atan[0m [32m✔[0m
+[36m      ├─[0m [34mm007 cosh[0m [32m✔[0m
+[36m      ├─[0m [34mm018 isNaN[0m [32m✔[0m
+[36m      ├─[0m [34mm033 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm030 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm021 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getImaginary[0m [32m✔[0m
+[36m      ├─[0m [34mm017 isInfinite[0m [32m✔[0m
+[36m      ├─[0m [34mm020 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm016 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getReal[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm025 readResolve[0m [32m✔[0m
+[36m      ├─[0m [34mm027 sinh[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createComplex[0m [32m✔[0m
+[36m      ├─[0m [34mm028 sqrt[0m [32m✔[0m
+[36m      ├─[0m [34mm010 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm009 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm000 abs[0m [32m✔[0m
+[36m      ├─[0m [34mm002 add[0m [32m✔[0m
+[36m      ├─[0m [34mm006 cos[0m [32m✔[0m
+[36m      ├─[0m [34mm011 exp[0m [32m✔[0m
+[36m      ├─[0m [34mm019 log[0m [32m✔[0m
+[36m      ├─[0m [34mm024 pow[0m [32m✔[0m
+[36m      ├─[0m [34mm026 sin[0m [32m✔[0m
+[36m      ├─[0m [34mm031 tan[0m [32m✔[0m
+[36m      └─[0m [34mm032 tanh[0m [32m✔[0m
+
+Test run finished after 34498 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        35 tests found           ]
+[         0 tests skipped         ]
+[        35 tests started         ]
+[         0 tests aborted         ]
+[        35 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=36.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_53/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_53f:/work/Math_53b:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/Math_53f/target/classes:/work/Math_53f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_fixed
+rtyMethodExecutor.lambda$execute$0(PropertyMethodExecutor.java:49)
+	at net.jqwik.engine.execution.PropertyMethodExecutor$$Lambda$317/0x000000084012b040.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.AroundPropertyHook.lambda$static$0(AroundPropertyHook.java:46)
+	at net.jqwik.api.lifecycle.AroundPropertyHook$$Lambda$242/0x0000000840105040.aroundProperty(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$0(HookSupport.java:26)
+	at net.jqwik.engine.execution.lifecycle.HookSupport$$Lambda$318/0x000000084012b440.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.PropertyExecutor.executeAndFinally(PropertyExecutor.java:39)
+	at net.jqwik.engine.hooks.lifecycle.PropertyLifecycleMethodsHook.aroundProperty(PropertyLifecycleMethodsHook.java:56)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$1(HookSupport.java:31)
+	at net.jqwik.engine.execution.lifecycle.HookSupport$$Lambda$311/0x0000000840129840.aroundProperty(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$0(HookSupport.java:26)
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3689)
+	at java.base/java.util.ArrayList.grow(ArrayList.java:238)
+	at java.base/java.util.ArrayList.grow(ArrayList.java:243)
+	at java.base/java.util.ArrayList.add(ArrayList.java:486)
+	at java.base/java.util.ArrayList.add(ArrayList.java:499)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValues(CombinedShrinkable.java:32)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValue(CombinedShrinkable.java:25)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.value(CombinedShrinkable.java:21)
+	at net.jqwik.engine.properties.GenericProperty$$Lambda$412/0x000000084016a840.apply(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at net.jqwik.engine.properties.GenericProperty.extractParams(GenericProperty.java:175)
+	at net.jqwik.engine.properties.GenericProperty.check(GenericProperty.java:65)
+	at net.jqwik.engine.execution.CheckedProperty.check(CheckedProperty.java:67)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.executeProperty(PropertyMethodExecutor.java:90)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.executeMethod(PropertyMethodExecutor.java:69)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.lambda$execute$0(PropertyMethodExecutor.java:49)
+	at net.jqwik.engine.execution.PropertyMethodExecutor$$Lambda$317/0x000000084012b040.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.AroundPropertyHook.lambda$static$0(AroundPropertyHook.java:46)
+	at net.jqwik.api.lifecycle.AroundPropertyHook$$Lambda$242/0x0000000840105040.aroundProperty(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$0(HookSupport.java:26)
+	at net.jqwik.engine.execution.lifecycle.HookSupport$$Lambda$318/0x000000084012b440.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.PropertyExecutor.executeAndFinally(PropertyExecutor.java:39)
+	at net.jqwik.engine.hooks.lifecycle.PropertyLifecycleMethodsHook.aroundProperty(PropertyLifecycleMethodsHook.java:56)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$1(HookSupport.java:31)
+	at net.jqwik.engine.execution.lifecycle.HookSupport$$Lambda$311/0x0000000840129840.aroundProperty(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$0(HookSupport.java:26)
+
+[exit=1 timeout=False time=21.8s]
+
+[no results - JVM crashed?] retrying once with -Xmx3g
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx3g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_53/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_53f:/work/Math_53b:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/Math_53f/target/classes:/work/Math_53f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_fixed
+   | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:11:46.562536, Complex AutoPbtTest:m031 tan = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:11:46.591528, Complex AutoPbtTest:m032 tanh = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mComplex AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm023 nthRoot[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getField[0m [32m✔[0m
+[36m      ├─[0m [34mm005 conjugate[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getArgument[0m [32m✔[0m
+[36m      ├─[0m [34mm029 sqrt1z[0m [32m✔[0m
+[36m      ├─[0m [34mm022 negate[0m [32m✔[0m
+[36m      ├─[0m [34mm001 acos[0m [32m✔[0m
+[36m      ├─[0m [34mm003 asin[0m [32m✔[0m
+[36m      ├─[0m [34mm004 atan[0m [32m✔[0m
+[36m      ├─[0m [34mm007 cosh[0m [32m✔[0m
+[36m      ├─[0m [34mm018 isNaN[0m [32m✔[0m
+[36m      ├─[0m [34mm033 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm030 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm021 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getImaginary[0m [32m✔[0m
+[36m      ├─[0m [34mm017 isInfinite[0m [32m✔[0m
+[36m      ├─[0m [34mm020 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm016 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getReal[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm025 readResolve[0m [32m✔[0m
+[36m      ├─[0m [34mm027 sinh[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createComplex[0m [32m✔[0m
+[36m      ├─[0m [34mm028 sqrt[0m [32m✔[0m
+[36m      ├─[0m [34mm010 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm009 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm000 abs[0m [32m✔[0m
+[36m      ├─[0m [34mm002 add[0m [32m✔[0m
+[36m      ├─[0m [34mm006 cos[0m [32m✔[0m
+[36m      ├─[0m [34mm011 exp[0m [32m✔[0m
+[36m      ├─[0m [34mm019 log[0m [32m✔[0m
+[36m      ├─[0m [34mm024 pow[0m [32m✔[0m
+[36m      ├─[0m [34mm026 sin[0m [32m✔[0m
+[36m      ├─[0m [34mm031 tan[0m [32m✔[0m
+[36m      └─[0m [34mm032 tanh[0m [32m✔[0m
+
+Test run finished after 10856 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        35 tests found           ]
+[         0 tests skipped         ]
+[        35 tests started         ]
+[         0 tests aborted         ]
+[        35 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=25.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/jacoco.exec --classfiles /work/Math_53f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 569 classes.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_53/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_53f:/work/Math_53b:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b:/work/Math_53b/target/classes:/work/Math_53b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_53/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_53/tries200_seed1/reports_buggy
+[0m [34mm022 negate[0m [32m✔[0m
+[36m      ├─[0m [34mm001 acos[0m [32m✔[0m
+[36m      ├─[0m [34mm003 asin[0m [32m✔[0m
+[36m      ├─[0m [34mm004 atan[0m [32m✔[0m
+[36m      ├─[0m [34mm007 cosh[0m [32m✔[0m
+[36m      ├─[0m [34mm018 isNaN[0m [32m✔[0m
+[36m      ├─[0m [34mm033 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm030 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm021 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getImaginary[0m [32m✔[0m
+[36m      ├─[0m [34mm017 isInfinite[0m [32m✔[0m
+[36m      ├─[0m [34mm020 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm016 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getReal[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm025 readResolve[0m [32m✔[0m
+[36m      ├─[0m [34mm027 sinh[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createComplex[0m [32m✔[0m
+[36m      ├─[0m [34mm028 sqrt[0m [32m✔[0m
+[36m      ├─[0m [34mm010 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm009 divide[0m [32m✔[0m
+[36m      ├─[0m [34mm000 abs[0m [32m✔[0m
+[36m      ├─[0m [31mm002 add[0m [31m✘[0m [31m[regression] org.apache.commons.math.complex.Complex.add(org.apache.commons.math.complex.Complex)[0m
+[36m      │     [0m[31m     input:    new Complex.<init>[Double:4.9E-324, Double:NaN].add[new Complex.<init>[Double:0.03, Double:8.7644418667522E11]][0m
+[36m      │     [0m[31m     expected: ret=Complex:(NaN, NaN) | this=Complex:(4.9E-324, NaN)[0m
+[36m      │     [0m[31m     actual:   ret=Complex:(0.03, NaN) | this=Complex:(4.9E-324, NaN)[0m
+[36m      ├─[0m [34mm006 cos[0m [32m✔[0m
+[36m      ├─[0m [34mm011 exp[0m [32m✔[0m
+[36m      ├─[0m [34mm019 log[0m [32m✔[0m
+[36m      ├─[0m [34mm024 pow[0m [32m✔[0m
+[36m      ├─[0m [34mm026 sin[0m [32m✔[0m
+[36m      ├─[0m [34mm031 tan[0m [32m✔[0m
+[36m      └─[0m [34mm032 tanh[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):Complex AutoPbtTest:m002 add
+    MethodSource [className = 'org.apache.commons.math.complex.Complex_AutoPbtTest', methodName = 'm002_add', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math.complex.Complex.add(org.apache.commons.math.complex.Complex)
+  input:    new Complex.<init>[Double:4.9E-324, Double:NaN].add[new Complex.<init>[Double:0.03, Double:8.7644418667522E11]]
+  expected: ret=Complex:(NaN, NaN) | this=Complex:(4.9E-324, NaN)
+  actual:   ret=Complex:(0.03, NaN) | this=Complex:(4.9E-324, NaN)
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.complex.Complex_AutoPbtTest.m002_add(Complex_AutoPbtTest.java:35)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 14151 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        35 tests found           ]
+[         0 tests skipped         ]
+[        35 tests started         ]
+[         0 tests aborted         ]
+[        34 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=15.3s]

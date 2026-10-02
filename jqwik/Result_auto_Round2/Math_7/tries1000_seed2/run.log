@@ -1,0 +1,331 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f /workspace/jqwik/Auto/Math_7/org/apache/commons/math3/ode/AbstractIntegrator_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.1s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_7b/target/classes:/work/Math_7b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b /workspace/jqwik/Auto/Math_7/org/apache/commons/math3/ode/AbstractIntegrator_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=2 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_record/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_record
+latMappedShrinkable.shrinkable(FlatMappedShrinkable.java:84)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.value(FlatMappedShrinkable.java:80)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValues(CombinedShrinkable.java:32)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValue(CombinedShrinkable.java:25)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.value(CombinedShrinkable.java:21)
+	at net.jqwik.engine.properties.GenericProperty$$Lambda$405/0x0000000840167c40.apply(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.math.BigInteger.add(BigInteger.java:1405)
+	at java.base/java.math.BigInteger.add(BigInteger.java:1311)
+	at net.jqwik.engine.properties.arbitraries.randomized.BigUniformNumericGenerator.next(BigUniformNumericGenerator.java:26)
+	at net.jqwik.engine.properties.arbitraries.randomized.BiasedNumericGenerator.lambda$partitionedGenerator$0(BiasedNumericGenerator.java:33)
+	at net.jqwik.engine.properties.arbitraries.randomized.BiasedNumericGenerator$$Lambda$408/0x0000000840168840.next(Unknown Source)
+	at net.jqwik.engine.properties.arbitraries.randomized.BiasedNumericGenerator.next(BiasedNumericGenerator.java:22)
+	at net.jqwik.engine.properties.arbitraries.randomized.RandomIntegralGenerators.lambda$bigIntegers$1(RandomIntegralGenerators.java:31)
+	at net.jqwik.engine.properties.arbitraries.randomized.RandomIntegralGenerators$$Lambda$409/0x0000000840168c40.next(Unknown Source)
+	at net.jqwik.api.RandomGenerator.lambda$mapShrinkable$1(RandomGenerator.java:61)
+	at net.jqwik.api.RandomGenerator$$Lambda$401/0x0000000840166c40.next(Unknown Source)
+	at net.jqwik.api.RandomGenerator.lambda$mapShrinkable$1(RandomGenerator.java:61)
+	at net.jqwik.api.RandomGenerator$$Lambda$401/0x0000000840166c40.next(Unknown Source)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.lambda$new$1(FlatMappedShrinkable.java:31)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable$$Lambda$404/0x0000000840167840.apply(Unknown Source)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.generateShrinkable(FlatMappedShrinkable.java:40)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.shrinkable(FlatMappedShrinkable.java:84)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.value(FlatMappedShrinkable.java:80)
+	at net.jqwik.engine.properties.shrinking.MappedShrinkable.value(MappedShrinkable.java:21)
+	at net.jqwik.engine.properties.arbitraries.randomized.ContainerGenerator.nextUntilAccepted(ContainerGenerator.java:109)
+	at net.jqwik.engine.properties.arbitraries.randomized.ContainerGenerator.next(ContainerGenerator.java:70)
+	at net.jqwik.api.RandomGenerator.lambda$mapShrinkable$1(RandomGenerator.java:61)
+	at net.jqwik.api.RandomGenerator$$Lambda$401/0x0000000840166c40.next(Unknown Source)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.lambda$new$1(FlatMappedShrinkable.java:31)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable$$Lambda$404/0x0000000840167840.apply(Unknown Source)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.generateShrinkable(FlatMappedShrinkable.java:40)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.shrinkable(FlatMappedShrinkable.java:84)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.value(FlatMappedShrinkable.java:80)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValues(CombinedShrinkable.java:32)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValue(CombinedShrinkable.java:25)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.value(CombinedShrinkable.java:21)
+	at net.jqwik.engine.properties.GenericProperty$$Lambda$405/0x0000000840167c40.apply(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+
+[exit=1 timeout=False time=17.8s]
+
+[no results - JVM crashed?] retrying once with -Xmx3g
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx3g -Dpbt.seed=2 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_record/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_record
+330807, AbstractIntegrator AutoPbtTest:m017 setEquations = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:13:42.086973, AbstractIntegrator AutoPbtTest:m019 setStateInitialized = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:13:57.561577, AbstractIntegrator AutoPbtTest:m012 getName = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mAbstractIntegrator AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 computeDerivatives[0m [32m✔[0m
+[36m      ├─[0m [34mm000 acceptStep[0m [32m✔[0m
+[36m      ├─[0m [34mm014 initIntegration[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getMaxEvaluations[0m [36m20206 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm015 integrate[0m [36m41314 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm004 clearEventHandlers[0m [36m21173 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addEventHandler[0m [36m22191 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm003 addStepHandler[0m [36m16433 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getCurrentSignedStepsize[0m [36m18918 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getStepHandlers[0m [36m16637 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getEvaluations[0m [36m19545 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm016 sanityChecks[0m [36m17258 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getEventHandlers[0m [36m18972 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm018 setMaxEvaluations[0m [36m16792 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm002 addEventHandler[0m [36m16398 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getCurrentStepStart[0m [36m17972 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm005 clearStepHandlers[0m [36m15816 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm017 setEquations[0m [36m17036 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm019 setStateInitialized[0m [36m14756 ms[0m [32m✔[0m
+[36m      └─[0m [34mm012 getName[0m [36m15474 ms[0m [32m✔[0m
+
+Test run finished after 356202 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        20 tests found           ]
+[         0 tests skipped         ]
+[        20 tests started         ]
+[         0 tests aborted         ]
+[        20 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=362.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=2 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_fixed/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_fixed
+timestamp = 2026-09-30T01:14:29.470125, AbstractIntegrator AutoPbtTest:m006 computeDerivatives = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:14:37.398060, AbstractIntegrator AutoPbtTest:m000 acceptStep = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+Sep 30, 2026 1:14:58 AM net.jqwik.engine.JqwikTestEngine execute
+SEVERE: Java heap space
+java.lang.OutOfMemoryError: Java heap space
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+
+[exit=1 timeout=False time=57.4s]
+
+[no results - JVM crashed?] retrying once with -Xmx3g
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx3g -Dpbt.seed=2 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_fixed/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_fixed
+viously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:17:06.452387, AbstractIntegrator AutoPbtTest:m017 setEquations = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:17:12.695351, AbstractIntegrator AutoPbtTest:m019 setStateInitialized = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:17:18.858182, AbstractIntegrator AutoPbtTest:m012 getName = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mAbstractIntegrator AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 computeDerivatives[0m [36m10299 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm000 acceptStep[0m [32m✔[0m
+[36m      ├─[0m [34mm014 initIntegration[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getMaxEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm015 integrate[0m [32m✔[0m
+[36m      ├─[0m [34mm004 clearEventHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addEventHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm003 addStepHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getCurrentSignedStepsize[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getStepHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm016 sanityChecks[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getEventHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm018 setMaxEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm002 addEventHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getCurrentStepStart[0m [32m✔[0m
+[36m      ├─[0m [34mm005 clearStepHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm017 setEquations[0m [32m✔[0m
+[36m      ├─[0m [34mm019 setStateInitialized[0m [32m✔[0m
+[36m      └─[0m [34mm012 getName[0m [32m✔[0m
+
+Test run finished after 129503 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        20 tests found           ]
+[         0 tests skipped         ]
+[        20 tests started         ]
+[         0 tests aborted         ]
+[        20 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=140.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/jacoco.exec --classfiles /work/Math_7f/target/classes --csv /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/jacoco.exec.
+[INFO] Analyzing 799 classes.
+
+[exit=0 timeout=False time=3.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=2 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b:/work/Math_7b/target/classes:/work/Math_7b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed2/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_buggy/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed2/reports_buggy
+ple, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:19:50.089451, AbstractIntegrator AutoPbtTest:m017 setEquations = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:19:56.164353, AbstractIntegrator AutoPbtTest:m019 setStateInitialized = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:20:02.308628, AbstractIntegrator AutoPbtTest:m012 getName = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mAbstractIntegrator AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 computeDerivatives[0m [36m16982 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm000 acceptStep[0m [32m✔[0m
+[36m      ├─[0m [34mm014 initIntegration[0m [36m17717 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getMaxEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm015 integrate[0m [32m✔[0m
+[36m      ├─[0m [34mm004 clearEventHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addEventHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm003 addStepHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getCurrentSignedStepsize[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getStepHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm016 sanityChecks[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getEventHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm018 setMaxEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm002 addEventHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getCurrentStepStart[0m [32m✔[0m
+[36m      ├─[0m [34mm005 clearStepHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm017 setEquations[0m [32m✔[0m
+[36m      ├─[0m [34mm019 setStateInitialized[0m [32m✔[0m
+[36m      └─[0m [34mm012 getName[0m [32m✔[0m
+
+Test run finished after 145763 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        20 tests found           ]
+[         0 tests skipped         ]
+[        20 tests started         ]
+[         0 tests aborted         ]
+[        20 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=148.5s]

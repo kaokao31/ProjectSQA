@@ -1,0 +1,199 @@
+
+$ defects4j checkout -p JxPath -v 15f -w /work/JxPath_15f
+Checking out 497ed5f8 to /work/JxPath_15f.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 497ed5f8:33cabe52..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-15f...................................... OK
+
+[exit=0 timeout=False time=0.6s]
+
+$ defects4j compile -w /work/JxPath_15f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=41.3s]
+
+$ defects4j checkout -p JxPath -v 15b -w /work/JxPath_15b
+Checking out 497ed5f8 to /work/JxPath_15b.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 497ed5f8:33cabe52..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-15b...................................... OK
+
+[exit=0 timeout=False time=2.0s]
+
+$ defects4j compile -w /work/JxPath_15b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=43.6s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.jxpath.ri.axes.UnionContext --fixed-cp /work/JxPath_15f/target/classes:/work/JxPath_15f/src/java:/work/JxPath_15f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_15f/target/lib/commons-logging-1.1.jar:/work/JxPath_15f/target/lib/jdom-1.0.jar:/work/JxPath_15f/target/lib/jsp-api-2.0.jar:/work/JxPath_15f/target/lib/junit-3.8.2.jar:/work/JxPath_15f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_15f/target/lib/servletapi-2.4.jar:/work/JxPath_15f/target/lib/xerces-2.4.0.jar:/work/JxPath_15f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_15f/src/test:/work/JxPath_15f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/JxPath_15b/target/classes:/work/JxPath_15b/src/java:/work/JxPath_15b/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_15b/target/lib/commons-logging-1.1.jar:/work/JxPath_15b/target/lib/jdom-1.0.jar:/work/JxPath_15b/target/lib/jsp-api-2.0.jar:/work/JxPath_15b/target/lib/junit-3.8.2.jar:/work/JxPath_15b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_15b/target/lib/servletapi-2.4.jar:/work/JxPath_15b/target/lib/xerces-2.4.0.jar:/work/JxPath_15b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_15b/src/test:/work/JxPath_15b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/JxPath_15 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.6s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JxPath_15f/target/classes:/work/JxPath_15f/src/java:/work/JxPath_15f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_15f/target/lib/commons-logging-1.1.jar:/work/JxPath_15f/target/lib/jdom-1.0.jar:/work/JxPath_15f/target/lib/jsp-api-2.0.jar:/work/JxPath_15f/target/lib/junit-3.8.2.jar:/work/JxPath_15f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_15f/target/lib/servletapi-2.4.jar:/work/JxPath_15f/target/lib/xerces-2.4.0.jar:/work/JxPath_15f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_15f/src/test:/work/JxPath_15f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/JxPath_15/org/apache/commons/jxpath/ri/axes/UnionContext_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JxPath_15b/target/classes:/work/JxPath_15b/src/java:/work/JxPath_15b/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_15b/target/lib/commons-logging-1.1.jar:/work/JxPath_15b/target/lib/jdom-1.0.jar:/work/JxPath_15b/target/lib/jsp-api-2.0.jar:/work/JxPath_15b/target/lib/junit-3.8.2.jar:/work/JxPath_15b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_15b/target/lib/servletapi-2.4.jar:/work/JxPath_15b/target/lib/xerces-2.4.0.jar:/work/JxPath_15b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_15b/src/test:/work/JxPath_15b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/JxPath_15/org/apache/commons/jxpath/ri/axes/UnionContext_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_15f:/work/JxPath_15b:/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f:/work/JxPath_15f/target/classes:/work/JxPath_15f/src/java:/work/JxPath_15f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_15f/target/lib/commons-logging-1.1.jar:/work/JxPath_15f/target/lib/jdom-1.0.jar:/work/JxPath_15f/target/lib/jsp-api-2.0.jar:/work/JxPath_15f/target/lib/junit-3.8.2.jar:/work/JxPath_15f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_15f/target/lib/servletapi-2.4.jar:/work/JxPath_15f/target/lib/xerces-2.4.0.jar:/work/JxPath_15f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_15f/src/test:/work/JxPath_15f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/reports_record
+timestamp = 2026-09-27T05:24:57.281294, UnionContext AutoPbtTest:m000 getDocumentOrder = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:24:58.488106, UnionContext AutoPbtTest:m001 setPosition = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mUnionContext AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 getDocumentOrder[0m [32m✔[0m
+[36m      └─[0m [34mm001 setPosition[0m [32m✔[0m
+
+Test run finished after 4090 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         2 tests found           ]
+[         0 tests skipped         ]
+[         2 tests started         ]
+[         0 tests aborted         ]
+[         2 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=7.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_15f:/work/JxPath_15b:/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f:/work/JxPath_15f/target/classes:/work/JxPath_15f/src/java:/work/JxPath_15f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_15f/target/lib/commons-logging-1.1.jar:/work/JxPath_15f/target/lib/jdom-1.0.jar:/work/JxPath_15f/target/lib/jsp-api-2.0.jar:/work/JxPath_15f/target/lib/junit-3.8.2.jar:/work/JxPath_15f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_15f/target/lib/servletapi-2.4.jar:/work/JxPath_15f/target/lib/xerces-2.4.0.jar:/work/JxPath_15f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_15f/src/test:/work/JxPath_15f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/reports_fixed
+timestamp = 2026-09-27T05:25:13.824705, UnionContext AutoPbtTest:m000 getDocumentOrder = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:25:14.871511, UnionContext AutoPbtTest:m001 setPosition = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mUnionContext AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 getDocumentOrder[0m [32m✔[0m
+[36m      └─[0m [34mm001 setPosition[0m [32m✔[0m
+
+Test run finished after 8082 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         2 tests found           ]
+[         0 tests skipped         ]
+[         2 tests started         ]
+[         0 tests aborted         ]
+[         2 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=29.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/jacoco.exec --classfiles /work/JxPath_15f/target/classes --csv /workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 161 classes.
+
+[exit=0 timeout=False time=3.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_15f:/work/JxPath_15b:/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_b:/work/JxPath_15b/target/classes:/work/JxPath_15b/src/java:/work/JxPath_15b/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_15b/target/lib/commons-logging-1.1.jar:/work/JxPath_15b/target/lib/jdom-1.0.jar:/work/JxPath_15b/target/lib/jsp-api-2.0.jar:/work/JxPath_15b/target/lib/junit-3.8.2.jar:/work/JxPath_15b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_15b/target/lib/servletapi-2.4.jar:/work/JxPath_15b/target/lib/xerces-2.4.0.jar:/work/JxPath_15b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_15b/src/test:/work/JxPath_15b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_15/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_15/tries200_seed1/reports_buggy
+timestamp = 2026-09-27T05:25:47.470553, UnionContext AutoPbtTest:m000 getDocumentOrder = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T05:25:48.718629, UnionContext AutoPbtTest:m001 setPosition = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mUnionContext AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 getDocumentOrder[0m [32m✔[0m
+[36m      └─[0m [34mm001 setPosition[0m [32m✔[0m
+
+Test run finished after 5875 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         2 tests found           ]
+[         0 tests skipped         ]
+[         2 tests started         ]
+[         0 tests aborted         ]
+[         2 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=12.0s]

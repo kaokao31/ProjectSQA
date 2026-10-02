@@ -1,0 +1,312 @@
+
+$ defects4j checkout -p Closure -v 32f -w /work/Closure_32f
+Checking out 66c8c695 to /work/Closure_32f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_32f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_32f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 66c8c695:116e0d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-32f..................................... OK
+
+[exit=0 timeout=False time=3.8s]
+
+$ defects4j compile -w /work/Closure_32f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=21.8s]
+
+$ defects4j checkout -p Closure -v 32b -w /work/Closure_32b
+Checking out 66c8c695 to /work/Closure_32b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_32b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_32b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 66c8c695:116e0d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-32b..................................... OK
+
+[exit=0 timeout=False time=4.7s]
+
+$ defects4j compile -w /work/Closure_32b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=26.8s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.javascript.jscomp.parsing.JsDocInfoParser --fixed-cp /work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/lib/junit.jar:/work/Closure_32f/build/test --buggy-cp /work/Closure_32b/build/classes:/work/Closure_32b/lib/args4j.jar:/work/Closure_32b/lib/guava.jar:/work/Closure_32b/lib/json.jar:/work/Closure_32b/lib/jsr305.jar:/work/Closure_32b/lib/protobuf-java.jar:/work/Closure_32b/build/lib/rhino.jar:/work/Closure_32b/lib/ant.jar:/work/Closure_32b/lib/ant-launcher.jar:/work/Closure_32b/lib/caja-r4314.jar:/work/Closure_32b/lib/jarjar.jar:/work/Closure_32b/lib/junit.jar:/work/Closure_32b/build/test --out /workspace/jqwik/Auto/Closure_32 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/lib/junit.jar:/work/Closure_32f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Closure_32/com/google/javascript/jscomp/parsing/JsDocInfoParser_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_32b/build/classes:/work/Closure_32b/lib/args4j.jar:/work/Closure_32b/lib/guava.jar:/work/Closure_32b/lib/json.jar:/work/Closure_32b/lib/jsr305.jar:/work/Closure_32b/lib/protobuf-java.jar:/work/Closure_32b/build/lib/rhino.jar:/work/Closure_32b/lib/ant.jar:/work/Closure_32b/lib/ant-launcher.jar:/work/Closure_32b/lib/caja-r4314.jar:/work/Closure_32b/lib/jarjar.jar:/work/Closure_32b/lib/junit.jar:/work/Closure_32b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Closure_32/com/google/javascript/jscomp/parsing/JsDocInfoParser_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_32f:/work/Closure_32b:/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f:/work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/lib/junit.jar:/work/Closure_32f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/reports_record
+alls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:34.012120, JsDocInfoParser AutoPbtTest:m005 setFileLevelJsDocBuilder = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:34.170951, JsDocInfoParser AutoPbtTest:m003 parseTypeString = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:34.373773, JsDocInfoParser AutoPbtTest:m002 parse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:34.526386, JsDocInfoParser AutoPbtTest:m001 hasParsedJSDocInfo = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mJsDocInfoParser AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 retrieveAndResetParsedJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm006 setFileOverviewJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm000 getFileOverviewJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm005 setFileLevelJsDocBuilder[0m [32m✔[0m
+[36m      ├─[0m [34mm003 parseTypeString[0m [32m✔[0m
+[36m      ├─[0m [34mm002 parse[0m [32m✔[0m
+[36m      └─[0m [34mm001 hasParsedJSDocInfo[0m [32m✔[0m
+
+Test run finished after 2936 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         7 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=4.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_32f:/work/Closure_32b:/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f:/work/Closure_32f/build/classes:/work/Closure_32f/lib/args4j.jar:/work/Closure_32f/lib/guava.jar:/work/Closure_32f/lib/json.jar:/work/Closure_32f/lib/jsr305.jar:/work/Closure_32f/lib/protobuf-java.jar:/work/Closure_32f/build/lib/rhino.jar:/work/Closure_32f/lib/ant.jar:/work/Closure_32f/lib/ant-launcher.jar:/work/Closure_32f/lib/caja-r4314.jar:/work/Closure_32f/lib/jarjar.jar:/work/Closure_32f/lib/junit.jar:/work/Closure_32f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/reports_fixed
+alls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:39.718787, JsDocInfoParser AutoPbtTest:m005 setFileLevelJsDocBuilder = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:39.942184, JsDocInfoParser AutoPbtTest:m003 parseTypeString = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:40.171508, JsDocInfoParser AutoPbtTest:m002 parse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:40.393946, JsDocInfoParser AutoPbtTest:m001 hasParsedJSDocInfo = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mJsDocInfoParser AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 retrieveAndResetParsedJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm006 setFileOverviewJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm000 getFileOverviewJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm005 setFileLevelJsDocBuilder[0m [32m✔[0m
+[36m      ├─[0m [34mm003 parseTypeString[0m [32m✔[0m
+[36m      ├─[0m [34mm002 parse[0m [32m✔[0m
+[36m      └─[0m [34mm001 hasParsedJSDocInfo[0m [32m✔[0m
+
+Test run finished after 3715 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         7 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=13.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/jacoco.exec --classfiles /work/Closure_32f/build/classes --csv /workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 1144 classes.
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_32f:/work/Closure_32b:/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_b:/work/Closure_32b/build/classes:/work/Closure_32b/lib/args4j.jar:/work/Closure_32b/lib/guava.jar:/work/Closure_32b/lib/json.jar:/work/Closure_32b/lib/jsr305.jar:/work/Closure_32b/lib/protobuf-java.jar:/work/Closure_32b/build/lib/rhino.jar:/work/Closure_32b/lib/ant.jar:/work/Closure_32b/lib/ant-launcher.jar:/work/Closure_32b/lib/caja-r4314.jar:/work/Closure_32b/lib/jarjar.jar:/work/Closure_32b/lib/junit.jar:/work/Closure_32b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_32/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_32/tries200_seed1/reports_buggy
+alls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:53.812442, JsDocInfoParser AutoPbtTest:m005 setFileLevelJsDocBuilder = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:53.908307, JsDocInfoParser AutoPbtTest:m003 parseTypeString = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:54.031955, JsDocInfoParser AutoPbtTest:m002 parse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:11:54.136813, JsDocInfoParser AutoPbtTest:m001 hasParsedJSDocInfo = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mJsDocInfoParser AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 retrieveAndResetParsedJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm006 setFileOverviewJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm000 getFileOverviewJSDocInfo[0m [32m✔[0m
+[36m      ├─[0m [34mm005 setFileLevelJsDocBuilder[0m [32m✔[0m
+[36m      ├─[0m [34mm003 parseTypeString[0m [32m✔[0m
+[36m      ├─[0m [34mm002 parse[0m [32m✔[0m
+[36m      └─[0m [34mm001 hasParsedJSDocInfo[0m [32m✔[0m
+
+Test run finished after 2377 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         7 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=3.6s]

@@ -1,0 +1,300 @@
+
+$ defects4j compile -w /work/Time_17f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=68.8s]
+
+$ defects4j checkout -p Time -v 17b -w /work/Time_17b
+Checking out a8913f5a to /work/Time_17b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Time_17b/build.xml............................ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8913f5a:cdeacf09..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-17b........................................ OK
+
+[exit=0 timeout=False time=10.9s]
+
+$ defects4j compile -w /work/Time_17b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=101.0s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.joda.time.DateTimeZone --fixed-cp /work/Time_17f/build/classes:/opt/defects4j/framework/projects/Time/lib/joda-convert-1.2.jar:/work/Time_17f/build/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_17f/src/test/java --buggy-cp /work/Time_17b/build/classes:/opt/defects4j/framework/projects/Time/lib/joda-convert-1.2.jar:/work/Time_17b/build/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_17b/src/test/java --out /workspace/jqwik/Auto/Time_17 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=1.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Time_17f/build/classes:/opt/defects4j/framework/projects/Time/lib/joda-convert-1.2.jar:/work/Time_17f/build/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_17f/src/test/java:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f /workspace/jqwik/Auto/Time_17/org/joda/time/DateTimeZone_AutoPbtTest.java
+
+[exit=0 timeout=False time=6.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Time_17b/build/classes:/opt/defects4j/framework/projects/Time/lib/joda-convert-1.2.jar:/work/Time_17b/build/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_17b/src/test/java:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_b /workspace/jqwik/Auto/Time_17/org/joda/time/DateTimeZone_AutoPbtTest.java
+
+[exit=0 timeout=False time=6.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=2 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Time_17/auto_round1_tries200_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Time_17f:/work/Time_17b:/work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f:/work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f:/work/Time_17f/build/classes:/opt/defects4j/framework/projects/Time/lib/joda-convert-1.2.jar:/work/Time_17f/build/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_17f/src/test/java:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/reports_record
+calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T07:32:16.728593, DateTimeZone AutoPbtTest:m018 getProvider = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T07:32:17.040834, DateTimeZone AutoPbtTest:m011 getID = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDateTimeZone AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 adjustOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getAvailableIDs[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getDefault[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getOffsetFromLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getShortName[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm025 setNameProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getNameProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm028 toTimeZone[0m [32m✔[0m
+[36m      ├─[0m [34mm002 convertLocalToUTC[0m [32m✔[0m
+[36m      ├─[0m [34mm004 forID[0m [32m✔[0m
+[36m      ├─[0m [34mm003 convertUTCToLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm001 convertLocalToUTC[0m [32m✔[0m
+[36m      ├─[0m [34mm029 writeReplace[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isLocalDateTimeGap[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm024 setDefault[0m [32m✔[0m
+[36m      ├─[0m [34mm008 forTimeZone[0m [32m✔[0m
+[36m      ├─[0m [34mm005 forOffsetHours[0m [32m✔[0m
+[36m      ├─[0m [34mm007 forOffsetMillis[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getShortName[0m [32m✔[0m
+[36m      ├─[0m [34mm027 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isStandardOffset[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getMillisKeepLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm006 forOffsetHoursMinutes[0m [32m✔[0m
+[36m      ├─[0m [34mm026 setProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getProvider[0m [32m✔[0m
+[36m      └─[0m [34mm011 getID[0m [32m✔[0m
+
+Test run finished after 17425 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        31 tests found           ]
+[         0 tests skipped         ]
+[        31 tests started         ]
+[         0 tests aborted         ]
+[        31 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=24.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=2 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Time_17/auto_round1_tries200_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Time_17f:/work/Time_17b:/work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f:/work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f:/work/Time_17f/build/classes:/opt/defects4j/framework/projects/Time/lib/joda-convert-1.2.jar:/work/Time_17f/build/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_17f/src/test/java:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/reports_fixed
+calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T07:32:36.584505, DateTimeZone AutoPbtTest:m018 getProvider = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T07:32:36.796270, DateTimeZone AutoPbtTest:m011 getID = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDateTimeZone AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 adjustOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getAvailableIDs[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getDefault[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getOffsetFromLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getShortName[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm025 setNameProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getNameProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm028 toTimeZone[0m [32m✔[0m
+[36m      ├─[0m [34mm002 convertLocalToUTC[0m [32m✔[0m
+[36m      ├─[0m [34mm004 forID[0m [32m✔[0m
+[36m      ├─[0m [34mm003 convertUTCToLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm001 convertLocalToUTC[0m [32m✔[0m
+[36m      ├─[0m [34mm029 writeReplace[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isLocalDateTimeGap[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm024 setDefault[0m [32m✔[0m
+[36m      ├─[0m [34mm008 forTimeZone[0m [32m✔[0m
+[36m      ├─[0m [34mm005 forOffsetHours[0m [32m✔[0m
+[36m      ├─[0m [34mm007 forOffsetMillis[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getShortName[0m [32m✔[0m
+[36m      ├─[0m [34mm027 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isStandardOffset[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getMillisKeepLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm006 forOffsetHoursMinutes[0m [32m✔[0m
+[36m      ├─[0m [34mm026 setProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getProvider[0m [32m✔[0m
+[36m      └─[0m [34mm011 getID[0m [32m✔[0m
+
+Test run finished after 12661 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        31 tests found           ]
+[         0 tests skipped         ]
+[        31 tests started         ]
+[         0 tests aborted         ]
+[        31 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=33.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/jacoco.exec --classfiles /work/Time_17f/build/classes --csv /workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/jacoco.exec.
+[INFO] Analyzing 204 classes.
+
+[exit=0 timeout=False time=2.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=2 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Time_17/auto_round1_tries200_seed2/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Time_17f:/work/Time_17b:/work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_f:/work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_b:/work/Time_17b/build/classes:/opt/defects4j/framework/projects/Time/lib/joda-convert-1.2.jar:/work/Time_17b/build/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_17b/src/test/java:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Time_17/auto_round1_tries200_seed2/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Time_17/tries200_seed2/reports_buggy
+calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T07:33:18.603496, DateTimeZone AutoPbtTest:m018 getProvider = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T07:33:18.812430, DateTimeZone AutoPbtTest:m011 getID = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 2                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mDateTimeZone AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 adjustOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getAvailableIDs[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getDefault[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getOffsetFromLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getShortName[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getOffset[0m [32m✔[0m
+[36m      ├─[0m [34mm025 setNameProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getNameProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm028 toTimeZone[0m [32m✔[0m
+[36m      ├─[0m [34mm002 convertLocalToUTC[0m [32m✔[0m
+[36m      ├─[0m [34mm004 forID[0m [32m✔[0m
+[36m      ├─[0m [34mm003 convertUTCToLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm001 convertLocalToUTC[0m [32m✔[0m
+[36m      ├─[0m [34mm029 writeReplace[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isLocalDateTimeGap[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm024 setDefault[0m [32m✔[0m
+[36m      ├─[0m [34mm008 forTimeZone[0m [32m✔[0m
+[36m      ├─[0m [34mm005 forOffsetHours[0m [32m✔[0m
+[36m      ├─[0m [34mm007 forOffsetMillis[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getShortName[0m [32m✔[0m
+[36m      ├─[0m [34mm027 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isStandardOffset[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getMillisKeepLocal[0m [32m✔[0m
+[36m      ├─[0m [34mm006 forOffsetHoursMinutes[0m [32m✔[0m
+[36m      ├─[0m [34mm026 setProvider[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getProvider[0m [32m✔[0m
+[36m      └─[0m [34mm011 getID[0m [32m✔[0m
+
+Test run finished after 14717 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        31 tests found           ]
+[         0 tests skipped         ]
+[        31 tests started         ]
+[         0 tests aborted         ]
+[        31 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=20.2s]

@@ -1,0 +1,298 @@
+
+$ defects4j checkout -p Compress -v 1f -w /work/Compress_1f
+Checking out 004124ac to /work/Compress_1f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Compress_1f/maven-build.xml................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 004124ac:728b4e81..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-1f..................................... OK
+
+[exit=0 timeout=False time=1.9s]
+
+$ defects4j compile -w /work/Compress_1f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=5.8s]
+
+$ defects4j checkout -p Compress -v 1b -w /work/Compress_1b
+Checking out 004124ac to /work/Compress_1b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Compress_1b/maven-build.xml................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 004124ac:728b4e81..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-1b..................................... OK
+
+[exit=0 timeout=False time=1.9s]
+
+$ defects4j compile -w /work/Compress_1b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.9s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream --fixed-cp /work/Compress_1f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/Compress_1f/target/test-classes --buggy-cp /work/Compress_1b/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/Compress_1b/target/test-classes --out /workspace/jqwik/Auto/Compress_1 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Compress_1f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/Compress_1f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Compress_1/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Compress_1b/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/Compress_1b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Compress_1/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Compress_1f:/work/Compress_1b:/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f:/work/Compress_1f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/Compress_1f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/reports_record
+erty
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:09.784735, CpioArchiveOutputStream AutoPbtTest:m005 write = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:09.848831, CpioArchiveOutputStream AutoPbtTest:m001 closeArchiveEntry = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:09.918818, CpioArchiveOutputStream AutoPbtTest:m003 putArchiveEntry = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:09.975358, CpioArchiveOutputStream AutoPbtTest:m006 write = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mCpioArchiveOutputStream AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm002 finish[0m [32m✔[0m
+[36m      ├─[0m [34mm004 putNextEntry[0m [32m✔[0m
+[36m      ├─[0m [34mm000 close[0m [32m✔[0m
+[36m      ├─[0m [34mm005 write[0m [32m✔[0m
+[36m      ├─[0m [34mm001 closeArchiveEntry[0m [32m✔[0m
+[36m      ├─[0m [34mm003 putArchiveEntry[0m [32m✔[0m
+[36m      └─[0m [34mm006 write[0m [32m✔[0m
+
+Test run finished after 1530 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         7 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=2.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Compress_1f:/work/Compress_1b:/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f:/work/Compress_1f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/Compress_1f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/reports_fixed
+erty
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:14.012704, CpioArchiveOutputStream AutoPbtTest:m005 write = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:14.093706, CpioArchiveOutputStream AutoPbtTest:m001 closeArchiveEntry = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:14.197902, CpioArchiveOutputStream AutoPbtTest:m003 putArchiveEntry = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:14.281290, CpioArchiveOutputStream AutoPbtTest:m006 write = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mCpioArchiveOutputStream AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm002 finish[0m [32m✔[0m
+[36m      ├─[0m [34mm004 putNextEntry[0m [32m✔[0m
+[36m      ├─[0m [34mm000 close[0m [32m✔[0m
+[36m      ├─[0m [34mm005 write[0m [32m✔[0m
+[36m      ├─[0m [34mm001 closeArchiveEntry[0m [32m✔[0m
+[36m      ├─[0m [34mm003 putArchiveEntry[0m [32m✔[0m
+[36m      └─[0m [34mm006 write[0m [32m✔[0m
+
+Test run finished after 2502 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         7 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=10.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/jacoco.exec --classfiles /work/Compress_1f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 57 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Compress_1f:/work/Compress_1b:/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_b:/work/Compress_1b/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/3.8.2/junit-3.8.2.jar:/work/Compress_1b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Compress_1/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Compress_1/tries200_seed1/reports_buggy
+d-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:18:23.729913, CpioArchiveOutputStream AutoPbtTest:m006 write = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mCpioArchiveOutputStream AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm002 finish[0m [32m✔[0m
+[36m      ├─[0m [34mm004 putNextEntry[0m [32m✔[0m
+[36m      ├─[0m [31mm000 close[0m [31m✘[0m [31m[regression] org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream.close()[0m
+[36m      │     [0m[31m     input:    new CpioArchiveOutputStream.<init>[null].close[][0m
+[36m      │     [0m[31m     expected: throws java.lang.NullPointerException | this=obj org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream[0m
+[36m      │     [0m[31m     actual:   ret=void | this=obj org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream[0m
+[36m      ├─[0m [34mm005 write[0m [32m✔[0m
+[36m      ├─[0m [34mm001 closeArchiveEntry[0m [32m✔[0m
+[36m      ├─[0m [34mm003 putArchiveEntry[0m [32m✔[0m
+[36m      └─[0m [34mm006 write[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):CpioArchiveOutputStream AutoPbtTest:m000 close
+    MethodSource [className = 'org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream_AutoPbtTest', methodName = 'm000_close', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream.close()
+  input:    new CpioArchiveOutputStream.<init>[null].close[]
+  expected: throws java.lang.NullPointerException | this=obj org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream
+  actual:   ret=void | this=obj org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream_AutoPbtTest.m000_close(CpioArchiveOutputStream_AutoPbtTest.java:16)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 1613 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         6 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=2.7s]

@@ -1,0 +1,249 @@
+
+$ defects4j checkout -p Closure -v 102f -w /work/Closure_102f
+Checking out d48c365b to /work/Closure_102f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_102f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_102f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_102f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_102f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d48c365b:9a1ddf5f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-102f.................................... OK
+
+[exit=0 timeout=False time=3.7s]
+
+$ defects4j compile -w /work/Closure_102f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=8.2s]
+
+$ defects4j checkout -p Closure -v 102b -w /work/Closure_102b
+Checking out d48c365b to /work/Closure_102b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_102b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_102b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_102b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_102b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d48c365b:9a1ddf5f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-102b.................................... OK
+
+[exit=0 timeout=False time=3.5s]
+
+$ defects4j compile -w /work/Closure_102b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.3s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.javascript.jscomp.Normalize --fixed-cp /work/Closure_102f/build/classes:/work/Closure_102f/lib/ant_deploy.jar:/work/Closure_102f/lib/google_common_deploy.jar:/work/Closure_102f/lib/hamcrest-core-1.1.jar:/work/Closure_102f/lib/junit4-core.jar:/work/Closure_102f/lib/junit4-legacy.jar:/work/Closure_102f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_102f/lib/protobuf_deploy.jar:/work/Closure_102f/build/test --buggy-cp /work/Closure_102b/build/classes:/work/Closure_102b/lib/ant_deploy.jar:/work/Closure_102b/lib/google_common_deploy.jar:/work/Closure_102b/lib/hamcrest-core-1.1.jar:/work/Closure_102b/lib/junit4-core.jar:/work/Closure_102b/lib/junit4-legacy.jar:/work/Closure_102b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_102b/lib/protobuf_deploy.jar:/work/Closure_102b/build/test --out /workspace/jqwik/Auto/Closure_102 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_102f/build/classes:/work/Closure_102f/lib/ant_deploy.jar:/work/Closure_102f/lib/google_common_deploy.jar:/work/Closure_102f/lib/hamcrest-core-1.1.jar:/work/Closure_102f/lib/junit4-core.jar:/work/Closure_102f/lib/junit4-legacy.jar:/work/Closure_102f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_102f/lib/protobuf_deploy.jar:/work/Closure_102f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Closure_102/com/google/javascript/jscomp/Normalize_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_102b/build/classes:/work/Closure_102b/lib/ant_deploy.jar:/work/Closure_102b/lib/google_common_deploy.jar:/work/Closure_102b/lib/hamcrest-core-1.1.jar:/work/Closure_102b/lib/junit4-core.jar:/work/Closure_102b/lib/junit4-legacy.jar:/work/Closure_102b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_102b/lib/protobuf_deploy.jar:/work/Closure_102b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Closure_102/com/google/javascript/jscomp/Normalize_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_102f:/work/Closure_102b:/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f:/work/Closure_102f/build/classes:/work/Closure_102f/lib/ant_deploy.jar:/work/Closure_102f/lib/google_common_deploy.jar:/work/Closure_102f/lib/hamcrest-core-1.1.jar:/work/Closure_102f/lib/junit4-core.jar:/work/Closure_102f/lib/junit4-legacy.jar:/work/Closure_102f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_102f/lib/protobuf_deploy.jar:/work/Closure_102f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/reports_record
+timestamp = 2026-09-30T21:54:24.709124, Normalize AutoPbtTest:m001 shouldTraverse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:54:24.998041, Normalize AutoPbtTest:m000 process = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:54:25.211997, Normalize AutoPbtTest:m002 visit = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNormalize AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 shouldTraverse[0m [32m✔[0m
+[36m      ├─[0m [34mm000 process[0m [32m✔[0m
+[36m      └─[0m [34mm002 visit[0m [32m✔[0m
+
+Test run finished after 1744 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=2.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_102f:/work/Closure_102b:/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f:/work/Closure_102f/build/classes:/work/Closure_102f/lib/ant_deploy.jar:/work/Closure_102f/lib/google_common_deploy.jar:/work/Closure_102f/lib/hamcrest-core-1.1.jar:/work/Closure_102f/lib/junit4-core.jar:/work/Closure_102f/lib/junit4-legacy.jar:/work/Closure_102f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_102f/lib/protobuf_deploy.jar:/work/Closure_102f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/reports_fixed
+timestamp = 2026-09-30T21:54:28.958864, Normalize AutoPbtTest:m001 shouldTraverse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:54:29.209023, Normalize AutoPbtTest:m000 process = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:54:29.360172, Normalize AutoPbtTest:m002 visit = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNormalize AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 shouldTraverse[0m [32m✔[0m
+[36m      ├─[0m [34mm000 process[0m [32m✔[0m
+[36m      └─[0m [34mm002 visit[0m [32m✔[0m
+
+Test run finished after 1983 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=13.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/jacoco.exec --classfiles /work/Closure_102f/build/classes --csv /workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 843 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_102f:/work/Closure_102b:/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_b:/work/Closure_102b/build/classes:/work/Closure_102b/lib/ant_deploy.jar:/work/Closure_102b/lib/google_common_deploy.jar:/work/Closure_102b/lib/hamcrest-core-1.1.jar:/work/Closure_102b/lib/junit4-core.jar:/work/Closure_102b/lib/junit4-legacy.jar:/work/Closure_102b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_102b/lib/protobuf_deploy.jar:/work/Closure_102b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_102/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_102/tries200_seed1/reports_buggy
+timestamp = 2026-09-30T21:54:41.847318, Normalize AutoPbtTest:m001 shouldTraverse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:54:41.980750, Normalize AutoPbtTest:m000 process = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:54:42.071531, Normalize AutoPbtTest:m002 visit = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNormalize AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 shouldTraverse[0m [32m✔[0m
+[36m      ├─[0m [34mm000 process[0m [32m✔[0m
+[36m      └─[0m [34mm002 visit[0m [32m✔[0m
+
+Test run finished after 1027 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=2.4s]

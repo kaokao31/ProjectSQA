@@ -1,0 +1,302 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f /workspace/jqwik/Auto/Math_7/org/apache/commons/math3/ode/AbstractIntegrator_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_7b/target/classes:/work/Math_7b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b /workspace/jqwik/Auto/Math_7/org/apache/commons/math3/ode/AbstractIntegrator_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_record/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_record
+odExecutor.java:69)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.lambda$execute$0(PropertyMethodExecutor.java:49)
+	at net.jqwik.engine.execution.PropertyMethodExecutor$$Lambda$305/0x0000000840117440.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.AroundPropertyHook.lambda$static$0(AroundPropertyHook.java:46)
+	at net.jqwik.api.lifecycle.AroundPropertyHook$$Lambda$229/0x00000008400f1440.aroundProperty(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$0(HookSupport.java:26)
+	at net.jqwik.engine.execution.lifecycle.HookSupport$$Lambda$306/0x0000000840117840.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.PropertyExecutor.executeAndFinally(PropertyExecutor.java:39)
+	at net.jqwik.engine.hooks.lifecycle.PropertyLifecycleMethodsHook.aroundProperty(PropertyLifecycleMethodsHook.java:56)
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.Integer.valueOf(Integer.java:1059)
+	at net.jqwik.engine.facades.Memoize.memoizedGenerator(Memoize.java:28)
+	at net.jqwik.engine.facades.ArbitraryFacadeImpl.memoizedGenerator(ArbitraryFacadeImpl.java:185)
+	at net.jqwik.api.Arbitrary.generator(Arbitrary.java:98)
+	at net.jqwik.engine.properties.RandomizedParameterGenerator.getGenerator(RandomizedParameterGenerator.java:40)
+	at net.jqwik.engine.properties.RandomizedParameterGenerator.selectGenerator(RandomizedParameterGenerator.java:36)
+	at net.jqwik.engine.properties.RandomizedParameterGenerator.next(RandomizedParameterGenerator.java:24)
+	at net.jqwik.engine.properties.PurelyRandomShrinkablesGenerator.lambda$generateNext$0(PurelyRandomShrinkablesGenerator.java:21)
+	at net.jqwik.engine.properties.PurelyRandomShrinkablesGenerator$$Lambda$389/0x0000000840162840.apply(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at net.jqwik.engine.properties.PurelyRandomShrinkablesGenerator.generateNext(PurelyRandomShrinkablesGenerator.java:22)
+	at net.jqwik.engine.properties.RandomizedShrinkablesGenerator.next(RandomizedShrinkablesGenerator.java:213)
+	at net.jqwik.engine.properties.RandomizedShrinkablesGenerator.next(RandomizedShrinkablesGenerator.java:16)
+	at net.jqwik.engine.execution.ResolvingParametersGenerator.next(ResolvingParametersGenerator.java:36)
+	at net.jqwik.engine.properties.GenericProperty.check(GenericProperty.java:57)
+	at net.jqwik.engine.execution.CheckedProperty.check(CheckedProperty.java:67)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.executeProperty(PropertyMethodExecutor.java:90)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.executeMethod(PropertyMethodExecutor.java:69)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.lambda$execute$0(PropertyMethodExecutor.java:49)
+	at net.jqwik.engine.execution.PropertyMethodExecutor$$Lambda$305/0x0000000840117440.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.AroundPropertyHook.lambda$static$0(AroundPropertyHook.java:46)
+	at net.jqwik.api.lifecycle.AroundPropertyHook$$Lambda$229/0x00000008400f1440.aroundProperty(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.HookSupport.lambda$wrap$0(HookSupport.java:26)
+	at net.jqwik.engine.execution.lifecycle.HookSupport$$Lambda$306/0x0000000840117840.execute(Unknown Source)
+	at net.jqwik.api.lifecycle.PropertyExecutor.executeAndFinally(PropertyExecutor.java:39)
+	at net.jqwik.engine.hooks.lifecycle.PropertyLifecycleMethodsHook.aroundProperty(PropertyLifecycleMethodsHook.java:56)
+
+[exit=1 timeout=False time=19.8s]
+
+[no results - JVM crashed?] retrying once with -Xmx3g
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx3g -Dpbt.seed=1 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_record/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_record
+ple, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:00:42.360068, AbstractIntegrator AutoPbtTest:m017 setEquations = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:00:48.485761, AbstractIntegrator AutoPbtTest:m019 setStateInitialized = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T01:00:54.562113, AbstractIntegrator AutoPbtTest:m012 getName = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mAbstractIntegrator AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 computeDerivatives[0m [32m✔[0m
+[36m      ├─[0m [34mm000 acceptStep[0m [36m11851 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm014 initIntegration[0m [36m44737 ms[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getMaxEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm015 integrate[0m [32m✔[0m
+[36m      ├─[0m [34mm004 clearEventHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm001 addEventHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm003 addStepHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getCurrentSignedStepsize[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getStepHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm016 sanityChecks[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getEventHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm018 setMaxEvaluations[0m [32m✔[0m
+[36m      ├─[0m [34mm002 addEventHandler[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getCurrentStepStart[0m [32m✔[0m
+[36m      ├─[0m [34mm005 clearStepHandlers[0m [32m✔[0m
+[36m      ├─[0m [34mm017 setEquations[0m [32m✔[0m
+[36m      ├─[0m [34mm019 setStateInitialized[0m [32m✔[0m
+[36m      └─[0m [34mm012 getName[0m [32m✔[0m
+
+Test run finished after 169648 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        20 tests found           ]
+[         0 tests skipped         ]
+[        20 tests started         ]
+[         0 tests aborted         ]
+[        20 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=171.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_fixed
+ue(CombinedShrinkable.java:21)
+	at net.jqwik.engine.properties.GenericProperty$$Lambda$417/0x000000084017b840.apply(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at net.jqwik.engine.properties.GenericProperty.extractParams(GenericProperty.java:175)
+	at net.jqwik.engine.properties.GenericProperty.check(GenericProperty.java:65)
+	at net.jqwik.engine.execution.CheckedProperty.check(CheckedProperty.java:67)
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.lang.StringLatin1.newString(StringLatin1.java:715)
+	at java.base/java.lang.StringBuilder.toString(StringBuilder.java:452)
+	at java.base/java.math.BigDecimal.layoutChars(BigDecimal.java:4016)
+	at java.base/java.math.BigDecimal.toString(BigDecimal.java:3337)
+	at java.base/java.math.BigDecimal.doubleValue(BigDecimal.java:3769)
+	at net.jqwik.engine.properties.arbitraries.DefaultDoubleArbitrary$$Lambda$420/0x000000084017c840.apply(Unknown Source)
+	at net.jqwik.engine.properties.shrinking.MappedShrinkable.value(MappedShrinkable.java:21)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.value(FlatMappedShrinkable.java:80)
+	at net.jqwik.engine.properties.shrinking.MappedShrinkable.value(MappedShrinkable.java:21)
+	at net.jqwik.engine.properties.arbitraries.randomized.ContainerGenerator.nextUntilAccepted(ContainerGenerator.java:109)
+	at net.jqwik.engine.properties.arbitraries.randomized.ContainerGenerator.next(ContainerGenerator.java:70)
+	at net.jqwik.api.RandomGenerator.lambda$mapShrinkable$1(RandomGenerator.java:61)
+	at net.jqwik.api.RandomGenerator$$Lambda$413/0x000000084017a840.next(Unknown Source)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.lambda$new$1(FlatMappedShrinkable.java:31)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable$$Lambda$416/0x000000084017b440.apply(Unknown Source)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.generateShrinkable(FlatMappedShrinkable.java:40)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.shrinkable(FlatMappedShrinkable.java:84)
+	at net.jqwik.engine.properties.shrinking.FlatMappedShrinkable.value(FlatMappedShrinkable.java:80)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValues(CombinedShrinkable.java:32)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.createValue(CombinedShrinkable.java:25)
+	at net.jqwik.engine.properties.shrinking.CombinedShrinkable.value(CombinedShrinkable.java:21)
+	at net.jqwik.engine.properties.GenericProperty$$Lambda$417/0x000000084017b840.apply(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at net.jqwik.engine.properties.GenericProperty.extractParams(GenericProperty.java:175)
+	at net.jqwik.engine.properties.GenericProperty.check(GenericProperty.java:65)
+	at net.jqwik.engine.execution.CheckedProperty.check(CheckedProperty.java:67)
+
+[exit=1 timeout=False time=25.2s]
+
+[no results - JVM crashed?] retrying once with -Xmx3g
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx3g -Dpbt.seed=1 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/Math_7f/target/classes:/work/Math_7f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_fixed
+ jqwik (JUnit Platform):AbstractIntegrator AutoPbtTest:m011 getMaxEvaluations
+    MethodSource [className = 'org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest', methodName = 'm011_getMaxEvaluations', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math3.ode.AbstractIntegrator.getMaxEvaluations()
+  input:    new AdamsMoultonIntegrator.<init>[Integer:12, Double:-3.740921912780563E155, Double:1372.8, Double:-1.0499504908156422E63, Double:-0.37].getMaxEvaluations[]
+  expected: ret=Integer:2147483647 | this=obj org.apache.commons.math3.ode.nonstiff.AdamsMoultonIntegrator
+  actual:   TIMEOUT
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest.m011_getMaxEvaluations(AbstractIntegrator_AutoPbtTest.java:133)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):AbstractIntegrator AutoPbtTest:m015 integrate
+    MethodSource [className = 'org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest', methodName = 'm015_integrate', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math3.ode.AbstractIntegrator.integrate(org.apache.commons.math3.ode.FirstOrderDifferentialEquations,double,double[],double,double[])
+  input:    new AdamsMoultonIntegrator.<init>[Integer:12, Double:-3.740921912780563E155, Double:1372.8, Double:-1.0499504908156422E63, Double:-0.37].integrate[null, Double:3.137740714294241E172, double[], Double:-3.781299837321343E51, double[Double:7.8]]
+  expected: throws java.lang.NullPointerException | this=obj org.apache.commons.math3.ode.nonstiff.AdamsMoultonIntegrator | arg2=double[] | arg4=double[Double:7.8]
+  actual:   TIMEOUT
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest.m015_integrate(AbstractIntegrator_AutoPbtTest.java:173)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 181358 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        20 tests found           ]
+[         0 tests skipped         ]
+[        20 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=191.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/jacoco.exec --classfiles /work/Math_7f/target/classes --csv /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/jacoco.exec.
+[INFO] Analyzing 799 classes.
+
+[exit=0 timeout=False time=3.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=1000 -Dpbt.snapshot.dir=/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_7f:/work/Math_7b:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_f:/work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b:/work/Math_7b/target/classes:/work/Math_7b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_7/auto_round2_tries1000_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=1000 --reports-dir /workspace/jqwik/Result_auto_Round2/Math_7/tries1000_seed1/reports_buggy
+ jqwik (JUnit Platform):AbstractIntegrator AutoPbtTest:m011 getMaxEvaluations
+    MethodSource [className = 'org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest', methodName = 'm011_getMaxEvaluations', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math3.ode.AbstractIntegrator.getMaxEvaluations()
+  input:    new AdamsMoultonIntegrator.<init>[Integer:12, Double:-3.740921912780563E155, Double:1372.8, Double:-1.0499504908156422E63, Double:-0.37].getMaxEvaluations[]
+  expected: ret=Integer:2147483647 | this=obj org.apache.commons.math3.ode.nonstiff.AdamsMoultonIntegrator
+  actual:   TIMEOUT
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest.m011_getMaxEvaluations(AbstractIntegrator_AutoPbtTest.java:133)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):AbstractIntegrator AutoPbtTest:m015 integrate
+    MethodSource [className = 'org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest', methodName = 'm015_integrate', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math3.ode.AbstractIntegrator.integrate(org.apache.commons.math3.ode.FirstOrderDifferentialEquations,double,double[],double,double[])
+  input:    new AdamsMoultonIntegrator.<init>[Integer:12, Double:-3.740921912780563E155, Double:1372.8, Double:-1.0499504908156422E63, Double:-0.37].integrate[null, Double:3.137740714294241E172, double[], Double:-3.781299837321343E51, double[Double:7.8]]
+  expected: throws java.lang.NullPointerException | this=obj org.apache.commons.math3.ode.nonstiff.AdamsMoultonIntegrator | arg2=double[] | arg4=double[Double:7.8]
+  actual:   TIMEOUT
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math3.ode.AbstractIntegrator_AutoPbtTest.m015_integrate(AbstractIntegrator_AutoPbtTest.java:173)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 161957 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        20 tests found           ]
+[         0 tests skipped         ]
+[        20 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=164.8s]

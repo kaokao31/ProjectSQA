@@ -1,0 +1,259 @@
+
+$ defects4j checkout -p Closure -v 152f -w /work/Closure_152f
+Checking out de491e70 to /work/Closure_152f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_152f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_152f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_152f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_152f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de491e70:08fc2551..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-152f.................................... OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ defects4j compile -w /work/Closure_152f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=10.2s]
+
+$ defects4j checkout -p Closure -v 152b -w /work/Closure_152b
+Checking out de491e70 to /work/Closure_152b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+sed: can't read /work/Closure_152b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_152b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_152b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_152b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de491e70:08fc2551..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-152b.................................... OK
+
+[exit=0 timeout=False time=3.5s]
+
+$ defects4j compile -w /work/Closure_152b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=8.5s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.javascript.rhino.jstype.FunctionType --fixed-cp /work/Closure_152f/build/classes:/work/Closure_152f/lib/ant_deploy.jar:/work/Closure_152f/lib/args4j_deploy.jar:/work/Closure_152f/lib/guava-r06.jar:/work/Closure_152f/lib/hamcrest-core-1.1.jar:/work/Closure_152f/lib/json.jar:/work/Closure_152f/lib/jsr305.jar:/work/Closure_152f/lib/junit.jar:/work/Closure_152f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_152f/lib/protobuf-java-2.3.0.jar:/work/Closure_152f/build/test --buggy-cp /work/Closure_152b/build/classes:/work/Closure_152b/lib/ant_deploy.jar:/work/Closure_152b/lib/args4j_deploy.jar:/work/Closure_152b/lib/guava-r06.jar:/work/Closure_152b/lib/hamcrest-core-1.1.jar:/work/Closure_152b/lib/json.jar:/work/Closure_152b/lib/jsr305.jar:/work/Closure_152b/lib/junit.jar:/work/Closure_152b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_152b/lib/protobuf-java-2.3.0.jar:/work/Closure_152b/build/test --out /workspace/jqwik/Auto/Closure_152 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_152f/build/classes:/work/Closure_152f/lib/ant_deploy.jar:/work/Closure_152f/lib/args4j_deploy.jar:/work/Closure_152f/lib/guava-r06.jar:/work/Closure_152f/lib/hamcrest-core-1.1.jar:/work/Closure_152f/lib/json.jar:/work/Closure_152f/lib/jsr305.jar:/work/Closure_152f/lib/junit.jar:/work/Closure_152f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_152f/lib/protobuf-java-2.3.0.jar:/work/Closure_152f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Closure_152/com/google/javascript/rhino/jstype/FunctionType_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.1s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_152b/build/classes:/work/Closure_152b/lib/ant_deploy.jar:/work/Closure_152b/lib/args4j_deploy.jar:/work/Closure_152b/lib/guava-r06.jar:/work/Closure_152b/lib/hamcrest-core-1.1.jar:/work/Closure_152b/lib/json.jar:/work/Closure_152b/lib/jsr305.jar:/work/Closure_152b/lib/junit.jar:/work/Closure_152b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_152b/lib/protobuf-java-2.3.0.jar:/work/Closure_152b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Closure_152/com/google/javascript/rhino/jstype/FunctionType_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_152f:/work/Closure_152b:/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f:/work/Closure_152f/build/classes:/work/Closure_152f/lib/ant_deploy.jar:/work/Closure_152f/lib/args4j_deploy.jar:/work/Closure_152f/lib/guava-r06.jar:/work/Closure_152f/lib/hamcrest-core-1.1.jar:/work/Closure_152f/lib/json.jar:/work/Closure_152f/lib/jsr305.jar:/work/Closure_152f/lib/junit.jar:/work/Closure_152f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_152f/lib/protobuf-java-2.3.0.jar:/work/Closure_152f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/reports_record
+6-09-30T22:25:28.157025, FunctionType AutoPbtTest:m037 isSubtype = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mFunctionType AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm035 isPropertyTypeInferred[0m [32m✔[0m
+[36m      ├─[0m [34mm032 isInstanceType[0m [32m✔[0m
+[36m      ├─[0m [34mm028 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getSource[0m [32m✔[0m
+[36m      ├─[0m [34mm026 hasProperty[0m [32m✔[0m
+[36m      ├─[0m [34mm022 hasCachedValues[0m [32m✔[0m
+[36m      ├─[0m [34mm033 isInterface[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getReturnType[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getGreatestSubtype[0m [32m✔[0m
+[36m      ├─[0m [34mm027 hasUnknownSupertype[0m [32m✔[0m
+[36m      ├─[0m [34mm046 visit[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getPropertyType[0m [32m✔[0m
+[36m      ├─[0m [34mm024 hasInstanceType[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getTopMostDefiningType[0m [32m✔[0m
+[36m      ├─[0m [34mm001 defineProperty[0m [32m✔[0m
+[36m      ├─[0m [34mm000 canBeCalled[0m [32m✔[0m
+[36m      ├─[0m [34mm031 isFunctionType[0m [32m✔[0m
+[36m      ├─[0m [34mm025 hasOwnProperty[0m [32m✔[0m
+[36m      ├─[0m [34mm030 isEquivalentTo[0m [32m✔[0m
+[36m      ├─[0m [34mm041 setPrototype[0m [32m✔[0m
+[36m      ├─[0m [34mm043 setSource[0m [32m✔[0m
+[36m      ├─[0m [34mm039 setImplementedInterfaces[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getInstanceType[0m [32m✔[0m
+[36m      ├─[0m [34mm029 isConstructor[0m [32m✔[0m
+[36m      ├─[0m [34mm023 hasEqualCallType[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getParameters[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getPrototype[0m [32m✔[0m
+[36m      ├─[0m [34mm002 forInterface[0m [32m✔[0m
+[36m      ├─[0m [34mm034 isOrdinaryFunction[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getLeastSupertype[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getAllImplementedInterfaces[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getSubTypes[0m [32m✔[0m
+[36m      ├─[0m [34mm036 isReturnTypeInferred[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getTemplateTypeName[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getMaxArguments[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getParametersNode[0m [32m✔[0m
+[36m      ├─[0m [34mm044 toDebugHashCodeString[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getMinArguments[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getSuperClassConstructor[0m [32m✔[0m
+[36m      ├─[0m [34mm038 resolveInternal[0m [32m✔[0m
+[36m      ├─[0m [34mm040 setInstanceType[0m [32m✔[0m
+[36m      ├─[0m [34mm042 setPrototypeBasedOn[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getInternalArrowType[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getImplementedInterfaces[0m [32m✔[0m
+[36m      ├─[0m [34mm045 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm021 getTypeOfThis[0m [32m✔[0m
+[36m      └─[0m [34mm037 isSubtype[0m [32m✔[0m
+
+Test run finished after 7438 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        47 tests found           ]
+[         0 tests skipped         ]
+[        47 tests started         ]
+[         0 tests aborted         ]
+[        47 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=8.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_152f:/work/Closure_152b:/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f:/work/Closure_152f/build/classes:/work/Closure_152f/lib/ant_deploy.jar:/work/Closure_152f/lib/args4j_deploy.jar:/work/Closure_152f/lib/guava-r06.jar:/work/Closure_152f/lib/hamcrest-core-1.1.jar:/work/Closure_152f/lib/json.jar:/work/Closure_152f/lib/jsr305.jar:/work/Closure_152f/lib/junit.jar:/work/Closure_152f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_152f/lib/protobuf-java-2.3.0.jar:/work/Closure_152f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/reports_fixed
+Test', methodName = 'm028_hashCode', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] com.google.javascript.rhino.jstype.FunctionType.hashCode()
+  input:    new FunctionType.<init>[new JSTypeRegistry.<init>[null], "R", null, new ArrowType.<init>[new JSTypeRegistry.<init>[null, Boolean:true], new Node.newString[Integer:32767, "-404e+74"], new JSType.safeResolve[null, null, null], Boolean:true], new ObjectType.cast[new JSType.safeResolve[null, null, null]], "2024-01-31", Boolean:false, Boolean:false].hashCode[]
+  expected: ret=Integer:478327223 | this=FunctionType:function (): ?
+  actual:   ret=Integer:1575241983 | this=FunctionType:function (): ?
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       com.google.javascript.rhino.jstype.FunctionType_AutoPbtTest.m028_hashCode(FunctionType_AutoPbtTest.java:296)
+       jdk.internal.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       net.jqwik.engine.properties.CheckedFunction.execute(CheckedFunction.java:17)
+       [...]
+  jqwik (JUnit Platform):FunctionType AutoPbtTest:m044 toDebugHashCodeString
+    MethodSource [className = 'com.google.javascript.rhino.jstype.FunctionType_AutoPbtTest', methodName = 'm044_toDebugHashCodeString', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] com.google.javascript.rhino.jstype.FunctionType.toDebugHashCodeString()
+  input:    new FunctionType.<init>[new JSTypeRegistry.<init>[null], "R", null, new ArrowType.<init>[new JSTypeRegistry.<init>[null, Boolean:true], new Node.newString[Integer:32767, "-404e+74"], new JSType.safeResolve[null, null, null], Boolean:true], new ObjectType.cast[new JSType.safeResolve[null, null, null]], "2024-01-31", Boolean:false, Boolean:false].toDebugHashCodeString[]
+  expected: ret="function (): {165600330}" | this=FunctionType:function (): ?
+  actual:   ret="function (): {647699430}" | this=FunctionType:function (): ?
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       com.google.javascript.rhino.jstype.FunctionType_AutoPbtTest.m044_toDebugHashCodeString(FunctionType_AutoPbtTest.java:456)
+       jdk.internal.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       net.jqwik.engine.properties.CheckedFunction.execute(CheckedFunction.java:17)
+       [...]
+
+Test run finished after 8951 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        47 tests found           ]
+[         0 tests skipped         ]
+[        47 tests started         ]
+[         0 tests aborted         ]
+[        45 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=16.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/jacoco.exec --classfiles /work/Closure_152f/build/classes --csv /workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 985 classes.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_152f:/work/Closure_152b:/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_b:/work/Closure_152b/build/classes:/work/Closure_152b/lib/ant_deploy.jar:/work/Closure_152b/lib/args4j_deploy.jar:/work/Closure_152b/lib/guava-r06.jar:/work/Closure_152b/lib/hamcrest-core-1.1.jar:/work/Closure_152b/lib/json.jar:/work/Closure_152b/lib/jsr305.jar:/work/Closure_152b/lib/junit.jar:/work/Closure_152b/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_152b/lib/protobuf-java-2.3.0.jar:/work/Closure_152b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_152/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_152/tries200_seed1/reports_buggy
+est', methodName = 'm028_hashCode', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] com.google.javascript.rhino.jstype.FunctionType.hashCode()
+  input:    new FunctionType.<init>[new JSTypeRegistry.<init>[null], "R", null, new ArrowType.<init>[new JSTypeRegistry.<init>[null, Boolean:true], new Node.newString[Integer:32767, "-404e+74"], new JSType.safeResolve[null, null, null], Boolean:true], new ObjectType.cast[new JSType.safeResolve[null, null, null]], "2024-01-31", Boolean:false, Boolean:false].hashCode[]
+  expected: ret=Integer:478327223 | this=FunctionType:function (): ?
+  actual:   ret=Integer:2098399926 | this=FunctionType:function (): ?
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       com.google.javascript.rhino.jstype.FunctionType_AutoPbtTest.m028_hashCode(FunctionType_AutoPbtTest.java:296)
+       jdk.internal.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       net.jqwik.engine.properties.CheckedFunction.execute(CheckedFunction.java:17)
+       [...]
+  jqwik (JUnit Platform):FunctionType AutoPbtTest:m044 toDebugHashCodeString
+    MethodSource [className = 'com.google.javascript.rhino.jstype.FunctionType_AutoPbtTest', methodName = 'm044_toDebugHashCodeString', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] com.google.javascript.rhino.jstype.FunctionType.toDebugHashCodeString()
+  input:    new FunctionType.<init>[new JSTypeRegistry.<init>[null], "R", null, new ArrowType.<init>[new JSTypeRegistry.<init>[null, Boolean:true], new Node.newString[Integer:32767, "-404e+74"], new JSType.safeResolve[null, null, null], Boolean:true], new ObjectType.cast[new JSType.safeResolve[null, null, null]], "2024-01-31", Boolean:false, Boolean:false].toDebugHashCodeString[]
+  expected: ret="function (): {165600330}" | this=FunctionType:function (): ?
+  actual:   ret="function (): {1494937038}" | this=FunctionType:function (): ?
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       com.google.javascript.rhino.jstype.FunctionType_AutoPbtTest.m044_toDebugHashCodeString(FunctionType_AutoPbtTest.java:456)
+       jdk.internal.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       net.jqwik.engine.properties.CheckedFunction.execute(CheckedFunction.java:17)
+       [...]
+
+Test run finished after 8833 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        47 tests found           ]
+[         0 tests skipped         ]
+[        47 tests started         ]
+[         0 tests aborted         ]
+[        45 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=9.9s]

@@ -1,0 +1,284 @@
+
+$ defects4j checkout -p Math -v 6f -w /work/Math_6f
+Checking out f83bbc1d to /work/Math_6f..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f83bbc1d:4e4e8fad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-6f......................................... OK
+
+[exit=0 timeout=False time=5.2s]
+
+$ defects4j compile -w /work/Math_6f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=24.6s]
+
+$ defects4j checkout -p Math -v 6b -w /work/Math_6b
+Checking out f83bbc1d to /work/Math_6b..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f83bbc1d:4e4e8fad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-6b......................................... OK
+
+[exit=0 timeout=False time=5.3s]
+
+$ defects4j compile -w /work/Math_6b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=29.7s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math3.optim.BaseOptimizer,org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer,org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizer,org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizer,org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizer,org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer,org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer --fixed-cp /work/Math_6f/target/classes:/work/Math_6f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_6b/target/classes:/work/Math_6b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_6 --max-methods 150
+generated test classes: 7 / 7
+
+[exit=0 timeout=False time=1.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_6f/target/classes:/work/Math_6f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/BaseOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_6b/target/classes:/work/Math_6b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/BaseOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer_AutoPbtTest.java /workspace/jqwik/Auto/Math_6/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.8s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_6/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_6f:/work/Math_6b:/work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f:/work/Math_6f/target/classes:/work/Math_6f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/reports_record
+wed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:05:06.169734, NonLinearConjugateGradientOptimizer AutoPbtTest:m000 doOptimize = 
+                              |-----------------------jqwik-----------------------
+tries = 42                    | # of calls to property
+checks = 42                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:05:06.230429, NonLinearConjugateGradientOptimizer AutoPbtTest:m002 parseOptimizationData = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   ├─[0m [36mBaseOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 parseOptimizationData[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 getMaxEvaluations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 getIterations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 getConvergenceChecker[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 getEvaluations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 incrementEvaluationCount[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getMaxIterations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 optimize[0m [32m✔[0m
+[36m   │  └─[0m [34mm006 incrementIterationCount[0m [32m✔[0m
+[36m   ├─[0m [36mLevenbergMarquardtOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  └─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   ├─[0m [36mGaussNewtonOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  └─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   ├─[0m [36mCMAESOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 getStatisticsFitnessHistory[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 getStatisticsMeanHistory[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 getStatisticsDHistory[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 parseOptimizationData[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getStatisticsSigmaHistory[0m [32m✔[0m
+[36m   │  └─[0m [34mm005 optimize[0m [32m✔[0m
+[36m   ├─[0m [36mSimplexOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 optimize[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   │  └─[0m [34mm002 parseOptimizationData[0m [32m✔[0m
+[36m   ├─[0m [36mPowellOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  └─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   └─[0m [36mNonLinearConjugateGradientOptimizer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 optimize[0m [32m✔[0m
+[36m      ├─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m      └─[0m [34mm002 parseOptimizationData[0m [32m✔[0m
+
+Test run finished after 3824 ms
+[         8 containers found      ]
+[         0 containers skipped    ]
+[         8 containers started    ]
+[         0 containers aborted    ]
+[         8 containers successful ]
+[         0 containers failed     ]
+[        25 tests found           ]
+[         0 tests skipped         ]
+[        25 tests started         ]
+[         0 tests aborted         ]
+[        25 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=6.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_6/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_6f:/work/Math_6b:/work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f:/work/Math_6f/target/classes:/work/Math_6f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/reports_fixed
+wed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:05:14.528815, NonLinearConjugateGradientOptimizer AutoPbtTest:m000 doOptimize = 
+                              |-----------------------jqwik-----------------------
+tries = 42                    | # of calls to property
+checks = 42                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:05:14.567637, NonLinearConjugateGradientOptimizer AutoPbtTest:m002 parseOptimizationData = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   ├─[0m [36mBaseOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 parseOptimizationData[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 getMaxEvaluations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 getIterations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 getConvergenceChecker[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 getEvaluations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 incrementEvaluationCount[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getMaxIterations[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 optimize[0m [32m✔[0m
+[36m   │  └─[0m [34mm006 incrementIterationCount[0m [32m✔[0m
+[36m   ├─[0m [36mLevenbergMarquardtOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  └─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   ├─[0m [36mGaussNewtonOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  └─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   ├─[0m [36mCMAESOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 getStatisticsFitnessHistory[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 getStatisticsMeanHistory[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 getStatisticsDHistory[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 parseOptimizationData[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getStatisticsSigmaHistory[0m [32m✔[0m
+[36m   │  └─[0m [34mm005 optimize[0m [32m✔[0m
+[36m   ├─[0m [36mSimplexOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 optimize[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   │  └─[0m [34mm002 parseOptimizationData[0m [32m✔[0m
+[36m   ├─[0m [36mPowellOptimizer AutoPbtTest[0m [32m✔[0m
+[36m   │  └─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m   └─[0m [36mNonLinearConjugateGradientOptimizer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm001 optimize[0m [32m✔[0m
+[36m      ├─[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m      └─[0m [34mm002 parseOptimizationData[0m [32m✔[0m
+
+Test run finished after 5563 ms
+[         8 containers found      ]
+[         0 containers skipped    ]
+[         8 containers started    ]
+[         0 containers aborted    ]
+[         8 containers successful ]
+[         0 containers failed     ]
+[        25 tests found           ]
+[         0 tests skipped         ]
+[        25 tests started         ]
+[         0 tests aborted         ]
+[        25 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=15.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/jacoco.exec --classfiles /work/Math_6f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 809 classes.
+
+[exit=0 timeout=False time=2.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_6/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_6f:/work/Math_6b:/work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_b:/work/Math_6b/target/classes:/work/Math_6b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_6/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_6/tries200_seed1/reports_buggy
+[0m [34mm000 doOptimize[0m [32m✔[0m
+[36m      └─[0m [34mm002 parseOptimizationData[0m [32m✔[0m
+
+Failures (2):
+  jqwik (JUnit Platform):BaseOptimizer AutoPbtTest:m004 getMaxIterations
+    MethodSource [className = 'org.apache.commons.math3.optim.BaseOptimizer_AutoPbtTest', methodName = 'm004_getMaxIterations', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math3.optim.BaseOptimizer.getMaxIterations()
+  input:    new BOBYQAOptimizer.<init>[Integer:18, Double:-2.19, Double:0.63].getMaxIterations[]
+  expected: ret=Integer:2147483647 | this=obj org.apache.commons.math3.optim.nonlinear.scalar.noderiv.BOBYQAOptimizer
+  actual:   ret=Integer:0 | this=obj org.apache.commons.math3.optim.nonlinear.scalar.noderiv.BOBYQAOptimizer
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math3.optim.BaseOptimizer_AutoPbtTest.m004_getMaxIterations(BaseOptimizer_AutoPbtTest.java:64)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):BaseOptimizer AutoPbtTest:m006 incrementIterationCount
+    MethodSource [className = 'org.apache.commons.math3.optim.BaseOptimizer_AutoPbtTest', methodName = 'm006_incrementIterationCount', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math3.optim.BaseOptimizer.incrementIterationCount()
+  input:    new BOBYQAOptimizer.<init>[Integer:18, Double:-2.19, Double:0.63].incrementIterationCount[]
+  expected: ret=void | this=obj org.apache.commons.math3.optim.nonlinear.scalar.noderiv.BOBYQAOptimizer
+  actual:   throws org.apache.commons.math3.exception.TooManyIterationsException | this=obj org.apache.commons.math3.optim.nonlinear.scalar.noderiv.BOBYQAOptimizer
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math3.optim.BaseOptimizer_AutoPbtTest.m006_incrementIterationCount(BaseOptimizer_AutoPbtTest.java:84)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 5436 ms
+[         8 containers found      ]
+[         0 containers skipped    ]
+[         8 containers started    ]
+[         0 containers aborted    ]
+[         8 containers successful ]
+[         0 containers failed     ]
+[        25 tests found           ]
+[         0 tests skipped         ]
+[        25 tests started         ]
+[         0 tests aborted         ]
+[        23 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=7.9s]

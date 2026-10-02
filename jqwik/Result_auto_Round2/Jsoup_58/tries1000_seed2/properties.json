@@ -1,0 +1,26 @@
+{
+ "fixed": {
+  "passed": 30,
+  "failed": {}
+ },
+ "buggy": {
+  "passed": 28,
+  "failed": {
+   "org.jsoup.safety.Cleaner_AutoPbtTest#m001 isValid": {
+    "type": "AssertionError",
+    "message": "[regression] org.jsoup.safety.Cleaner.isValid(org.jsoup.nodes.Document)   input:    new Cleaner.<init>[new Whitelist.simpleText[]].isValid[new Document.<init>[\"544E-6\"]]   expected: throws java.lang.NullPointerException | this=obj org.jsoup.safety.Cleaner   actual:   ret=Boolean:true | this=obj org.jsoup.safety.Cleaner",
+    "trace": "java.lang.AssertionError: [regression] org.jsoup.safety.Cleaner.isValid(org.jsoup.nodes.Document)\n  input:    new Cleaner.<init>[new Whitelist.simpleText[]].isValid[new Document.<init>[\"544E-6\"]]\n  expected: throws java.lang.NullPointerException | this=obj org.jsoup.safety.Cleaner\n  actual:   ret=Boolean:true | this=obj org.jsoup.safety.Cleaner\n\tat pbt.auto.AutoTarget.check(AutoTarget.java:127)\n\tat org.jsoup.safety.Cleaner_AutoPbtTest.m001_isValid(Cleaner_AutoPbtTest.java:25)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.N"
+   },
+   "org.jsoup.Jsoup_AutoPbtTest#m004 isValid": {
+    "type": "AssertionError",
+    "message": "[regression] org.jsoup.Jsoup.isValid(java.lang.String,org.jsoup.safety.Whitelist)   input:    isValid[\"\\u0000\", new Whitelist.relaxed[]]   expected: ret=Boolean:false   actual:   ret=Boolean:true",
+    "trace": "java.lang.AssertionError: [regression] org.jsoup.Jsoup.isValid(java.lang.String,org.jsoup.safety.Whitelist)\n  input:    isValid[\"\\u0000\", new Whitelist.relaxed[]]\n  expected: ret=Boolean:false\n  actual:   ret=Boolean:true\n\tat pbt.auto.AutoTarget.check(AutoTarget.java:127)\n\tat org.jsoup.Jsoup_AutoPbtTest.m004_isValid(Jsoup_AutoPbtTest.java:54)\n\tat jdk.internal.reflect.GeneratedMethodAccessor42.invoke(Unknown Source)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat org.j"
+   }
+  }
+ },
+ "detecting": [
+  "org.jsoup.safety.Cleaner_AutoPbtTest#m001 isValid",
+  "org.jsoup.Jsoup_AutoPbtTest#m004 isValid"
+ ],
+ "false_alarm": []
+}

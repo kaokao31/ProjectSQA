@@ -1,0 +1,777 @@
+
+$ defects4j checkout -p Cli -v 3f -w /work/Cli_3f
+Checking out d35f2fa7 to /work/Cli_3f...................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d35f2fa7:85248e8a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-3f.......................................... OK
+
+[exit=0 timeout=False time=2.3s]
+
+$ defects4j compile -w /work/Cli_3f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.8s]
+
+$ defects4j checkout -p Cli -v 3b -w /work/Cli_3b
+Checking out d35f2fa7 to /work/Cli_3b...................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d35f2fa7:85248e8a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-3b.......................................... OK
+
+[exit=0 timeout=False time=2.3s]
+
+$ defects4j compile -w /work/Cli_3b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.cli.TypeHandler --fixed-cp /work/Cli_3f/target/classes:/work/Cli_3f/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_3f/target/test-classes --buggy-cp /work/Cli_3b/target/classes:/work/Cli_3b/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_3b/target/test-classes --out /workspace/jqwik/Auto/Cli_3 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Cli_3f/target/classes:/work/Cli_3f/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_3f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Cli_3/org/apache/commons/cli/TypeHandler_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Cli_3b/target/classes:/work/Cli_3b/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_3b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Cli_3/org/apache/commons/cli/TypeHandler_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_3f:/work/Cli_3b:/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f:/work/Cli_3f/target/classes:/work/Cli_3f/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_3f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/reports_record
+
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:30.270091, TypeHandler AutoPbtTest:m007 createValue = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:30.358807, TypeHandler AutoPbtTest:m001 createDate = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:30.460303, TypeHandler AutoPbtTest:m002 createFile = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:30.525546, TypeHandler AutoPbtTest:m003 createFiles = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTypeHandler AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createURL[0m [32m✔[0m
+[36m      ├─[0m [34mm000 createClass[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createObject[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createValue[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm007 createValue[0m [32m✔[0m
+[36m      ├─[0m [34mm001 createDate[0m [32m✔[0m
+[36m      ├─[0m [34mm002 createFile[0m [32m✔[0m
+[36m      └─[0m [34mm003 createFiles[0m [32m✔[0m
+
+Test run finished after 1925 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+PGfTegW
+Unable to parse: mx#x7cy18e
+Unable to parse: 0X7
+Unable to parse: 1d
+Unable to parse: null
+Unable to parse: 0088717359040F
+Unable to parse: 0X8cAB9BB2c
+Unable to parse: fL
+Unable to parse: -0x091bF17cBeC
+Unable to parse: 2Eq,5
+Unable to parse: #3
+Unable to parse: ##605
+Unable to parse: aBc
+Unable to parse: 😀
+Unable to parse: 5fXD02
+Unable to parse: 2024-01-31
+Unable to parse: DL878Fl0EFL
+Unable to parse: -704444122973030541.305521292
+Unable to parse: 
+Unable to parse: é
+Unable to parse: \
+Unable to parse:  U1l
+Unable to parse: 9sefKxv
+Unable to parse: null
+Unable to parse: 1E-5
+Unable to parse:  
+Unable to parse: #fbeD8ed3
+Unable to parse: null
+Unable to parse: 8386108294.0338566
+Unable to parse:  
+Unable to parse: +1617747560557104
+Unable to parse: f8:2,_vn+wW
+Unable to parse: 3xed83l3D1
+Unable to parse: zWtYx
+Unable to parse: :n
+Unable to parse: l00Vc-XiUfVF
+Unable to parse: null
+Unable to parse: e5
+Unable to parse: null
+Unable to parse: UTC
+Unable to parse: wK
+Unable to parse: 38.D
+Unable to parse: ?
+Unable to parse: P.14uXyfF0yA
+Unable to parse: null
+Unable to parse: ⊽꠫ꮝ묾䪈
+Unable to parse: 
+Unable to parse: 8274
+Unable to parse: 	
+Unable to parse: &amp;
+Unable to parse: null
+Unable to parse: 0x10
+Unable to parse: e685Ex310
+Unable to parse: -9435250124865.2837084e-124
+Unable to parse: #62f1DaF0dfCE2Fe
+Unable to parse: null
+Unable to parse: false
+Unable to parse: -807772721e173F
+Unable to parse: 😀
+Unable to parse: 2024-01-31
+Unable to parse: iAn#b918 _e
+Unable to parse: x9F80fFedf20
+Unable to parse: 89.Xd3F78.
+Unable to parse: q
+Unable to parse: KYO6ak
+Unable to parse: Is
+Unable to parse: :YGqK;Yn1e12
+Unable to parse: 
+Unable to parse: NiVeXe48qxzE
+Unable to parse: 0x9aeEeaDFA83f6
+Unable to parse: shP
+Unable to parse: 3EL905
+Unable to parse: eTA
+Unable to parse: 1.5
+Unable to parse: 20730313198482987988E+8D
+Unable to parse: -X.f1
+Unable to parse: 0
+Unable to parse: 0X1F
+Unable to parse:   x  y  
+Unable to parse: +0294976E-26
+Unable to parse: -1.5
+Unable to parse: gT:lDPb_ 
+Unable to parse: 萓৸㢗삜愐얥
+Unable to parse: ય鏯
+Unable to parse: ꡚ倌풿
+Unable to parse: ;b
+Unable to parse: -0x7a2EF8937ef93D
+Unable to parse: yes
+Unable to parse: 0Xe55FA51F40
+Unable to parse: +0355734.86855396793E+88f
+Unable to parse: #43FEa1D2e7bC
+Unable to parse: #FF
+Unable to parse: 쎉ꑖ䜟赝銉썴
+Unable to parse: l3#0x1.64
+Unable to parse: e6E0015dD
+Unable to parse: aBc
+Unable to parse: 808439974808.093817e-25l
+Unable to parse: /EPOM:_GEs
+Unable to parse: f08f2EE03
+Unable to parse: H
+Unable to parse: 2
+Unable to parse: -0.l
+Unable to parse: 6f1fF#eX#e
+Unable to parse: 
+Unable to parse: -0xAdA9aCe031b6
+Unable to parse: 5535333.735493E+41d
+Unable to parse: ,NzQSrq,9 +h
+Unable to parse: pKVlz9fx
+Unable to parse: Z
+Unable to parse: FKd5WAxH4
+Unable to parse: yT9B+xObx 
+Unable to parse: a b
+Unable to parse: 5025372.703924977530764938E-274D
+Unable to parse: a.b.c
+Unable to parse: +_on--R7
+Unable to parse: -0xEe8ADB8eF414f5
+Unable to parse: s;MH3go
+Unable to parse: mrjX
+Unable to parse: 1d
+Unable to parse: m+3gDNX3rC,Q
+Unable to parse: e7OV5;lfmEJ
+Unable to parse: l,A 
+Unable to parse: GJ:GAlNn
+Unable to parse: 0X7e9E1Aa1D1Ab2
+Unable to parse: NaN
+Unable to parse: 첫상뇶뙻
+Unable to parse: 
+Unable to parse: 95539706880319264f
+Unable to parse: D
+Unable to parse: x5l8ry3G
+Unable to parse: -7.58337620139753169
+Unable to parse: 椧
+Unable to parse: 0XfEfEd
+Unable to parse: -2442106F
+Unable to parse: 95726646911.244164706526355900e+21F
+Unable to parse: C
+Unable to parse: \
+Unable to parse: #1L
+Unable to parse: null
+Unable to parse: q,msY1cXUCy
+Unable to parse: -0xA1
+Unable to parse: Op/Rs3X
+Unable to parse: 5442780742733.
+Unable to parse: -lCfn
+Unable to parse: -70201706837F
+Unable to parse: NaN
+Unable to parse: IJD0O
+Unable to parse: -0xc44fD0CeDfFF9FC51
+Unable to parse: BH:8ne:Pe
+Unable to parse: tFszyg
+Unable to parse: ,J-uac 
+Unable to parse: 67FfxD-
+Unable to parse: 1ROmVtWlX88
+Unable to parse: ꔞ
+Unable to parse: 1E-5
+Unable to parse: #7Ea7bEa4
+Unable to parse: "q"
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_3f:/work/Cli_3b:/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f:/work/Cli_3f/target/classes:/work/Cli_3f/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_3f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/reports_fixed
+
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:35.065249, TypeHandler AutoPbtTest:m007 createValue = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:35.145794, TypeHandler AutoPbtTest:m001 createDate = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:35.207939, TypeHandler AutoPbtTest:m002 createFile = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:35.263046, TypeHandler AutoPbtTest:m003 createFiles = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTypeHandler AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createURL[0m [32m✔[0m
+[36m      ├─[0m [34mm000 createClass[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createObject[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createValue[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm007 createValue[0m [32m✔[0m
+[36m      ├─[0m [34mm001 createDate[0m [32m✔[0m
+[36m      ├─[0m [34mm002 createFile[0m [32m✔[0m
+[36m      └─[0m [34mm003 createFiles[0m [32m✔[0m
+
+Test run finished after 2738 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+PGfTegW
+Unable to parse: mx#x7cy18e
+Unable to parse: 0X7
+Unable to parse: 1d
+Unable to parse: null
+Unable to parse: 0088717359040F
+Unable to parse: 0X8cAB9BB2c
+Unable to parse: fL
+Unable to parse: -0x091bF17cBeC
+Unable to parse: 2Eq,5
+Unable to parse: #3
+Unable to parse: ##605
+Unable to parse: aBc
+Unable to parse: 😀
+Unable to parse: 5fXD02
+Unable to parse: 2024-01-31
+Unable to parse: DL878Fl0EFL
+Unable to parse: -704444122973030541.305521292
+Unable to parse: 
+Unable to parse: é
+Unable to parse: \
+Unable to parse:  U1l
+Unable to parse: 9sefKxv
+Unable to parse: null
+Unable to parse: 1E-5
+Unable to parse:  
+Unable to parse: #fbeD8ed3
+Unable to parse: null
+Unable to parse: 8386108294.0338566
+Unable to parse:  
+Unable to parse: +1617747560557104
+Unable to parse: f8:2,_vn+wW
+Unable to parse: 3xed83l3D1
+Unable to parse: zWtYx
+Unable to parse: :n
+Unable to parse: l00Vc-XiUfVF
+Unable to parse: null
+Unable to parse: e5
+Unable to parse: null
+Unable to parse: UTC
+Unable to parse: wK
+Unable to parse: 38.D
+Unable to parse: ?
+Unable to parse: P.14uXyfF0yA
+Unable to parse: null
+Unable to parse: ⊽꠫ꮝ묾䪈
+Unable to parse: 
+Unable to parse: 8274
+Unable to parse: 	
+Unable to parse: &amp;
+Unable to parse: null
+Unable to parse: 0x10
+Unable to parse: e685Ex310
+Unable to parse: -9435250124865.2837084e-124
+Unable to parse: #62f1DaF0dfCE2Fe
+Unable to parse: null
+Unable to parse: false
+Unable to parse: -807772721e173F
+Unable to parse: 😀
+Unable to parse: 2024-01-31
+Unable to parse: iAn#b918 _e
+Unable to parse: x9F80fFedf20
+Unable to parse: 89.Xd3F78.
+Unable to parse: q
+Unable to parse: KYO6ak
+Unable to parse: Is
+Unable to parse: :YGqK;Yn1e12
+Unable to parse: 
+Unable to parse: NiVeXe48qxzE
+Unable to parse: 0x9aeEeaDFA83f6
+Unable to parse: shP
+Unable to parse: 3EL905
+Unable to parse: eTA
+Unable to parse: 1.5
+Unable to parse: 20730313198482987988E+8D
+Unable to parse: -X.f1
+Unable to parse: 0
+Unable to parse: 0X1F
+Unable to parse:   x  y  
+Unable to parse: +0294976E-26
+Unable to parse: -1.5
+Unable to parse: gT:lDPb_ 
+Unable to parse: 萓৸㢗삜愐얥
+Unable to parse: ય鏯
+Unable to parse: ꡚ倌풿
+Unable to parse: ;b
+Unable to parse: -0x7a2EF8937ef93D
+Unable to parse: yes
+Unable to parse: 0Xe55FA51F40
+Unable to parse: +0355734.86855396793E+88f
+Unable to parse: #43FEa1D2e7bC
+Unable to parse: #FF
+Unable to parse: 쎉ꑖ䜟赝銉썴
+Unable to parse: l3#0x1.64
+Unable to parse: e6E0015dD
+Unable to parse: aBc
+Unable to parse: 808439974808.093817e-25l
+Unable to parse: /EPOM:_GEs
+Unable to parse: f08f2EE03
+Unable to parse: H
+Unable to parse: 2
+Unable to parse: -0.l
+Unable to parse: 6f1fF#eX#e
+Unable to parse: 
+Unable to parse: -0xAdA9aCe031b6
+Unable to parse: 5535333.735493E+41d
+Unable to parse: ,NzQSrq,9 +h
+Unable to parse: pKVlz9fx
+Unable to parse: Z
+Unable to parse: FKd5WAxH4
+Unable to parse: yT9B+xObx 
+Unable to parse: a b
+Unable to parse: 5025372.703924977530764938E-274D
+Unable to parse: a.b.c
+Unable to parse: +_on--R7
+Unable to parse: -0xEe8ADB8eF414f5
+Unable to parse: s;MH3go
+Unable to parse: mrjX
+Unable to parse: 1d
+Unable to parse: m+3gDNX3rC,Q
+Unable to parse: e7OV5;lfmEJ
+Unable to parse: l,A 
+Unable to parse: GJ:GAlNn
+Unable to parse: 0X7e9E1Aa1D1Ab2
+Unable to parse: NaN
+Unable to parse: 첫상뇶뙻
+Unable to parse: 
+Unable to parse: 95539706880319264f
+Unable to parse: D
+Unable to parse: x5l8ry3G
+Unable to parse: -7.58337620139753169
+Unable to parse: 椧
+Unable to parse: 0XfEfEd
+Unable to parse: -2442106F
+Unable to parse: 95726646911.244164706526355900e+21F
+Unable to parse: C
+Unable to parse: \
+Unable to parse: #1L
+Unable to parse: null
+Unable to parse: q,msY1cXUCy
+Unable to parse: -0xA1
+Unable to parse: Op/Rs3X
+Unable to parse: 5442780742733.
+Unable to parse: -lCfn
+Unable to parse: -70201706837F
+Unable to parse: NaN
+Unable to parse: IJD0O
+Unable to parse: -0xc44fD0CeDfFF9FC51
+Unable to parse: BH:8ne:Pe
+Unable to parse: tFszyg
+Unable to parse: ,J-uac 
+Unable to parse: 67FfxD-
+Unable to parse: 1ROmVtWlX88
+Unable to parse: ꔞ
+Unable to parse: 1E-5
+Unable to parse: #7Ea7bEa4
+Unable to parse: "q"
+
+[exit=0 timeout=False time=9.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/jacoco.exec --classfiles /work/Cli_3f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 20 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_3f:/work/Cli_3b:/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_b:/work/Cli_3b/target/classes:/work/Cli_3b/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_3b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_3/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_3/tries200_seed1/reports_buggy
+TypeHandler AutoPbtTest:m002 createFile = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:24:44.388940, TypeHandler AutoPbtTest:m003 createFiles = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTypeHandler AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createURL[0m [32m✔[0m
+[36m      ├─[0m [34mm000 createClass[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createObject[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createValue[0m [32m✔[0m
+[36m      ├─[0m [31mm004 createNumber[0m [31m✘[0m [31m[regression] org.apache.commons.cli.TypeHandler.createNumber(java.lang.String)[0m
+[36m      │     [0m[31m     input:    createNumber["1e10"][0m
+[36m      │     [0m[31m     expected: ret=null[0m
+[36m      │     [0m[31m     actual:   ret=Float:1.0E10[0m
+[36m      ├─[0m [34mm007 createValue[0m [32m✔[0m
+[36m      ├─[0m [34mm001 createDate[0m [32m✔[0m
+[36m      ├─[0m [34mm002 createFile[0m [32m✔[0m
+[36m      └─[0m [34mm003 createFiles[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):TypeHandler AutoPbtTest:m004 createNumber
+    MethodSource [className = 'org.apache.commons.cli.TypeHandler_AutoPbtTest', methodName = 'm004_createNumber', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.cli.TypeHandler.createNumber(java.lang.String)
+  input:    createNumber["1e10"]
+  expected: ret=null
+  actual:   ret=Float:1.0E10
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.cli.TypeHandler_AutoPbtTest.m004_createNumber(TypeHandler_AutoPbtTest.java:55)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 1793 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         8 tests successful      ]
+[         1 tests failed          ]
+
+PGfTegW
+Unable to parse: mx#x7cy18e
+Unable to parse: 0X7
+Unable to parse: 1d
+Unable to parse: null
+Unable to parse: 0088717359040F
+Unable to parse: 0X8cAB9BB2c
+Unable to parse: fL
+Unable to parse: -0x091bF17cBeC
+Unable to parse: 2Eq,5
+Unable to parse: #3
+Unable to parse: ##605
+Unable to parse: aBc
+Unable to parse: 😀
+Unable to parse: 5fXD02
+Unable to parse: 2024-01-31
+Unable to parse: DL878Fl0EFL
+Unable to parse: -704444122973030541.305521292
+Unable to parse: 
+Unable to parse: é
+Unable to parse: \
+Unable to parse:  U1l
+Unable to parse: 9sefKxv
+Unable to parse: null
+Unable to parse: 1E-5
+Unable to parse:  
+Unable to parse: #fbeD8ed3
+Unable to parse: null
+Unable to parse: 8386108294.0338566
+Unable to parse:  
+Unable to parse: +1617747560557104
+Unable to parse: f8:2,_vn+wW
+Unable to parse: 3xed83l3D1
+Unable to parse: zWtYx
+Unable to parse: :n
+Unable to parse: l00Vc-XiUfVF
+Unable to parse: null
+Unable to parse: e5
+Unable to parse: null
+Unable to parse: UTC
+Unable to parse: wK
+Unable to parse: 38.D
+Unable to parse: ?
+Unable to parse: P.14uXyfF0yA
+Unable to parse: null
+Unable to parse: ⊽꠫ꮝ묾䪈
+Unable to parse: 
+Unable to parse: 8274
+Unable to parse: 	
+Unable to parse: &amp;
+Unable to parse: null
+Unable to parse: 0x10
+Unable to parse: e685Ex310
+Unable to parse: -9435250124865.2837084e-124
+Unable to parse: #62f1DaF0dfCE2Fe
+Unable to parse: null
+Unable to parse: false
+Unable to parse: -807772721e173F
+Unable to parse: 😀
+Unable to parse: 2024-01-31
+Unable to parse: iAn#b918 _e
+Unable to parse: x9F80fFedf20
+Unable to parse: 89.Xd3F78.
+Unable to parse: q
+Unable to parse: KYO6ak
+Unable to parse: Is
+Unable to parse: :YGqK;Yn1e12
+Unable to parse: 
+Unable to parse: NiVeXe48qxzE
+Unable to parse: 0x9aeEeaDFA83f6
+Unable to parse: shP
+Unable to parse: 3EL905
+Unable to parse: eTA
+Unable to parse: 1.5
+Unable to parse: 20730313198482987988E+8D
+Unable to parse: -X.f1
+Unable to parse: 0
+Unable to parse: 0X1F
+Unable to parse:   x  y  
+Unable to parse: +0294976E-26
+Unable to parse: -1.5
+Unable to parse: gT:lDPb_ 
+Unable to parse: 萓৸㢗삜愐얥
+Unable to parse: ય鏯
+Unable to parse: ꡚ倌풿
+Unable to parse: ;b
+Unable to parse: -0x7a2EF8937ef93D
+Unable to parse: yes
+Unable to parse: 0Xe55FA51F40
+Unable to parse: +0355734.86855396793E+88f
+Unable to parse: #43FEa1D2e7bC
+Unable to parse: #FF
+Unable to parse: 쎉ꑖ䜟赝銉썴
+Unable to parse: l3#0x1.64
+Unable to parse: e6E0015dD
+Unable to parse: aBc
+Unable to parse: 808439974808.093817e-25l
+Unable to parse: /EPOM:_GEs
+Unable to parse: f08f2EE03
+Unable to parse: H
+Unable to parse: 2
+Unable to parse: -0.l
+Unable to parse: 6f1fF#eX#e
+Unable to parse: 
+Unable to parse: -0xAdA9aCe031b6
+Unable to parse: 5535333.735493E+41d
+Unable to parse: ,NzQSrq,9 +h
+Unable to parse: pKVlz9fx
+Unable to parse: Z
+Unable to parse: FKd5WAxH4
+Unable to parse: yT9B+xObx 
+Unable to parse: a b
+Unable to parse: 5025372.703924977530764938E-274D
+Unable to parse: a.b.c
+Unable to parse: +_on--R7
+Unable to parse: -0xEe8ADB8eF414f5
+Unable to parse: s;MH3go
+Unable to parse: mrjX
+Unable to parse: 1d
+Unable to parse: m+3gDNX3rC,Q
+Unable to parse: e7OV5;lfmEJ
+Unable to parse: l,A 
+Unable to parse: GJ:GAlNn
+Unable to parse: 0X7e9E1Aa1D1Ab2
+Unable to parse: NaN
+Unable to parse: 첫상뇶뙻
+Unable to parse: 
+Unable to parse: 95539706880319264f
+Unable to parse: D
+Unable to parse: x5l8ry3G
+Unable to parse: -7.58337620139753169
+Unable to parse: 椧
+Unable to parse: 0XfEfEd
+Unable to parse: -2442106F
+Unable to parse: 95726646911.244164706526355900e+21F
+Unable to parse: C
+Unable to parse: \
+Unable to parse: #1L
+Unable to parse: null
+Unable to parse: q,msY1cXUCy
+Unable to parse: -0xA1
+Unable to parse: Op/Rs3X
+Unable to parse: 5442780742733.
+Unable to parse: -lCfn
+Unable to parse: -70201706837F
+Unable to parse: NaN
+Unable to parse: IJD0O
+Unable to parse: -0xc44fD0CeDfFF9FC51
+Unable to parse: BH:8ne:Pe
+Unable to parse: tFszyg
+Unable to parse: ,J-uac 
+Unable to parse: 67FfxD-
+Unable to parse: 1ROmVtWlX88
+Unable to parse: ꔞ
+Unable to parse: 1E-5
+Unable to parse: #7Ea7bEa4
+Unable to parse: "q"
+
+[exit=1 timeout=False time=2.8s]

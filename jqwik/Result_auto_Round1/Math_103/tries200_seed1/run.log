@@ -1,0 +1,282 @@
+
+$ defects4j checkout -p Math -v 103f -w /work/Math_103f
+Checking out b8b6c66e to /work/Math_103f................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Math_103f/build.xml........................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b8b6c66e:13eb8cca..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-103f....................................... OK
+
+[exit=0 timeout=False time=3.9s]
+
+$ defects4j compile -w /work/Math_103f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=10.4s]
+
+$ defects4j checkout -p Math -v 103b -w /work/Math_103b
+Checking out b8b6c66e to /work/Math_103b................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Math_103b/build.xml........................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b8b6c66e:13eb8cca..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-103b....................................... OK
+
+[exit=0 timeout=False time=4.0s]
+
+$ defects4j compile -w /work/Math_103b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=12.1s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math.distribution.NormalDistributionImpl --fixed-cp /work/Math_103f/target/classes:/work/Math_103f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_103b/target/classes:/work/Math_103b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_103 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_103f/target/classes:/work/Math_103f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_103/org/apache/commons/math/distribution/NormalDistributionImpl_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_103b/target/classes:/work/Math_103b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_103/org/apache/commons/math/distribution/NormalDistributionImpl_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_103/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_103f:/work/Math_103b:/work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f:/work/Math_103f/target/classes:/work/Math_103f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/reports_record
+ed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:17.797124, NormalDistributionImpl AutoPbtTest:m006 inverseCumulativeProbability = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:17.909772, NormalDistributionImpl AutoPbtTest:m003 getInitialDomain = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:18.017736, NormalDistributionImpl AutoPbtTest:m005 getStandardDeviation = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:18.153355, NormalDistributionImpl AutoPbtTest:m002 getDomainUpperBound = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNormalDistributionImpl AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm008 setStandardDeviation[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getMean[0m [32m✔[0m
+[36m      ├─[0m [34mm000 cumulativeProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm007 setMean[0m [32m✔[0m
+[36m      ├─[0m [34mm001 getDomainLowerBound[0m [32m✔[0m
+[36m      ├─[0m [34mm006 inverseCumulativeProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getInitialDomain[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getStandardDeviation[0m [32m✔[0m
+[36m      └─[0m [34mm002 getDomainUpperBound[0m [32m✔[0m
+
+Test run finished after 7560 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=8.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_103/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_103f:/work/Math_103b:/work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f:/work/Math_103f/target/classes:/work/Math_103f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/reports_fixed
+ed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:27.457191, NormalDistributionImpl AutoPbtTest:m006 inverseCumulativeProbability = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:27.551031, NormalDistributionImpl AutoPbtTest:m003 getInitialDomain = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:27.658321, NormalDistributionImpl AutoPbtTest:m005 getStandardDeviation = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T00:27:27.799760, NormalDistributionImpl AutoPbtTest:m002 getDomainUpperBound = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNormalDistributionImpl AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm008 setStandardDeviation[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getMean[0m [32m✔[0m
+[36m      ├─[0m [34mm000 cumulativeProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm007 setMean[0m [32m✔[0m
+[36m      ├─[0m [34mm001 getDomainLowerBound[0m [32m✔[0m
+[36m      ├─[0m [34mm006 inverseCumulativeProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getInitialDomain[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getStandardDeviation[0m [32m✔[0m
+[36m      └─[0m [34mm002 getDomainUpperBound[0m [32m✔[0m
+
+Test run finished after 7909 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=15.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/jacoco.exec --classfiles /work/Math_103f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 177 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_103/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_103f:/work/Math_103b:/work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_b:/work/Math_103b/target/classes:/work/Math_103b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_103/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_103/tries200_seed1/reports_buggy
+obability
+    MethodSource [className = 'org.apache.commons.math.distribution.NormalDistributionImpl_AutoPbtTest', methodName = 'm000_cumulativeProbability', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math.distribution.NormalDistributionImpl.cumulativeProbability(double)
+  input:    new NormalDistributionImpl.<init>[Double:1.7976931348623157E308, Double:0.24].cumulativeProbability[Double:218351.91]
+  expected: ret=Double:0.0 | this=obj org.apache.commons.math.distribution.NormalDistributionImpl
+  actual:   throws org.apache.commons.math.MaxIterationsExceededException | this=obj org.apache.commons.math.distribution.NormalDistributionImpl
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.distribution.NormalDistributionImpl_AutoPbtTest.m000_cumulativeProbability(NormalDistributionImpl_AutoPbtTest.java:16)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):NormalDistributionImpl AutoPbtTest:m006 inverseCumulativeProbability
+    MethodSource [className = 'org.apache.commons.math.distribution.NormalDistributionImpl_AutoPbtTest', methodName = 'm006_inverseCumulativeProbability', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math.distribution.NormalDistributionImpl.inverseCumulativeProbability(double)
+  input:    new NormalDistributionImpl.<init>[Double:-0.07, Double:0.01].inverseCumulativeProbability[Double:0.26]
+  expected: ret=Double:-0.07643348049175402 | this=obj org.apache.commons.math.distribution.NormalDistributionImpl
+  actual:   throws org.apache.commons.math.FunctionEvaluationException | this=obj org.apache.commons.math.distribution.NormalDistributionImpl
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.distribution.NormalDistributionImpl_AutoPbtTest.m006_inverseCumulativeProbability(NormalDistributionImpl_AutoPbtTest.java:76)
+       jdk.internal.reflect.GeneratedMethodAccessor9.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       net.jqwik.engine.properties.CheckedFunction.execute(CheckedFunction.java:17)
+       [...]
+
+Test run finished after 3651 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         7 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=4.7s]

@@ -1,0 +1,316 @@
+
+$ defects4j checkout -p Cli -v 26f -w /work/Cli_26f
+Checking out aa2434d3 to /work/Cli_26f..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Cli_26f/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aa2434d3:879c762b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-26f......................................... OK
+
+[exit=0 timeout=False time=1.6s]
+
+$ defects4j compile -w /work/Cli_26f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=4.8s]
+
+$ defects4j checkout -p Cli -v 26b -w /work/Cli_26b
+Checking out aa2434d3 to /work/Cli_26b..................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Cli_26b/maven-build.xml....................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aa2434d3:879c762b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-26b......................................... OK
+
+[exit=0 timeout=False time=1.4s]
+
+$ defects4j compile -w /work/Cli_26b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=3.6s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.cli.OptionBuilder --fixed-cp /work/Cli_26f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/work/Cli_26f/target/test-classes --buggy-cp /work/Cli_26b/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/work/Cli_26b/target/test-classes --out /workspace/jqwik/Auto/Cli_26 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Cli_26f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/work/Cli_26f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Cli_26/org/apache/commons/cli/OptionBuilder_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Cli_26b/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/work/Cli_26b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Cli_26/org/apache/commons/cli/OptionBuilder_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_26f:/work/Cli_26b:/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f:/work/Cli_26f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/work/Cli_26f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/reports_record
+-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:34:49.999301, OptionBuilder AutoPbtTest:m005 hasArgs = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:34:50.039568, OptionBuilder AutoPbtTest:m009 hasOptionalArgs = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:34:50.045567, OptionBuilder AutoPbtTest:m004 hasArg = 
+                              |-----------------------jqwik-----------------------
+tries = 2                     | # of calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mOptionBuilder AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm012 withArgName[0m [32m✔[0m
+[36m      ├─[0m [34mm002 create[0m [32m✔[0m
+[36m      ├─[0m [34mm010 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm014 withLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm011 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm000 create[0m [32m✔[0m
+[36m      ├─[0m [34mm015 withType[0m [32m✔[0m
+[36m      ├─[0m [34mm006 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm003 hasArg[0m [32m✔[0m
+[36m      ├─[0m [34mm008 hasOptionalArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm013 withDescription[0m [32m✔[0m
+[36m      ├─[0m [34mm001 create[0m [32m✔[0m
+[36m      ├─[0m [34mm007 hasOptionalArg[0m [32m✔[0m
+[36m      ├─[0m [34mm017 withValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm016 withValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm005 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm009 hasOptionalArgs[0m [32m✔[0m
+[36m      └─[0m [34mm004 hasArg[0m [32m✔[0m
+
+Test run finished after 2609 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=4.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_26f:/work/Cli_26b:/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f:/work/Cli_26f/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/work/Cli_26f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/reports_fixed
+-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:34:55.789500, OptionBuilder AutoPbtTest:m005 hasArgs = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:34:55.858664, OptionBuilder AutoPbtTest:m009 hasOptionalArgs = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:34:55.862257, OptionBuilder AutoPbtTest:m004 hasArg = 
+                              |-----------------------jqwik-----------------------
+tries = 2                     | # of calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mOptionBuilder AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm012 withArgName[0m [32m✔[0m
+[36m      ├─[0m [34mm002 create[0m [32m✔[0m
+[36m      ├─[0m [34mm010 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm014 withLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm011 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm000 create[0m [32m✔[0m
+[36m      ├─[0m [34mm015 withType[0m [32m✔[0m
+[36m      ├─[0m [34mm006 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm003 hasArg[0m [32m✔[0m
+[36m      ├─[0m [34mm008 hasOptionalArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm013 withDescription[0m [32m✔[0m
+[36m      ├─[0m [34mm001 create[0m [32m✔[0m
+[36m      ├─[0m [34mm007 hasOptionalArg[0m [32m✔[0m
+[36m      ├─[0m [34mm017 withValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm016 withValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm005 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm009 hasOptionalArgs[0m [32m✔[0m
+[36m      └─[0m [34mm004 hasArg[0m [32m✔[0m
+
+Test run finished after 2911 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=11.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/jacoco.exec --classfiles /work/Cli_26f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 20 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Cli_26f:/work/Cli_26b:/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_b:/work/Cli_26b/target/classes:/opt/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/work/Cli_26b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Cli_26/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Cli_26/tries200_seed1/reports_buggy
+-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:35:06.333210, OptionBuilder AutoPbtTest:m005 hasArgs = 
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:35:06.405973, OptionBuilder AutoPbtTest:m009 hasOptionalArgs = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T21:35:06.410457, OptionBuilder AutoPbtTest:m004 hasArg = 
+                              |-----------------------jqwik-----------------------
+tries = 2                     | # of calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mOptionBuilder AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm012 withArgName[0m [32m✔[0m
+[36m      ├─[0m [34mm002 create[0m [32m✔[0m
+[36m      ├─[0m [34mm010 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm014 withLongOpt[0m [32m✔[0m
+[36m      ├─[0m [34mm011 isRequired[0m [32m✔[0m
+[36m      ├─[0m [34mm000 create[0m [32m✔[0m
+[36m      ├─[0m [34mm015 withType[0m [32m✔[0m
+[36m      ├─[0m [34mm006 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm003 hasArg[0m [32m✔[0m
+[36m      ├─[0m [34mm008 hasOptionalArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm013 withDescription[0m [32m✔[0m
+[36m      ├─[0m [34mm001 create[0m [32m✔[0m
+[36m      ├─[0m [34mm007 hasOptionalArg[0m [32m✔[0m
+[36m      ├─[0m [34mm017 withValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm016 withValueSeparator[0m [32m✔[0m
+[36m      ├─[0m [34mm005 hasArgs[0m [32m✔[0m
+[36m      ├─[0m [34mm009 hasOptionalArgs[0m [32m✔[0m
+[36m      └─[0m [34mm004 hasArg[0m [32m✔[0m
+
+Test run finished after 1869 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        18 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=3.0s]

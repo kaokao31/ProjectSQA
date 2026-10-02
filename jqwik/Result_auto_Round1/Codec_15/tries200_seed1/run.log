@@ -1,0 +1,301 @@
+
+$ defects4j checkout -p Codec -v 15f -w /work/Codec_15f
+Checking out 28b7b958 to /work/Codec_15f................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 28b7b958:8fc19352..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Codec-15f....................................... OK
+
+[exit=0 timeout=False time=0.7s]
+
+$ defects4j compile -w /work/Codec_15f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=31.3s]
+
+$ defects4j checkout -p Codec -v 15b -w /work/Codec_15b
+Checking out 28b7b958 to /work/Codec_15b................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 28b7b958:8fc19352..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Codec-15b....................................... OK
+
+[exit=0 timeout=False time=1.9s]
+
+$ defects4j compile -w /work/Codec_15b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=29.9s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.codec.language.Soundex --fixed-cp /work/Codec_15f/target/classes:/work/Codec_15f/src/main/resources:/work/Codec_15f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_15f/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar --buggy-cp /work/Codec_15b/target/classes:/work/Codec_15b/src/main/resources:/work/Codec_15b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_15b/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar --out /workspace/jqwik/Auto/Codec_15 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.6s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Codec_15f/target/classes:/work/Codec_15f/src/main/resources:/work/Codec_15f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_15f/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Codec_15/org/apache/commons/codec/language/Soundex_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Codec_15b/target/classes:/work/Codec_15b/src/main/resources:/work/Codec_15b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_15b/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Codec_15/org/apache/commons/codec/language/Soundex_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Codec_15f:/work/Codec_15b:/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f:/work/Codec_15f/target/classes:/work/Codec_15f/src/main/resources:/work/Codec_15f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_15f/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/reports_record
+x = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:27.294788, Soundex AutoPbtTest:m003 getMaxLength = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:27.703190, Soundex AutoPbtTest:m004 setMaxLength = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:27.986531, Soundex AutoPbtTest:m001 encode = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:28.499821, Soundex AutoPbtTest:m000 difference = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mSoundex AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm002 encode[0m [32m✔[0m
+[36m      ├─[0m [34mm005 soundex[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getMaxLength[0m [32m✔[0m
+[36m      ├─[0m [34mm004 setMaxLength[0m [32m✔[0m
+[36m      ├─[0m [34mm001 encode[0m [32m✔[0m
+[36m      └─[0m [34mm000 difference[0m [32m✔[0m
+
+Test run finished after 6765 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         6 tests found           ]
+[         0 tests skipped         ]
+[         6 tests started         ]
+[         0 tests aborted         ]
+[         6 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=11.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Codec_15f:/work/Codec_15b:/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f:/work/Codec_15f/target/classes:/work/Codec_15f/src/main/resources:/work/Codec_15f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_15f/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/reports_fixed
+x = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:46.118608, Soundex AutoPbtTest:m003 getMaxLength = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:46.212190, Soundex AutoPbtTest:m004 setMaxLength = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:46.365022, Soundex AutoPbtTest:m001 encode = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:51:46.658495, Soundex AutoPbtTest:m000 difference = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mSoundex AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm002 encode[0m [32m✔[0m
+[36m      ├─[0m [34mm005 soundex[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getMaxLength[0m [32m✔[0m
+[36m      ├─[0m [34mm004 setMaxLength[0m [32m✔[0m
+[36m      ├─[0m [34mm001 encode[0m [32m✔[0m
+[36m      └─[0m [34mm000 difference[0m [32m✔[0m
+
+Test run finished after 8848 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         6 tests found           ]
+[         0 tests skipped         ]
+[         6 tests started         ]
+[         0 tests aborted         ]
+[         6 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=30.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/jacoco.exec --classfiles /work/Codec_15f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 81 classes.
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Codec_15f:/work/Codec_15b:/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_b:/work/Codec_15b/target/classes:/work/Codec_15b/src/main/resources:/work/Codec_15b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_15b/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Codec_15/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Codec_15/tries200_seed1/reports_buggy
+ | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:52:13.341216, Soundex AutoPbtTest:m000 difference = 
+  java.lang.AssertionError:
+    [regression] org.apache.commons.codec.language.Soundex.difference(java.lang.String,java.lang.String)
+      input:    new Soundex.<init>[].difference["G;WHRP2", "#6twE"]
+      expected: ret=Integer:1 | this=obj org.apache.commons.codec.language.Soundex
+      actual:   ret=Integer:2 | this=obj org.apache.commons.codec.language.Soundex
+
+                              |-----------------------jqwik-----------------------
+tries = 86                    | # of calls to property
+checks = 86                   | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+Sample
+------
+  arg0: new Soundex.<init>[].difference["G;WHRP2", "#6twE"]
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mSoundex AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm002 encode[0m [32m✔[0m
+[36m      ├─[0m [34mm005 soundex[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getMaxLength[0m [32m✔[0m
+[36m      ├─[0m [34mm004 setMaxLength[0m [32m✔[0m
+[36m      ├─[0m [34mm001 encode[0m [32m✔[0m
+[36m      └─[0m [31mm000 difference[0m [31m✘[0m [31m[regression] org.apache.commons.codec.language.Soundex.difference(java.lang.String,java.lang.String)[0m
+[36m            [0m[31m     input:    new Soundex.<init>[].difference["G;WHRP2", "#6twE"][0m
+[36m            [0m[31m     expected: ret=Integer:1 | this=obj org.apache.commons.codec.language.Soundex[0m
+[36m            [0m[31m     actual:   ret=Integer:2 | this=obj org.apache.commons.codec.language.Soundex[0m
+
+Failures (1):
+  jqwik (JUnit Platform):Soundex AutoPbtTest:m000 difference
+    MethodSource [className = 'org.apache.commons.codec.language.Soundex_AutoPbtTest', methodName = 'm000_difference', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.codec.language.Soundex.difference(java.lang.String,java.lang.String)
+  input:    new Soundex.<init>[].difference["G;WHRP2", "#6twE"]
+  expected: ret=Integer:1 | this=obj org.apache.commons.codec.language.Soundex
+  actual:   ret=Integer:2 | this=obj org.apache.commons.codec.language.Soundex
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.codec.language.Soundex_AutoPbtTest.m000_difference(Soundex_AutoPbtTest.java:17)
+       jdk.internal.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       net.jqwik.engine.properties.CheckedFunction.execute(CheckedFunction.java:17)
+       [...]
+
+Test run finished after 6718 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         6 tests found           ]
+[         0 tests skipped         ]
+[         6 tests started         ]
+[         0 tests aborted         ]
+[         5 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=11.2s]

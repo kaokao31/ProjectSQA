@@ -1,0 +1,312 @@
+
+$ defects4j checkout -p Closure -v 49f -w /work/Closure_49f
+Checking out 1a7ba5cb to /work/Closure_49f................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_49f/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_49f/lib/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1a7ba5cb:62581c69..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-49f..................................... OK
+
+[exit=0 timeout=False time=3.9s]
+
+$ defects4j compile -w /work/Closure_49f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=22.1s]
+
+$ defects4j checkout -p Closure -v 49b -w /work/Closure_49b
+Checking out 1a7ba5cb to /work/Closure_49b................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_49b/lib/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_49b/lib/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1a7ba5cb:62581c69..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-49b..................................... OK
+
+[exit=0 timeout=False time=3.7s]
+
+$ defects4j compile -w /work/Closure_49b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=20.2s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.javascript.jscomp.MakeDeclaredNamesUnique --fixed-cp /work/Closure_49f/build/classes:/work/Closure_49f/lib/args4j.jar:/work/Closure_49f/lib/guava.jar:/work/Closure_49f/lib/json.jar:/work/Closure_49f/lib/jsr305.jar:/work/Closure_49f/lib/protobuf-java.jar:/work/Closure_49f/build/lib/rhino.jar:/work/Closure_49f/lib/ant.jar:/work/Closure_49f/lib/ant-launcher.jar:/work/Closure_49f/lib/caja-r4314.jar:/work/Closure_49f/lib/jarjar.jar:/work/Closure_49f/lib/junit.jar:/work/Closure_49f/build/test --buggy-cp /work/Closure_49b/build/classes:/work/Closure_49b/lib/args4j.jar:/work/Closure_49b/lib/guava.jar:/work/Closure_49b/lib/json.jar:/work/Closure_49b/lib/jsr305.jar:/work/Closure_49b/lib/protobuf-java.jar:/work/Closure_49b/build/lib/rhino.jar:/work/Closure_49b/lib/ant.jar:/work/Closure_49b/lib/ant-launcher.jar:/work/Closure_49b/lib/caja-r4314.jar:/work/Closure_49b/lib/jarjar.jar:/work/Closure_49b/lib/junit.jar:/work/Closure_49b/build/test --out /workspace/jqwik/Auto/Closure_49 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_49f/build/classes:/work/Closure_49f/lib/args4j.jar:/work/Closure_49f/lib/guava.jar:/work/Closure_49f/lib/json.jar:/work/Closure_49f/lib/jsr305.jar:/work/Closure_49f/lib/protobuf-java.jar:/work/Closure_49f/build/lib/rhino.jar:/work/Closure_49f/lib/ant.jar:/work/Closure_49f/lib/ant-launcher.jar:/work/Closure_49f/lib/caja-r4314.jar:/work/Closure_49f/lib/jarjar.jar:/work/Closure_49f/lib/junit.jar:/work/Closure_49f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Closure_49/com/google/javascript/jscomp/MakeDeclaredNamesUnique_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_49b/build/classes:/work/Closure_49b/lib/args4j.jar:/work/Closure_49b/lib/guava.jar:/work/Closure_49b/lib/json.jar:/work/Closure_49b/lib/jsr305.jar:/work/Closure_49b/lib/protobuf-java.jar:/work/Closure_49b/build/lib/rhino.jar:/work/Closure_49b/lib/ant.jar:/work/Closure_49b/lib/ant-launcher.jar:/work/Closure_49b/lib/caja-r4314.jar:/work/Closure_49b/lib/jarjar.jar:/work/Closure_49b/lib/junit.jar:/work/Closure_49b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Closure_49/com/google/javascript/jscomp/MakeDeclaredNamesUnique_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_49f:/work/Closure_49b:/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f:/work/Closure_49f/build/classes:/work/Closure_49f/lib/args4j.jar:/work/Closure_49f/lib/guava.jar:/work/Closure_49f/lib/json.jar:/work/Closure_49f/lib/jsr305.jar:/work/Closure_49f/lib/protobuf-java.jar:/work/Closure_49f/build/lib/rhino.jar:/work/Closure_49f/lib/ant.jar:/work/Closure_49f/lib/ant-launcher.jar:/work/Closure_49f/lib/caja-r4314.jar:/work/Closure_49f/lib/jarjar.jar:/work/Closure_49f/lib/junit.jar:/work/Closure_49f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/reports_record
+-------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:09.100378, MakeDeclaredNamesUnique AutoPbtTest:m002 getContextualRenameInverter = 
+                              |-----------------------jqwik-----------------------
+tries = 2                     | # of calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:09.147445, MakeDeclaredNamesUnique AutoPbtTest:m000 enterScope = 
+                              |-----------------------jqwik-----------------------
+tries = 39                    | # of calls to property
+checks = 39                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:09.535613, MakeDeclaredNamesUnique AutoPbtTest:m003 shouldTraverse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:09.573922, MakeDeclaredNamesUnique AutoPbtTest:m001 exitScope = 
+                              |-----------------------jqwik-----------------------
+tries = 39                    | # of calls to property
+checks = 39                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mMakeDeclaredNamesUnique AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 visit[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getContextualRenameInverter[0m [32m✔[0m
+[36m      ├─[0m [34mm000 enterScope[0m [32m✔[0m
+[36m      ├─[0m [34mm003 shouldTraverse[0m [32m✔[0m
+[36m      └─[0m [34mm001 exitScope[0m [32m✔[0m
+
+Test run finished after 2060 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         5 tests found           ]
+[         0 tests skipped         ]
+[         5 tests started         ]
+[         0 tests aborted         ]
+[         5 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=3.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_49f:/work/Closure_49b:/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f:/work/Closure_49f/build/classes:/work/Closure_49f/lib/args4j.jar:/work/Closure_49f/lib/guava.jar:/work/Closure_49f/lib/json.jar:/work/Closure_49f/lib/jsr305.jar:/work/Closure_49f/lib/protobuf-java.jar:/work/Closure_49f/build/lib/rhino.jar:/work/Closure_49f/lib/ant.jar:/work/Closure_49f/lib/ant-launcher.jar:/work/Closure_49f/lib/caja-r4314.jar:/work/Closure_49f/lib/jarjar.jar:/work/Closure_49f/lib/junit.jar:/work/Closure_49f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/reports_fixed
+-------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:14.795467, MakeDeclaredNamesUnique AutoPbtTest:m002 getContextualRenameInverter = 
+                              |-----------------------jqwik-----------------------
+tries = 2                     | # of calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:14.839087, MakeDeclaredNamesUnique AutoPbtTest:m000 enterScope = 
+                              |-----------------------jqwik-----------------------
+tries = 39                    | # of calls to property
+checks = 39                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:15.169467, MakeDeclaredNamesUnique AutoPbtTest:m003 shouldTraverse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:15.207157, MakeDeclaredNamesUnique AutoPbtTest:m001 exitScope = 
+                              |-----------------------jqwik-----------------------
+tries = 39                    | # of calls to property
+checks = 39                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mMakeDeclaredNamesUnique AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 visit[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getContextualRenameInverter[0m [32m✔[0m
+[36m      ├─[0m [34mm000 enterScope[0m [32m✔[0m
+[36m      ├─[0m [34mm003 shouldTraverse[0m [32m✔[0m
+[36m      └─[0m [34mm001 exitScope[0m [32m✔[0m
+
+Test run finished after 2940 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         5 tests found           ]
+[         0 tests skipped         ]
+[         5 tests started         ]
+[         0 tests aborted         ]
+[         5 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=12.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/jacoco.exec --classfiles /work/Closure_49f/build/classes --csv /workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 1140 classes.
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Closure_49f:/work/Closure_49b:/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_b:/work/Closure_49b/build/classes:/work/Closure_49b/lib/args4j.jar:/work/Closure_49b/lib/guava.jar:/work/Closure_49b/lib/json.jar:/work/Closure_49b/lib/jsr305.jar:/work/Closure_49b/lib/protobuf-java.jar:/work/Closure_49b/build/lib/rhino.jar:/work/Closure_49b/lib/ant.jar:/work/Closure_49b/lib/ant-launcher.jar:/work/Closure_49b/lib/caja-r4314.jar:/work/Closure_49b/lib/jarjar.jar:/work/Closure_49b/lib/junit.jar:/work/Closure_49b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Closure_49/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Closure_49/tries200_seed1/reports_buggy
+-------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:26.891932, MakeDeclaredNamesUnique AutoPbtTest:m002 getContextualRenameInverter = 
+                              |-----------------------jqwik-----------------------
+tries = 2                     | # of calls to property
+checks = 2                    | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:26.920291, MakeDeclaredNamesUnique AutoPbtTest:m000 enterScope = 
+                              |-----------------------jqwik-----------------------
+tries = 39                    | # of calls to property
+checks = 39                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:27.106851, MakeDeclaredNamesUnique AutoPbtTest:m003 shouldTraverse = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-30T21:23:27.127545, MakeDeclaredNamesUnique AutoPbtTest:m001 exitScope = 
+                              |-----------------------jqwik-----------------------
+tries = 39                    | # of calls to property
+checks = 39                   | # of not rejected calls
+generation = EXHAUSTIVE       | parameters are exhaustively generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mMakeDeclaredNamesUnique AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm004 visit[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getContextualRenameInverter[0m [32m✔[0m
+[36m      ├─[0m [34mm000 enterScope[0m [32m✔[0m
+[36m      ├─[0m [34mm003 shouldTraverse[0m [32m✔[0m
+[36m      └─[0m [34mm001 exitScope[0m [32m✔[0m
+
+Test run finished after 1641 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         5 tests found           ]
+[         0 tests skipped         ]
+[         5 tests started         ]
+[         0 tests aborted         ]
+[         5 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=3.0s]

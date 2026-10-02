@@ -1,0 +1,292 @@
+
+$ defects4j checkout -p JxPath -v 1f -w /work/JxPath_1f
+Checking out fab38abb to /work/JxPath_1f................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fab38abb:932131e6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-1f....................................... OK
+
+[exit=0 timeout=False time=0.7s]
+
+$ defects4j compile -w /work/JxPath_1f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=39.7s]
+
+$ defects4j checkout -p JxPath -v 1b -w /work/JxPath_1b
+Checking out fab38abb to /work/JxPath_1b................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fab38abb:932131e6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-1b....................................... OK
+
+[exit=0 timeout=False time=2.1s]
+
+$ defects4j compile -w /work/JxPath_1b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=39.9s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.jxpath.ri.model.dom.DOMNodePointer,org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer --fixed-cp /work/JxPath_1f/target/classes:/work/JxPath_1f/src/java:/work/JxPath_1f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_1f/target/lib/commons-collections-2.0.jar:/work/JxPath_1f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_1f/target/lib/jdom-1.0.jar:/work/JxPath_1f/target/lib/junit-3.8.1.jar:/work/JxPath_1f/target/lib/junit-3.8.jar:/work/JxPath_1f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_1f/target/lib/servletapi-2.2.jar:/work/JxPath_1f/target/lib/xerces-1.2.3.jar:/work/JxPath_1f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_1f/src/test:/work/JxPath_1f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/JxPath_1b/target/classes:/work/JxPath_1b/src/java:/work/JxPath_1b/target/lib/commons-beanutils-1.4.jar:/work/JxPath_1b/target/lib/commons-collections-2.0.jar:/work/JxPath_1b/target/lib/commons-logging-1.0.4.jar:/work/JxPath_1b/target/lib/jdom-1.0.jar:/work/JxPath_1b/target/lib/junit-3.8.1.jar:/work/JxPath_1b/target/lib/junit-3.8.jar:/work/JxPath_1b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_1b/target/lib/servletapi-2.2.jar:/work/JxPath_1b/target/lib/xerces-1.2.3.jar:/work/JxPath_1b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_1b/src/test:/work/JxPath_1b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/JxPath_1 --max-methods 150
+generated test classes: 2 / 2
+
+[exit=0 timeout=False time=0.9s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JxPath_1f/target/classes:/work/JxPath_1f/src/java:/work/JxPath_1f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_1f/target/lib/commons-collections-2.0.jar:/work/JxPath_1f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_1f/target/lib/jdom-1.0.jar:/work/JxPath_1f/target/lib/junit-3.8.1.jar:/work/JxPath_1f/target/lib/junit-3.8.jar:/work/JxPath_1f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_1f/target/lib/servletapi-2.2.jar:/work/JxPath_1f/target/lib/xerces-1.2.3.jar:/work/JxPath_1f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_1f/src/test:/work/JxPath_1f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/JxPath_1/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer_AutoPbtTest.java /workspace/jqwik/Auto/JxPath_1/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JxPath_1b/target/classes:/work/JxPath_1b/src/java:/work/JxPath_1b/target/lib/commons-beanutils-1.4.jar:/work/JxPath_1b/target/lib/commons-collections-2.0.jar:/work/JxPath_1b/target/lib/commons-logging-1.0.4.jar:/work/JxPath_1b/target/lib/jdom-1.0.jar:/work/JxPath_1b/target/lib/junit-3.8.1.jar:/work/JxPath_1b/target/lib/junit-3.8.jar:/work/JxPath_1b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_1b/target/lib/servletapi-2.2.jar:/work/JxPath_1b/target/lib/xerces-1.2.3.jar:/work/JxPath_1b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_1b/src/test:/work/JxPath_1b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/JxPath_1/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer_AutoPbtTest.java /workspace/jqwik/Auto/JxPath_1/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_1f:/work/JxPath_1b:/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f:/work/JxPath_1f/target/classes:/work/JxPath_1f/src/java:/work/JxPath_1f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_1f/target/lib/commons-collections-2.0.jar:/work/JxPath_1f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_1f/target/lib/jdom-1.0.jar:/work/JxPath_1f/target/lib/junit-3.8.1.jar:/work/JxPath_1f/target/lib/junit-3.8.jar:/work/JxPath_1f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_1f/target/lib/servletapi-2.2.jar:/work/JxPath_1f/target/lib/xerces-1.2.3.jar:/work/JxPath_1f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_1f/src/test:/work/JxPath_1f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/reports_record
+[0m [32m✔[0m
+[36m   │  ├─[0m [34mm016 getPrefix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getLength[0m [32m✔[0m
+[36m   │  ├─[0m [34mm024 remove[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 namespaceIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 isCollection[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 getLanguage[0m [32m✔[0m
+[36m   │  ├─[0m [34mm008 getBaseValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 hashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm014 getNamespaceURI[0m [32m✔[0m
+[36m   │  ├─[0m [34mm025 setValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 getName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 getImmediateNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm023 namespacePointer[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 getLocalName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 getNamespaceURI[0m [32m✔[0m
+[36m   │  ├─[0m [34mm027 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm020 isLanguage[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm026 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm021 isLeaf[0m [32m✔[0m
+[36m   │  └─[0m [34mm017 getValue[0m [32m✔[0m
+[36m   └─[0m [36mDOMNodePointer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getPointerByID[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isActual[0m [32m✔[0m
+[36m      ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isCollection[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm029 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm026 namespaceIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getImmediateNode[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getBaseValue[0m [32m✔[0m
+[36m      ├─[0m [34mm025 isLeaf[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getLocalName[0m [32m✔[0m
+[36m      ├─[0m [34mm027 namespacePointer[0m [32m✔[0m
+[36m      ├─[0m [34mm031 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getDefaultNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm030 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getLength[0m [32m✔[0m
+[36m      ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm028 remove[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getPrefix[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getValue[0m [32m✔[0m
+[36m      └─[0m [34mm024 isLanguage[0m [32m✔[0m
+
+Test run finished after 28542 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        62 tests found           ]
+[         0 tests skipped         ]
+[        62 tests started         ]
+[         0 tests aborted         ]
+[        62 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=31.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_1f:/work/JxPath_1b:/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f:/work/JxPath_1f/target/classes:/work/JxPath_1f/src/java:/work/JxPath_1f/target/lib/commons-beanutils-1.4.jar:/work/JxPath_1f/target/lib/commons-collections-2.0.jar:/work/JxPath_1f/target/lib/commons-logging-1.0.4.jar:/work/JxPath_1f/target/lib/jdom-1.0.jar:/work/JxPath_1f/target/lib/junit-3.8.1.jar:/work/JxPath_1f/target/lib/junit-3.8.jar:/work/JxPath_1f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_1f/target/lib/servletapi-2.2.jar:/work/JxPath_1f/target/lib/xerces-1.2.3.jar:/work/JxPath_1f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_1f/src/test:/work/JxPath_1f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/reports_fixed
+[0m [32m✔[0m
+[36m   │  └─[0m [34mm017 getValue[0m [32m✔[0m
+[36m   └─[0m [36mDOMNodePointer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getPointerByID[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isActual[0m [32m✔[0m
+[36m      ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isCollection[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm029 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm026 namespaceIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getImmediateNode[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getBaseValue[0m [32m✔[0m
+[36m      ├─[0m [34mm025 isLeaf[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getLocalName[0m [32m✔[0m
+[36m      ├─[0m [34mm027 namespacePointer[0m [32m✔[0m
+[36m      ├─[0m [34mm031 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getDefaultNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm030 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getLength[0m [32m✔[0m
+[36m      ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm028 remove[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getPrefix[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getValue[0m [32m✔[0m
+[36m      └─[0m [34mm024 isLanguage[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):JDOMNodePointer AutoPbtTest:m018 hashCode
+    MethodSource [className = 'org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer_AutoPbtTest', methodName = 'm018_hashCode', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer.hashCode()
+  input:    new JDOMNodePointer.<init>["27+F81dL", Locale:en_US].hashCode[]
+  expected: ret=Integer:925533528 | this=JDOMNodePointer:
+  actual:   ret=Integer:1070367016 | this=JDOMNodePointer:
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer_AutoPbtTest.m018_hashCode(JDOMNodePointer_AutoPbtTest.java:197)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 36441 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        62 tests found           ]
+[         0 tests skipped         ]
+[        62 tests started         ]
+[         0 tests aborted         ]
+[        61 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=58.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/jacoco.exec --classfiles /work/JxPath_1f/target/classes --csv /workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 154 classes.
+
+[exit=0 timeout=False time=2.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_1f:/work/JxPath_1b:/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_b:/work/JxPath_1b/target/classes:/work/JxPath_1b/src/java:/work/JxPath_1b/target/lib/commons-beanutils-1.4.jar:/work/JxPath_1b/target/lib/commons-collections-2.0.jar:/work/JxPath_1b/target/lib/commons-logging-1.0.4.jar:/work/JxPath_1b/target/lib/jdom-1.0.jar:/work/JxPath_1b/target/lib/junit-3.8.1.jar:/work/JxPath_1b/target/lib/junit-3.8.jar:/work/JxPath_1b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_1b/target/lib/servletapi-2.2.jar:/work/JxPath_1b/target/lib/xerces-1.2.3.jar:/work/JxPath_1b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_1b/src/test:/work/JxPath_1b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_1/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_1/tries200_seed1/reports_buggy
+[0m [32m✔[0m
+[36m   │  └─[0m [34mm017 getValue[0m [32m✔[0m
+[36m   └─[0m [36mDOMNodePointer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getPointerByID[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isActual[0m [32m✔[0m
+[36m      ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isCollection[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm029 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm021 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm026 namespaceIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getImmediateNode[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getBaseValue[0m [32m✔[0m
+[36m      ├─[0m [34mm025 isLeaf[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getLocalName[0m [32m✔[0m
+[36m      ├─[0m [34mm027 namespacePointer[0m [32m✔[0m
+[36m      ├─[0m [34mm031 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getDefaultNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm030 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getLength[0m [32m✔[0m
+[36m      ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm028 remove[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getPrefix[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getValue[0m [32m✔[0m
+[36m      └─[0m [34mm024 isLanguage[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):JDOMNodePointer AutoPbtTest:m018 hashCode
+    MethodSource [className = 'org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer_AutoPbtTest', methodName = 'm018_hashCode', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer.hashCode()
+  input:    new JDOMNodePointer.<init>["27+F81dL", Locale:en_US].hashCode[]
+  expected: ret=Integer:925533528 | this=JDOMNodePointer:
+  actual:   ret=Integer:943139986 | this=JDOMNodePointer:
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer_AutoPbtTest.m018_hashCode(JDOMNodePointer_AutoPbtTest.java:197)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 27151 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        62 tests found           ]
+[         0 tests skipped         ]
+[        62 tests started         ]
+[         0 tests aborted         ]
+[        61 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=31.4s]

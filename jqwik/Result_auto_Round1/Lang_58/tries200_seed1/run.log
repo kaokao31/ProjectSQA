@@ -1,0 +1,330 @@
+
+$ defects4j checkout -p Lang -v 58f -w /work/Lang_58f
+Checking out 15360774 to /work/Lang_58f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Rename enum package in src................................................. OK
+Move enum package in src................................................... OK
+Rename enum package in test................................................ OK
+Move enum package in test.................................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Lang_58f/project.properties................... OK
+Backing up build file: /work/Lang_58f/default.properties................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 15360774:868dd284..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-58f........................................ OK
+
+[exit=0 timeout=False time=7.1s]
+
+$ defects4j compile -w /work/Lang_58f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=60.0s]
+
+$ defects4j compile -w /work/Lang_58b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=10.6s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.lang.math.NumberUtils --fixed-cp /work/Lang_58f/target/classes:/work/Lang_58f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --buggy-cp /work/Lang_58b/target/classes:/work/Lang_58b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --out /workspace/jqwik/Auto/Lang_58 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=1.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Lang_58f/target/classes:/work/Lang_58f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Lang_58/org/apache/commons/lang/math/NumberUtils_AutoPbtTest.java
+
+[exit=0 timeout=False time=7.6s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Lang_58b/target/classes:/work/Lang_58b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Lang_58/org/apache/commons/lang/math/NumberUtils_AutoPbtTest.java
+
+[exit=0 timeout=False time=6.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Lang_58f:/work/Lang_58b:/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f:/work/Lang_58f/target/classes:/work/Lang_58f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/reports_record
+en previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:53:13.675595, NumberUtils AutoPbtTest:m032 min = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNumberUtils AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm033 min[0m [32m✔[0m
+[36m      ├─[0m [34mm034 min[0m [32m✔[0m
+[36m      ├─[0m [34mm035 min[0m [32m✔[0m
+[36m      ├─[0m [34mm036 min[0m [32m✔[0m
+[36m      ├─[0m [34mm037 min[0m [32m✔[0m
+[36m      ├─[0m [34mm038 min[0m [32m✔[0m
+[36m      ├─[0m [34mm039 min[0m [32m✔[0m
+[36m      ├─[0m [34mm040 min[0m [32m✔[0m
+[36m      ├─[0m [34mm007 createLong[0m [32m✔[0m
+[36m      ├─[0m [34mm000 compare[0m [32m✔[0m
+[36m      ├─[0m [34mm013 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm045 toFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm011 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm050 toLong[0m [32m✔[0m
+[36m      ├─[0m [34mm003 createBigInteger[0m [32m✔[0m
+[36m      ├─[0m [34mm042 stringToInt[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createInteger[0m [32m✔[0m
+[36m      ├─[0m [34mm049 toLong[0m [32m✔[0m
+[36m      ├─[0m [34mm041 stringToInt[0m [32m✔[0m
+[36m      ├─[0m [34mm047 toInt[0m [32m✔[0m
+[36m      ├─[0m [34mm015 isDigits[0m [32m✔[0m
+[36m      ├─[0m [34mm016 isNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm002 createBigDecimal[0m [32m✔[0m
+[36m      ├─[0m [34mm014 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm048 toInt[0m [32m✔[0m
+[36m      ├─[0m [34mm001 compare[0m [32m✔[0m
+[36m      ├─[0m [34mm012 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm046 toFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm044 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm010 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm043 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm009 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm017 max[0m [32m✔[0m
+[36m      ├─[0m [34mm018 max[0m [32m✔[0m
+[36m      ├─[0m [34mm019 max[0m [32m✔[0m
+[36m      ├─[0m [34mm020 max[0m [32m✔[0m
+[36m      ├─[0m [34mm021 max[0m [32m✔[0m
+[36m      ├─[0m [34mm022 max[0m [32m✔[0m
+[36m      ├─[0m [34mm023 max[0m [32m✔[0m
+[36m      ├─[0m [34mm024 max[0m [32m✔[0m
+[36m      ├─[0m [34mm025 max[0m [32m✔[0m
+[36m      ├─[0m [34mm026 max[0m [32m✔[0m
+[36m      ├─[0m [34mm027 max[0m [32m✔[0m
+[36m      ├─[0m [34mm028 max[0m [32m✔[0m
+[36m      ├─[0m [34mm029 min[0m [32m✔[0m
+[36m      ├─[0m [34mm030 min[0m [32m✔[0m
+[36m      ├─[0m [34mm031 min[0m [32m✔[0m
+[36m      └─[0m [34mm032 min[0m [32m✔[0m
+
+Test run finished after 18545 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        51 tests found           ]
+[         0 tests skipped         ]
+[        51 tests started         ]
+[         0 tests aborted         ]
+[        51 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=24.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Lang_58f:/work/Lang_58b:/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f:/work/Lang_58f/target/classes:/work/Lang_58f/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/reports_fixed
+en previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:53:51.414711, NumberUtils AutoPbtTest:m032 min = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNumberUtils AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm033 min[0m [32m✔[0m
+[36m      ├─[0m [34mm034 min[0m [32m✔[0m
+[36m      ├─[0m [34mm035 min[0m [32m✔[0m
+[36m      ├─[0m [34mm036 min[0m [32m✔[0m
+[36m      ├─[0m [34mm037 min[0m [32m✔[0m
+[36m      ├─[0m [34mm038 min[0m [32m✔[0m
+[36m      ├─[0m [34mm039 min[0m [32m✔[0m
+[36m      ├─[0m [34mm040 min[0m [32m✔[0m
+[36m      ├─[0m [34mm007 createLong[0m [32m✔[0m
+[36m      ├─[0m [34mm000 compare[0m [32m✔[0m
+[36m      ├─[0m [34mm013 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm045 toFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm011 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm050 toLong[0m [32m✔[0m
+[36m      ├─[0m [34mm003 createBigInteger[0m [32m✔[0m
+[36m      ├─[0m [34mm042 stringToInt[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createInteger[0m [32m✔[0m
+[36m      ├─[0m [34mm049 toLong[0m [32m✔[0m
+[36m      ├─[0m [34mm041 stringToInt[0m [32m✔[0m
+[36m      ├─[0m [34mm047 toInt[0m [32m✔[0m
+[36m      ├─[0m [34mm015 isDigits[0m [32m✔[0m
+[36m      ├─[0m [34mm016 isNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm002 createBigDecimal[0m [32m✔[0m
+[36m      ├─[0m [34mm014 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm048 toInt[0m [32m✔[0m
+[36m      ├─[0m [34mm001 compare[0m [32m✔[0m
+[36m      ├─[0m [34mm012 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm046 toFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm044 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm010 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm043 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm009 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm017 max[0m [32m✔[0m
+[36m      ├─[0m [34mm018 max[0m [32m✔[0m
+[36m      ├─[0m [34mm019 max[0m [32m✔[0m
+[36m      ├─[0m [34mm020 max[0m [32m✔[0m
+[36m      ├─[0m [34mm021 max[0m [32m✔[0m
+[36m      ├─[0m [34mm022 max[0m [32m✔[0m
+[36m      ├─[0m [34mm023 max[0m [32m✔[0m
+[36m      ├─[0m [34mm024 max[0m [32m✔[0m
+[36m      ├─[0m [34mm025 max[0m [32m✔[0m
+[36m      ├─[0m [34mm026 max[0m [32m✔[0m
+[36m      ├─[0m [34mm027 max[0m [32m✔[0m
+[36m      ├─[0m [34mm028 max[0m [32m✔[0m
+[36m      ├─[0m [34mm029 min[0m [32m✔[0m
+[36m      ├─[0m [34mm030 min[0m [32m✔[0m
+[36m      ├─[0m [34mm031 min[0m [32m✔[0m
+[36m      └─[0m [34mm032 min[0m [32m✔[0m
+
+Test run finished after 27762 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        51 tests found           ]
+[         0 tests skipped         ]
+[        51 tests started         ]
+[         0 tests aborted         ]
+[        51 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=51.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/jacoco.exec --classfiles /work/Lang_58f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 119 classes.
+
+[exit=0 timeout=False time=3.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Lang_58f:/work/Lang_58b:/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_b:/work/Lang_58b/target/classes:/work/Lang_58b/target/tests:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Lang_58/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Lang_58/tries200_seed1/reports_buggy
+en previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-26T10:54:40.653112, NumberUtils AutoPbtTest:m032 min = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mNumberUtils AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm033 min[0m [32m✔[0m
+[36m      ├─[0m [34mm034 min[0m [32m✔[0m
+[36m      ├─[0m [34mm035 min[0m [32m✔[0m
+[36m      ├─[0m [34mm036 min[0m [32m✔[0m
+[36m      ├─[0m [34mm037 min[0m [32m✔[0m
+[36m      ├─[0m [34mm038 min[0m [32m✔[0m
+[36m      ├─[0m [34mm039 min[0m [32m✔[0m
+[36m      ├─[0m [34mm040 min[0m [32m✔[0m
+[36m      ├─[0m [34mm007 createLong[0m [32m✔[0m
+[36m      ├─[0m [34mm000 compare[0m [32m✔[0m
+[36m      ├─[0m [34mm013 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm008 createNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm045 toFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm011 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm050 toLong[0m [32m✔[0m
+[36m      ├─[0m [34mm003 createBigInteger[0m [32m✔[0m
+[36m      ├─[0m [34mm042 stringToInt[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createInteger[0m [32m✔[0m
+[36m      ├─[0m [34mm049 toLong[0m [32m✔[0m
+[36m      ├─[0m [34mm041 stringToInt[0m [32m✔[0m
+[36m      ├─[0m [34mm047 toInt[0m [32m✔[0m
+[36m      ├─[0m [34mm015 isDigits[0m [32m✔[0m
+[36m      ├─[0m [34mm016 isNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm002 createBigDecimal[0m [32m✔[0m
+[36m      ├─[0m [34mm014 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm048 toInt[0m [32m✔[0m
+[36m      ├─[0m [34mm001 compare[0m [32m✔[0m
+[36m      ├─[0m [34mm012 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm046 toFloat[0m [32m✔[0m
+[36m      ├─[0m [34mm044 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm010 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm043 toDouble[0m [32m✔[0m
+[36m      ├─[0m [34mm009 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm017 max[0m [32m✔[0m
+[36m      ├─[0m [34mm018 max[0m [32m✔[0m
+[36m      ├─[0m [34mm019 max[0m [32m✔[0m
+[36m      ├─[0m [34mm020 max[0m [32m✔[0m
+[36m      ├─[0m [34mm021 max[0m [32m✔[0m
+[36m      ├─[0m [34mm022 max[0m [32m✔[0m
+[36m      ├─[0m [34mm023 max[0m [32m✔[0m
+[36m      ├─[0m [34mm024 max[0m [32m✔[0m
+[36m      ├─[0m [34mm025 max[0m [32m✔[0m
+[36m      ├─[0m [34mm026 max[0m [32m✔[0m
+[36m      ├─[0m [34mm027 max[0m [32m✔[0m
+[36m      ├─[0m [34mm028 max[0m [32m✔[0m
+[36m      ├─[0m [34mm029 min[0m [32m✔[0m
+[36m      ├─[0m [34mm030 min[0m [32m✔[0m
+[36m      ├─[0m [34mm031 min[0m [32m✔[0m
+[36m      └─[0m [34mm032 min[0m [32m✔[0m
+
+Test run finished after 18609 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        51 tests found           ]
+[         0 tests skipped         ]
+[        51 tests started         ]
+[         0 tests aborted         ]
+[        51 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=25.6s]

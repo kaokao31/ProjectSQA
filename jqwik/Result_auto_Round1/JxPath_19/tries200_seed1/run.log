@@ -1,0 +1,307 @@
+
+$ defects4j checkout -p JxPath -v 19f -w /work/JxPath_19f
+Checking out 7b2847e8 to /work/JxPath_19f.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7b2847e8:b67345af..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-19f...................................... OK
+
+[exit=0 timeout=False time=0.7s]
+
+$ defects4j compile -w /work/JxPath_19f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=44.0s]
+
+$ defects4j checkout -p JxPath -v 19b -w /work/JxPath_19b
+Checking out 7b2847e8 to /work/JxPath_19b.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7b2847e8:b67345af..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-19b...................................... OK
+
+[exit=0 timeout=False time=1.5s]
+
+$ defects4j compile -w /work/JxPath_19b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=44.3s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.jxpath.ri.model.dom.DOMNodePointer,org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer --fixed-cp /work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/junit-3.8.1.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/JxPath_19b/target/classes:/work/JxPath_19b/src/java:/work/JxPath_19b/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19b/target/lib/commons-logging-1.1.jar:/work/JxPath_19b/target/lib/jdom-1.0.jar:/work/JxPath_19b/target/lib/jsp-api-2.0.jar:/work/JxPath_19b/target/lib/junit-3.8.1.jar:/work/JxPath_19b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19b/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19b/target/lib/servletapi-2.4.jar:/work/JxPath_19b/target/lib/xerces-2.4.0.jar:/work/JxPath_19b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19b/src/test:/work/JxPath_19b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/JxPath_19 --max-methods 150
+generated test classes: 2 / 2
+
+[exit=0 timeout=False time=0.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/junit-3.8.1.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/JxPath_19/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer_AutoPbtTest.java /workspace/jqwik/Auto/JxPath_19/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.1s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/JxPath_19b/target/classes:/work/JxPath_19b/src/java:/work/JxPath_19b/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19b/target/lib/commons-logging-1.1.jar:/work/JxPath_19b/target/lib/jdom-1.0.jar:/work/JxPath_19b/target/lib/jsp-api-2.0.jar:/work/JxPath_19b/target/lib/junit-3.8.1.jar:/work/JxPath_19b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19b/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19b/target/lib/servletapi-2.4.jar:/work/JxPath_19b/target/lib/xerces-2.4.0.jar:/work/JxPath_19b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19b/src/test:/work/JxPath_19b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/JxPath_19/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer_AutoPbtTest.java /workspace/jqwik/Auto/JxPath_19/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer_AutoPbtTest.java
+
+[exit=0 timeout=False time=3.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_19f:/work/JxPath_19b:/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f:/work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/junit-3.8.1.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/reports_record
+│  ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getLanguage[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 getPrefix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 getBaseValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm027 setValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 getNamespaceResolver[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 getImmediateNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m   │  ├─[0m [34mm020 hashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm021 isCollection[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 getLocalName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm023 isLeaf[0m [32m✔[0m
+[36m   │  ├─[0m [34mm029 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 getLength[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm028 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm024 namespaceIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 getValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 isLanguage[0m [32m✔[0m
+[36m   │  └─[0m [34mm026 remove[0m [32m✔[0m
+[36m   └─[0m [36mDOMNodePointer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm026 isLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm024 isActual[0m [32m✔[0m
+[36m      ├─[0m [34mm025 isCollection[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm008 findEnclosingAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm030 remove[0m [32m✔[0m
+[36m      ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm029 namespacePointer[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getImmediateNode[0m [32m✔[0m
+[36m      ├─[0m [34mm021 getPrefix[0m [32m✔[0m
+[36m      ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm031 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm023 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getLength[0m [32m✔[0m
+[36m      ├─[0m [34mm027 isLeaf[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getPointerByID[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getDefaultNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getBaseValue[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getLocalName[0m [32m✔[0m
+[36m      ├─[0m [34mm033 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm032 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm022 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getNamespaceResolver[0m [32m✔[0m
+[36m      └─[0m [34mm028 namespaceIterator[0m [32m✔[0m
+
+Test run finished after 29104 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        66 tests found           ]
+[         0 tests skipped         ]
+[        66 tests started         ]
+[         0 tests aborted         ]
+[        66 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=34.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_19f:/work/JxPath_19b:/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f:/work/JxPath_19f/target/classes:/work/JxPath_19f/src/java:/work/JxPath_19f/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19f/target/lib/commons-logging-1.1.jar:/work/JxPath_19f/target/lib/jdom-1.0.jar:/work/JxPath_19f/target/lib/jsp-api-2.0.jar:/work/JxPath_19f/target/lib/junit-3.8.1.jar:/work/JxPath_19f/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19f/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19f/target/lib/servletapi-2.4.jar:/work/JxPath_19f/target/lib/xerces-2.4.0.jar:/work/JxPath_19f/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19f/src/test:/work/JxPath_19f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/reports_fixed
+│  ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getLanguage[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 getPrefix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 getBaseValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm027 setValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 getNamespaceResolver[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 getImmediateNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m   │  ├─[0m [34mm020 hashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm021 isCollection[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 getLocalName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm023 isLeaf[0m [32m✔[0m
+[36m   │  ├─[0m [34mm029 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 getLength[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm028 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm024 namespaceIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 getValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 isLanguage[0m [32m✔[0m
+[36m   │  └─[0m [34mm026 remove[0m [32m✔[0m
+[36m   └─[0m [36mDOMNodePointer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm026 isLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm024 isActual[0m [32m✔[0m
+[36m      ├─[0m [34mm025 isCollection[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm008 findEnclosingAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm030 remove[0m [32m✔[0m
+[36m      ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm029 namespacePointer[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getImmediateNode[0m [32m✔[0m
+[36m      ├─[0m [34mm021 getPrefix[0m [32m✔[0m
+[36m      ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm031 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm023 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getLength[0m [32m✔[0m
+[36m      ├─[0m [34mm027 isLeaf[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getPointerByID[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getDefaultNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getBaseValue[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getLocalName[0m [32m✔[0m
+[36m      ├─[0m [34mm033 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm032 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm022 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getNamespaceResolver[0m [32m✔[0m
+[36m      └─[0m [34mm028 namespaceIterator[0m [32m✔[0m
+
+Test run finished after 38798 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        66 tests found           ]
+[         0 tests skipped         ]
+[        66 tests started         ]
+[         0 tests aborted         ]
+[        66 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=61.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/jacoco.exec --classfiles /work/JxPath_19f/target/classes --csv /workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 162 classes.
+
+[exit=0 timeout=False time=3.1s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/JxPath_19f:/work/JxPath_19b:/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_b:/work/JxPath_19b/target/classes:/work/JxPath_19b/src/java:/work/JxPath_19b/target/lib/commons-beanutils-1.7.0.jar:/work/JxPath_19b/target/lib/commons-logging-1.1.jar:/work/JxPath_19b/target/lib/jdom-1.0.jar:/work/JxPath_19b/target/lib/jsp-api-2.0.jar:/work/JxPath_19b/target/lib/junit-3.8.1.jar:/work/JxPath_19b/target/lib/mockrunner-0.4.1.jar:/work/JxPath_19b/target/lib/mockrunner-jdk1.3-j2ee1.3-0.4.jar:/work/JxPath_19b/target/lib/servletapi-2.4.jar:/work/JxPath_19b/target/lib/xerces-2.4.0.jar:/work/JxPath_19b/target/lib/xml-apis-2.0.2.jar:/work/JxPath_19b/src/test:/work/JxPath_19b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/JxPath_19/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/JxPath_19/tries200_seed1/reports_buggy
+│  ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getLanguage[0m [32m✔[0m
+[36m   │  ├─[0m [34mm018 getPrefix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m   │  ├─[0m [34mm009 getBaseValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm027 setValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 getNamespaceResolver[0m [32m✔[0m
+[36m   │  ├─[0m [34mm010 getImmediateNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m   │  ├─[0m [34mm020 hashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm021 isCollection[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 getLocalName[0m [32m✔[0m
+[36m   │  ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm023 isLeaf[0m [32m✔[0m
+[36m   │  ├─[0m [34mm029 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm012 getLength[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm028 testNode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm024 namespaceIterator[0m [32m✔[0m
+[36m   │  ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m   │  ├─[0m [34mm019 getValue[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 isLanguage[0m [32m✔[0m
+[36m   │  └─[0m [34mm026 remove[0m [32m✔[0m
+[36m   └─[0m [36mDOMNodePointer AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm026 isLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm024 isActual[0m [32m✔[0m
+[36m      ├─[0m [34mm025 isCollection[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm008 findEnclosingAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm030 remove[0m [32m✔[0m
+[36m      ├─[0m [34mm007 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getLanguage[0m [32m✔[0m
+[36m      ├─[0m [34mm029 namespacePointer[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getImmediateNode[0m [32m✔[0m
+[36m      ├─[0m [34mm021 getPrefix[0m [32m✔[0m
+[36m      ├─[0m [34mm001 attributeIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm031 setValue[0m [32m✔[0m
+[36m      ├─[0m [34mm000 asPath[0m [32m✔[0m
+[36m      ├─[0m [34mm004 createAttribute[0m [32m✔[0m
+[36m      ├─[0m [34mm023 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getLength[0m [32m✔[0m
+[36m      ├─[0m [34mm027 isLeaf[0m [32m✔[0m
+[36m      ├─[0m [34mm020 getPointerByID[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getDefaultNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getBaseValue[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getLocalName[0m [32m✔[0m
+[36m      ├─[0m [34mm033 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm032 testNode[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getName[0m [32m✔[0m
+[36m      ├─[0m [34mm002 childIterator[0m [32m✔[0m
+[36m      ├─[0m [34mm003 compareChildNodePointers[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getNamespaceURI[0m [32m✔[0m
+[36m      ├─[0m [34mm022 getValue[0m [32m✔[0m
+[36m      ├─[0m [34mm006 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm005 createChild[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getNamespaceResolver[0m [32m✔[0m
+[36m      └─[0m [34mm028 namespaceIterator[0m [32m✔[0m
+
+Test run finished after 21873 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        66 tests found           ]
+[         0 tests skipped         ]
+[        66 tests started         ]
+[         0 tests aborted         ]
+[        66 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=26.8s]

@@ -1,0 +1,246 @@
+
+$ defects4j checkout -p Math -v 47f -w /work/Math_47f
+Checking out 32b0f733 to /work/Math_47f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 32b0f733:6a895ec2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-47f........................................ OK
+
+[exit=0 timeout=False time=4.0s]
+
+$ defects4j compile -w /work/Math_47f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=16.8s]
+
+$ defects4j checkout -p Math -v 47b -w /work/Math_47b
+Checking out 32b0f733 to /work/Math_47b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 32b0f733:6a895ec2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-47b........................................ OK
+
+[exit=0 timeout=False time=4.5s]
+
+$ defects4j compile -w /work/Math_47b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=16.9s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math.complex.Complex --fixed-cp /work/Math_47f/target/classes:/work/Math_47f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_47b/target/classes:/work/Math_47b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_47 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_47f/target/classes:/work/Math_47f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_47/org/apache/commons/math/complex/Complex_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_47b/target/classes:/work/Math_47b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_47/org/apache/commons/math/complex/Complex_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_47/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_47f:/work/Math_47b:/work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_f:/work/Math_47f/target/classes:/work/Math_47f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_47/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_47/tries200_seed1/reports_record
+timestamp = 2026-09-29T22:59:41.471086, Complex AutoPbtTest:m035 tan = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:59:41.563328, Complex AutoPbtTest:m036 tanh = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:59:41.656949, Complex AutoPbtTest:m014 getArgument = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:59:41.725863, Complex AutoPbtTest:m015 getField = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:59:41.788957, Complex AutoPbtTest:m024 negate = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+Sep 29, 2026 10:59:50 PM net.jqwik.engine.JqwikTestEngine execute
+SEVERE: Java heap space
+java.lang.OutOfMemoryError: Java heap space
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+
+[exit=1 timeout=False time=11.3s]
+
+[no results - JVM crashed?] retrying once with -Xmx3g
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx3g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_47/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_47f:/work/Math_47b:/work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_f:/work/Math_47f/target/classes:/work/Math_47f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_47/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_47/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_47/tries200_seed1/reports_record
+ed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:59:59.156924, Complex AutoPbtTest:m009 createComplex = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:59:59.237829, Complex AutoPbtTest:m037 toString = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T22:59:59.482154, Complex AutoPbtTest:m011 divide = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:00:00.505821, Complex AutoPbtTest:m016 getImaginary = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:00:00.626635, Complex AutoPbtTest:m034 subtract = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:00:06.674915, Complex AutoPbtTest:m033 subtract = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+java:50)
+	at net.jqwik.engine.execution.PropertyTaskCreator$$Lambda$255/0x0000000840100c40.apply(Unknown Source)
+	at net.jqwik.engine.execution.pipeline.ExecutionTask$1.lambda$execute$0(ExecutionTask.java:31)
+	at net.jqwik.engine.execution.pipeline.ExecutionTask$1$$Lambda$261/0x0000000840103040.get(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.CurrentTestDescriptor.runWithDescriptor(CurrentTestDescriptor.java:17)
+	at net.jqwik.engine.execution.pipeline.ExecutionTask$1.execute(ExecutionTask.java:31)
+	at net.jqwik.engine.execution.pipeline.ExecutionPipeline.runToTermination(ExecutionPipeline.java:82)
+	at net.jqwik.engine.execution.JqwikExecutor.execute(JqwikExecutor.java:46)
+	at net.jqwik.engine.JqwikTestEngine.executeTests(JqwikTestEngine.java:70)
+	at net.jqwik.engine.JqwikTestEngine.execute(JqwikTestEngine.java:53)
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Optional.of(Optional.java:120)
+	at java.base/java.util.Optional.ofNullable(Optional.java:133)
+	at org.junit.platform.engine.support.descriptor.AbstractTestDescriptor.getParent(AbstractTestDescriptor.java:115)
+	at net.jqwik.engine.execution.lifecycle.LifecycleHooksRegistry$HookRegistration.match(LifecycleHooksRegistry.java:253)
+	at net.jqwik.engine.execution.lifecycle.LifecycleHooksRegistry$HookRegistration.match(LifecycleHooksRegistry.java:237)
+	at net.jqwik.engine.execution.lifecycle.LifecycleHooksRegistry.lambda$findHookClasses$3(LifecycleHooksRegistry.java:137)
+	at net.jqwik.engine.execution.lifecycle.LifecycleHooksRegistry$$Lambda$238/0x00000008400f4040.test(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:176)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at net.jqwik.engine.execution.lifecycle.LifecycleHooksRegistry.findHookClasses(LifecycleHooksRegistry.java:141)
+	at net.jqwik.engine.execution.lifecycle.LifecycleHooksRegistry.findHooks(LifecycleHooksRegistry.java:98)
+	at net.jqwik.engine.execution.lifecycle.LifecycleHooksRegistry.aroundPropertyHook(LifecycleHooksRegistry.java:34)
+	at net.jqwik.engine.execution.PropertyMethodExecutor.execute(PropertyMethodExecutor.java:40)
+	at net.jqwik.engine.execution.PropertyTaskCreator.executeTestMethod(PropertyTaskCreator.java:166)
+	at net.jqwik.engine.execution.PropertyTaskCreator.lambda$createTask$1(PropertyTaskCreator.java:51)
+	at net.jqwik.engine.execution.PropertyTaskCreator$$Lambda$296/0x0000000840114440.get(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.CurrentDomainContext.runWithContext(CurrentDomainContext.java:28)
+	at net.jqwik.engine.execution.PropertyTaskCreator.lambda$createTask$2(PropertyTaskCreator.java:50)
+	at net.jqwik.engine.execution.PropertyTaskCreator$$Lambda$255/0x0000000840100c40.apply(Unknown Source)
+	at net.jqwik.engine.execution.pipeline.ExecutionTask$1.lambda$execute$0(ExecutionTask.java:31)
+	at net.jqwik.engine.execution.pipeline.ExecutionTask$1$$Lambda$261/0x0000000840103040.get(Unknown Source)
+	at net.jqwik.engine.execution.lifecycle.CurrentTestDescriptor.runWithDescriptor(CurrentTestDescriptor.java:17)
+	at net.jqwik.engine.execution.pipeline.ExecutionTask$1.execute(ExecutionTask.java:31)
+	at net.jqwik.engine.execution.pipeline.ExecutionPipeline.runToTermination(ExecutionPipeline.java:82)
+	at net.jqwik.engine.execution.JqwikExecutor.execute(JqwikExecutor.java:46)
+	at net.jqwik.engine.JqwikTestEngine.executeTests(JqwikTestEngine.java:70)
+	at net.jqwik.engine.JqwikTestEngine.execute(JqwikTestEngine.java:53)
+
+[exit=1 timeout=False time=26.3s]

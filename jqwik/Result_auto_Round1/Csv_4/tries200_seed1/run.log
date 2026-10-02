@@ -1,0 +1,306 @@
+
+$ defects4j checkout -p Csv -v 4f -w /work/Csv_4f
+Checking out 22601f64 to /work/Csv_4f...................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Csv_4f/maven-build.xml........................ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 22601f64:2b5f84ed..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Csv-4f.......................................... OK
+
+[exit=0 timeout=False time=2.9s]
+
+$ defects4j compile -w /work/Csv_4f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=15.7s]
+
+$ defects4j checkout -p Csv -v 4b -w /work/Csv_4b
+Checking out 22601f64 to /work/Csv_4b...................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Csv_4b/maven-build.xml........................ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 22601f64:2b5f84ed..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Csv-4b.......................................... OK
+
+[exit=0 timeout=False time=3.3s]
+
+$ defects4j compile -w /work/Csv_4b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=11.3s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.csv.CSVParser --fixed-cp /work/Csv_4f/target/classes:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/work/Csv_4f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/3.8.1/junit-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.10/junit-4.10.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar --buggy-cp /work/Csv_4b/target/classes:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/work/Csv_4b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/3.8.1/junit-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.10/junit-4.10.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar --out /workspace/jqwik/Auto/Csv_4 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.6s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Csv_4f/target/classes:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/work/Csv_4f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/3.8.1/junit-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.10/junit-4.10.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Csv_4/org/apache/commons/csv/CSVParser_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.9s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Csv_4b/target/classes:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/work/Csv_4b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/3.8.1/junit-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.10/junit-4.10.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Csv_4/org/apache/commons/csv/CSVParser_AutoPbtTest.java
+
+[exit=0 timeout=False time=2.7s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Csv_4f:/work/Csv_4b:/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f:/work/Csv_4f/target/classes:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/work/Csv_4f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/3.8.1/junit-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.10/junit-4.10.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/reports_record
+ calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:02.000849, CSVParser AutoPbtTest:m007 nextRecord = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:02.184170, CSVParser AutoPbtTest:m002 getHeaderMap = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:02.320682, CSVParser AutoPbtTest:m001 getCurrentLineNumber = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:02.447559, CSVParser AutoPbtTest:m005 isClosed = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mCSVParser AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm008 parse[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getRecordNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getRecords[0m [32m✔[0m
+[36m      ├─[0m [34mm006 iterator[0m [32m✔[0m
+[36m      ├─[0m [34mm000 close[0m [32m✔[0m
+[36m      ├─[0m [34mm007 nextRecord[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getHeaderMap[0m [32m✔[0m
+[36m      ├─[0m [34mm001 getCurrentLineNumber[0m [32m✔[0m
+[36m      └─[0m [34mm005 isClosed[0m [32m✔[0m
+
+Test run finished after 6060 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=9.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Csv_4f:/work/Csv_4b:/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f:/work/Csv_4f/target/classes:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/work/Csv_4f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/3.8.1/junit-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.10/junit-4.10.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/reports_fixed
+ calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:17.338972, CSVParser AutoPbtTest:m007 nextRecord = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:17.871962, CSVParser AutoPbtTest:m002 getHeaderMap = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:18.104703, CSVParser AutoPbtTest:m001 getCurrentLineNumber = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:18.268993, CSVParser AutoPbtTest:m005 isClosed = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mCSVParser AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm008 parse[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getRecordNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getRecords[0m [32m✔[0m
+[36m      ├─[0m [34mm006 iterator[0m [32m✔[0m
+[36m      ├─[0m [34mm000 close[0m [32m✔[0m
+[36m      ├─[0m [34mm007 nextRecord[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getHeaderMap[0m [32m✔[0m
+[36m      ├─[0m [34mm001 getCurrentLineNumber[0m [32m✔[0m
+[36m      └─[0m [34mm005 isClosed[0m [32m✔[0m
+
+Test run finished after 9390 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         9 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=25.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/jacoco.exec --classfiles /work/Csv_4f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 12 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Csv_4f:/work/Csv_4b:/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_b:/work/Csv_4b/target/classes:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.2/commons-io-2.2.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.3.168/h2-1.3.168.jar:/work/Csv_4b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/defects4j/framework/projects/Csv/lib/com/csvreader/1.0/javacsv.jar:/opt/defects4j/framework/projects/Csv/lib/com/generationjava/io/1.0/gj-csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.180/h2-1.4.180.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.181/h2-1.4.181.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.182/h2-1.4.182.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.196/h2-1.4.196.jar:/opt/defects4j/framework/projects/Csv/lib/com/h2database/h2/1.4.198/h2-1.4.198.jar:/opt/defects4j/framework/projects/Csv/lib/com/opencsv/4.0/opencsv-4.0.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.4/commons-io-2.4.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.5/commons-io-2.5.jar:/opt/defects4j/framework/projects/Csv/lib/commons-io/commons-io/2.6/commons-io-2.6.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/3.8.1/junit-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.10/junit-4.10.jar:/opt/defects4j/framework/projects/Csv/lib/junit/junit/4.12/junit-4.12.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/opt/defects4j/framework/projects/Csv/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/opt/defects4j/framework/projects/Csv/lib/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/opt/defects4j/framework/projects/Csv/lib/org/openjdk/jmh/1.21/jmh-core-1.21.jar:/opt/defects4j/framework/projects/Csv/lib/org/skife/csv/1.0/csv-1.0.jar:/opt/defects4j/framework/projects/Csv/lib/org/supercsv/2.4.0/super-csv-2.4.0.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Csv_4/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Csv_4/tries200_seed1/reports_buggy
+ of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-27T04:32:38.391667, CSVParser AutoPbtTest:m005 isClosed = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mCSVParser AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm008 parse[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getRecordNumber[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getRecords[0m [32m✔[0m
+[36m      ├─[0m [34mm006 iterator[0m [32m✔[0m
+[36m      ├─[0m [34mm000 close[0m [32m✔[0m
+[36m      ├─[0m [34mm007 nextRecord[0m [32m✔[0m
+[36m      ├─[0m [31mm002 getHeaderMap[0m [31m✘[0m [31m[regression] org.apache.commons.csv.CSVParser.getHeaderMap()[0m
+[36m      │     [0m[31m     input:    new CSVParser.parse["hYTC", new CSVFormat.newFormat['{']].getHeaderMap[][0m
+[36m      │     [0m[31m     expected: ret=null | this=CSVParser[0m
+[36m      │     [0m[31m     actual:   throws java.lang.NullPointerException | this=CSVParser[0m
+[36m      ├─[0m [34mm001 getCurrentLineNumber[0m [32m✔[0m
+[36m      └─[0m [34mm005 isClosed[0m [32m✔[0m
+
+Failures (1):
+  jqwik (JUnit Platform):CSVParser AutoPbtTest:m002 getHeaderMap
+    MethodSource [className = 'org.apache.commons.csv.CSVParser_AutoPbtTest', methodName = 'm002_getHeaderMap', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.csv.CSVParser.getHeaderMap()
+  input:    new CSVParser.parse["hYTC", new CSVFormat.newFormat['{']].getHeaderMap[]
+  expected: ret=null | this=CSVParser
+  actual:   throws java.lang.NullPointerException | this=CSVParser
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.csv.CSVParser_AutoPbtTest.m002_getHeaderMap(CSVParser_AutoPbtTest.java:36)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 6029 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         8 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=8.3s]

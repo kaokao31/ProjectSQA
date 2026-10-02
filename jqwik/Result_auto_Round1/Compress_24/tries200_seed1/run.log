@@ -1,0 +1,318 @@
+
+$ defects4j checkout -p Compress -v 24f -w /work/Compress_24f
+Checking out 8da37729 to /work/Compress_24f................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Compress_24f/maven-build.xml.................. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8da37729:c2376685..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-24f.................................... OK
+
+[exit=0 timeout=False time=3.8s]
+
+$ defects4j compile -w /work/Compress_24f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=7.7s]
+
+$ defects4j checkout -p Compress -v 24b -w /work/Compress_24b
+Checking out 8da37729 to /work/Compress_24b................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /work/Compress_24b/maven-build.xml.................. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8da37729:c2376685..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-24b.................................... OK
+
+[exit=0 timeout=False time=3.4s]
+
+$ defects4j compile -w /work/Compress_24b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=6.7s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.compress.archivers.tar.TarUtils --fixed-cp /work/Compress_24f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Compress/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.4/xz-1.4.jar:/work/Compress_24f/target/test-classes --buggy-cp /work/Compress_24b/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Compress/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.4/xz-1.4.jar:/work/Compress_24b/target/test-classes --out /workspace/jqwik/Auto/Compress_24 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Compress_24f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Compress/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.4/xz-1.4.jar:/work/Compress_24f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Compress_24/org/apache/commons/compress/archivers/tar/TarUtils_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Compress_24b/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Compress/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.4/xz-1.4.jar:/work/Compress_24b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Compress_24/org/apache/commons/compress/archivers/tar/TarUtils_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Compress_24f:/work/Compress_24b:/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f:/work/Compress_24f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Compress/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.4/xz-1.4.jar:/work/Compress_24f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/reports_record
+s
+
+
+timestamp = 2026-09-28T22:27:04.734408, TarUtils AutoPbtTest:m008 parseBoolean = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:04.785614, TarUtils AutoPbtTest:m000 computeCheckSum = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:04.858266, TarUtils AutoPbtTest:m002 formatLongOctalBytes = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:04.962721, TarUtils AutoPbtTest:m004 formatNameBytes = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTarUtils AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm010 parseName[0m [32m✔[0m
+[36m      ├─[0m [34mm012 parseOctalOrBinary[0m [32m✔[0m
+[36m      ├─[0m [34mm005 formatNameBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm013 verifyCheckSum[0m [32m✔[0m
+[36m      ├─[0m [34mm003 formatLongOctalOrBinaryBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm006 formatOctalBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm009 parseName[0m [32m✔[0m
+[36m      ├─[0m [34mm011 parseOctal[0m [32m✔[0m
+[36m      ├─[0m [34mm007 formatUnsignedOctalString[0m [32m✔[0m
+[36m      ├─[0m [34mm001 formatCheckSumOctalBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm008 parseBoolean[0m [32m✔[0m
+[36m      ├─[0m [34mm000 computeCheckSum[0m [32m✔[0m
+[36m      ├─[0m [34mm002 formatLongOctalBytes[0m [32m✔[0m
+[36m      └─[0m [34mm004 formatNameBytes[0m [32m✔[0m
+
+Test run finished after 2086 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        14 tests found           ]
+[         0 tests skipped         ]
+[        14 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=3.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Compress_24f:/work/Compress_24b:/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f:/work/Compress_24f/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Compress/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.4/xz-1.4.jar:/work/Compress_24f/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/reports_fixed
+s
+
+
+timestamp = 2026-09-28T22:27:08.096245, TarUtils AutoPbtTest:m008 parseBoolean = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:08.131143, TarUtils AutoPbtTest:m000 computeCheckSum = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:08.174014, TarUtils AutoPbtTest:m002 formatLongOctalBytes = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:08.234490, TarUtils AutoPbtTest:m004 formatNameBytes = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTarUtils AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm010 parseName[0m [32m✔[0m
+[36m      ├─[0m [34mm012 parseOctalOrBinary[0m [32m✔[0m
+[36m      ├─[0m [34mm005 formatNameBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm013 verifyCheckSum[0m [32m✔[0m
+[36m      ├─[0m [34mm003 formatLongOctalOrBinaryBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm006 formatOctalBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm009 parseName[0m [32m✔[0m
+[36m      ├─[0m [34mm011 parseOctal[0m [32m✔[0m
+[36m      ├─[0m [34mm007 formatUnsignedOctalString[0m [32m✔[0m
+[36m      ├─[0m [34mm001 formatCheckSumOctalBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm008 parseBoolean[0m [32m✔[0m
+[36m      ├─[0m [34mm000 computeCheckSum[0m [32m✔[0m
+[36m      ├─[0m [34mm002 formatLongOctalBytes[0m [32m✔[0m
+[36m      └─[0m [34mm004 formatNameBytes[0m [32m✔[0m
+
+Test run finished after 1693 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        14 tests found           ]
+[         0 tests skipped         ]
+[        14 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=10.2s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/jacoco.exec --classfiles /work/Compress_24f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 173 classes.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Compress_24f:/work/Compress_24b:/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_b:/work/Compress_24b/target/classes:/opt/defects4j/framework/projects/Compress/lib/junit/junit/4.11/junit-4.11.jar:/opt/defects4j/framework/projects/Compress/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.4/xz-1.4.jar:/work/Compress_24b/target/test-classes:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Compress_24/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Compress_24/tries200_seed1/reports_buggy
+s
+
+
+timestamp = 2026-09-28T22:27:19.225959, TarUtils AutoPbtTest:m008 parseBoolean = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:19.302390, TarUtils AutoPbtTest:m000 computeCheckSum = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:19.384228, TarUtils AutoPbtTest:m002 formatLongOctalBytes = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-28T22:27:19.478451, TarUtils AutoPbtTest:m004 formatNameBytes = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mTarUtils AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm010 parseName[0m [32m✔[0m
+[36m      ├─[0m [34mm012 parseOctalOrBinary[0m [32m✔[0m
+[36m      ├─[0m [34mm005 formatNameBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm013 verifyCheckSum[0m [32m✔[0m
+[36m      ├─[0m [34mm003 formatLongOctalOrBinaryBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm006 formatOctalBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm009 parseName[0m [32m✔[0m
+[36m      ├─[0m [34mm011 parseOctal[0m [32m✔[0m
+[36m      ├─[0m [34mm007 formatUnsignedOctalString[0m [32m✔[0m
+[36m      ├─[0m [34mm001 formatCheckSumOctalBytes[0m [32m✔[0m
+[36m      ├─[0m [34mm008 parseBoolean[0m [32m✔[0m
+[36m      ├─[0m [34mm000 computeCheckSum[0m [32m✔[0m
+[36m      ├─[0m [34mm002 formatLongOctalBytes[0m [32m✔[0m
+[36m      └─[0m [34mm004 formatNameBytes[0m [32m✔[0m
+
+Test run finished after 2011 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        14 tests found           ]
+[         0 tests skipped         ]
+[        14 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=3.1s]

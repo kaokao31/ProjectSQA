@@ -1,0 +1,270 @@
+
+$ defects4j checkout -p Math -v 61f -w /work/Math_61f
+Checking out 4cc9a49d to /work/Math_61f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4cc9a49d:0b7b9257..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-61f........................................ OK
+
+[exit=0 timeout=False time=2.8s]
+
+$ defects4j compile -w /work/Math_61f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=12.6s]
+
+$ defects4j checkout -p Math -v 61b -w /work/Math_61b
+Checking out 4cc9a49d to /work/Math_61b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4cc9a49d:0b7b9257..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-61b........................................ OK
+
+[exit=0 timeout=False time=2.8s]
+
+$ defects4j compile -w /work/Math_61b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.7s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math.distribution.PoissonDistributionImpl --fixed-cp /work/Math_61f/target/classes:/work/Math_61f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_61b/target/classes:/work/Math_61b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_61 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_61f/target/classes:/work/Math_61f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_61/org/apache/commons/math/distribution/PoissonDistributionImpl_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_61b/target/classes:/work/Math_61b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_61/org/apache/commons/math/distribution/PoissonDistributionImpl_AutoPbtTest.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_61/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_61f:/work/Math_61b:/work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f:/work/Math_61f/target/classes:/work/Math_61f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/reports_record
+jected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:21:34.556673, PoissonDistributionImpl AutoPbtTest:m003 getMean = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:21:34.667691, PoissonDistributionImpl AutoPbtTest:m005 probability = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:21:34.850152, PoissonDistributionImpl AutoPbtTest:m002 getDomainUpperBound = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+timestamp = 2026-09-29T23:21:40.884940, PoissonDistributionImpl AutoPbtTest:m006 sample = 
+                              |-----------------------jqwik-----------------------
+tries = 200                   | # of calls to property
+checks = 200                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mPoissonDistributionImpl AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 cumulativeProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm004 normalApproximateProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm001 getDomainLowerBound[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getMean[0m [32m✔[0m
+[36m      ├─[0m [34mm005 probability[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getDomainUpperBound[0m [32m✔[0m
+[36m      └─[0m [34mm006 sample[0m [32m✔[0m
+
+Test run finished after 10349 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         7 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=11.4s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_61/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_61f:/work/Math_61b:/work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f:/work/Math_61f/target/classes:/work/Math_61f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/reports_fixed
+xpected: ret=Integer:1 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl
+      actual:   ret=Integer:0 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl
+
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = NONE        | edge cases are not explicitly generated
+seed = 1                      | random seed to reproduce generated values
+
+Sample
+------
+  arg0: new PoissonDistributionImpl.<init>[Double:0.5, Integer:505].sample[]
+
+
+[36m╷[0m
+[36m└─[0m [36mjqwik (JUnit Platform)[0m [32m✔[0m
+[36m   └─[0m [36mPoissonDistributionImpl AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm000 cumulativeProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm004 normalApproximateProbability[0m [32m✔[0m
+[36m      ├─[0m [34mm001 getDomainLowerBound[0m [32m✔[0m
+[36m      ├─[0m [34mm003 getMean[0m [32m✔[0m
+[36m      ├─[0m [34mm005 probability[0m [32m✔[0m
+[36m      ├─[0m [34mm002 getDomainUpperBound[0m [32m✔[0m
+[36m      └─[0m [31mm006 sample[0m [31m✘[0m [31m[regression] org.apache.commons.math.distribution.PoissonDistributionImpl.sample()[0m
+[36m            [0m[31m     input:    new PoissonDistributionImpl.<init>[Double:0.5, Integer:505].sample[][0m
+[36m            [0m[31m     expected: ret=Integer:1 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl[0m
+[36m            [0m[31m     actual:   ret=Integer:0 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl[0m
+
+Failures (1):
+  jqwik (JUnit Platform):PoissonDistributionImpl AutoPbtTest:m006 sample
+    MethodSource [className = 'org.apache.commons.math.distribution.PoissonDistributionImpl_AutoPbtTest', methodName = 'm006_sample', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math.distribution.PoissonDistributionImpl.sample()
+  input:    new PoissonDistributionImpl.<init>[Double:0.5, Integer:505].sample[]
+  expected: ret=Integer:1 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl
+  actual:   ret=Integer:0 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.distribution.PoissonDistributionImpl_AutoPbtTest.m006_sample(PoissonDistributionImpl_AutoPbtTest.java:78)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 7227 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         6 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=13.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/jacoco.exec --classfiles /work/Math_61f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 493 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_61/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_61f:/work/Math_61b:/work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_b:/work/Math_61b/target/classes:/work/Math_61b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_61/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_61/tries200_seed1/reports_buggy
+awFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):PoissonDistributionImpl AutoPbtTest:m002 getDomainUpperBound
+    MethodSource [className = 'org.apache.commons.math.distribution.PoissonDistributionImpl_AutoPbtTest', methodName = 'm002_getDomainUpperBound', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math.distribution.PoissonDistributionImpl.getDomainUpperBound(double)
+  input:    new PoissonDistributionImpl.<init>[Double:-23848.87, Integer:-1098].getDomainUpperBound[Double:6.25]
+  expected: receiver throws org.apache.commons.math.exception.NotStrictlyPositiveException
+  actual:   receiver throws org.apache.commons.math.MathRuntimeException$4
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.distribution.PoissonDistributionImpl_AutoPbtTest.m002_getDomainUpperBound(PoissonDistributionImpl_AutoPbtTest.java:38)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):PoissonDistributionImpl AutoPbtTest:m006 sample
+    MethodSource [className = 'org.apache.commons.math.distribution.PoissonDistributionImpl_AutoPbtTest', methodName = 'm006_sample', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math.distribution.PoissonDistributionImpl.sample()
+  input:    new PoissonDistributionImpl.<init>[Double:0.5, Integer:505].sample[]
+  expected: ret=Integer:1 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl
+  actual:   ret=Integer:0 | this=obj org.apache.commons.math.distribution.PoissonDistributionImpl
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.distribution.PoissonDistributionImpl_AutoPbtTest.m006_sample(PoissonDistributionImpl_AutoPbtTest.java:78)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 1576 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         7 tests found           ]
+[         0 tests skipped         ]
+[         7 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[         7 tests failed          ]
+
+
+[exit=1 timeout=False time=2.9s]

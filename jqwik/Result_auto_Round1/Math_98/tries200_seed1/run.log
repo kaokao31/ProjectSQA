@@ -1,0 +1,287 @@
+
+$ defects4j checkout -p Math -v 98f -w /work/Math_98f
+Checking out 6f4e48d4 to /work/Math_98f.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6f4e48d4:87e066ad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-98f........................................ OK
+
+[exit=0 timeout=False time=4.0s]
+
+$ defects4j compile -w /work/Math_98f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=16.0s]
+
+$ defects4j checkout -p Math -v 98b -w /work/Math_98b
+Checking out 6f4e48d4 to /work/Math_98b.................................... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6f4e48d4:87e066ad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-98b........................................ OK
+
+[exit=0 timeout=False time=4.8s]
+
+$ defects4j compile -w /work/Math_98b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=13.5s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets org.apache.commons.math.linear.BigMatrixImpl,org.apache.commons.math.linear.RealMatrixImpl --fixed-cp /work/Math_98f/target/classes:/work/Math_98f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --buggy-cp /work/Math_98b/target/classes:/work/Math_98b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar --out /workspace/jqwik/Auto/Math_98 --max-methods 150
+generated test classes: 2 / 2
+
+[exit=0 timeout=False time=0.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_98f/target/classes:/work/Math_98f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Math_98/org/apache/commons/math/linear/BigMatrixImpl_AutoPbtTest.java /workspace/jqwik/Auto/Math_98/org/apache/commons/math/linear/RealMatrixImpl_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Math_98b/target/classes:/work/Math_98b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Math_98/org/apache/commons/math/linear/BigMatrixImpl_AutoPbtTest.java /workspace/jqwik/Auto/Math_98/org/apache/commons/math/linear/RealMatrixImpl_AutoPbtTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_98/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_98f:/work/Math_98b:/work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_b -Dpbt.mode=record -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f:/work/Math_98f/target/classes:/work/Math_98f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/reports_record/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/reports_record
+  ├─[0m [34mm039 setRoundingMode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm028 isSingular[0m [32m✔[0m
+[36m   │  ├─[0m [34mm043 solve[0m [32m✔[0m
+[36m   │  ├─[0m [34mm021 getRowMatrix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm025 getTrace[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 getNorm[0m [32m✔[0m
+[36m   │  ├─[0m [34mm034 operate[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getDeterminant[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 getScale[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getColumn[0m [32m✔[0m
+[36m   │  ├─[0m [34mm046 subtract[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 getColumnMatrix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm044 solve[0m [32m✔[0m
+[36m   │  ├─[0m [34mm047 toString[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 getEntryAsDouble[0m [32m✔[0m
+[36m   │  ├─[0m [34mm045 subtract[0m [32m✔[0m
+[36m   │  ├─[0m [34mm038 scalarMultiply[0m [32m✔[0m
+[36m   │  ├─[0m [34mm016 getPermutation[0m [32m✔[0m
+[36m   │  ├─[0m [34mm040 setScale[0m [32m✔[0m
+[36m   │  ├─[0m [34mm029 isSquare[0m [32m✔[0m
+[36m   │  ├─[0m [34mm024 getSubMatrix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 add[0m [32m✔[0m
+[36m   │  └─[0m [34mm001 add[0m [32m✔[0m
+[36m   └─[0m [36mRealMatrixImpl AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm029 preMultiply[0m [32m✔[0m
+[36m      ├─[0m [34mm030 scalarAdd[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getSubMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm028 preMultiply[0m [32m✔[0m
+[36m      ├─[0m [34mm033 solve[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isSquare[0m [32m✔[0m
+[36m      ├─[0m [34mm036 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getSubMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getColumnDimension[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getPermutation[0m [32m✔[0m
+[36m      ├─[0m [34mm037 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getEntry[0m [32m✔[0m
+[36m      ├─[0m [34mm035 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm026 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm025 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getDataRef[0m [32m✔[0m
+[36m      ├─[0m [34mm002 copy[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isSingular[0m [32m✔[0m
+[36m      ├─[0m [34mm038 transpose[0m [32m✔[0m
+[36m      ├─[0m [34mm034 solve[0m [32m✔[0m
+[36m      ├─[0m [34mm020 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getDeterminant[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getColumnMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm027 operate[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getRow[0m [32m✔[0m
+[36m      ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getLUMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getRowMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm031 scalarMultiply[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm021 inverse[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getColumn[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getRowDimension[0m [32m✔[0m
+[36m      ├─[0m [34mm024 luDecompose[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getTrace[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getData[0m [32m✔[0m
+[36m      ├─[0m [34mm032 setSubMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getNorm[0m [32m✔[0m
+[36m      ├─[0m [34mm000 add[0m [32m✔[0m
+[36m      └─[0m [34mm001 add[0m [32m✔[0m
+
+Test run finished after 56106 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        90 tests found           ]
+[         0 tests skipped         ]
+[        90 tests started         ]
+[         0 tests aborted         ]
+[        90 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=57.3s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_98/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_98f:/work/Math_98b:/work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f:/work/Math_98f/target/classes:/work/Math_98f/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/reports_fixed/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/reports_fixed
+  ├─[0m [34mm039 setRoundingMode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m   │  ├─[0m [34mm028 isSingular[0m [32m✔[0m
+[36m   │  ├─[0m [34mm043 solve[0m [32m✔[0m
+[36m   │  ├─[0m [34mm021 getRowMatrix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm025 getTrace[0m [32m✔[0m
+[36m   │  ├─[0m [34mm015 getNorm[0m [32m✔[0m
+[36m   │  ├─[0m [34mm034 operate[0m [32m✔[0m
+[36m   │  ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m   │  ├─[0m [34mm011 getDeterminant[0m [32m✔[0m
+[36m   │  ├─[0m [34mm022 getScale[0m [32m✔[0m
+[36m   │  ├─[0m [34mm004 getColumn[0m [32m✔[0m
+[36m   │  ├─[0m [34mm046 subtract[0m [32m✔[0m
+[36m   │  ├─[0m [34mm007 getColumnMatrix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm044 solve[0m [32m✔[0m
+[36m   │  ├─[0m [34mm047 toString[0m [32m✔[0m
+[36m   │  ├─[0m [34mm013 getEntryAsDouble[0m [32m✔[0m
+[36m   │  ├─[0m [34mm045 subtract[0m [32m✔[0m
+[36m   │  ├─[0m [34mm038 scalarMultiply[0m [32m✔[0m
+[36m   │  ├─[0m [34mm016 getPermutation[0m [32m✔[0m
+[36m   │  ├─[0m [34mm040 setScale[0m [32m✔[0m
+[36m   │  ├─[0m [34mm029 isSquare[0m [32m✔[0m
+[36m   │  ├─[0m [34mm024 getSubMatrix[0m [32m✔[0m
+[36m   │  ├─[0m [34mm000 add[0m [32m✔[0m
+[36m   │  └─[0m [34mm001 add[0m [32m✔[0m
+[36m   └─[0m [36mRealMatrixImpl AutoPbtTest[0m [32m✔[0m
+[36m      ├─[0m [34mm029 preMultiply[0m [32m✔[0m
+[36m      ├─[0m [34mm030 scalarAdd[0m [32m✔[0m
+[36m      ├─[0m [34mm018 getSubMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm028 preMultiply[0m [32m✔[0m
+[36m      ├─[0m [34mm033 solve[0m [32m✔[0m
+[36m      ├─[0m [34mm023 isSquare[0m [32m✔[0m
+[36m      ├─[0m [34mm036 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm017 getSubMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm005 getColumnDimension[0m [32m✔[0m
+[36m      ├─[0m [34mm013 getPermutation[0m [32m✔[0m
+[36m      ├─[0m [34mm037 toString[0m [32m✔[0m
+[36m      ├─[0m [34mm010 getEntry[0m [32m✔[0m
+[36m      ├─[0m [34mm035 subtract[0m [32m✔[0m
+[36m      ├─[0m [34mm026 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm025 multiply[0m [32m✔[0m
+[36m      ├─[0m [34mm008 getDataRef[0m [32m✔[0m
+[36m      ├─[0m [34mm002 copy[0m [32m✔[0m
+[36m      ├─[0m [34mm022 isSingular[0m [32m✔[0m
+[36m      ├─[0m [34mm038 transpose[0m [32m✔[0m
+[36m      ├─[0m [34mm034 solve[0m [32m✔[0m
+[36m      ├─[0m [34mm020 hashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm009 getDeterminant[0m [32m✔[0m
+[36m      ├─[0m [34mm006 getColumnMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm027 operate[0m [32m✔[0m
+[36m      ├─[0m [34mm014 getRow[0m [32m✔[0m
+[36m      ├─[0m [34mm003 equals[0m [32m✔[0m
+[36m      ├─[0m [34mm011 getLUMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm016 getRowMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm031 scalarMultiply[0m [32m✔[0m
+[36m      ├─[0m [34mcontract equalsHashCode[0m [32m✔[0m
+[36m      ├─[0m [34mm021 inverse[0m [32m✔[0m
+[36m      ├─[0m [34mm004 getColumn[0m [32m✔[0m
+[36m      ├─[0m [34mm015 getRowDimension[0m [32m✔[0m
+[36m      ├─[0m [34mm024 luDecompose[0m [32m✔[0m
+[36m      ├─[0m [34mm019 getTrace[0m [32m✔[0m
+[36m      ├─[0m [34mm007 getData[0m [32m✔[0m
+[36m      ├─[0m [34mm032 setSubMatrix[0m [32m✔[0m
+[36m      ├─[0m [34mm012 getNorm[0m [32m✔[0m
+[36m      ├─[0m [34mm000 add[0m [32m✔[0m
+[36m      └─[0m [34mm001 add[0m [32m✔[0m
+
+Test run finished after 65613 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        90 tests found           ]
+[         0 tests skipped         ]
+[        90 tests started         ]
+[         0 tests aborted         ]
+[        90 tests successful      ]
+[         0 tests failed          ]
+
+
+[exit=0 timeout=False time=72.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/jacoco.exec --classfiles /work/Math_98f/target/classes --csv /workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/jacoco.exec.
+[INFO] Analyzing 183 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -Djava.awt.headless=true -Xss4m -Xmx1g -Dpbt.seed=1 -Dpbt.tries=200 -Dpbt.snapshot.dir=/work/jqwik_out/Math_98/auto_round1_tries200_seed1/snapshots -Dpbt.propertyBudgetMs=5000 -Dpbt.mask=/work/Math_98f:/work/Math_98b:/work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_f:/work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_b -Dpbt.mode=check -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details tree --class-path /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_b:/work/Math_98b/target/classes:/work/Math_98b/target/test-classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar --scan-class-path /work/jqwik_out/Math_98/auto_round1_tries200_seed1/classes_b --include-classname .* --include-engine jqwik --config jqwik.database=/workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/reports_buggy/jqwik-database --config jqwik.tries.default=200 --reports-dir /workspace/jqwik/Result_auto_Round1/Math_98/tries200_seed1/reports_buggy
+001, BigDecimal:215, BigDecimal:0.013, BigDecimal:38.93]].operate[BigDecimal[BigDecimal:60288]]
+  expected: ret=BigDecimal[BigDecimal:-20.980224,BigDecimal:64.990464,BigDecimal:6.0288,BigDecimal:12961920,BigDecimal:783.744,BigDecimal:2347011.84] | this=BigMatrixImpl:BigMatrixImpl{{-0.000348},{0.001078},{0.0001},{215},{0.013},{38.93}} | arg0=BigDecimal[BigDecimal:60288]
+  actual:   throws java.lang.ArrayIndexOutOfBoundsException | this=BigMatrixImpl:BigMatrixImpl{{-0.000348},{0.001078},{0.0001},{215},{0.013},{38.93}} | arg0=BigDecimal[BigDecimal:60288]
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.linear.BigMatrixImpl_AutoPbtTest.m034_operate(BigMatrixImpl_AutoPbtTest.java:361)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+  jqwik (JUnit Platform):RealMatrixImpl AutoPbtTest:m027 operate
+    MethodSource [className = 'org.apache.commons.math.linear.RealMatrixImpl_AutoPbtTest', methodName = 'm027_operate', methodParameterTypes = 'pbt.auto.AutoTarget$Call']
+    => java.lang.AssertionError: [regression] org.apache.commons.math.linear.RealMatrixImpl.operate(double[])
+  input:    new RealMatrixImpl.<init>[double[Double:Infinity, Double:-1.1610621537E8, Double:-0.36, Double:-7.77, Double:-5.4780344452961016E16, Double:0.97]].operate[double[Double:7.8]]
+  expected: ret=double[Double:Infinity,Double:-9.05628479886E8,Double:-2.808,Double:-60.605999999999995,Double:-4.2728668673309594E17,Double:7.566] | this=RealMatrixImpl:RealMatrixImpl{{Infinity},{-1.1610621537E8},{-0.36},{-7.77},{-5.4780344452961016E16},{0.97}} | arg0=double[Double:7.8]
+  actual:   throws java.lang.ArrayIndexOutOfBoundsException | this=RealMatrixImpl:RealMatrixImpl{{Infinity},{-1.1610621537E8},{-0.36},{-7.77},{-5.4780344452961016E16},{0.97}} | arg0=double[Double:7.8]
+       pbt.auto.AutoTarget.check(AutoTarget.java:127)
+       org.apache.commons.math.linear.RealMatrixImpl_AutoPbtTest.m027_operate(RealMatrixImpl_AutoPbtTest.java:289)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:198)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$1(CheckedPropertyFactory.java:84)
+       net.jqwik.engine.execution.CheckedPropertyFactory.lambda$createRawFunction$2(CheckedPropertyFactory.java:91)
+       [...]
+
+Test run finished after 64054 ms
+[         3 containers found      ]
+[         0 containers skipped    ]
+[         3 containers started    ]
+[         0 containers aborted    ]
+[         3 containers successful ]
+[         0 containers failed     ]
+[        90 tests found           ]
+[         0 tests skipped         ]
+[        90 tests started         ]
+[         0 tests aborted         ]
+[        87 tests successful      ]
+[         3 tests failed          ]
+
+
+[exit=1 timeout=False time=65.4s]

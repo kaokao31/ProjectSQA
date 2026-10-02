@@ -1,0 +1,131 @@
+
+$ defects4j checkout -p Closure -v 4f -w /work/Closure_4f
+Checking out efefb736 to /work/Closure_4f.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_4f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_4f/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff efefb736:1c95684b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-4f...................................... OK
+
+[exit=0 timeout=False time=4.5s]
+
+$ defects4j compile -w /work/Closure_4f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=43.2s]
+
+$ defects4j checkout -p Closure -v 4b -w /work/Closure_4b
+Checking out efefb736 to /work/Closure_4b.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: can't read /work/Closure_4b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+sed: can't read /work/Closure_4b/lib/rhino/src/mozilla/js/rhino/build.properties: No such file or directory
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff efefb736:1c95684b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-4b...................................... OK
+
+[exit=0 timeout=False time=5.3s]
+
+$ defects4j compile -w /work/Closure_4b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=45.8s]
+
+$ java -cp /work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar pbt.auto.Generate --targets com.google.javascript.rhino.jstype.NamedType --fixed-cp /work/Closure_4f/build/classes:/work/Closure_4f/lib/args4j.jar:/work/Closure_4f/lib/guava.jar:/work/Closure_4f/lib/json.jar:/work/Closure_4f/lib/jsr305.jar:/work/Closure_4f/lib/protobuf-java.jar:/work/Closure_4f/build/lib/rhino.jar:/work/Closure_4f/lib/ant.jar:/work/Closure_4f/lib/ant-launcher.jar:/work/Closure_4f/lib/caja-r4314.jar:/work/Closure_4f/lib/jarjar.jar:/work/Closure_4f/lib/junit.jar:/work/Closure_4f/build/test --buggy-cp /work/Closure_4b/build/classes:/work/Closure_4b/lib/args4j.jar:/work/Closure_4b/lib/guava.jar:/work/Closure_4b/lib/json.jar:/work/Closure_4b/lib/jsr305.jar:/work/Closure_4b/lib/protobuf-java.jar:/work/Closure_4b/build/lib/rhino.jar:/work/Closure_4b/lib/ant.jar:/work/Closure_4b/lib/ant-launcher.jar:/work/Closure_4b/lib/caja-r4314.jar:/work/Closure_4b/lib/jarjar.jar:/work/Closure_4b/lib/junit.jar:/work/Closure_4b/build/test --out /workspace/jqwik/Auto/Closure_4 --max-methods 150
+generated test classes: 1 / 1
+
+[exit=0 timeout=False time=0.6s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_4f/build/classes:/work/Closure_4f/lib/args4j.jar:/work/Closure_4f/lib/guava.jar:/work/Closure_4f/lib/json.jar:/work/Closure_4f/lib/jsr305.jar:/work/Closure_4f/lib/protobuf-java.jar:/work/Closure_4f/build/lib/rhino.jar:/work/Closure_4f/lib/ant.jar:/work/Closure_4f/lib/ant-launcher.jar:/work/Closure_4f/lib/caja-r4314.jar:/work/Closure_4f/lib/jarjar.jar:/work/Closure_4f/lib/junit.jar:/work/Closure_4f/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_4/auto_round1_tries200_seed1/classes_f /workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:13: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:23: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:33: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:43: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:53: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:63: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:73: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:83: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:93: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:103: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:113: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+11 errors
+
+[exit=1 timeout=False time=1.1s]
+
+$ javac -nowarn -encoding UTF-8 -cp /work/Closure_4b/build/classes:/work/Closure_4b/lib/args4j.jar:/work/Closure_4b/lib/guava.jar:/work/Closure_4b/lib/json.jar:/work/Closure_4b/lib/jsr305.jar:/work/Closure_4b/lib/protobuf-java.jar:/work/Closure_4b/build/lib/rhino.jar:/work/Closure_4b/lib/ant.jar:/work/Closure_4b/lib/ant-launcher.jar:/work/Closure_4b/lib/caja-r4314.jar:/work/Closure_4b/lib/jarjar.jar:/work/Closure_4b/lib/junit.jar:/work/Closure_4b/build/test:/work/jqwik_harness:/workspace/lib/jqwik/jqwik-1.7.4.jar:/workspace/lib/jqwik/jqwik-api-1.7.4.jar:/workspace/lib/jqwik/jqwik-engine-1.7.4.jar -d /work/jqwik_out/Closure_4/auto_round1_tries200_seed1/classes_b /workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:13: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:23: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:33: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:43: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:53: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:63: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:73: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:83: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:93: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:103: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+/workspace/jqwik/Auto/Closure_4/com/google/javascript/rhino/jstype/NamedType_AutoPbtTest.java:113: error: incompatible types: Property cannot be converted to Annotation
+    @Property(shrinking = ShrinkingMode.OFF, edgeCases = EdgeCasesMode.NONE)
+     ^
+11 errors
+
+[exit=1 timeout=False time=1.3s]
