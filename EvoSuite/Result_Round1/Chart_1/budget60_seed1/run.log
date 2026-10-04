@@ -1,0 +1,603 @@
+
+$ defects4j checkout -p Chart -v 1f -w /work/Chart_1f
+Checking out 2266 to /work/Chart_1f........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2266:2264............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-1f........................................ OK
+
+[exit=0 timeout=False time=4.2s]
+
+$ defects4j compile -w /work/Chart_1f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=8.7s]
+
+$ defects4j checkout -p Chart -v 1b -w /work/Chart_1b
+Checking out 2266 to /work/Chart_1b........................................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2266:2264............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-1b........................................ OK
+
+[exit=0 timeout=False time=4.0s]
+
+$ defects4j compile -w /work/Chart_1b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=10.0s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Chart_1f/build:/work/Chart_1f/lib/servlet.jar:/work/Chart_1f/build-tests org.evosuite.EvoSuite -generateSuite -class org.jfree.chart.renderer.category.AbstractCategoryItemRenderer -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_1f/build:/work/Chart_1f/lib/servlet.jar:/work/Chart_1f/build-tests -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Chart_1f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Chart_1f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.jfree.chart.renderer.category.AbstractCategoryItemRenderer
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Chart_1f/build
+  - /work/Chart_1f/lib/servlet.jar
+  - /work/Chart_1f/build-tests
+[MASTER] 11:17:35.461 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 11:17:35.589 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.io.ObjectInputFilter
+[MASTER] 11:17:36.690 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class org.jfree.chart.renderer.category.AbstractCategoryItemRenderer
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 574
+  - Branch 274
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 11:17:38.175 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Stack<E> : Type points to itself
+
+[Progress:>                             1%] [Cov:>                                  0%]
+[Progress:>                             1%] [Cov:>                                  1%]
+[Progress:>                             1%] [Cov:===========>                       34%]
+[Progress:>                             1%] [Cov:==============>                    41%]
+[Progress:>                             3%] [Cov:>                                  0%]
+[Progress:>                             3%] [Cov:>                                  1%]
+[Progress:>                             3%] [Cov:===========>                       34%]
+[Progress:>                             3%] [Cov:==============>                    40%]
+[Progress:=>                            5%] [Cov:>                                  2%]
+[Progress:=>                            5%] [Cov:=>                                 3%]
+[Progress:=>                            5%] [Cov:============>                      36%]
+[Progress:=>                            5%] [Cov:============>                      37%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:=============>                     39%]
+[Progress:=>                            5%] [Cov:=============>                     39%]
+[Progress:=>                            6%] [Cov:=============>                     38%]
+[Progress:=>                            6%] [Cov:=============>                     39%]
+[Progress:=>                            6%] [Cov:==============>                    40%]
+[Progress:=>                            6%] [Cov:==============>                    41%]
+[Progress:=>                            6%] [Cov:===================>               55%]
+[Progress:=>                            6%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:==>                           8%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               55%]
+[Progress:===>                          10%] [Cov:===================>               55%]
+[Progress:===>                          11%] [Cov:===================>               55%]
+[Progress:===>                          11%] [Cov:===================>               55%]
+[Progress:===>                          11%] [Cov:===================>               55%]
+[Progress:===>                          13%] [Cov:===================>               55%]
+[Progress:===>                          13%] [Cov:===================>               55%]
+[Progress:===>                          13%] [Cov:===================>               55%]
+[Progress:===>                          13%] [Cov:===================>               55%]
+[Progress:====>                         15%] [Cov:===================>               55%]
+[Progress:====>                         15%] [Cov:===================>               55%]
+[Progress:====>                         15%] [Cov:===================>               56%]
+[Progress:====>                         15%] [Cov:===================>               57%]
+[Progress:====>                         16%] [Cov:===================>               57%]
+[Progress:====>                         16%] [Cov:===================>               57%]
+[Progress:====>                         16%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:=====>                        18%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       20%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       21%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:======>                       23%] [Cov:===================>               57%]
+[Progress:=======>                      25%] [Cov:===================>               57%]
+[Progress:=======>                      25%] [Cov:===================>               57%]
+[Progress:=======>                      26%] [Cov:===================>               57%]
+[Progress:=======>                      26%] [Cov:===================>               57%]
+[Progress:=======>                      26%] [Cov:===================>               57%]
+[Progress:=======>                      26%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:===================>               57%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:========>                     28%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    30%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    31%] [Cov:====================>              58%]
+[Progress:=========>                    33%] [Cov:====================>              58%]
+[Progress:=========>                    33%] [Cov:====================>              58%]
+[Progress:==========>                   35%] [Cov:====================>              58%]
+[Progress:==========>                   35%] [Cov:====================>              58%]
+[Progress:==========>                   35%] [Cov:====================>              59%]
+[Progress:==========>                   35%] [Cov:====================>              59%]
+[Progress:==========>                   36%] [Cov:====================>              59%]
+[Progress:==========>                   36%] [Cov:====================>              59%]
+[Progress:===========>                  38%] [Cov:====================>              59%]
+[Progress:===========>                  38%] [Cov:====================>              59%]
+[Progress:===========>                  38%] [Cov:====================>              59%]
+[Progress:============>                 40%] [Cov:====================>              59%]
+[Progress:============>                 40%] [Cov:====================>              59%]
+[Progress:============>                 40%] [Cov:====================>              59%]
+[Progress:============>                 41%] [Cov:====================>              59%]
+[Progress:============>                 41%] [Cov:====================>              59%]
+[Progress:============>                 41%] [Cov:====================>              59%]
+[Progress:============>                 43%] [Cov:====================>              59%]
+[Progress:============>                 43%] [Cov:====================>              59%]
+[Progress:============>                 43%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:====================>              59%]
+[Progress:=============>                45%] [Cov:=====================>             60%]
+[Progress:=============>                46%] [Cov:=====================>             60%]
+[Progress:==============>               48%] [Cov:=====================>             60%]
+[Progress:==============>               48%] [Cov:=====================>             60%]
+[Progress:===============>              50%] [Cov:=====================>             60%]
+[Progress:===============>              50%] [Cov:=====================>             60%]
+[Progress:===============>              51%] [Cov:=====================>             60%]
+[Progress:===============>              51%] [Cov:=====================>             60%]
+[Progress:===============>              53%] [Cov:=====================>             60%]
+[Progress:===============>              53%] [Cov:=====================>             60%]
+[Progress:===============>              53%] [Cov:=====================>             60%]
+[Progress:================>             55%] [Cov:=====================>             60%]
+[Progress:================>             55%] [Cov:=====================>             60%]
+[Progress:================>             56%] [Cov:=====================>             61%]
+[Progress:================>             56%] [Cov:=====================>             61%]
+[Progress:=================>            58%] [Cov:=====================>             61%]
+[Progress:=================>            58%] [Cov:=====================>             61%]
+[Progress:==================>           60%] [Cov:=====================>             61%]
+[Progress:==================>           60%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           61%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:==================>           63%] [Cov:=====================>             61%]
+[Progress:===================>          65%] [Cov:=====================>             61%]
+[Progress:===================>          65%] [Cov:=====================>             61%]
+[Progress:===================>          66%] [Cov:=====================>             61%]
+[Progress:===================>          66%] [Cov:=====================>             61%]
+[Progress:====================>         68%] [Cov:=====================>             61%]
+[Progress:====================>         68%] [Cov:=====================>             61%]
+[Progress:=====================>        70%] [Cov:=====================>             61%]
+[Progress:=====================>        70%] [Cov:=====================>             61%]
+[Progress:=====================>        70%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:=====================>        71%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:=====================>        73%] [Cov:=====================>             61%]
+[Progress:======================>       75%] [Cov:=====================>             61%]
+[Progress:======================>       75%] [Cov:=====================>             61%]
+[Progress:======================>       76%] [Cov:=====================>             61%]
+[Progress:======================>       76%] [Cov:=====================>             62%]
+[Progress:======================>       76%] [Cov:=====================>             62%]
+[Progress:=======================>      78%] [Cov:=====================>             62%]
+[Progress:=======================>      78%] [Cov:=====================>             62%]
+[Progress:========================>     80%] [Cov:=====================>             62%]
+[Progress:========================>     80%] [Cov:=====================>             62%]
+[Progress:========================>     80%] [Cov:=====================>             62%]
+[Progress:========================>     81%] [Cov:=====================>             62%]
+[Progress:========================>     81%] [Cov:=====================>             62%]
+[Progress:========================>     83%] [Cov:=====================>             62%]
+[Progress:========================>     83%] [Cov:=====================>             62%]
+[Progress:========================>     83%] [Cov:=====================>             62%]
+[Progress:=========================>    85%] [Cov:=====================>             62%]
+[Progress:=========================>    85%] [Cov:=====================>             62%]
+[Progress:=========================>    85%] [Cov:=====================>             62%]
+[Progress:=========================>    86%] [Cov:=====================>             62%]
+[Progress:=========================>    86%] [Cov:=====================>             62%]
+[Progress:==========================>   88%] [Cov:=====================>             62%]
+[Progress:==========================>   88%] [Cov:=====================>             62%]
+[Progress:===========================>  90%] [Cov:=====================>             62%]
+[Progress:===========================>  90%] [Cov:=====================>             62%]
+[Progress:===========================>  91%] [Cov:=====================>             62%]
+[Progress:===========================>  91%] [Cov:=====================>             62%]
+[Progress:===========================>  93%] [Cov:=====================>             62%]
+[Progress:===========================>  93%] [Cov:=====================>             62%]
+[Progress:===========================>  93%] [Cov:=====================>             62%]
+[Progress:============================> 95%] [Cov:=====================>             62%]
+[Progress:============================> 95%] [Cov:=====================>             62%]
+[Progress:============================> 96%] [Cov:=====================>             62%]
+[Progress:============================> 96%] [Cov:=====================>             62%]
+[Progress:=============================>98%] [Cov:=====================>             62%]
+[Progress:=============================>98%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+[Progress:==============================100%] [Cov:=====================>             62%]
+* Search finished after 61s and 99 generations, 54377 statements, best individual has fitness: 235.53538461538463
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 44%
+* Total number of goals: 574
+* Number of covered goals: 250
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 45%
+* Total number of goals: 274
+* Number of covered goals: 123
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 25
+* Number of covered goals: 25
+* Generated 67 tests with total length 278
+* Resulting test suite's coverage: 63% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 8%
+* Compiling and checking tests
+* Permissions denied during test execution: 
+  - java.io.FilePermission: 
+         write /tmp/+~JT11548627337875737612.tmp: 1
+* Writing tests to file
+* Writing JUnit test case 'AbstractCategoryItemRenderer_ESTest' to /work/evo_out/Chart_1f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 11:18:05.999 [logback-2] ERROR ClientNodeImpl - Cannot inform master of change of state
+java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.UnmarshalException: error unmarshalling arguments; nested exception is: 
+	java.io.OptionalDataException
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:391)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+	at java.rmi/sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:303)
+	at java.rmi/sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:279)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:164)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:217)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:162)
+	at com.sun.proxy.$Proxy7.evosuite_collectStatistics(Unknown Source)
+	at org.evosuite.rmi.service.ClientNodeImpl.updateStatistics(ClientNodeImpl.java:251)
+	at org.evosuite.statistics.StatisticsSender.sendIndividualToMaster(StatisticsSender.java:62)
+	at org.evosuite.statistics.StatisticsListener.lambda$new$0(StatisticsListener.java:76)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.rmi.UnmarshalException: error unmarshalling arguments; nested exception is: 
+	java.io.OptionalDataException
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:350)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	... 1 common frames omitted
+Caused by: java.io.OptionalDataException: null
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1710)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+	at java.base/java.util.HashMap.readObject(HashMap.java:1464)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor7.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1046)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2357)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2496)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2390)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+	at java.base/java.util.HashMap.readObject(HashMap.java:1464)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor7.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1046)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2357)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2496)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2390)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2228)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+	at java.rmi/sun.rmi.server.UnicastRef.unmarshalValue(UnicastRef.java:327)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:339)
+	... 12 common frames omitted
+
+[exit=0 timeout=False time=100.8s]
+
+$ javac -nowarn -cp /work/Chart_1f/build:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_1f/lib/servlet.jar:/work/Chart_1f/build:/work/Chart_1f/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Chart_1f/budget60_seed1/classes /work/evo_out/Chart_1f/budget60_seed1/tests/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer_ESTest.java /work/evo_out/Chart_1f/budget60_seed1/tests/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer_ESTest_scaffolding.java
+Note: /work/evo_out/Chart_1f/budget60_seed1/tests/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Chart_1f/build --dest /work/evo_out/Chart_1f/budget60_seed1/instrumented
+[INFO] 682 classes instrumented to /work/evo_out/Chart_1f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Chart_1/budget60_seed1/jacoco.exec -cp /work/evo_out/Chart_1f/budget60_seed1/instrumented:/work/evo_out/Chart_1f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_1f/lib/servlet.jar:/work/Chart_1f/build:/work/Chart_1f/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest
+JUnit version 4.12
+...................................................................
+Time: 2.129
+
+OK (67 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=Chart:,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2733)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:173)
+	at java.desktop/javax.swing.JMenu.ensurePopupMenuCreated(JMenu.java:523)
+	at java.desktop/javax.swing.JMenu.add(JMenu.java:556)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2797)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:173)
+	at java.desktop/javax.swing.JMenu.ensurePopupMenuCreated(JMenu.java:523)
+	at java.desktop/javax.swing.JMenu.add(JMenu.java:556)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2822)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:173)
+	at java.desktop/javax.swing.JMenu.ensurePopupMenuCreated(JMenu.java:523)
+	at java.desktop/javax.swing.JMenu.add(JMenu.java:556)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2849)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+[exit=0 timeout=False time=4.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Chart_1/budget60_seed1/jacoco.exec --classfiles /work/Chart_1f/build --csv /workspace/EvoSuite/Result_Round1/Chart_1/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Chart_1/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 565 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -cp /work/evo_out/Chart_1f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_1b/lib/servlet.jar:/work/Chart_1b/build:/work/Chart_1b/build-tests:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest
+JUnit version 4.12
+...................................................................
+Time: 1.821
+
+OK (67 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=Chart:,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2733)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:173)
+	at java.desktop/javax.swing.JMenu.ensurePopupMenuCreated(JMenu.java:523)
+	at java.desktop/javax.swing.JMenu.add(JMenu.java:556)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2797)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:173)
+	at java.desktop/javax.swing.JMenu.ensurePopupMenuCreated(JMenu.java:523)
+	at java.desktop/javax.swing.JMenu.add(JMenu.java:556)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2822)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.Error: createUI() failed for javax.swing.JPopupMenu[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,preferredSize=,desiredLocationX=0,desiredLocationY=0,label=,lightWeightPopupEnabled=true,margin=,paintBorder=true] java.lang.reflect.InvocationTargetException
+	at java.desktop/javax.swing.UIDefaults.getUIError(UIDefaults.java:760)
+	at java.desktop/javax.swing.MultiUIDefaults.getUIError(MultiUIDefaults.java:131)
+	at java.desktop/javax.swing.UIDefaults.getUI(UIDefaults.java:811)
+	at java.desktop/javax.swing.UIManager.getUI(UIManager.java:1065)
+	at java.desktop/javax.swing.JPopupMenu.updateUI(JPopupMenu.java:220)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:188)
+	at java.desktop/javax.swing.JPopupMenu.<init>(JPopupMenu.java:173)
+	at java.desktop/javax.swing.JMenu.ensurePopupMenuCreated(JMenu.java:523)
+	at java.desktop/javax.swing.JMenu.add(JMenu.java:556)
+	at org.jfree.chart.ChartPanel.createPopupMenu(ChartPanel.java:2849)
+	at org.jfree.chart.ChartPanel.<init>(ChartPanel.java:764)
+	at org.jfree.chart.renderer.category.AbstractCategoryItemRenderer_ESTest.test31(AbstractCategoryItemRenderer_ESTest.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+[exit=0 timeout=False time=2.3s]

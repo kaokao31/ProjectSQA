@@ -1,0 +1,837 @@
+
+$ defects4j checkout -p Mockito -v 1f -w /work/Mockito_1f
+Checking out 4e9d7607 to /work/Mockito_1f.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: -e expression #1, char 84: unterminated `s' command
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4e9d7607:837fd054..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-1f...................................... OK
+
+[exit=0 timeout=False time=4.2s]
+
+$ defects4j compile -w /work/Mockito_1f
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=62.6s]
+
+$ defects4j checkout -p Mockito -v 1b -w /work/Mockito_1b
+Checking out 4e9d7607 to /work/Mockito_1b.................................. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+sed: -e expression #1, char 84: unterminated `s' command
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4e9d7607:837fd054..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-1b...................................... OK
+
+[exit=0 timeout=False time=4.6s]
+
+$ defects4j compile -w /work/Mockito_1b
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+
+[exit=0 timeout=False time=61.2s]
+
+$ java -Djava.awt.headless=true -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/opt/evosuite/evosuite-1.2.0.jar:/work/Mockito_1f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_1f/compileLib/byte-buddy-0.6.8.jar:/work/Mockito_1f/build/classes/java/test org.evosuite.EvoSuite -generateSuite -class org.mockito.internal.invocation.InvocationMatcher -projectCP /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_1f/build/classes/java/main:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_1f/compileLib/byte-buddy-0.6.8.jar:/work/Mockito_1f/build/classes/java/test -Dcriterion=LINE:BRANCH:EXCEPTION -Dsearch_budget=60 -seed 1 -Dtest_dir=/work/evo_out/Mockito_1f/budget60_seed1/tests -Dreport_dir=/work/evo_out/Mockito_1f/budget60_seed1/report
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.mockito.internal.invocation.InvocationMatcher
+* Starting Client-0
+* Connecting to master process on port 9922
+* Analyzing classpath: 
+  - /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar
+  - /work/Mockito_1f/build/classes/java/main
+  - /opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar
+  - /opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar
+  - /work/Mockito_1f/compileLib/byte-buddy-0.6.8.jar
+  - /work/Mockito_1f/build/classes/java/test
+[MASTER] 12:30:56.617 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.util.Locale$IsoCountryCode
+[MASTER] 12:30:56.625 [logback-1] WARN  InheritanceTree - Class not in inheritance graph: java.lang.module.ModuleFinder
+* Finished analyzing classpath
+* Generating tests for class org.mockito.internal.invocation.InvocationMatcher
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+* Setting up search algorithm for whole suite generation
+* Total number of test goals: 
+  - Line 69
+  - Branch 69
+  - Exception 0
+
+[Progress:>                             0%] [Cov:>                                  0%]* Using seed 1
+* Starting evolution
+[MASTER] 12:30:56.812 [logback-1] WARN  TestCluster - Failed to check cache for org.mockito.internal.matchers.CapturingMatcher<T> : Type points to itself
+[MASTER] 12:30:56.813 [logback-1] WARN  TestCluster - Failed to check cache for org.hamcrest.collection.IsMapContaining<K, V> : Type points to itself
+
+[Progress:>                             3%] [Cov:=>                                 3%]
+[Progress:>                             3%] [Cov:=>                                 5%]
+[Progress:>                             3%] [Cov:=============>                     38%][MASTER] 12:30:59.823 [logback-1] WARN  TestCluster - Failed to check cache for java.util.Comparator<T> : Type points to itself
+
+[Progress:=>                            5%] [Cov:=>                                 3%]
+[Progress:=>                            5%] [Cov:=>                                 5%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:=============>                     38%]
+[Progress:=>                            5%] [Cov:==============>                    40%]
+[Progress:=>                            5%] [Cov:==============>                    41%]
+[Progress:=>                            5%] [Cov:==============>                    41%]
+[Progress:=>                            5%] [Cov:==============>                    42%]
+[Progress:=>                            5%] [Cov:===============>                   43%]
+[Progress:=>                            5%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   43%][MASTER] 12:31:01.000 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=>                            6%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   43%]
+[Progress:=>                            6%] [Cov:===============>                   44%]
+[Progress:=>                            6%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%][MASTER] 12:31:01.893 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:==>                           8%] [Cov:===============>                   44%][MASTER] 12:31:02.740 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:==>                           8%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   44%]
+[Progress:===>                          10%] [Cov:===============>                   45%][MASTER] 12:31:03.614 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:===>                          10%] [Cov:===============>                   45%]
+[Progress:===>                          10%] [Cov:================>                  46%]
+[Progress:===>                          10%] [Cov:================>                  46%][MASTER] 12:31:03.768 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===>                          11%] [Cov:================>                  46%]
+[Progress:===>                          11%] [Cov:================>                  47%]
+[Progress:===>                          11%] [Cov:================>                  47%][MASTER] 12:31:03.875 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.StubInfoImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===>                          11%] [Cov:================>                  47%]
+[Progress:===>                          11%] [Cov:================>                  48%]
+[Progress:===>                          11%] [Cov:================>                  48%]
+[Progress:===>                          11%] [Cov:================>                  48%]
+[Progress:===>                          11%] [Cov:=================>                 49%][MASTER] 12:31:04.341 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+[MASTER] 12:31:04.362 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:===>                          11%] [Cov:=================>                 49%]
+[Progress:===>                          11%] [Cov:=================>                 49%]
+[Progress:===>                          11%] [Cov:=================>                 49%]
+[Progress:===>                          11%] [Cov:=================>                 49%]
+[Progress:===>                          13%] [Cov:=================>                 49%]
+[Progress:===>                          13%] [Cov:=================>                 49%][MASTER] 12:31:04.911 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class java.lang.reflect.Method canUseFunctionalMocks=true, canBeMocked: false
+
+[Progress:===>                          13%] [Cov:=================>                 50%]
+[Progress:===>                          13%] [Cov:=================>                 50%][MASTER] 12:31:05.008 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===>                          13%] [Cov:=================>                 50%]
+[Progress:===>                          13%] [Cov:=================>                 50%]
+[Progress:===>                          13%] [Cov:=================>                 50%]
+[Progress:===>                          13%] [Cov:=================>                 50%]
+[Progress:===>                          13%] [Cov:=================>                 50%][MASTER] 12:31:05.537 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===>                          13%] [Cov:=================>                 50%][MASTER] 12:31:05.750 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===>                          13%] [Cov:=================>                 50%]
+[Progress:====>                         15%] [Cov:=================>                 50%][MASTER] 12:31:05.851 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.StubInfoImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:====>                         15%] [Cov:=================>                 50%]
+[Progress:====>                         15%] [Cov:=================>                 50%][MASTER] 12:31:06.116 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationMatcher canUseFunctionalMocks=false, canBeMocked: false
+
+[Progress:====>                         15%] [Cov:=================>                 50%][MASTER] 12:31:06.193 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Have no generator for class java.lang.reflect.Method canUseFunctionalMocks=true, canBeMocked: false
+[MASTER] 12:31:06.295 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:====>                         15%] [Cov:=================>                 50%][MASTER] 12:31:06.341 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:====>                         15%] [Cov:=================>                 50%][MASTER] 12:31:06.520 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for class java.lang.reflect.Method canUseFunctionalMocks=false, canBeMocked: false
+
+[Progress:====>                         15%] [Cov:=================>                 50%]
+[Progress:====>                         15%] [Cov:=================>                 50%]
+[Progress:====>                         16%] [Cov:=================>                 50%]
+[Progress:====>                         16%] [Cov:=================>                 50%][MASTER] 12:31:06.835 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:====>                         16%] [Cov:=================>                 50%]
+[Progress:====>                         16%] [Cov:=================>                 50%]
+[Progress:====>                         16%] [Cov:=================>                 50%][MASTER] 12:31:07.343 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.realmethod.CleanTraceRealMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.realmethod.CleanTraceRealMethod due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:====>                         16%] [Cov:=================>                 50%]
+[Progress:====>                         16%] [Cov:=================>                 50%]
+[Progress:====>                         16%] [Cov:=================>                 50%][MASTER] 12:31:07.723 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.StubInfoImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationMatcher canUseFunctionalMocks=false, canBeMocked: false
+
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:=====>                        18%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 50%][MASTER] 12:31:09.396 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:======>                       20%] [Cov:=================>                 50%][MASTER] 12:31:09.490 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:======>                       20%] [Cov:=================>                 50%]
+[Progress:======>                       20%] [Cov:=================>                 50%][MASTER] 12:31:09.717 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 12:31:09.730 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       21%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:======>                       23%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      25%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:=======>                      26%] [Cov:=================>                 50%]
+[Progress:========>                     28%] [Cov:=================>                 50%]
+[Progress:========>                     28%] [Cov:=================>                 51%]
+[Progress:========>                     28%] [Cov:=================>                 51%]
+[Progress:========>                     28%] [Cov:=================>                 51%]
+[Progress:========>                     28%] [Cov:=================>                 51%]
+[Progress:========>                     28%] [Cov:==================>                52%]
+[Progress:========>                     28%] [Cov:==================>                52%]
+[Progress:========>                     28%] [Cov:==================>                52%][MASTER] 12:31:14.334 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:========>                     28%] [Cov:==================>                52%]
+[Progress:========>                     28%] [Cov:==================>                52%]
+[Progress:========>                     28%] [Cov:==================>                52%]
+[Progress:========>                     28%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%][MASTER] 12:31:14.824 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    30%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    31%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:=========>                    33%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   35%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:==========>                   36%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%][MASTER] 12:31:20.147 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:===========>                  38%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 40%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 41%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:============>                 43%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                45%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:=============>                46%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:==============>               48%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              50%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%][MASTER] 12:31:28.539 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              51%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:===============>              53%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             55%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%][MASTER] 12:31:30.889 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.realmethod.CleanTraceRealMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.realmethod.DefaultRealMethod due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:================>             56%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:=================>            58%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%][MASTER] 12:31:33.154 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           60%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           61%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:==================>           63%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          65%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:===================>          66%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:====================>         68%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        70%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%][MASTER] 12:31:40.183 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:=====================>        71%] [Cov:==================>                52%][MASTER] 12:31:40.269 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.stubbing.StubbedInvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        71%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:=====================>        73%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       75%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:======================>       76%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%][MASTER] 12:31:44.107 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationMatcher due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:=======================>      78%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     80%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     81%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:========================>     83%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    85%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:=========================>    86%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:==========================>   88%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  90%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  91%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%][MASTER] 12:31:53.097 [logback-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.InvocationImpl due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for org.mockito.internal.invocation.SerializableMethod due to org.evosuite.ga.ConstructionFailedException: Have no generator for class org.mockito.internal.invocation.InvocationImpl canUseFunctionalMocks=false, canBeMocked: true
+
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:===========================>  93%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 95%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:============================> 96%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:=============================>98%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+[Progress:==============================100%] [Cov:==================>                52%]
+* Search finished after 61s and 533 generations, 198503 statements, best individual has fitness: 105.0611111111111
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 36%
+* Total number of goals: 69
+* Number of covered goals: 25
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 20%
+* Total number of goals: 69
+* Number of covered goals: 14
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 82%
+* Total number of goals: 11
+* Number of covered goals: 9
+* Generated 12 tests with total length 50
+* Resulting test suite's coverage: 52% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 3%
+* Compiling and checking tests
+* Writing tests to file
+* Writing JUnit test case 'InvocationMatcher_ESTest' to /work/evo_out/Mockito_1f/budget60_seed1/tests
+* Done!
+
+* Computation finished
+[MASTER] 12:30:57.530 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: jdk.Exported
+[MASTER] 12:30:57.530 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.530 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.WebParam
+[MASTER] 12:30:57.531 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.536 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.WebService
+[MASTER] 12:30:57.536 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.538 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.HandlerChain
+[MASTER] 12:30:57.538 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.539 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.WebMethod
+[MASTER] 12:30:57.539 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.540 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.WebResult
+[MASTER] 12:30:57.540 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.540 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.Oneway
+[MASTER] 12:30:57.540 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.544 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.soap.InitParam
+[MASTER] 12:30:57.544 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.546 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.soap.SOAPBinding
+[MASTER] 12:30:57.546 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.573 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.soap.SOAPMessageHandler
+[MASTER] 12:30:57.573 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+[MASTER] 12:30:57.574 [logback-2] ERROR ConcreteClassAnalyzer - Problem for org.mockito.internal.invocation.InvocationMatcher. Class not found: javax.jws.soap.SOAPMessageHandlers
+[MASTER] 12:30:57.574 [logback-2] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
+
+[exit=0 timeout=False time=70.5s]
+
+$ javac -nowarn -cp /work/Mockito_1f/build/classes/java/main:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_1f/build/classes/java/main:/work/Mockito_1f/build/classes/java/test:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_1f/compileLib/byte-buddy-0.6.8.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar -d /work/evo_out/Mockito_1f/budget60_seed1/classes /work/evo_out/Mockito_1f/budget60_seed1/tests/org/mockito/internal/invocation/InvocationMatcher_ESTest.java /work/evo_out/Mockito_1f/budget60_seed1/tests/org/mockito/internal/invocation/InvocationMatcher_ESTest_scaffolding.java
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar instrument /work/Mockito_1f/build/classes/java/main --dest /work/evo_out/Mockito_1f/budget60_seed1/instrumented
+[INFO] 393 classes instrumented to /work/evo_out/Mockito_1f/budget60_seed1/instrumented.
+
+[exit=0 timeout=False time=0.4s]
+
+$ java -Djacoco-agent.destfile=/workspace/EvoSuite/Result_Round1/Mockito_1/budget60_seed1/jacoco.exec -cp /work/evo_out/Mockito_1f/budget60_seed1/instrumented:/work/evo_out/Mockito_1f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_1f/build/classes/java/main:/work/Mockito_1f/build/classes/java/test:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_1f/compileLib/byte-buddy-0.6.8.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar:/opt/jacoco/lib/jacocoagent.jar org.junit.runner.JUnitCore org.mockito.internal.invocation.InvocationMatcher_ESTest
+JUnit version 4.12
+........
+Time: 1.351
+
+OK (8 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /workspace/EvoSuite/Result_Round1/Mockito_1/budget60_seed1/jacoco.exec --classfiles /work/Mockito_1f/build/classes/java/main --csv /workspace/EvoSuite/Result_Round1/Mockito_1/budget60_seed1/jacoco.csv
+[INFO] Loading execution data file /workspace/EvoSuite/Result_Round1/Mockito_1/budget60_seed1/jacoco.exec.
+[INFO] Analyzing 311 classes.
+
+[exit=0 timeout=False time=0.3s]
+
+$ java -cp /work/evo_out/Mockito_1f/budget60_seed1/classes:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_1b/build/classes/java/main:/work/Mockito_1b/build/classes/java/test:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/work/Mockito_1b/compileLib/byte-buddy-0.6.8.jar:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar org.junit.runner.JUnitCore org.mockito.internal.invocation.InvocationMatcher_ESTest
+JUnit version 4.12
+........
+Time: 0.953
+
+OK (8 tests)
+
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.evosuite.runtime.GuiSupport (file:/opt/evosuite/evosuite-standalone-runtime-1.2.0.jar) to field java.awt.GraphicsEnvironment.headless
+WARNING: Please consider reporting this to the maintainers of org.evosuite.runtime.GuiSupport
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[exit=0 timeout=False time=1.2s]
