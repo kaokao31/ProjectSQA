@@ -1,0 +1,1 @@
+I cannot generate the test suite without the source code of `XmlSerializerProvider`. Please provide the Java source file for `XmlSerializerProvider`.

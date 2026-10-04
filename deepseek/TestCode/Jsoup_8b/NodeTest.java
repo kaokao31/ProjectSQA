@@ -1,0 +1,1 @@
+I need the source code of the Java class to generate the corresponding `NodeTest.java` test suite. Please provide the content of the Java source file (e.g., `Node.java`).
