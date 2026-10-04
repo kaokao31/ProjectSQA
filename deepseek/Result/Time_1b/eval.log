@@ -1,0 +1,53 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_1f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_1f/target/test-classes -d /work/llm_out/deepseek/Time_1/classes_f /workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:61: error: no suitable method found for getMillis(ReadablePartial,long)
+        field.getMillis((ReadablePartial) null, 1000L);
+             ^
+    method UnsupportedDurationField.getMillis(int,long) is not applicable
+      (argument mismatch; ReadablePartial cannot be converted to int)
+    method UnsupportedDurationField.getMillis(long,long) is not applicable
+      (argument mismatch; ReadablePartial cannot be converted to long)
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:68: error: no suitable method found for getMillis(LocalDate,long)
+        field.getMillis(date, 1000L);
+             ^
+    method UnsupportedDurationField.getMillis(int,long) is not applicable
+      (argument mismatch; LocalDate cannot be converted to int)
+    method UnsupportedDurationField.getMillis(long,long) is not applicable
+      (argument mismatch; LocalDate cannot be converted to long)
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:86: error: incompatible types: ReadablePartial cannot be converted to long
+        field.getValue((ReadablePartial) null, 1000L);
+                       ^
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:93: error: incompatible types: LocalDate cannot be converted to long
+        field.getValue(date, 1000L);
+                       ^
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:99: error: incompatible types: ReadablePartial cannot be converted to long
+        field.getValueAsLong((ReadablePartial) null, 1000L);
+                             ^
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:118: error: no suitable method found for add(ReadablePartial,int,int[])
+        field.add((ReadablePartial) null, 0, values);
+             ^
+    method UnsupportedDurationField.add(long,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method UnsupportedDurationField.add(long,long) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:126: error: no suitable method found for add(LocalDate,int,int[])
+        field.add(date, 0, values);
+             ^
+    method UnsupportedDurationField.add(long,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method UnsupportedDurationField.add(long,long) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:132: error: cannot find symbol
+        field.addWrapField(1000L, 1);
+             ^
+  symbol:   method addWrapField(long,int)
+  location: variable field of type UnsupportedDurationField
+/workspace/deepseek/TestCode/Time_1b/UnsupportedDurationFieldTest.java:150: error: cannot find symbol
+        DurationField supported = DurationField.millis();
+                                               ^
+  symbol:   method millis()
+  location: class DurationField
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors
+
+[exit=1 timeout=False time=1.6s]
