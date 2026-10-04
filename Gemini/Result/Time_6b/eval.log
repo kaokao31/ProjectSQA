@@ -1,0 +1,20 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_6f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_6f/target/test-classes -d /work/llm_out/Gemini/Time_6/classes_f /workspace/Gemini/TestCode/Time_6b/GJChronologyTest.java
+/workspace/Gemini/TestCode/Time_6b/GJChronologyTest.java:31: error: cannot find symbol
+        GJChronology chrono5 = GJChronology.getInstance(zone, (ReadableInstant) null, 4);
+                                                               ^
+  symbol:   class ReadableInstant
+  location: class GJChronologyTest
+/workspace/Gemini/TestCode/Time_6b/GJChronologyTest.java:40: error: incompatible types: LocalDate cannot be converted to ReadableInstant
+        GJChronology chrono = GJChronology.getInstance(zone, cutoverDate);
+                                                             ^
+/workspace/Gemini/TestCode/Time_6b/GJChronologyTest.java:102: error: incompatible types: GregorianChronology cannot be converted to long
+        long translated = chrono.getDateTimeMillis(GregorianChronology.getInstance(), 2000, 1, 1, 0);
+                                                                                  ^
+/workspace/Gemini/TestCode/Time_6b/GJChronologyTest.java:110: error: incompatible types: LocalDate cannot be converted to ReadableInstant
+        GJChronology chrono = GJChronology.getInstance(zone, new LocalDate(1582, 10, 15));
+                                                             ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+4 errors
+
+[exit=1 timeout=False time=1.9s]

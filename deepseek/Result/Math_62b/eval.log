@@ -1,0 +1,61 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_62f/target/classes:/work/Math_62f/target/test-classes -d /work/llm_out/deepseek/Math_62/classes_f /workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java
+alOptimizer in class MultiStartUnivariateRealOptimizer<FUNC> cannot be applied to given types;
+        MultiStartUnivariateRealOptimizer single = new MultiStartUnivariateRealOptimizer(base, 1);
+                                                   ^
+  required: BaseUnivariateRealOptimizer,int,RandomGenerator
+  found: AbstractUnivariateRealOptimizer,int
+  reason: actual and formal argument lists differ in length
+  where FUNC is a type-variable:
+    FUNC extends UnivariateRealFunction declared in class MultiStartUnivariateRealOptimizer
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:208: error: cannot find symbol
+        assertEquals("Result should be near 2.0", 2.0, single.getResult(), 1e-5);
+                                                             ^
+  symbol:   method getResult()
+  location: variable single of type MultiStartUnivariateRealOptimizer
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:213: error: constructor BrentOptimizer in class BrentOptimizer cannot be applied to given types;
+        AbstractUnivariateRealOptimizer base = new BrentOptimizer();
+                                               ^
+  required: double,double
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:214: error: constructor MultiStartUnivariateRealOptimizer in class MultiStartUnivariateRealOptimizer<FUNC> cannot be applied to given types;
+        MultiStartUnivariateRealOptimizer many = new MultiStartUnivariateRealOptimizer(base, 100);
+                                                 ^
+  required: BaseUnivariateRealOptimizer,int,RandomGenerator
+  found: AbstractUnivariateRealOptimizer,int
+  reason: actual and formal argument lists differ in length
+  where FUNC is a type-variable:
+    FUNC extends UnivariateRealFunction declared in class MultiStartUnivariateRealOptimizer
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:216: error: cannot find symbol
+        assertEquals("Result should be near 2.0", 2.0, many.getResult(), 1e-5);
+                                                           ^
+  symbol:   method getResult()
+  location: variable many of type MultiStartUnivariateRealOptimizer
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:224: error: cannot find symbol
+        double result = optimizer.getResult();
+                                 ^
+  symbol:   method getResult()
+  location: variable optimizer of type MultiStartUnivariateRealOptimizer
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:227: error: cannot find symbol
+        assertEquals("Maximum value should be 1", 1.0, optimizer.getFunctionValue(), 1e-4);
+                                                                ^
+  symbol:   method getFunctionValue()
+  location: variable optimizer of type MultiStartUnivariateRealOptimizer
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:241: error: cannot find symbol
+        assertNotNull("Result should be finite", optimizer.getResult());
+                                                          ^
+  symbol:   method getResult()
+  location: variable optimizer of type MultiStartUnivariateRealOptimizer
+/workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java:257: error: cannot find symbol
+        double result = optimizer.getResult();
+                                 ^
+  symbol:   method getResult()
+  location: variable optimizer of type MultiStartUnivariateRealOptimizer
+Note: /workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /workspace/deepseek/TestCode/Math_62b/MultiStartUnivariateRealOptimizerTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+32 errors
+
+[exit=1 timeout=False time=1.5s]

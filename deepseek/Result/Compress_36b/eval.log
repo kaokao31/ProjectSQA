@@ -1,0 +1,138 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_36f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-core/1.6.4/powermock-core-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-reflect/1.6.4/powermock-reflect-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-mockito/1.6.4/powermock-api-mockito-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/opt/defects4j/framework/projects/Compress/lib/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-support/1.6.4/powermock-api-support-1.6.4.jar:/work/Compress_36f/target/test-classes -d /work/llm_out/deepseek/Compress_36/classes_f /workspace/deepseek/TestCode/Compress_36b/SevenZFileTest.java
+
+[exit=0 timeout=False time=1.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_36b/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-core/1.6.4/powermock-core-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-reflect/1.6.4/powermock-reflect-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-mockito/1.6.4/powermock-api-mockito-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/opt/defects4j/framework/projects/Compress/lib/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-support/1.6.4/powermock-api-support-1.6.4.jar:/work/Compress_36b/target/test-classes -d /work/llm_out/deepseek/Compress_36/classes_b /workspace/deepseek/TestCode/Compress_36b/SevenZFileTest.java
+
+[exit=0 timeout=False time=1.7s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Compress_36/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Compress_36/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_36f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-core/1.6.4/powermock-core-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-reflect/1.6.4/powermock-reflect-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-mockito/1.6.4/powermock-api-mockito-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/opt/defects4j/framework/projects/Compress/lib/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-support/1.6.4/powermock-api-support-1.6.4.jar:/work/Compress_36f/target/test-classes --scan-class-path /work/llm_out/deepseek/Compress_36/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Compress_36/rep_f
+FileTest', methodName = 'testMultipleEntries', methodParameterTypes = '']
+    => java.io.EOFException
+       java.base/java.io.RandomAccessFile.readByte(RandomAccessFile.java:703)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.readHeaders(SevenZFile.java:185)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:100)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:122)
+       org.apache.commons.compress.archivers.sevenz.SevenZFileTest.testMultipleEntries(SevenZFileTest.java:103)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:SevenZFileTest:testGetNextEntryAfterEnd
+    MethodSource [className = 'org.apache.commons.compress.archivers.sevenz.SevenZFileTest', methodName = 'testGetNextEntryAfterEnd', methodParameterTypes = '']
+    => java.io.EOFException
+       java.base/java.io.RandomAccessFile.readByte(RandomAccessFile.java:703)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.readHeaders(SevenZFile.java:185)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:100)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:122)
+       org.apache.commons.compress.archivers.sevenz.SevenZFileTest.testGetNextEntryAfterEnd(SevenZFileTest.java:121)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:SevenZFileTest:testReadNullBuffer
+    MethodSource [className = 'org.apache.commons.compress.archivers.sevenz.SevenZFileTest', methodName = 'testReadNullBuffer', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.NullPointerException> but was<java.io.EOFException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+       org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:258)
+       org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+       [...]
+     Caused by: java.io.EOFException
+       java.base/java.io.RandomAccessFile.readByte(RandomAccessFile.java:703)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.readHeaders(SevenZFile.java:185)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:100)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:122)
+       org.apache.commons.compress.archivers.sevenz.SevenZFileTest.testReadNullBuffer(SevenZFileTest.java:133)
+       [...]
+
+Test run finished after 519 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        12 tests found           ]
+[         0 tests skipped         ]
+[        12 tests started         ]
+[         0 tests aborted         ]
+[         4 tests successful      ]
+[         8 tests failed          ]
+
+
+[exit=1 timeout=False time=3.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Compress_36/jacoco.exec --classfiles /work/Compress_36f/target/classes --csv /work/llm_out/deepseek/Compress_36/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Compress_36/jacoco.exec.
+[INFO] Analyzing 213 classes.
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Compress_36/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_36b/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-core/1.6.4/powermock-core-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-reflect/1.6.4/powermock-reflect-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-mockito/1.6.4/powermock-api-mockito-1.6.4.jar:/opt/defects4j/framework/projects/Compress/lib/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/opt/defects4j/framework/projects/Compress/lib/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/opt/defects4j/framework/projects/Compress/lib/org/powermock/powermock-api-support/1.6.4/powermock-api-support-1.6.4.jar:/work/Compress_36b/target/test-classes --scan-class-path /work/llm_out/deepseek/Compress_36/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Compress_36/rep_b
+FileTest', methodName = 'testMultipleEntries', methodParameterTypes = '']
+    => java.io.EOFException
+       java.base/java.io.RandomAccessFile.readByte(RandomAccessFile.java:703)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.readHeaders(SevenZFile.java:185)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:100)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:122)
+       org.apache.commons.compress.archivers.sevenz.SevenZFileTest.testMultipleEntries(SevenZFileTest.java:103)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:SevenZFileTest:testGetNextEntryAfterEnd
+    MethodSource [className = 'org.apache.commons.compress.archivers.sevenz.SevenZFileTest', methodName = 'testGetNextEntryAfterEnd', methodParameterTypes = '']
+    => java.io.EOFException
+       java.base/java.io.RandomAccessFile.readByte(RandomAccessFile.java:703)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.readHeaders(SevenZFile.java:185)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:100)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:122)
+       org.apache.commons.compress.archivers.sevenz.SevenZFileTest.testGetNextEntryAfterEnd(SevenZFileTest.java:121)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:SevenZFileTest:testReadNullBuffer
+    MethodSource [className = 'org.apache.commons.compress.archivers.sevenz.SevenZFileTest', methodName = 'testReadNullBuffer', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.NullPointerException> but was<java.io.EOFException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+       org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:258)
+       org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+       [...]
+     Caused by: java.io.EOFException
+       java.base/java.io.RandomAccessFile.readByte(RandomAccessFile.java:703)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.readHeaders(SevenZFile.java:185)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:100)
+       org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>(SevenZFile.java:122)
+       org.apache.commons.compress.archivers.sevenz.SevenZFileTest.testReadNullBuffer(SevenZFileTest.java:133)
+       [...]
+
+Test run finished after 375 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        12 tests found           ]
+[         0 tests skipped         ]
+[        12 tests started         ]
+[         0 tests aborted         ]
+[         4 tests successful      ]
+[         8 tests failed          ]
+
+
+[exit=1 timeout=False time=2.5s]

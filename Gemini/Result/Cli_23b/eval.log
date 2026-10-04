@@ -1,0 +1,45 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_23f/target/classes:/work/Cli_23f/target/test-classes -d /work/llm_out/Gemini/Cli_23/classes_f /workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:91: error: cannot find symbol
+        options.addOption(Option.builder("b").longOpt("beta").desc("beta option").build());
+                                ^
+  symbol:   method builder(String)
+  location: class Option
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:142: error: incompatible types: PrintWriter cannot be converted to StringBuffer
+        formatter.renderWrappedText(pw, 40, 5, text);
+                                    ^
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:157: error: incompatible types: PrintWriter cannot be converted to StringBuffer
+        formatter.renderWrappedText(pw, 20, 0, text);
+                                    ^
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:175: error: cannot find symbol
+        String trimmed = HelpFormatter.defaultIgnoreCaseFlag ? formatter.stripLeadingSpaces(padded) : formatter.stripLeadingSpaces(padded);
+                                      ^
+  symbol:   variable defaultIgnoreCaseFlag
+  location: class HelpFormatter
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:175: error: cannot find symbol
+        String trimmed = HelpFormatter.defaultIgnoreCaseFlag ? formatter.stripLeadingSpaces(padded) : formatter.stripLeadingSpaces(padded);
+                                                                        ^
+  symbol:   method stripLeadingSpaces(String)
+  location: variable formatter of type HelpFormatter
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:175: error: cannot find symbol
+        String trimmed = HelpFormatter.defaultIgnoreCaseFlag ? formatter.stripLeadingSpaces(padded) : formatter.stripLeadingSpaces(padded);
+                                                                                                               ^
+  symbol:   method stripLeadingSpaces(String)
+  location: variable formatter of type HelpFormatter
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:177: error: cannot find symbol
+        assertEquals("trim me", formatter.stripLeadingSpaces(padded));
+                                         ^
+  symbol:   method stripLeadingSpaces(String)
+  location: variable formatter of type HelpFormatter
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:182: error: OptionComparator has private access in HelpFormatter
+        HelpFormatter.OptionComparator comp = new HelpFormatter.OptionComparator();
+                     ^
+/workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java:182: error: OptionComparator has private access in HelpFormatter
+        HelpFormatter.OptionComparator comp = new HelpFormatter.OptionComparator();
+                                                               ^
+Note: /workspace/Gemini/TestCode/Cli_23b/HelpFormatterTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors
+
+[exit=1 timeout=False time=1.2s]

@@ -1,0 +1,140 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_46f/target/classes:/work/Lang_46f/target/tests:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar -d /work/llm_out/deepseek/Lang_46/classes_f /workspace/deepseek/TestCode/Lang_46b/StringEscapeUtilsTest.java
+
+[exit=0 timeout=False time=1.4s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_46b/target/classes:/work/Lang_46b/target/tests:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar -d /work/llm_out/deepseek/Lang_46/classes_b /workspace/deepseek/TestCode/Lang_46b/StringEscapeUtilsTest.java
+
+[exit=0 timeout=False time=1.5s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Lang_46/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Lang_46/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_46f/target/classes:/work/Lang_46f/target/tests:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --scan-class-path /work/llm_out/deepseek/Lang_46/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Lang_46/rep_f
+orkMethod.java:56)
+       [...]
+  JUnit Vintage:StringEscapeUtilsTest:testEscapeHtmlHighUnicode
+    MethodSource [className = 'org.apache.commons.lang.StringEscapeUtilsTest', methodName = 'testEscapeHtmlHighUnicode', methodParameterTypes = '']
+    => org.junit.ComparisonFailure: expected:<&[#169];> but was:<&[copy];>
+       org.junit.Assert.assertEquals(Assert.java:117)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang.StringEscapeUtilsTest.testEscapeHtmlHighUnicode(StringEscapeUtilsTest.java:304)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+  JUnit Vintage:StringEscapeUtilsTest:testEscapeJavaScriptMixed
+    MethodSource [className = 'org.apache.commons.lang.StringEscapeUtilsTest', methodName = 'testEscapeJavaScriptMixed', methodParameterTypes = '']
+    => org.junit.ComparisonFailure: expected:<a[]/b\\c\"d\'e\tf\ng> but was:<a[\]/b\\c\"d\'e\tf\ng>
+       org.junit.Assert.assertEquals(Assert.java:117)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang.StringEscapeUtilsTest.testEscapeJavaScriptMixed(StringEscapeUtilsTest.java:258)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+  JUnit Vintage:StringEscapeUtilsTest:testUnescapeJavaInvalidUnicode
+    MethodSource [className = 'org.apache.commons.lang.StringEscapeUtilsTest', methodName = 'testUnescapeJavaInvalidUnicode', methodParameterTypes = '']
+    => org.apache.commons.lang.exception.NestableRuntimeException: Unable to parse unicode value: GGGG
+       org.apache.commons.lang.StringEscapeUtils.unescapeJava(StringEscapeUtils.java:335)
+       org.apache.commons.lang.StringEscapeUtils.unescapeJava(StringEscapeUtils.java:284)
+       org.apache.commons.lang.StringEscapeUtilsTest.testUnescapeJavaInvalidUnicode(StringEscapeUtilsTest.java:290)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+     Caused by: java.lang.NumberFormatException: For input string: "GGGG"
+       java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+       java.base/java.lang.Integer.parseInt(Integer.java:652)
+       org.apache.commons.lang.StringEscapeUtils.unescapeJava(StringEscapeUtils.java:329)
+       [...]
+
+Test run finished after 411 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        45 tests found           ]
+[         0 tests skipped         ]
+[        45 tests started         ]
+[         0 tests aborted         ]
+[        36 tests successful      ]
+[         9 tests failed          ]
+
+
+[exit=1 timeout=False time=2.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Lang_46/jacoco.exec --classfiles /work/Lang_46f/target/classes --csv /work/llm_out/deepseek/Lang_46/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Lang_46/jacoco.exec.
+[INFO] Analyzing 121 classes.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Lang_46/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_46b/target/classes:/work/Lang_46b/target/tests:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --scan-class-path /work/llm_out/deepseek/Lang_46/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Lang_46/rep_b
+orkMethod.java:56)
+       [...]
+  JUnit Vintage:StringEscapeUtilsTest:testEscapeHtmlHighUnicode
+    MethodSource [className = 'org.apache.commons.lang.StringEscapeUtilsTest', methodName = 'testEscapeHtmlHighUnicode', methodParameterTypes = '']
+    => org.junit.ComparisonFailure: expected:<&[#169];> but was:<&[copy];>
+       org.junit.Assert.assertEquals(Assert.java:117)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang.StringEscapeUtilsTest.testEscapeHtmlHighUnicode(StringEscapeUtilsTest.java:304)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+  JUnit Vintage:StringEscapeUtilsTest:testEscapeJavaScriptMixed
+    MethodSource [className = 'org.apache.commons.lang.StringEscapeUtilsTest', methodName = 'testEscapeJavaScriptMixed', methodParameterTypes = '']
+    => org.junit.ComparisonFailure: expected:<a[]/b\\c\"d\'e\tf\ng> but was:<a[\]/b\\c\"d\'e\tf\ng>
+       org.junit.Assert.assertEquals(Assert.java:117)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang.StringEscapeUtilsTest.testEscapeJavaScriptMixed(StringEscapeUtilsTest.java:258)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+  JUnit Vintage:StringEscapeUtilsTest:testUnescapeJavaInvalidUnicode
+    MethodSource [className = 'org.apache.commons.lang.StringEscapeUtilsTest', methodName = 'testUnescapeJavaInvalidUnicode', methodParameterTypes = '']
+    => org.apache.commons.lang.exception.NestableRuntimeException: Unable to parse unicode value: GGGG
+       org.apache.commons.lang.StringEscapeUtils.unescapeJava(StringEscapeUtils.java:332)
+       org.apache.commons.lang.StringEscapeUtils.unescapeJava(StringEscapeUtils.java:281)
+       org.apache.commons.lang.StringEscapeUtilsTest.testUnescapeJavaInvalidUnicode(StringEscapeUtilsTest.java:290)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+     Caused by: java.lang.NumberFormatException: For input string: "GGGG"
+       java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+       java.base/java.lang.Integer.parseInt(Integer.java:652)
+       org.apache.commons.lang.StringEscapeUtils.unescapeJava(StringEscapeUtils.java:326)
+       [...]
+
+Test run finished after 254 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        45 tests found           ]
+[         0 tests skipped         ]
+[        45 tests started         ]
+[         0 tests aborted         ]
+[        34 tests successful      ]
+[        11 tests failed          ]
+
+
+[exit=1 timeout=False time=1.9s]

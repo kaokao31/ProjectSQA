@@ -1,0 +1,58 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_11f/build/classes:/work/Closure_11f/lib/args4j.jar:/work/Closure_11f/lib/guava.jar:/work/Closure_11f/lib/json.jar:/work/Closure_11f/lib/jsr305.jar:/work/Closure_11f/lib/protobuf-java.jar:/work/Closure_11f/build/lib/rhino.jar:/work/Closure_11f/lib/ant.jar:/work/Closure_11f/lib/ant-launcher.jar:/work/Closure_11f/lib/caja-r4314.jar:/work/Closure_11f/lib/jarjar.jar:/work/Closure_11f/build/test -d /work/llm_out/deepseek/Closure_11/classes_f /workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java
+ssignOps = {Token.ASSIGN, Token.ASSIGN_ADD, Token.ASSIGN_SUB, Token.ASSIGN_MUL,
+                                           ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:556: error: incompatible types: int cannot be converted to Node
+    Node[] assignOps = {Token.ASSIGN, Token.ASSIGN_ADD, Token.ASSIGN_SUB, Token.ASSIGN_MUL,
+                                                             ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:556: error: incompatible types: int cannot be converted to Node
+    Node[] assignOps = {Token.ASSIGN, Token.ASSIGN_ADD, Token.ASSIGN_SUB, Token.ASSIGN_MUL,
+                                                                               ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:557: error: incompatible types: int cannot be converted to Node
+                        Token.ASSIGN_DIV, Token.ASSIGN_MOD, Token.ASSIGN_SHL, Token.ASSIGN_SHR,
+                             ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:557: error: incompatible types: int cannot be converted to Node
+                        Token.ASSIGN_DIV, Token.ASSIGN_MOD, Token.ASSIGN_SHL, Token.ASSIGN_SHR,
+                                               ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:557: error: cannot find symbol
+                        Token.ASSIGN_DIV, Token.ASSIGN_MOD, Token.ASSIGN_SHL, Token.ASSIGN_SHR,
+                                                                 ^
+  symbol:   variable ASSIGN_SHL
+  location: class Token
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:557: error: cannot find symbol
+                        Token.ASSIGN_DIV, Token.ASSIGN_MOD, Token.ASSIGN_SHL, Token.ASSIGN_SHR,
+                                                                                   ^
+  symbol:   variable ASSIGN_SHR
+  location: class Token
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:558: error: cannot find symbol
+                        Token.ASSIGN_USHR, Token.ASSIGN_BITAND, Token.ASSIGN_BITOR, Token.ASSIGN_BITXOR};
+                             ^
+  symbol:   variable ASSIGN_USHR
+  location: class Token
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:558: error: incompatible types: int cannot be converted to Node
+                        Token.ASSIGN_USHR, Token.ASSIGN_BITAND, Token.ASSIGN_BITOR, Token.ASSIGN_BITXOR};
+                                                ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:558: error: incompatible types: int cannot be converted to Node
+                        Token.ASSIGN_USHR, Token.ASSIGN_BITAND, Token.ASSIGN_BITOR, Token.ASSIGN_BITXOR};
+                                                                     ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:558: error: incompatible types: int cannot be converted to Node
+                        Token.ASSIGN_USHR, Token.ASSIGN_BITAND, Token.ASSIGN_BITOR, Token.ASSIGN_BITXOR};
+                                                                                         ^
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:559: error: no suitable constructor found for Node(int,String)
+    Node target = new Node(Token.NAME, "x");
+                  ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_11b/TypeCheckTest.java:560: error: no suitable constructor found for Node(int,double)
+    Node source = new Node(Token.NUMBER, 10.0);
+                  ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; double cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; double cannot be converted to Node[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+
+[exit=1 timeout=False time=2.3s]

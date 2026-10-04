@@ -1,0 +1,67 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_80f/build/classes:/work/Closure_80f/lib/args4j.jar:/work/Closure_80f/lib/guava.jar:/work/Closure_80f/lib/jsr305.jar:/work/Closure_80f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_80f/lib/protobuf-java.jar:/work/Closure_80f/lib/ant.jar:/work/Closure_80f/lib/ant-launcher.jar:/work/Closure_80f/lib/caja-r4314.jar:/work/Closure_80f/lib/json.jar:/work/Closure_80f/build/test -d /work/llm_out/Gemini/Closure_80/classes_f /workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java
+e(int,Node) is not applicable
+      (argument mismatch; double cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; double cannot be converted to Node[])
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:221: error: no suitable constructor found for Node(int,String)
+        Node nameNode = new Node(Token.NAME, "a");
+                        ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:228: error: no suitable constructor found for Node(int,String)
+        Node nameNode = new Node(Token.NAME, "x");
+                        ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:229: error: no suitable constructor found for Node(int,double)
+        Node assignNode = new Node(Token.ASSIGN, nameNode, new Node(Token.NUMBER, 1.0));
+                                                           ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; double cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; double cannot be converted to Node[])
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:231: error: cannot find symbol
+        assertSame(nameNode, NodeUtil.getBestLValue(assignNode));
+                                     ^
+  symbol:   method getBestLValue(Node)
+  location: class NodeUtil
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:232: error: cannot find symbol
+        assertNull(NodeUtil.getBestLValue(new Node(Token.NUMBER)));
+                           ^
+  symbol:   method getBestLValue(Node)
+  location: class NodeUtil
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:237: error: no suitable constructor found for Node(int,String)
+        Node getprop = new Node(Token.GETPROP, new Node(Token.NAME, "a"), new Node(Token.STRING, "b"));
+                                               ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:237: error: no suitable constructor found for Node(int,String)
+        Node getprop = new Node(Token.GETPROP, new Node(Token.NAME, "a"), new Node(Token.STRING, "b"));
+                                                                          ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:238: error: no suitable constructor found for Node(int,double)
+        Node assignNode = new Node(Token.ASSIGN, getprop, new Node(Token.NUMBER, 1.0));
+                                                          ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; double cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; double cannot be converted to Node[])
+/workspace/Gemini/TestCode/Closure_80b/NodeUtilTest.java:240: error: cannot find symbol
+        assertNotNull(NodeUtil.getBestLValueOwner(assignNode));
+                              ^
+  symbol:   method getBestLValueOwner(Node)
+  location: class NodeUtil
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+32 errors
+
+[exit=1 timeout=False time=2.1s]

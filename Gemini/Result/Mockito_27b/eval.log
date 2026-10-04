@@ -1,0 +1,60 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_27f/target/classes:/work/Mockito_27f/target/test-classes:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar -d /work/llm_out/Gemini/Mockito_27/classes_f /workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:5: error: cannot find symbol
+import org.mockito.internal.util.reflection.LenientCopyer;
+                                           ^
+  symbol:   class LenientCopyer
+  location: package org.mockito.internal.util.reflection
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:15: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertFalse(MockUtil.isMock(null));
+                            ^
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:20: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertFalse(MockUtil.isMock("Not a mock"));
+                            ^
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:25: error: cannot find symbol
+        assertFalse(MockUtil.isSpy(null));
+                            ^
+  symbol:   method isSpy(<null>)
+  location: class MockUtil
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:30: error: cannot find symbol
+        assertFalse(MockUtil.isSpy("Not a spy"));
+                            ^
+  symbol:   method isSpy(String)
+  location: class MockUtil
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:37: error: non-static method getMockName(Object) cannot be referenced from a static context
+            MockUtil.getMockName(null);
+                    ^
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:46: error: non-static method <T>getMockHandler(T) cannot be referenced from a static context
+            MockUtil.getMockHandler(null);
+                    ^
+  where T is a type-variable:
+    T extends Object declared in method <T>getMockHandler(T)
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:57: error: non-static method <T>resetMock(T) cannot be referenced from a static context
+            MockUtil.resetMock(dummy);
+                    ^
+  where T is a type-variable:
+    T extends Object declared in method <T>resetMock(T)
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:66: error: cannot find symbol
+        settings.setTypeToMock(ListMockDummy.class);
+                ^
+  symbol:   method setTypeToMock(Class<ListMockDummy>)
+  location: variable settings of type MockSettingsImpl
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:69: error: non-static method <T>createMock(Class<T>,MockSettingsImpl) cannot be referenced from a static context
+            ListMockDummy mock = MockUtil.createMock(ListMockDummy.class, settings);
+                                         ^
+  where T is a type-variable:
+    T extends Object declared in method <T>createMock(Class<T>,MockSettingsImpl)
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:71: error: non-static method isMock(Object) cannot be referenced from a static context
+            assertTrue(MockUtil.isMock(mock));
+                               ^
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:72: error: non-static method getMockName(Object) cannot be referenced from a static context
+            assertNotNull(MockUtil.getMockName(mock));
+                                  ^
+/workspace/Gemini/TestCode/Mockito_27b/MockUtilTest.java:73: error: non-static method <T>getMockHandler(T) cannot be referenced from a static context
+            assertNotNull(MockUtil.getMockHandler(mock));
+                                  ^
+  where T is a type-variable:
+    T extends Object declared in method <T>getMockHandler(T)
+13 errors
+
+[exit=1 timeout=False time=2.5s]

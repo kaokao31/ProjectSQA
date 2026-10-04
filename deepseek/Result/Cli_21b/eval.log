@@ -1,0 +1,62 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_21f/target/classes:/work/Cli_21f/target/lib/commons-lang/jars/commons-lang-2.1.jar:/work/Cli_21f/target/lib/jdepend/jars/jdepend-2.5.jar:/work/Cli_21f/target/test-classes -d /work/llm_out/deepseek/Cli_21/classes_f /workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java
+andLineTest.java:260: error: incompatible types: String[] cannot be converted to List
+        commandLine.setDefaultValues(option, new String[]{"default"});
+                                             ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:261: error: cannot find symbol
+        List<String> defaults = commandLine.getDefaultValues(option);
+                                           ^
+  symbol:   method getDefaultValues(Option)
+  location: variable commandLine of type WriteableCommandLine
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:274: error: incompatible types: Set cannot be converted to Properties
+        Properties props = commandLine.getProperties(option);
+                                                    ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:303: error: incompatible types: String[] cannot be converted to List
+        commandLine.setDefaultValues(null, new String[]{"default"});
+                                           ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:304: error: cannot find symbol
+        List<String> defaults = commandLine.getDefaultValues(null);
+                                           ^
+  symbol:   method getDefaultValues(<null>)
+  location: variable commandLine of type WriteableCommandLine
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:317: error: incompatible types: Set cannot be converted to Properties
+        Properties props = commandLine.getProperties(null);
+                                                    ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:325: error: incompatible types: Set cannot be converted to Properties
+        Properties props = commandLine.getProperties(option);
+                                                    ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:343: error: incompatible types: String[] cannot be converted to List
+        commandLine.setDefaultValues(option, new String[]{"defaultValue"});
+                                             ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:352: error: incompatible types: String[] cannot be converted to List
+        commandLine.setDefaultValues(option, new String[]{"default1", "default2"});
+                                             ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:362: error: incompatible types: String[] cannot be converted to List
+        commandLine.setDefaultValues(option, new String[]{"default1", "default2"});
+                                             ^
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:370: error: cannot find symbol
+        Option nullTriggerOption = new Option.Builder().withLongName("test").create();
+                                             ^
+  symbol:   class Builder
+  location: interface Option
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:377: error: cannot find symbol
+        Option optionA = new Option.Builder().withLongName("same").create();
+                                   ^
+  symbol:   class Builder
+  location: interface Option
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:378: error: cannot find symbol
+        Option optionB = new Option.Builder().withLongName("same").create();
+                                   ^
+  symbol:   class Builder
+  location: interface Option
+/workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java:406: error: cannot find symbol
+        Option sameOption = new Option.Builder().withLongName("verbose").create();
+                                      ^
+  symbol:   class Builder
+  location: interface Option
+Note: /workspace/deepseek/TestCode/Cli_21b/WriteableCommandLineTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+36 errors
+
+[exit=1 timeout=False time=1.8s]

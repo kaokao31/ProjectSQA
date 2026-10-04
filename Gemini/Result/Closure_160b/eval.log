@@ -1,0 +1,31 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_160f/build/classes:/work/Closure_160f/lib/args4j.jar:/work/Closure_160f/lib/guava.jar:/work/Closure_160f/lib/json.jar:/work/Closure_160f/lib/jsr305.jar:/work/Closure_160f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_160f/lib/protobuf-java.jar:/work/Closure_160f/lib/ant.jar:/work/Closure_160f/lib/ant-launcher.jar:/work/Closure_160f/lib/caja-r4314.jar:/work/Closure_160f/build/test -d /work/llm_out/Gemini/Closure_160/classes_f /workspace/Gemini/TestCode/Closure_160b/CompilerTest.java
+/workspace/Gemini/TestCode/Closure_160b/CompilerTest.java:30: error: cannot find symbol
+        Assert.assertEquals(Level.INFO, Compiler.getLogger().getLevel());
+                                                ^
+  symbol:   method getLogger()
+  location: class Compiler
+/workspace/Gemini/TestCode/Closure_160b/CompilerTest.java:44: error: cannot find symbol
+        Node root = new Node(Token.BLOCK);
+                             ^
+  symbol:   variable Token
+  location: class CompilerTest
+/workspace/Gemini/TestCode/Closure_160b/CompilerTest.java:45: error: cannot find symbol
+        Node script = new Node(Token.SCRIPT);
+                               ^
+  symbol:   variable Token
+  location: class CompilerTest
+/workspace/Gemini/TestCode/Closure_160b/CompilerTest.java:48: error: runSanityCheck() has private access in Compiler
+        compiler.runSanityCheck();
+                ^
+/workspace/Gemini/TestCode/Closure_160b/CompilerTest.java:58: error: cannot find symbol
+        Assert.assertFalse(compiler.hasWarnings());
+                                   ^
+  symbol:   method hasWarnings()
+  location: variable compiler of type Compiler
+/workspace/Gemini/TestCode/Closure_160b/CompilerTest.java:88: error: getSourceFileByName(String) has private access in Compiler
+        Assert.assertNull(compiler.getSourceFileByName("nonexistent.js"));
+                                  ^
+6 errors
+
+[exit=1 timeout=False time=3.9s]

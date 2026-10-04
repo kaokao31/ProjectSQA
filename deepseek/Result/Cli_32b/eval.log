@@ -1,0 +1,67 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_32f/target/classes:/work/Cli_32f/target/test-classes -d /work/llm_out/deepseek/Cli_32/classes_f /workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java
+deepseek/TestCode/Cli_32b/HelpFormatterTest.java:487: error: cannot find symbol
+        options.addOption(Option.builder("a").hasArg().desc("desc").build());
+                                ^
+  symbol:   method builder(String)
+  location: class Option
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:496: error: cannot find symbol
+        formatter.setHelpOption(helpOpt);
+                 ^
+  symbol:   method setHelpOption(Option)
+  location: variable formatter of type HelpFormatter
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:497: error: cannot find symbol
+        assertSame(helpOpt, formatter.getHelpOption());
+                                     ^
+  symbol:   method getHelpOption()
+  location: variable formatter of type HelpFormatter
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:515: error: cannot find symbol
+        Option opt = Option.builder("a").longOpt("alpha").hasArg().argName("VERY_LONG_ARGUMENT_NAME").desc("desc").build();
+                           ^
+  symbol:   method builder(String)
+  location: class Option
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:518: error: incompatible types: PrintWriter cannot be converted to String
+        formatter.printHelp(pw, "app", options);
+                            ^
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:526: error: cannot find symbol
+        Option opt = Option.builder("a").longOpt("alpha").hasArg().argName("LONG").desc("This is a very long description that should wrap but still show the option and argument correctly with proper alignment.").build();
+                           ^
+  symbol:   method builder(String)
+  location: class Option
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:529: error: incompatible types: PrintWriter cannot be converted to String
+        formatter.printHelp(pw, "app", options);
+                            ^
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:537: error: cannot find symbol
+        Option opt = Option.builder().longOpt("alpha").hasArg().argName("A_LONG_ARGUMENT_NAME").desc("desc").build();
+                           ^
+  symbol:   method builder()
+  location: class Option
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:540: error: incompatible types: PrintWriter cannot be converted to String
+        formatter.printHelp(pw, "app", options);
+                            ^
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:547: error: cannot find symbol
+        options.addOption(Option.builder("a").longOpt("alpha").hasArg().argName("ARG1").desc("desc1").build());
+                                ^
+  symbol:   method builder(String)
+  location: class Option
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:548: error: cannot find symbol
+        options.addOption(Option.builder("b").longOpt("beta").hasArg().argName("A_VERY_LONG_ARGUMENT_NAME_EXCEEDING_WIDTH").desc("desc2").build());
+                                ^
+  symbol:   method builder(String)
+  location: class Option
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:550: error: incompatible types: PrintWriter cannot be converted to String
+        formatter.printHelp(pw, "app", options);
+                            ^
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:561: error: incompatible types: PrintWriter cannot be converted to String
+        formatter.printHelp(pw, "", options);
+                            ^
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:571: error: incompatible types: PrintWriter cannot be converted to String
+            formatter.printHelp(pw, null, options);
+                                ^
+/workspace/deepseek/TestCode/Cli_32b/HelpFormatterTest.java:586: error: incompatible types: PrintWriter cannot be converted to String
+        formatter.printHelp(writer, "app", options);
+                            ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+35 errors
+
+[exit=1 timeout=False time=1.7s]

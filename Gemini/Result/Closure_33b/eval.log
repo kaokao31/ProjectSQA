@@ -1,0 +1,61 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_33f/build/classes:/work/Closure_33f/lib/args4j.jar:/work/Closure_33f/lib/guava.jar:/work/Closure_33f/lib/json.jar:/work/Closure_33f/lib/jsr305.jar:/work/Closure_33f/lib/protobuf-java.jar:/work/Closure_33f/build/lib/rhino.jar:/work/Closure_33f/lib/ant.jar:/work/Closure_33f/lib/ant-launcher.jar:/work/Closure_33f/lib/caja-r4314.jar:/work/Closure_33f/lib/jarjar.jar:/work/Closure_33f/build/test -d /work/llm_out/Gemini/Closure_33/classes_f /workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:15: error: cannot find symbol
+        registry = new JSTypeRegistry(new ErrorReporter() {
+                                          ^
+  symbol:   class ErrorReporter
+  location: class PrototypeObjectTypeTest
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:16: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:19: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:52: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+        prototypeObjectType.defineDeclaredProperty("testProp", registry.getNativeType(JSTypeNative.NUMBER_TYPE), false, null);
+                           ^
+  required: String,JSType,Node
+  found: String,JSType,boolean,<null>
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:54: error: cannot find symbol
+        assertTrue(prototypeObjectType.hasOwnDirectProperty("testProp"));
+                                      ^
+  symbol:   method hasOwnDirectProperty(String)
+  location: variable prototypeObjectType of type PrototypeObjectType
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:62: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+        prototypeObjectType.defineDeclaredProperty("prop1", registry.getNativeType(JSTypeNative.STRING_TYPE), true, null);
+                           ^
+  required: String,JSType,Node
+  found: String,JSType,boolean,<null>
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:71: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+        prototypeObjectType.defineDeclaredProperty("propToRemove", registry.getNativeType(JSTypeNative.BOOLEAN_TYPE), false, null);
+                           ^
+  required: String,JSType,Node
+  found: String,JSType,boolean,<null>
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:80: error: cannot find symbol
+        String debugStr = prototypeObjectType.toDebugString();
+                                             ^
+  symbol:   method toDebugString()
+  location: variable prototypeObjectType of type PrototypeObjectType
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:99: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+        prototypeObjectType.defineDeclaredProperty("typedProp", registry.getNativeType(JSTypeNative.NUMBER_TYPE), false, null);
+                           ^
+  required: String,JSType,Node
+  found: String,JSType,boolean,<null>
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:107: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+        prototypeObjectType.defineDeclaredProperty("nodeProp", registry.getNativeType(JSTypeNative.VOID_TYPE), false, null);
+                           ^
+  required: String,JSType,Node
+  found: String,JSType,boolean,<null>
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Closure_33b/PrototypeObjectTypeTest.java:114: error: cannot find symbol
+        assertFalse(prototypeObjectType.isStructural());
+                                       ^
+  symbol:   method isStructural()
+  location: variable prototypeObjectType of type PrototypeObjectType
+11 errors
+
+[exit=1 timeout=False time=1.7s]

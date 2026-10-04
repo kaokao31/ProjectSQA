@@ -1,0 +1,43 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_13f/target/classes:/work/Lang_13f/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar -d /work/llm_out/deepseek/Lang_13/classes_f /workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:55: error: incompatible types: Object cannot be converted to String
+        String deserialized = SerializationUtils.deserialize(serializedString);
+                                                            ^
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:77: error: incompatible types: List<String> cannot be converted to Serializable
+        byte[] data = SerializationUtils.serialize(TEST_LIST);
+                                                   ^
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:78: error: incompatible types: Object cannot be converted to List<?>
+        List<?> result = SerializationUtils.deserialize(data);
+                                                       ^
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:108: error: incompatible types: Object cannot be converted to String
+        String result = SerializationUtils.deserialize(bis);
+                                                      ^
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:157: error: method clone in class SerializationUtils cannot be applied to given types;
+        SerializationUtils.clone(nonSerializable);
+                          ^
+  required: T
+  found: Object
+  reason: inference variable T has incompatible bounds
+    lower bounds: Serializable
+    lower bounds: Object
+  where T is a type-variable:
+    T extends Serializable declared in method <T>clone(T)
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:210: error: incompatible types: Object cannot be converted to String[]
+        String[] result = SerializationUtils.deserialize(data);
+                                                        ^
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:218: error: incompatible types: Object cannot be converted to String[]
+        String[] result = SerializationUtils.deserialize(data);
+                                                        ^
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:245: error: read(byte[],int,int) in <anonymous org.apache.commons.lang3.SerializationUtilsTest$1> cannot override read(byte[],int,int) in ByteArrayInputStream
+            public int read(byte[] b, int off, int len) throws IOException {
+                       ^
+  overridden method does not throw IOException
+/workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java:283: error: incompatible types: Object cannot be converted to SampleEnum
+        SampleEnum result = SerializationUtils.deserialize(data);
+                                                          ^
+Note: /workspace/deepseek/TestCode/Lang_13b/SerializationUtilsTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors
+
+[exit=1 timeout=False time=1.5s]

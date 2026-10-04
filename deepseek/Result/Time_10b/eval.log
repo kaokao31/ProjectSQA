@@ -1,0 +1,80 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_10f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_10f/target/test-classes -d /work/llm_out/deepseek/Time_10/classes_f /workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java
+stCode/Time_10b/BaseSingleFieldPeriodTest.java:116: error: cannot find symbol
+        assertSame(days1, days1.multipliedBy(1));  // same instance if scalar == 1?
+                               ^
+  symbol:   method multipliedBy(int)
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:118: error: cannot find symbol
+        assertEquals(days1, days1.multipliedBy(1));
+                                 ^
+  symbol:   method multipliedBy(int)
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:123: error: cannot find symbol
+        assertEquals(daysMinus1, days1.multipliedBy(-1));
+                                      ^
+  symbol:   method multipliedBy(int)
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:128: error: cannot find symbol
+        daysMax.multipliedBy(2);  // MAX_VALUE * 2 overflows
+               ^
+  symbol:   method multipliedBy(int)
+  location: variable daysMax of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:133: error: cannot find symbol
+        daysMin.multipliedBy(-1);  // MIN_VALUE * -1 overflows (safeNegate)
+               ^
+  symbol:   method multipliedBy(int)
+  location: variable daysMin of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:139: error: cannot find symbol
+        assertEquals(days1, days1.dividedBy(1));
+                                 ^
+  symbol:   method dividedBy(int)
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:144: error: cannot find symbol
+        assertEquals(daysMinus1, days1.dividedBy(-1));
+                                      ^
+  symbol:   method dividedBy(int)
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:149: error: cannot find symbol
+        days1.dividedBy(0);
+             ^
+  symbol:   method dividedBy(int)
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:156: error: cannot find symbol
+        assertEquals(days1, days3.dividedBy(2));
+                                 ^
+  symbol:   method dividedBy(int)
+  location: variable days3 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:162: error: cannot find symbol
+        assertEquals(daysMinus1, days1.negated());
+                                      ^
+  symbol:   method negated()
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:167: error: cannot find symbol
+        assertEquals(days1, daysMinus1.negated());
+                                      ^
+  symbol:   method negated()
+  location: variable daysMinus1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:172: error: cannot find symbol
+        assertEquals(daysZero, daysZero.negated());
+                                       ^
+  symbol:   method negated()
+  location: variable daysZero of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:177: error: cannot find symbol
+        daysMin.negated();  // -MIN_VALUE overflows
+               ^
+  symbol:   method negated()
+  location: variable daysMin of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:184: error: cannot find symbol
+        Duration dur = days1.toDurationTo(start);
+                            ^
+  symbol:   method toDurationTo(DateTime)
+  location: variable days1 of type TestPeriod
+/workspace/deepseek/TestCode/Time_10b/BaseSingleFieldPeriodTest.java:192: error: cannot find symbol
+        Duration dur = days1.toDurationFrom(start);
+                            ^
+  symbol:   method toDurationFrom(DateTime)
+  location: variable days1 of type TestPeriod
+28 errors
+
+[exit=1 timeout=False time=2.9s]

@@ -1,0 +1,65 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_35f/target/classes:/work/Mockito_35f/target/test-classes:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar -d /work/llm_out/deepseek/Mockito_35/classes_f /workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java
+fy(mockList2, times(2)).containsAll(hasItems("a", "b"));
+                                                ^
+  symbol:   method hasItems(String,String)
+  location: class MatchersTest
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:349: error: <anonymous org.mockito.MatchersTest$2> is not abstract and does not override abstract method matches(Object) in ArgumentMatcher
+        when(mockList.add(argThat(new org.mockito.ArgumentMatcher<String>() {
+                                                                            ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:350: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:362: error: <anonymous org.mockito.MatchersTest$3> is not abstract and does not override abstract method matches(Object) in ArgumentMatcher
+        when(mockList.add(that(new org.mockito.ArgumentMatcher<String>() {
+                                                                         ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:363: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:362: error: cannot find symbol
+        when(mockList.add(that(new org.mockito.ArgumentMatcher<String>() {
+                          ^
+  symbol:   method that(<anonymous ArgumentMatcher<String>>)
+  location: class MatchersTest
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:404: error: incompatible types: double cannot be converted to String
+        when(mockList.add(eq(Double.NaN))).thenReturn(true);
+                            ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:405: error: incompatible types: double cannot be converted to String
+        assertTrue(mockList.add(Double.NaN));
+                                      ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:406: error: incompatible types: double cannot be converted to String
+        assertFalse(mockList.add(0.0));
+                                 ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:407: error: incompatible types: double cannot be converted to String
+        verify(mockList).add(Double.NaN);
+                                   ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:412: error: cannot find symbol
+        when(mockList.add(anyClass())).thenReturn(true);
+                          ^
+  symbol:   method anyClass()
+  location: class MatchersTest
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:413: error: incompatible types: Class<String> cannot be converted to String
+        assertTrue(mockList.add(String.class));
+                                      ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:414: error: incompatible types: Class<Integer> cannot be converted to String
+        assertTrue(mockList.add(Integer.class));
+                                       ^
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:416: error: cannot find symbol
+        verify(mockList, times(3)).add(anyClass());
+                                       ^
+  symbol:   method anyClass()
+  location: class MatchersTest
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:479: error: cannot find symbol
+        when(mockList.add(nullable(String.class))).thenReturn(true);
+                          ^
+  symbol:   method nullable(Class<String>)
+  location: class MatchersTest
+/workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java:480: error: incompatible types: int cannot be converted to String
+        assertFalse(mockList.add(123));
+                                 ^
+Note: /workspace/deepseek/TestCode/Mockito_35b/MatchersTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+65 errors
+
+[exit=1 timeout=False time=3.7s]

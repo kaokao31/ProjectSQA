@@ -1,0 +1,56 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_35f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_35f/target/test-classes -d /work/llm_out/deepseek/Compress_35/classes_f /workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:107: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.parseBinaryLong(null, 0, 10, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:113: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.parseBinaryLong(buf, -1, 10, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:119: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.parseBinaryLong(buf, 0, -1, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:125: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.parseBinaryLong(buf, 0, 0, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:131: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.parseBinaryLong(buf, 0, 9, false); // length > 8 is invalid
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:137: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        assertEquals(1, TarUtils.parseBinaryLong(buf, 0, 8, false));
+                                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:144: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        assertEquals(-1L, TarUtils.parseBinaryLong(buf, 0, 8, true));
+                                  ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:151: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        assertEquals(Long.MAX_VALUE, TarUtils.parseBinaryLong(buf, 0, 8, true));
+                                             ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:157: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        assertEquals(Long.MIN_VALUE, TarUtils.parseBinaryLong(buf, 0, 8, true));
+                                             ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:166: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.parseBinaryLong(buf, 0, 8, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:229: error: formatLongBinary(long,byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.formatLongBinary(0, buf, 0, 8, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:236: error: formatLongBinary(long,byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.formatLongBinary(1, buf, 0, 8, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:245: error: formatLongBinary(long,byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.formatLongBinary(-1, buf, 0, 8, true);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:254: error: formatLongBinary(long,byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.formatLongBinary(-1, buf, 0, 8, false); // should throw
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:259: error: formatLongBinary(long,byte[],int,int,boolean) has private access in TarUtils
+        TarUtils.formatLongBinary(0, null, 0, 8, false);
+                ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:431: error: formatLongBinary(long,byte[],int,int,boolean) has private access in TarUtils
+            TarUtils.formatLongBinary(val, buf, 0, 8, true);
+                    ^
+/workspace/deepseek/TestCode/Compress_35b/TarUtilsTest.java:432: error: parseBinaryLong(byte[],int,int,boolean) has private access in TarUtils
+            long parsed = TarUtils.parseBinaryLong(buf, 0, 8, true);
+                                  ^
+17 errors
+
+[exit=1 timeout=False time=1.6s]

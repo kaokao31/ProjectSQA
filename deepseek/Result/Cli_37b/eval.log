@@ -1,0 +1,140 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_37f/target/classes:/work/Cli_37f/target/test-classes -d /work/llm_out/deepseek/Cli_37/classes_f /workspace/deepseek/TestCode/Cli_37b/DefaultParserTest.java
+
+[exit=0 timeout=False time=1.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_37b/target/classes:/work/Cli_37b/target/test-classes -d /work/llm_out/deepseek/Cli_37/classes_b /workspace/deepseek/TestCode/Cli_37b/DefaultParserTest.java
+
+[exit=0 timeout=False time=1.8s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Cli_37/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Cli_37/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_37f/target/classes:/work/Cli_37f/target/test-classes --scan-class-path /work/llm_out/deepseek/Cli_37/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Cli_37/rep_f
+
+Failures (3):
+  JUnit Vintage:DefaultParserTest:testParseOptionalArgPresent
+    MethodSource [className = 'org.apache.commons.cli.DefaultParserTest', methodName = 'testParseOptionalArgPresent', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<optVal> but was:<null>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.cli.DefaultParserTest.testParseOptionalArgPresent(DefaultParserTest.java:76)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:DefaultParserTest:testParseShortOptionWithoutArgFlagAfter
+    MethodSource [className = 'org.apache.commons.cli.DefaultParserTest', methodName = 'testParseShortOptionWithoutArgFlagAfter', methodParameterTypes = '']
+    => org.apache.commons.cli.MissingArgumentException: Missing argument for option: b
+       org.apache.commons.cli.DefaultParser.checkRequiredArgs(DefaultParser.java:211)
+       org.apache.commons.cli.DefaultParser.handleOption(DefaultParser.java:607)
+       org.apache.commons.cli.DefaultParser.handleShortAndLongOption(DefaultParser.java:488)
+       org.apache.commons.cli.DefaultParser.handleToken(DefaultParser.java:243)
+       org.apache.commons.cli.DefaultParser.parse(DefaultParser.java:120)
+       org.apache.commons.cli.DefaultParser.parse(DefaultParser.java:76)
+       org.apache.commons.cli.DefaultParser.parse(DefaultParser.java:60)
+       org.apache.commons.cli.DefaultParserTest.testParseShortOptionWithoutArgFlagAfter(DefaultParserTest.java:164)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+  JUnit Vintage:DefaultParserTest:testParseWithStopAtNonOption
+    MethodSource [className = 'org.apache.commons.cli.DefaultParserTest', methodName = 'testParseWithStopAtNonOption', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<1> but was:<2>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:647)
+       org.junit.Assert.assertEquals(Assert.java:633)
+       org.apache.commons.cli.DefaultParserTest.testParseWithStopAtNonOption(DefaultParserTest.java:116)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 431 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        36 tests found           ]
+[         0 tests skipped         ]
+[        36 tests started         ]
+[         0 tests aborted         ]
+[        33 tests successful      ]
+[         3 tests failed          ]
+
+
+[exit=1 timeout=False time=3.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Cli_37/jacoco.exec --classfiles /work/Cli_37f/target/classes --csv /work/llm_out/deepseek/Cli_37/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Cli_37/jacoco.exec.
+[INFO] Analyzing 23 classes.
+
+[exit=0 timeout=False time=0.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Cli_37/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_37b/target/classes:/work/Cli_37b/target/test-classes --scan-class-path /work/llm_out/deepseek/Cli_37/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Cli_37/rep_b
+
+Failures (3):
+  JUnit Vintage:DefaultParserTest:testParseOptionalArgPresent
+    MethodSource [className = 'org.apache.commons.cli.DefaultParserTest', methodName = 'testParseOptionalArgPresent', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<optVal> but was:<null>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.cli.DefaultParserTest.testParseOptionalArgPresent(DefaultParserTest.java:76)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:DefaultParserTest:testParseShortOptionWithoutArgFlagAfter
+    MethodSource [className = 'org.apache.commons.cli.DefaultParserTest', methodName = 'testParseShortOptionWithoutArgFlagAfter', methodParameterTypes = '']
+    => org.apache.commons.cli.MissingArgumentException: Missing argument for option: b
+       org.apache.commons.cli.DefaultParser.checkRequiredArgs(DefaultParser.java:211)
+       org.apache.commons.cli.DefaultParser.handleOption(DefaultParser.java:601)
+       org.apache.commons.cli.DefaultParser.handleShortAndLongOption(DefaultParser.java:482)
+       org.apache.commons.cli.DefaultParser.handleToken(DefaultParser.java:243)
+       org.apache.commons.cli.DefaultParser.parse(DefaultParser.java:120)
+       org.apache.commons.cli.DefaultParser.parse(DefaultParser.java:76)
+       org.apache.commons.cli.DefaultParser.parse(DefaultParser.java:60)
+       org.apache.commons.cli.DefaultParserTest.testParseShortOptionWithoutArgFlagAfter(DefaultParserTest.java:164)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+  JUnit Vintage:DefaultParserTest:testParseWithStopAtNonOption
+    MethodSource [className = 'org.apache.commons.cli.DefaultParserTest', methodName = 'testParseWithStopAtNonOption', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<1> but was:<2>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:647)
+       org.junit.Assert.assertEquals(Assert.java:633)
+       org.apache.commons.cli.DefaultParserTest.testParseWithStopAtNonOption(DefaultParserTest.java:116)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 375 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        36 tests found           ]
+[         0 tests skipped         ]
+[        36 tests started         ]
+[         0 tests aborted         ]
+[        33 tests successful      ]
+[         3 tests failed          ]
+
+
+[exit=1 timeout=False time=2.5s]

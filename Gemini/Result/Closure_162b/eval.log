@@ -1,0 +1,78 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_162f/build/classes:/work/Closure_162f/lib/args4j.jar:/work/Closure_162f/lib/guava.jar:/work/Closure_162f/lib/json.jar:/work/Closure_162f/lib/jsr305.jar:/work/Closure_162f/lib/protobuf-java.jar:/work/Closure_162f/build/lib/rhino.jar:/work/Closure_162f/lib/ant.jar:/work/Closure_162f/lib/ant-launcher.jar:/work/Closure_162f/lib/caja-r4314.jar:/work/Closure_162f/lib/jarjar.jar:/work/Closure_162f/build/test -d /work/llm_out/Gemini/Closure_162/classes_f /workspace/Gemini/TestCode/Closure_162b/ScopeTest.java
+cope scope = new Scope(root, null);
+                      ^
+  both constructor Scope(Node,AbstractCompiler) in Scope and constructor Scope(Node,ObjectType) in Scope match
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:64: error: cannot find symbol
+        Assert.assertFalse(scope.isDeclaredInLocalScope("x"));
+                                ^
+  symbol:   method isDeclaredInLocalScope(String)
+  location: variable scope of type Scope
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:66: error: cannot find symbol
+        Assert.assertFalse(scope.hasOwn("x"));
+                                ^
+  symbol:   method hasOwn(String)
+  location: variable scope of type Scope
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:68: error: cannot find symbol
+        Var var = scope.declare("x", new Node(Token.NAME), null, null);
+        ^
+  symbol:   class Var
+  location: class ScopeTest
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:73: error: cannot find symbol
+        Assert.assertTrue(scope.hasOwn("x"));
+                               ^
+  symbol:   method hasOwn(String)
+  location: variable scope of type Scope
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:74: error: cannot find symbol
+        Assert.assertTrue(scope.isDeclaredInLocalScope("x"));
+                               ^
+  symbol:   method isDeclaredInLocalScope(String)
+  location: variable scope of type Scope
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:78: error: cannot find symbol
+        Assert.assertFalse(scope.hasOwn("x"));
+                                ^
+  symbol:   method hasOwn(String)
+  location: variable scope of type Scope
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:84: error: reference to Scope is ambiguous
+        Scope scope = new Scope(root, null);
+                      ^
+  both constructor Scope(Node,AbstractCompiler) in Scope and constructor Scope(Node,ObjectType) in Scope match
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:88: error: cannot find symbol
+        Var var = scope.declare("y", new Node(Token.NAME), null, null);
+        ^
+  symbol:   class Var
+  location: class ScopeTest
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:95: error: reference to Scope is ambiguous
+        Scope scope = new Scope(root, null);
+                      ^
+  both constructor Scope(Node,AbstractCompiler) in Scope and constructor Scope(Node,ObjectType) in Scope match
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:100: error: cannot find symbol
+        Iterable<Var> vars = scope.getVars();
+                 ^
+  symbol:   class Var
+  location: class ScopeTest
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:102: error: cannot find symbol
+        for (Var v : vars) {
+             ^
+  symbol:   class Var
+  location: class ScopeTest
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:111: error: reference to Scope is ambiguous
+        Scope scope = new Scope(root, null);
+                      ^
+  both constructor Scope(Node,AbstractCompiler) in Scope and constructor Scope(Node,ObjectType) in Scope match
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:121: error: reference to Scope is ambiguous
+        Scope globalScope = new Scope(root, null);
+                            ^
+  both constructor Scope(Node,AbstractCompiler) in Scope and constructor Scope(Node,ObjectType) in Scope match
+/workspace/Gemini/TestCode/Closure_162b/ScopeTest.java:124: error: no suitable constructor found for Scope(Node,Scope)
+        Scope localScope = new Scope(new Node(Token.BLOCK), globalScope);
+                           ^
+    constructor Scope.Scope(Scope,Node) is not applicable
+      (argument mismatch; Node cannot be converted to Scope)
+    constructor Scope.Scope(Node,AbstractCompiler) is not applicable
+      (argument mismatch; Scope cannot be converted to AbstractCompiler)
+    constructor Scope.Scope(Node,ObjectType) is not applicable
+      (argument mismatch; Scope cannot be converted to ObjectType)
+32 errors
+
+[exit=1 timeout=False time=2.0s]

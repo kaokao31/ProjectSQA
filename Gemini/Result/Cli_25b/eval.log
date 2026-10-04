@@ -1,0 +1,30 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_25f/target/classes:/work/Cli_25f/target/test-classes -d /work/llm_out/Gemini/Cli_25/classes_f /workspace/Gemini/TestCode/Cli_25b/HelpFormatterTest.java
+/workspace/Gemini/TestCode/Cli_25b/HelpFormatterTest.java:50: error: OptionComparator has private access in HelpFormatter
+        Comparator<Option> comp = new HelpFormatter.OptionComparator();
+                                                   ^
+/workspace/Gemini/TestCode/Cli_25b/HelpFormatterTest.java:57: error: OptionComparator has private access in HelpFormatter
+        Comparator<Option> comp = new HelpFormatter.OptionComparator();
+                                                   ^
+/workspace/Gemini/TestCode/Cli_25b/HelpFormatterTest.java:94: error: cannot find symbol
+        options.addOption(OptionBuilder.withLongName("beta").withDescription("Beta option").create('b'));
+                                       ^
+  symbol:   method withLongName(String)
+  location: class OptionBuilder
+/workspace/Gemini/TestCode/Cli_25b/HelpFormatterTest.java:149: error: incompatible types: PrintWriter cannot be converted to StringBuffer
+        formatter.renderWrappedText(pw, 30, 5, text);
+                                    ^
+/workspace/Gemini/TestCode/Cli_25b/HelpFormatterTest.java:191: error: cannot find symbol
+        String trimmed = HelpFormatter.defaultBootstrap(padded); 
+                                      ^
+  symbol:   method defaultBootstrap(String)
+  location: class HelpFormatter
+/workspace/Gemini/TestCode/Cli_25b/HelpFormatterTest.java:194: error: cannot find symbol
+        String result = HelpFormatter.removeLeadingWhitespace(padded);
+                                     ^
+  symbol:   method removeLeadingWhitespace(String)
+  location: class HelpFormatter
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors
+
+[exit=1 timeout=False time=1.1s]

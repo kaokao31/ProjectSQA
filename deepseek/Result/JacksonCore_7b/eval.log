@@ -1,0 +1,50 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_7f/target/classes:/work/JacksonCore_7f/target/test-classes -d /work/llm_out/deepseek/JacksonCore_7/classes_f /workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java
+                                                                           ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:195: error: cannot find symbol
+        assertEquals("Nesting depth should be " + maxDepth, maxDepth, current.getNestingDepth());
+                                                                             ^
+  symbol:   method getNestingDepth()
+  location: variable current of type JsonWriteContext
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:205: error: incompatible types: int cannot be converted to boolean
+        assertTrue("Should write value in inner object", obj2.writeValue());
+                                                                        ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:208: error: incompatible types: int cannot be converted to boolean
+        assertTrue("Inner object should allow next field name", obj2.writeFieldName("next"));
+                                                                                   ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:223: error: incompatible types: int cannot be converted to boolean
+            assertTrue("Should write value " + i + " in array", arrayContext.writeValue());
+                                                                                       ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:231: error: incompatible types: int cannot be converted to boolean
+            assertTrue("Should write field name " + i, objectContext.writeFieldName("key" + i));
+                                                                                   ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:232: error: incompatible types: int cannot be converted to boolean
+            assertTrue("Should write value " + i, objectContext.writeValue());
+                                                                          ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:246: error: method reset in class JsonWriteContext cannot be applied to given types;
+        child.reset();
+             ^
+  required: int
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:248: error: incompatible types: int cannot be converted to boolean
+        assertTrue("After reset, should allow writeFieldName", child.writeFieldName("newField"));
+                                                                                   ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:249: error: incompatible types: int cannot be converted to boolean
+        assertTrue("After reset, should allow writeValue", child.writeValue());
+                                                                           ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:265: error: TYPE_ROOT has protected access in JsonStreamContext
+        assertEquals("TYPE_ROOT should be 0", 0, JsonWriteContext.TYPE_ROOT);
+                                                                 ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:266: error: TYPE_ARRAY has protected access in JsonStreamContext
+        assertEquals("TYPE_ARRAY should be 1", 1, JsonWriteContext.TYPE_ARRAY);
+                                                                  ^
+/workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java:267: error: TYPE_OBJECT has protected access in JsonStreamContext
+        assertEquals("TYPE_OBJECT should be 2", 2, JsonWriteContext.TYPE_OBJECT);
+                                                                   ^
+Note: /workspace/deepseek/TestCode/JacksonCore_7b/JsonWriteContextTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+31 errors
+
+[exit=1 timeout=False time=1.5s]

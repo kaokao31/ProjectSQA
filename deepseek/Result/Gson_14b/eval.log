@@ -1,0 +1,63 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_14f/target/classes:/work/Gson_14f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar -d /work/llm_out/deepseek/Gson_14/classes_f /workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java
+cDeclaration is not compatible with String
+  where D is a type-variable:
+    D extends GenericDeclaration declared in interface TypeVariable
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:292: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:307: error: method hashCode in class Object cannot be applied to given types;
+        assertEquals(tv.hashCode(), $Gson$Types.hashCode(tv));
+                                               ^
+  required: no arguments
+  found: TypeVariable<CAP#1>
+  reason: actual and formal argument lists differ in length
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends GenericDeclaration from capture of ?
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:359: error: type argument String is not within bounds of type-variable D
+        TypeVariable<?> tv = new TypeVariable<String>() {
+                                              ^
+  where D is a type-variable:
+    D extends GenericDeclaration declared in interface TypeVariable
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:359: error: <anonymous com.google.gson.internal.$Gson$TypesTest$17> is not abstract and does not override abstract method getGenericDeclaration() in TypeVariable
+        TypeVariable<?> tv = new TypeVariable<String>() {
+                                                        ^
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:366: error: getGenericDeclaration() in <anonymous com.google.gson.internal.$Gson$TypesTest$17> cannot implement getGenericDeclaration() in TypeVariable
+            public DummyGenericDeclaration getGenericDeclaration() {
+                                           ^
+  return type DummyGenericDeclaration is not compatible with String
+  where D is a type-variable:
+    D extends GenericDeclaration declared in interface TypeVariable
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:365: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:440: error: type argument String is not within bounds of type-variable D
+        TypeVariable<?> tv = new TypeVariable<String>() {
+                                              ^
+  where D is a type-variable:
+    D extends GenericDeclaration declared in interface TypeVariable
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:440: error: <anonymous com.google.gson.internal.$Gson$TypesTest$18> is not abstract and does not override abstract method getGenericDeclaration() in TypeVariable
+        TypeVariable<?> tv = new TypeVariable<String>() {
+                                                        ^
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:447: error: getGenericDeclaration() in <anonymous com.google.gson.internal.$Gson$TypesTest$18> cannot implement getGenericDeclaration() in TypeVariable
+            public DummyGenericDeclaration getGenericDeclaration() {
+                                           ^
+  return type DummyGenericDeclaration is not compatible with String
+  where D is a type-variable:
+    D extends GenericDeclaration declared in interface TypeVariable
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:446: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:598: error: cannot find symbol
+        Type result = $Gson$Types.getGenericArrayType(String.class);
+                                 ^
+  symbol:   method getGenericArrayType(Class<String>)
+  location: class $Gson$Types
+/workspace/deepseek/TestCode/Gson_14b/$Gson$TypesTest.java:606: error: cannot find symbol
+        Type result = $Gson$Types.getGenericArrayType(pt);
+                                 ^
+  symbol:   method getGenericArrayType(ParameterizedType)
+  location: class $Gson$Types
+31 errors
+
+[exit=1 timeout=False time=1.9s]

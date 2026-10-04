@@ -1,0 +1,98 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_6f/target/classes:/work/Lang_6f/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar -d /work/llm_out/Gemini/Lang_6/classes_f /workspace/Gemini/TestCode/Lang_6b/CharSequenceTranslatorTest.java
+
+[exit=0 timeout=False time=1.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_6b/target/classes:/work/Lang_6b/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar -d /work/llm_out/Gemini/Lang_6/classes_b /workspace/Gemini/TestCode/Lang_6b/CharSequenceTranslatorTest.java
+
+[exit=0 timeout=False time=1.8s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/Gemini/Lang_6/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Lang_6/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_6f/target/classes:/work/Lang_6f/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar --scan-class-path /work/llm_out/Gemini/Lang_6/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Lang_6/rep_f
+
+Failures (1):
+  JUnit Vintage:CharSequenceTranslatorTest:testTranslateSurrogatePairs
+    MethodSource [className = 'org.apache.commons.lang3.text.translate.CharSequenceTranslatorTest', methodName = 'testTranslateSurrogatePairs', methodParameterTypes = '']
+    => org.junit.ComparisonFailure: expected:<a\uD834\uDD1E[b]> but was:<a\uD834\uDD1E[]>
+       org.junit.Assert.assertEquals(Assert.java:117)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang3.text.translate.CharSequenceTranslatorTest.testTranslateSurrogatePairs(CharSequenceTranslatorTest.java:132)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+
+Test run finished after 463 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        13 tests found           ]
+[         0 tests skipped         ]
+[        13 tests started         ]
+[         0 tests aborted         ]
+[        12 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=3.5s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/Gemini/Lang_6/jacoco.exec --classfiles /work/Lang_6f/target/classes --csv /work/llm_out/Gemini/Lang_6/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/Gemini/Lang_6/jacoco.exec.
+[INFO] Analyzing 157 classes.
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Lang_6/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_6b/target/classes:/work/Lang_6b/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar --scan-class-path /work/llm_out/Gemini/Lang_6/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Lang_6/rep_b
+
+Failures (2):
+  JUnit Vintage:CharSequenceTranslatorTest:testTranslateSurrogatePairs
+    MethodSource [className = 'org.apache.commons.lang3.text.translate.CharSequenceTranslatorTest', methodName = 'testTranslateSurrogatePairs', methodParameterTypes = '']
+    => org.junit.ComparisonFailure: expected:<a\uD834\uDD1E[b]> but was:<a\uD834\uDD1E[]>
+       org.junit.Assert.assertEquals(Assert.java:117)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang3.text.translate.CharSequenceTranslatorTest.testTranslateSurrogatePairs(CharSequenceTranslatorTest.java:132)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+  JUnit Vintage:CharSequenceTranslatorTest:testTranslateSurrogatePairAtEndOfString
+    MethodSource [className = 'org.apache.commons.lang3.text.translate.CharSequenceTranslatorTest', methodName = 'testTranslateSurrogatePairAtEndOfString', methodParameterTypes = '']
+    => java.lang.StringIndexOutOfBoundsException: index 6,length 6
+       java.base/java.lang.String.checkIndex(String.java:3278)
+       java.base/java.lang.StringUTF16.checkIndex(StringUTF16.java:1470)
+       java.base/java.lang.StringUTF16.charAt(StringUTF16.java:1267)
+       java.base/java.lang.String.charAt(String.java:695)
+       java.base/java.lang.Character.codePointAt(Character.java:8268)
+       org.apache.commons.lang3.text.translate.CharSequenceTranslator.translate(CharSequenceTranslator.java:95)
+       org.apache.commons.lang3.text.translate.CharSequenceTranslator.translate(CharSequenceTranslator.java:59)
+       org.apache.commons.lang3.text.translate.CharSequenceTranslatorTest.testTranslateSurrogatePairAtEndOfString(CharSequenceTranslatorTest.java:163)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+
+Test run finished after 361 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        13 tests found           ]
+[         0 tests skipped         ]
+[        13 tests started         ]
+[         0 tests aborted         ]
+[        11 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=2.2s]

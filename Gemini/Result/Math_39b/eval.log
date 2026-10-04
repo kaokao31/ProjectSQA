@@ -1,0 +1,25 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_39f/target/classes:/work/Math_39f/target/test-classes -d /work/llm_out/Gemini/Math_39/classes_f /workspace/Gemini/TestCode/Math_39b/EmbeddedRungeKuttaIntegratorTest.java
+/workspace/Gemini/TestCode/Math_39b/EmbeddedRungeKuttaIntegratorTest.java:7: error: cannot find symbol
+import org.apache.commons.math.ode.FirstOrderDifferentialEquation;
+                                  ^
+  symbol:   class FirstOrderDifferentialEquation
+  location: package org.apache.commons.math.ode
+/workspace/Gemini/TestCode/Math_39b/EmbeddedRungeKuttaIntegratorTest.java:17: error: cannot find symbol
+    private static final class DummyFirstOrderDifferentialEquation implements FirstOrderDifferentialEquation {
+                                                                              ^
+  symbol:   class FirstOrderDifferentialEquation
+  location: class EmbeddedRungeKuttaIntegratorTest
+/workspace/Gemini/TestCode/Math_39b/EmbeddedRungeKuttaIntegratorTest.java:35: error: ConcreteEmbeddedRungeKuttaIntegrator is not abstract and does not override abstract method estimateError(double[][],double[],double[],double) in EmbeddedRungeKuttaIntegrator
+    private static final class ConcreteEmbeddedRungeKuttaIntegrator extends EmbeddedRungeKuttaIntegrator {
+                         ^
+/workspace/Gemini/TestCode/Math_39b/EmbeddedRungeKuttaIntegratorTest.java:133: error: incompatible types: DummyFirstOrderDifferentialEquation cannot be converted to FirstOrderDifferentialEquations
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(ode);
+                                                                     ^
+/workspace/Gemini/TestCode/Math_39b/EmbeddedRungeKuttaIntegratorTest.java:152: error: incompatible types: DummyFirstOrderDifferentialEquation cannot be converted to FirstOrderDifferentialEquations
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(ode);
+                                                                     ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors
+
+[exit=1 timeout=False time=1.7s]

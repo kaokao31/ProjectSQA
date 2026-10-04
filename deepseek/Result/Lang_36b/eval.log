@@ -1,0 +1,142 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_36f/target/classes:/work/Lang_36f/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar -d /work/llm_out/deepseek/Lang_36/classes_f /workspace/deepseek/TestCode/Lang_36b/NumberUtilsTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_36b/target/classes:/work/Lang_36b/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar -d /work/llm_out/deepseek/Lang_36/classes_b /workspace/deepseek/TestCode/Lang_36b/NumberUtilsTest.java
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Lang_36/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Lang_36/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_36f/target/classes:/work/Lang_36f/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --scan-class-path /work/llm_out/deepseek/Lang_36/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Lang_36/rep_f
+ava:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:NumberUtilsTest:testCreateNumberDouble
+    MethodSource [className = 'org.apache.commons.lang3.math.NumberUtilsTest', methodName = 'testCreateNumberDouble', methodParameterTypes = '']
+    => java.lang.AssertionError: expected: java.lang.Double<2.0> but was: java.lang.Float<2.0>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang3.math.NumberUtilsTest.testCreateNumberDouble(NumberUtilsTest.java:40)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:NumberUtilsTest:testCreateNumberHexLong
+    MethodSource [className = 'org.apache.commons.lang3.math.NumberUtilsTest', methodName = 'testCreateNumberHexLong', methodParameterTypes = '']
+    => java.lang.NumberFormatException: For input string: "ABCDEL"
+       java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+       java.base/java.lang.Integer.parseInt(Integer.java:652)
+       java.base/java.lang.Integer.valueOf(Integer.java:957)
+       java.base/java.lang.Integer.decode(Integer.java:1436)
+       org.apache.commons.lang3.math.NumberUtils.createInteger(NumberUtils.java:665)
+       org.apache.commons.lang3.math.NumberUtils.createNumber(NumberUtils.java:463)
+       org.apache.commons.lang3.math.NumberUtilsTest.testCreateNumberHexLong(NumberUtilsTest.java:50)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       [...]
+  JUnit Vintage:NumberUtilsTest:testCreateNumberScientificNotation
+    MethodSource [className = 'org.apache.commons.lang3.math.NumberUtilsTest', methodName = 'testCreateNumberScientificNotation', methodParameterTypes = '']
+    => java.lang.AssertionError: expected: java.lang.Double<1.0E10> but was: java.lang.Float<1.0E10>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang3.math.NumberUtilsTest.testCreateNumberScientificNotation(NumberUtilsTest.java:60)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 337 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        31 tests found           ]
+[         0 tests skipped         ]
+[        31 tests started         ]
+[         0 tests aborted         ]
+[        26 tests successful      ]
+[         5 tests failed          ]
+
+
+[exit=1 timeout=False time=2.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Lang_36/jacoco.exec --classfiles /work/Lang_36f/target/classes --csv /work/llm_out/deepseek/Lang_36/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Lang_36/jacoco.exec.
+[INFO] Analyzing 117 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Lang_36/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_36b/target/classes:/work/Lang_36b/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar --scan-class-path /work/llm_out/deepseek/Lang_36/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Lang_36/rep_b
+.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:NumberUtilsTest:testCreateNumberDouble
+    MethodSource [className = 'org.apache.commons.lang3.math.NumberUtilsTest', methodName = 'testCreateNumberDouble', methodParameterTypes = '']
+    => java.lang.NumberFormatException: 2. is not a valid number.
+       org.apache.commons.lang3.math.NumberUtils.createNumber(NumberUtils.java:546)
+       org.apache.commons.lang3.math.NumberUtilsTest.testCreateNumberDouble(NumberUtilsTest.java:40)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+  JUnit Vintage:NumberUtilsTest:testCreateNumberHexLong
+    MethodSource [className = 'org.apache.commons.lang3.math.NumberUtilsTest', methodName = 'testCreateNumberHexLong', methodParameterTypes = '']
+    => java.lang.NumberFormatException: For input string: "ABCDEL"
+       java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+       java.base/java.lang.Integer.parseInt(Integer.java:652)
+       java.base/java.lang.Integer.valueOf(Integer.java:957)
+       java.base/java.lang.Integer.decode(Integer.java:1436)
+       org.apache.commons.lang3.math.NumberUtils.createInteger(NumberUtils.java:665)
+       org.apache.commons.lang3.math.NumberUtils.createNumber(NumberUtils.java:463)
+       org.apache.commons.lang3.math.NumberUtilsTest.testCreateNumberHexLong(NumberUtilsTest.java:50)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       [...]
+  JUnit Vintage:NumberUtilsTest:testCreateNumberScientificNotation
+    MethodSource [className = 'org.apache.commons.lang3.math.NumberUtilsTest', methodName = 'testCreateNumberScientificNotation', methodParameterTypes = '']
+    => java.lang.AssertionError: expected: java.lang.Double<1.0E10> but was: java.lang.Float<1.0E10>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.apache.commons.lang3.math.NumberUtilsTest.testCreateNumberScientificNotation(NumberUtilsTest.java:60)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 253 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        31 tests found           ]
+[         0 tests skipped         ]
+[        31 tests started         ]
+[         0 tests aborted         ]
+[        25 tests successful      ]
+[         6 tests failed          ]
+
+
+[exit=1 timeout=False time=2.0s]

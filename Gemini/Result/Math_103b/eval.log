@@ -1,0 +1,98 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_103f/target/classes:/work/Math_103f/target/test-classes -d /work/llm_out/Gemini/Math_103/classes_f /workspace/Gemini/TestCode/Math_103b/NormalDistributionImplTest.java
+
+[exit=0 timeout=False time=2.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_103b/target/classes:/work/Math_103b/target/test-classes -d /work/llm_out/Gemini/Math_103/classes_b /workspace/Gemini/TestCode/Math_103b/NormalDistributionImplTest.java
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/Gemini/Math_103/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Math_103/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_103f/target/classes:/work/Math_103f/target/test-classes --scan-class-path /work/llm_out/Gemini/Math_103/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Math_103/rep_f
+
+Failures (1):
+  JUnit Vintage:NormalDistributionImplTest:testCumulativeProbabilityNaN
+    MethodSource [className = 'org.apache.commons.math.distribution.NormalDistributionImplTest', methodName = 'testCumulativeProbabilityNaN', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       [...]
+
+Test run finished after 518 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        15 tests found           ]
+[         0 tests skipped         ]
+[        15 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=4.1s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/Gemini/Math_103/jacoco.exec --classfiles /work/Math_103f/target/classes --csv /work/llm_out/Gemini/Math_103/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/Gemini/Math_103/jacoco.exec.
+[INFO] Analyzing 177 classes.
+
+[exit=0 timeout=False time=1.3s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Math_103/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_103b/target/classes:/work/Math_103b/target/test-classes --scan-class-path /work/llm_out/Gemini/Math_103/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Math_103/rep_b
+
+Failures (2):
+  JUnit Vintage:NormalDistributionImplTest:testCumulativeProbabilityNaN
+    MethodSource [className = 'org.apache.commons.math.distribution.NormalDistributionImplTest', methodName = 'testCumulativeProbabilityNaN', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       [...]
+  JUnit Vintage:NormalDistributionImplTest:testCumulativeProbability
+    MethodSource [className = 'org.apache.commons.math.distribution.NormalDistributionImplTest', methodName = 'testCumulativeProbability', methodParameterTypes = '']
+    => org.apache.commons.math.MaxIterationsExceededException: Maximal number of iterations (10,000) exceeded
+       org.apache.commons.math.special.Gamma.regularizedGammaP(Gamma.java:180)
+       org.apache.commons.math.special.Erf.erf(Erf.java:56)
+       org.apache.commons.math.distribution.NormalDistributionImpl.cumulativeProbability(NormalDistributionImpl.java:109)
+       org.apache.commons.math.distribution.NormalDistributionImplTest.testCumulativeProbability(NormalDistributionImplTest.java:65)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+
+Test run finished after 342 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        15 tests found           ]
+[         0 tests skipped         ]
+[        15 tests started         ]
+[         0 tests aborted         ]
+[        13 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=2.5s]

@@ -1,0 +1,138 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_6f/target/classes:/work/Codec_6f/target/tests:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar -d /work/llm_out/deepseek/Codec_6/classes_f /workspace/deepseek/TestCode/Codec_6b/Base64InputStreamTest.java
+
+[exit=0 timeout=False time=2.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_6b/target/classes:/work/Codec_6b/target/tests:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar -d /work/llm_out/deepseek/Codec_6/classes_b /workspace/deepseek/TestCode/Codec_6b/Base64InputStreamTest.java
+
+[exit=0 timeout=False time=2.1s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Codec_6/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Codec_6/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_6f/target/classes:/work/Codec_6f/target/tests:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar --scan-class-path /work/llm_out/deepseek/Codec_6/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Codec_6/rep_f
+treamDoesNotHang
+    MethodSource [className = 'org.apache.commons.codec.binary.Base64InputStreamTest', methodName = 'testReadMethodWithSlowDecodeStreamDoesNotHang', methodParameterTypes = '']
+    => java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+       org.apache.commons.codec.binary.Base64.decode(Base64.java:575)
+       org.apache.commons.codec.binary.Base64InputStream.read(Base64InputStream.java:177)
+       org.apache.commons.codec.binary.Base64InputStream.read(Base64InputStream.java:109)
+       org.apache.commons.codec.binary.Base64InputStreamTest.testReadMethodWithSlowDecodeStreamDoesNotHang(Base64InputStreamTest.java:190)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:Base64InputStreamTest:testEncodeOneByte
+    MethodSource [className = 'org.apache.commons.codec.binary.Base64InputStreamTest', methodName = 'testEncodeOneByte', methodParameterTypes = '']
+    => array lengths differed, expected.length=4 actual.length=6; arrays first differed at element [4]; expected:<end of array> but was:<13>
+       org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:89)
+       org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
+       org.junit.Assert.internalArrayEquals(Assert.java:534)
+       org.junit.Assert.assertArrayEquals(Assert.java:343)
+       org.junit.Assert.assertArrayEquals(Assert.java:354)
+       [...]
+     Caused by: java.lang.AssertionError: expected:<end of array> but was:<13>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:87)
+       [...]
+  JUnit Vintage:Base64InputStreamTest:testEncodeRandomData
+    MethodSource [className = 'org.apache.commons.codec.binary.Base64InputStreamTest', methodName = 'testEncodeRandomData', methodParameterTypes = '']
+    => org.junit.ComparisonFailure: Failed for length 1 expected:<NQ==[]> but was:<NQ==[
+]>
+       org.junit.Assert.assertEquals(Assert.java:117)
+       org.apache.commons.codec.binary.Base64InputStreamTest.testEncodeRandomData(Base64InputStreamTest.java:330)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+
+Test run finished after 513 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        34 tests found           ]
+[         0 tests skipped         ]
+[        34 tests started         ]
+[         0 tests aborted         ]
+[        29 tests successful      ]
+[         5 tests failed          ]
+
+
+[exit=1 timeout=False time=3.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Codec_6/jacoco.exec --classfiles /work/Codec_6f/target/classes --csv /work/llm_out/deepseek/Codec_6/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Codec_6/jacoco.exec.
+[INFO] Analyzing 27 classes.
+
+[exit=0 timeout=False time=0.7s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Codec_6/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_6b/target/classes:/work/Codec_6b/target/tests:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar --scan-class-path /work/llm_out/deepseek/Codec_6/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Codec_6/rep_b
+thodParameterTypes = '']
+    => java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+       org.apache.commons.codec.binary.Base64.decode(Base64.java:575)
+       org.apache.commons.codec.binary.Base64InputStream.read(Base64InputStream.java:175)
+       org.apache.commons.codec.binary.Base64InputStream.read(Base64InputStream.java:111)
+       org.apache.commons.codec.binary.Base64InputStreamTest.testReadMethodWithSlowDecodeStreamDoesNotHang(Base64InputStreamTest.java:190)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:Base64InputStreamTest:testEncodeOneByte
+    MethodSource [className = 'org.apache.commons.codec.binary.Base64InputStreamTest', methodName = 'testEncodeOneByte', methodParameterTypes = '']
+    => java.io.IOException: read(byte[]) returned 0 while expecting data
+       org.apache.commons.codec.binary.Base64InputStreamTest.readAll(Base64InputStreamTest.java:365)
+       org.apache.commons.codec.binary.Base64InputStreamTest.testEncodeOneByte(Base64InputStreamTest.java:108)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+  JUnit Vintage:Base64InputStreamTest:testEncodeRandomData
+    MethodSource [className = 'org.apache.commons.codec.binary.Base64InputStreamTest', methodName = 'testEncodeRandomData', methodParameterTypes = '']
+    => java.io.IOException: read(byte[]) returned 0 while expecting data
+       org.apache.commons.codec.binary.Base64InputStreamTest.readAll(Base64InputStreamTest.java:365)
+       org.apache.commons.codec.binary.Base64InputStreamTest.testEncodeRandomData(Base64InputStreamTest.java:329)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+
+Test run finished after 416 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        34 tests found           ]
+[         0 tests skipped         ]
+[        34 tests started         ]
+[         0 tests aborted         ]
+[        21 tests successful      ]
+[        13 tests failed          ]
+
+
+[exit=1 timeout=False time=2.6s]

@@ -1,0 +1,86 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_10f/build:/work/Chart_10f/lib/servlet.jar:/work/Chart_10f/build-tests -d /work/llm_out/Gemini/Chart_10/classes_f /workspace/Gemini/TestCode/Chart_10b/StandardToolTipTagFragmentGeneratorTest.java
+
+[exit=0 timeout=False time=1.1s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_10b/build:/work/Chart_10b/lib/servlet.jar:/work/Chart_10b/build-tests -d /work/llm_out/Gemini/Chart_10/classes_b /workspace/Gemini/TestCode/Chart_10b/StandardToolTipTagFragmentGeneratorTest.java
+
+[exit=0 timeout=False time=1.1s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/Gemini/Chart_10/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Chart_10/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_10f/build:/work/Chart_10f/lib/servlet.jar:/work/Chart_10f/build-tests --scan-class-path /work/llm_out/Gemini/Chart_10/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Chart_10/rep_f
+
+Failures (1):
+  JUnit Vintage:StandardToolTipTagFragmentGeneratorTest:testGenerateToolTipFragmentNull
+    MethodSource [className = 'org.jfree.chart.imagemap.StandardToolTipTagFragmentGeneratorTest', methodName = 'testGenerateToolTipFragmentNull', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.NullPointerException> but was<java.lang.IllegalArgumentException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       [...]
+     Caused by: java.lang.IllegalArgumentException: Null 'input' argument.
+       org.jfree.chart.imagemap.ImageMapUtilities.htmlEscape(ImageMapUtilities.java:214)
+       org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator.generateToolTipFragment(StandardToolTipTagFragmentGenerator.java:65)
+       org.jfree.chart.imagemap.StandardToolTipTagFragmentGeneratorTest.testGenerateToolTipFragmentNull(StandardToolTipTagFragmentGeneratorTest.java:45)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+
+Test run finished after 259 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         4 tests found           ]
+[         0 tests skipped         ]
+[         4 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=2.6s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/Gemini/Chart_10/jacoco.exec --classfiles /work/Chart_10f/build --csv /work/llm_out/Gemini/Chart_10/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/Gemini/Chart_10/jacoco.exec.
+[INFO] Analyzing 514 classes.
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Chart_10/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_10b/build:/work/Chart_10b/lib/servlet.jar:/work/Chart_10b/build-tests --scan-class-path /work/llm_out/Gemini/Chart_10/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Chart_10/rep_b
+
+Failures (1):
+  JUnit Vintage:StandardToolTipTagFragmentGeneratorTest:testGenerateToolTipFragmentNull
+    MethodSource [className = 'org.jfree.chart.imagemap.StandardToolTipTagFragmentGeneratorTest', methodName = 'testGenerateToolTipFragmentNull', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.NullPointerException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+       [...]
+
+Test run finished after 250 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         4 tests found           ]
+[         0 tests skipped         ]
+[         4 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=1.9s]

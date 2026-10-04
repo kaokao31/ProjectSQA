@@ -1,0 +1,52 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_14f/target/classes:/work/Mockito_14f/target/test-classes:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar -d /work/llm_out/deepseek/Mockito_14/classes_f /workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:6: error: package org.mockito.junit does not exist
+import org.mockito.junit.MockitoJUnitRunner;
+                        ^
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:13: error: cannot find symbol
+@RunWith(MockitoJUnitRunner.class)
+         ^
+  symbol: class MockitoJUnitRunner
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:104: error: incompatible types: Object cannot be converted to String
+        verify(mock).bar(isNull());
+                               ^
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:110: error: no suitable method found for addAll(String,String,String)
+        mock.addAll("a", "b", "c");
+            ^
+    method List.addAll(Collection<? extends String>) is not applicable
+      (actual and formal argument lists differ in length)
+    method List.addAll(int,Collection<? extends String>) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:111: error: no suitable method found for addAll(String,String,String)
+        verify(mock).addAll("a", "b", "c");
+                    ^
+    method List.addAll(Collection<? extends String>) is not applicable
+      (actual and formal argument lists differ in length)
+    method List.addAll(int,Collection<? extends String>) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:135: error: cannot find symbol
+        InOrder inOrder = inOrder(mock);
+        ^
+  symbol:   class InOrder
+  location: class MockHandlerTest
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:156: error: cannot find symbol
+        when(mock.bar(anyString())).thenAnswer(invocation -> invocation.getArgument(0).toUpperCase());
+                                                                       ^
+  symbol:   method getArgument(int)
+  location: variable invocation of type InvocationOnMock
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:178: error: cannot find symbol
+        verify(mock, timeout(100)).bar("timeout");
+                     ^
+  symbol:   method timeout(int)
+  location: class MockHandlerTest
+/workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java:185: error: cannot find symbol
+        verify(mock, description("should be called once")).bar("desc");
+                     ^
+  symbol:   method description(String)
+  location: class MockHandlerTest
+Note: /workspace/deepseek/TestCode/Mockito_14b/MockHandlerTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors
+
+[exit=1 timeout=False time=1.7s]

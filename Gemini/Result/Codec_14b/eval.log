@@ -1,0 +1,39 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Codec_14f/target/classes:/work/Codec_14f/src/main/resources:/work/Codec_14f/target/tests:/work/Codec_14f/src/main/resources/commons-lang3-3.8.1.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/opt/defects4j/framework/projects/Codec/lib/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar -d /work/llm_out/Gemini/Codec_14/classes_f /workspace/Gemini/TestCode/Codec_14b/LangTest.java
+/workspace/Gemini/TestCode/Codec_14b/LangTest.java:19: error: method instance in class Lang cannot be applied to given types;
+                Lang lang = Lang.instance(nameType, ruleType);
+                                ^
+  required: NameType
+  found: NameType,RuleType
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Codec_14b/LangTest.java:21: error: cannot find symbol
+                assertNotNull(lang.getLanguages());
+                                  ^
+  symbol:   method getLanguages()
+  location: variable lang of type Lang
+/workspace/Gemini/TestCode/Codec_14b/LangTest.java:29: error: method instance in class Lang cannot be applied to given types;
+        Lang lang = Lang.instance(NameType.ASHKENAZI, RuleType.RULES);
+                        ^
+  required: NameType
+  found: NameType,RuleType
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Codec_14b/LangTest.java:30: error: incompatible types: LanguageSet cannot be converted to String
+        String languages = lang.guessLanguages("Cohen");
+                                              ^
+/workspace/Gemini/TestCode/Codec_14b/LangTest.java:34: error: incompatible types: LanguageSet cannot be converted to String
+        String emptyGuess = lang.guessLanguages("");
+                                               ^
+/workspace/Gemini/TestCode/Codec_14b/LangTest.java:42: error: method instance in class Lang cannot be applied to given types;
+        Lang lang = Lang.instance(NameType.GENERIC, RuleType.RULES);
+                        ^
+  required: NameType
+  found: NameType,RuleType
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Codec_14b/LangTest.java:44: error: cannot find symbol
+        assertTrue(lang.guessLanguages("smith").length() > 0);
+                                               ^
+  symbol:   method length()
+  location: class LanguageSet
+7 errors
+
+[exit=1 timeout=False time=1.5s]

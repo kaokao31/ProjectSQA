@@ -1,0 +1,32 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_13f/target/classes:/work/Math_13f/target/test-classes -d /work/llm_out/Gemini/Math_13/classes_f /workspace/Gemini/TestCode/Math_13b/AbstractLeastSquaresOptimizerTest.java
+/workspace/Gemini/TestCode/Math_13b/AbstractLeastSquaresOptimizerTest.java:17: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/workspace/Gemini/TestCode/Math_13b/AbstractLeastSquaresOptimizerTest.java:24: error: method optimize in class BaseAbstractMultivariateVectorOptimizer<FUNC> cannot be applied to given types;
+            return super.optimize(maxEval, f, jacobian, target, weights, startPoint);
+                        ^
+  required: int,DifferentiableMultivariateVectorFunction,OptimizationData[]
+  found: int,DifferentiableMultivariateVectorFunction,MultivariateVectorFunction,double[],double[],double[]
+  reason: varargs mismatch; MultivariateVectorFunction cannot be converted to OptimizationData
+  where FUNC is a type-variable:
+    FUNC extends MultivariateVectorFunction declared in class BaseAbstractMultivariateVectorOptimizer
+/workspace/Gemini/TestCode/Math_13b/AbstractLeastSquaresOptimizerTest.java:36: error: DummyDifferentiableFunction is not abstract and does not override abstract method jacobian() in DifferentiableMultivariateVectorFunction
+    private static class DummyDifferentiableFunction implements DifferentiableMultivariateVectorFunction {
+                   ^
+/workspace/Gemini/TestCode/Math_13b/AbstractLeastSquaresOptimizerTest.java:55: error: cannot find symbol
+        optimizer.weightMatrixLocation = weight.getWeight(); // Accessing weight if accessible or via setup
+                 ^
+  symbol:   variable weightMatrixLocation
+  location: variable optimizer of type ConcreteOptimizer
+/workspace/Gemini/TestCode/Math_13b/AbstractLeastSquaresOptimizerTest.java:83: error: cannot find symbol
+        Assert.assertEquals(0, optimizer.getIterations());
+                                        ^
+  symbol:   method getIterations()
+  location: variable optimizer of type ConcreteOptimizer
+Note: /workspace/Gemini/TestCode/Math_13b/AbstractLeastSquaresOptimizerTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors
+
+[exit=1 timeout=False time=1.8s]

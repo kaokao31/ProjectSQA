@@ -1,0 +1,27 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_41f/target/classes:/work/Lang_41f/target/test-classes:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar -d /work/llm_out/deepseek/Lang_41/classes_f /workspace/deepseek/TestCode/Lang_41b/ClassUtilsTest.java
+/workspace/deepseek/TestCode/Lang_41b/ClassUtilsTest.java:95: error: cannot find symbol
+        assertEquals("", ClassUtils.getPackageName(NoPackageClass.class));
+                                                   ^
+  symbol:   class NoPackageClass
+  location: class ClassUtilsTest
+/workspace/deepseek/TestCode/Lang_41b/ClassUtilsTest.java:118: error: cannot find symbol
+        assertNull(ClassUtils.getAbbreviatedName((Class<?>) null, 5));
+                             ^
+  symbol:   method getAbbreviatedName(Class<CAP#1>,int)
+  location: class ClassUtils
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ?
+/workspace/deepseek/TestCode/Lang_41b/ClassUtilsTest.java:123: error: cannot find symbol
+        assertEquals("j.l.Object", ClassUtils.getAbbreviatedName(Object.class, 5));
+                                             ^
+  symbol:   method getAbbreviatedName(Class<Object>,int)
+  location: class ClassUtils
+/workspace/deepseek/TestCode/Lang_41b/ClassUtilsTest.java:128: error: cannot find symbol
+        assertEquals("j.l.String[]", ClassUtils.getAbbreviatedName(String[].class, 5));
+                                               ^
+  symbol:   method getAbbreviatedName(Class<String[]>,int)
+  location: class ClassUtils
+4 errors
+
+[exit=1 timeout=False time=1.2s]

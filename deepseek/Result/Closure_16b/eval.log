@@ -1,0 +1,236 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_16f/build/classes:/work/Closure_16f/lib/args4j.jar:/work/Closure_16f/lib/guava.jar:/work/Closure_16f/lib/json.jar:/work/Closure_16f/lib/jsr305.jar:/work/Closure_16f/lib/protobuf-java.jar:/work/Closure_16f/build/lib/rhino.jar:/work/Closure_16f/lib/ant.jar:/work/Closure_16f/lib/ant-launcher.jar:/work/Closure_16f/lib/caja-r4314.jar:/work/Closure_16f/lib/jarjar.jar:/work/Closure_16f/build/test -d /work/llm_out/deepseek/Closure_16/classes_f /workspace/deepseek/TestCode/Closure_16b/ScopedAliasesTest.java
+
+[exit=0 timeout=False time=2.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_16b/build/classes:/work/Closure_16b/lib/args4j.jar:/work/Closure_16b/lib/guava.jar:/work/Closure_16b/lib/json.jar:/work/Closure_16b/lib/jsr305.jar:/work/Closure_16b/lib/protobuf-java.jar:/work/Closure_16b/build/lib/rhino.jar:/work/Closure_16b/lib/ant.jar:/work/Closure_16b/lib/ant-launcher.jar:/work/Closure_16b/lib/caja-r4314.jar:/work/Closure_16b/lib/jarjar.jar:/work/Closure_16b/build/test -d /work/llm_out/deepseek/Closure_16/classes_b /workspace/deepseek/TestCode/Closure_16b/ScopedAliasesTest.java
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Closure_16/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Closure_16/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_16f/build/classes:/work/Closure_16f/lib/args4j.jar:/work/Closure_16f/lib/guava.jar:/work/Closure_16f/lib/json.jar:/work/Closure_16f/lib/jsr305.jar:/work/Closure_16f/lib/protobuf-java.jar:/work/Closure_16f/build/lib/rhino.jar:/work/Closure_16f/lib/ant.jar:/work/Closure_16f/lib/ant-launcher.jar:/work/Closure_16f/lib/caja-r4314.jar:/work/Closure_16f/lib/jarjar.jar:/work/Closure_16f/build/test --scan-class-path /work/llm_out/deepseek/Closure_16/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Closure_16/rep_f
+
+Failures (2):
+  JUnit Vintage:ScopedAliasesTest:testDestructuringAlias
+    MethodSource [className = 'com.google.javascript.jscomp.ScopedAliasesTest', methodName = 'testDestructuringAlias', methodParameterTypes = '']
+    => java.lang.RuntimeException: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+null
+  Node(NAME goog): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+  Parent(GETPROP): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+
+       com.google.javascript.jscomp.Compiler.runCallable(Compiler.java:658)
+       com.google.javascript.jscomp.Compiler.runInCompilerThread(Compiler.java:603)
+       com.google.javascript.jscomp.Compiler.compile(Compiler.java:585)
+       com.google.javascript.jscomp.Compiler.compile(Compiler.java:544)
+       com.google.javascript.jscomp.Compiler.compile(Compiler.java:506)
+       [...]
+     Caused by: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+null
+  Node(NAME goog): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+  Parent(GETPROP): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+
+       com.google.common.base.Preconditions.checkState(Preconditions.java:129)
+       com.google.javascript.jscomp.SyntacticScopeCreator.declareVar(SyntacticScopeCreator.java:234)
+       com.google.javascript.jscomp.SyntacticScopeCreator.scanVars(SyntacticScopeCreator.java:131)
+       com.google.javascript.jscomp.SyntacticScopeCreator.scanVars(SyntacticScopeCreator.java:174)
+       com.google.javascript.jscomp.SyntacticScopeCreator.scanRoot(SyntacticScopeCreator.java:113)
+       [...]
+     Caused by: java.lang.IllegalStateException
+       [...]
+  JUnit Vintage:ScopedAliasesTest:testNullBaseObject
+    MethodSource [className = 'com.google.javascript.jscomp.ScopedAliasesTest', methodName = 'testNullBaseObject', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.RuntimeException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       [...]
+
+Test run finished after 2949 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        38 tests found           ]
+[         0 tests skipped         ]
+[        38 tests started         ]
+[         0 tests aborted         ]
+[        36 tests successful      ]
+[         2 tests failed          ]
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. Unsupported syntax: ERROR
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. destructuring assignment forbidden
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. invalid assignment target
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. missing : after property id
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                             ^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. syntax error
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                             ^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. Missing = in destructuring declaration
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                                         ^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. missing } after property list
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                                         ^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager printSummary
+WARNING: 7 error(s), 0 warning(s)
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. missing ; before statement
+var goog = {}; goog.scope(function() { var a = goog.dom a.createElement('div'); });
+                                                        ^
+
+Oct 04, 2026 9:09:29 AM com.google.javascript.jscomp.LoggerErrorManager printSummary
+WARNING: 1 error(s), 0 warning(s)
+
+[exit=1 timeout=False time=7.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Closure_16/jacoco.exec --classfiles /work/Closure_16f/build/classes --csv /work/llm_out/deepseek/Closure_16/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Closure_16/jacoco.exec.
+[INFO] Analyzing 1162 classes.
+
+[exit=0 timeout=False time=3.5s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Closure_16/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_16b/build/classes:/work/Closure_16b/lib/args4j.jar:/work/Closure_16b/lib/guava.jar:/work/Closure_16b/lib/json.jar:/work/Closure_16b/lib/jsr305.jar:/work/Closure_16b/lib/protobuf-java.jar:/work/Closure_16b/build/lib/rhino.jar:/work/Closure_16b/lib/ant.jar:/work/Closure_16b/lib/ant-launcher.jar:/work/Closure_16b/lib/caja-r4314.jar:/work/Closure_16b/lib/jarjar.jar:/work/Closure_16b/build/test --scan-class-path /work/llm_out/deepseek/Closure_16/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Closure_16/rep_b
+
+Failures (2):
+  JUnit Vintage:ScopedAliasesTest:testDestructuringAlias
+    MethodSource [className = 'com.google.javascript.jscomp.ScopedAliasesTest', methodName = 'testDestructuringAlias', methodParameterTypes = '']
+    => java.lang.RuntimeException: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+null
+  Node(NAME goog): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+  Parent(GETPROP): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+
+       com.google.javascript.jscomp.Compiler.runCallable(Compiler.java:658)
+       com.google.javascript.jscomp.Compiler.runInCompilerThread(Compiler.java:603)
+       com.google.javascript.jscomp.Compiler.compile(Compiler.java:585)
+       com.google.javascript.jscomp.Compiler.compile(Compiler.java:544)
+       com.google.javascript.jscomp.Compiler.compile(Compiler.java:506)
+       [...]
+     Caused by: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+null
+  Node(NAME goog): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+  Parent(GETPROP): test.js:1:49
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+
+       com.google.common.base.Preconditions.checkState(Preconditions.java:129)
+       com.google.javascript.jscomp.SyntacticScopeCreator.declareVar(SyntacticScopeCreator.java:234)
+       com.google.javascript.jscomp.SyntacticScopeCreator.scanVars(SyntacticScopeCreator.java:131)
+       com.google.javascript.jscomp.SyntacticScopeCreator.scanVars(SyntacticScopeCreator.java:174)
+       com.google.javascript.jscomp.SyntacticScopeCreator.scanRoot(SyntacticScopeCreator.java:113)
+       [...]
+     Caused by: java.lang.IllegalStateException
+       [...]
+  JUnit Vintage:ScopedAliasesTest:testNullBaseObject
+    MethodSource [className = 'com.google.javascript.jscomp.ScopedAliasesTest', methodName = 'testNullBaseObject', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.RuntimeException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       [...]
+
+Test run finished after 1685 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        38 tests found           ]
+[         0 tests skipped         ]
+[        38 tests started         ]
+[         0 tests aborted         ]
+[        36 tests successful      ]
+[         2 tests failed          ]
+
+Oct 04, 2026 9:09:39 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. Unsupported syntax: ERROR
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. destructuring assignment forbidden
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. invalid assignment target
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. missing : after property id
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                             ^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. syntax error
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                             ^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. Missing = in destructuring declaration
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                                         ^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. missing } after property list
+var goog = {}; goog.scope(function() { var {a} = goog.dom; });
+                                                         ^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager printSummary
+WARNING: 7 error(s), 0 warning(s)
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager println
+SEVERE: test.js:1: ERROR - Parse error. missing ; before statement
+var goog = {}; goog.scope(function() { var a = goog.dom a.createElement('div'); });
+                                                        ^
+
+Oct 04, 2026 9:09:40 AM com.google.javascript.jscomp.LoggerErrorManager printSummary
+WARNING: 1 error(s), 0 warning(s)
+
+[exit=1 timeout=False time=4.3s]

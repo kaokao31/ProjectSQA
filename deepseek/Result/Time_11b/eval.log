@@ -1,0 +1,150 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_11f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11f/target/test-classes -d /work/llm_out/deepseek/Time_11/classes_f /workspace/deepseek/TestCode/Time_11b/ZoneInfoCompilerTest.java
+
+[exit=0 timeout=False time=3.0s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_11b/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11b/target/test-classes -d /work/llm_out/deepseek/Time_11/classes_b /workspace/deepseek/TestCode/Time_11b/ZoneInfoCompilerTest.java
+
+[exit=0 timeout=False time=2.4s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Time_11/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Time_11/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_11f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11f/target/test-classes --scan-class-path /work/llm_out/deepseek/Time_11/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Time_11/rep_f
+valuate(InvokeMethod.java:17)
+       [...]
+  JUnit Vintage:ZoneInfoCompilerTest:testParseDayOfWeek_NullInput
+    MethodSource [className = 'org.joda.time.tz.ZoneInfoCompilerTest', methodName = 'testParseDayOfWeek_NullInput', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.reflect.InvocationTargetException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       [...]
+     Caused by: java.lang.reflect.InvocationTargetException
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.joda.time.tz.ZoneInfoCompilerTest.invokeParseDayOfWeek(ZoneInfoCompilerTest.java:41)
+       [...]
+     Caused by: java.lang.NullPointerException
+       java.base/java.lang.String$CaseInsensitiveComparator.compare(String.java:1224)
+       java.base/java.lang.String$CaseInsensitiveComparator.compare(String.java:1218)
+       java.base/java.util.TreeMap.getEntryUsingComparator(TreeMap.java:374)
+       java.base/java.util.TreeMap.getEntry(TreeMap.java:343)
+       java.base/java.util.TreeMap.get(TreeMap.java:277)
+       [...]
+  JUnit Vintage:ZoneInfoCompilerTest:testParseTime_OnlySeconds
+    MethodSource [className = 'org.joda.time.tz.ZoneInfoCompilerTest', methodName = 'testParseTime_OnlySeconds', methodParameterTypes = '']
+    => java.lang.reflect.InvocationTargetException
+       jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.joda.time.tz.ZoneInfoCompilerTest.invokeParseTime(ZoneInfoCompilerTest.java:55)
+       org.joda.time.tz.ZoneInfoCompilerTest.testParseTime_OnlySeconds(ZoneInfoCompilerTest.java:402)
+       [...]
+     Caused by: java.lang.IllegalArgumentException: :00:01
+       org.joda.time.tz.ZoneInfoCompiler.parseTime(ZoneInfoCompiler.java:243)
+       [...]
+  JUnit Vintage:ZoneInfoCompilerTest:testParseOptional_Null
+    MethodSource [className = 'org.joda.time.tz.ZoneInfoCompilerTest', methodName = 'testParseOptional_Null', methodParameterTypes = '']
+    => java.lang.reflect.InvocationTargetException
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.joda.time.tz.ZoneInfoCompilerTest.invokeParseOptional(ZoneInfoCompilerTest.java:48)
+       [...]
+     Caused by: java.lang.NullPointerException
+       org.joda.time.tz.ZoneInfoCompiler.parseOptional(ZoneInfoCompiler.java:231)
+       [...]
+
+Test run finished after 956 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        56 tests found           ]
+[         0 tests skipped         ]
+[        56 tests started         ]
+[         0 tests aborted         ]
+[        17 tests successful      ]
+[        39 tests failed          ]
+
+
+[exit=1 timeout=False time=4.5s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Time_11/jacoco.exec --classfiles /work/Time_11f/target/classes --csv /work/llm_out/deepseek/Time_11/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Time_11/jacoco.exec.
+[INFO] Analyzing 206 classes.
+
+[exit=0 timeout=False time=1.3s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Time_11/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_11b/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_11b/target/test-classes --scan-class-path /work/llm_out/deepseek/Time_11/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Time_11/rep_b
+valuate(InvokeMethod.java:17)
+       [...]
+  JUnit Vintage:ZoneInfoCompilerTest:testParseDayOfWeek_NullInput
+    MethodSource [className = 'org.joda.time.tz.ZoneInfoCompilerTest', methodName = 'testParseDayOfWeek_NullInput', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.reflect.InvocationTargetException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       [...]
+     Caused by: java.lang.reflect.InvocationTargetException
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.joda.time.tz.ZoneInfoCompilerTest.invokeParseDayOfWeek(ZoneInfoCompilerTest.java:41)
+       [...]
+     Caused by: java.lang.NullPointerException
+       java.base/java.lang.String$CaseInsensitiveComparator.compare(String.java:1224)
+       java.base/java.lang.String$CaseInsensitiveComparator.compare(String.java:1218)
+       java.base/java.util.TreeMap.getEntryUsingComparator(TreeMap.java:374)
+       java.base/java.util.TreeMap.getEntry(TreeMap.java:343)
+       java.base/java.util.TreeMap.get(TreeMap.java:277)
+       [...]
+  JUnit Vintage:ZoneInfoCompilerTest:testParseTime_OnlySeconds
+    MethodSource [className = 'org.joda.time.tz.ZoneInfoCompilerTest', methodName = 'testParseTime_OnlySeconds', methodParameterTypes = '']
+    => java.lang.reflect.InvocationTargetException
+       jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.joda.time.tz.ZoneInfoCompilerTest.invokeParseTime(ZoneInfoCompilerTest.java:55)
+       org.joda.time.tz.ZoneInfoCompilerTest.testParseTime_OnlySeconds(ZoneInfoCompilerTest.java:402)
+       [...]
+     Caused by: java.lang.IllegalArgumentException: :00:01
+       org.joda.time.tz.ZoneInfoCompiler.parseTime(ZoneInfoCompiler.java:242)
+       [...]
+  JUnit Vintage:ZoneInfoCompilerTest:testParseOptional_Null
+    MethodSource [className = 'org.joda.time.tz.ZoneInfoCompilerTest', methodName = 'testParseOptional_Null', methodParameterTypes = '']
+    => java.lang.reflect.InvocationTargetException
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.joda.time.tz.ZoneInfoCompilerTest.invokeParseOptional(ZoneInfoCompilerTest.java:48)
+       [...]
+     Caused by: java.lang.NullPointerException
+       org.joda.time.tz.ZoneInfoCompiler.parseOptional(ZoneInfoCompiler.java:230)
+       [...]
+
+Test run finished after 686 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        56 tests found           ]
+[         0 tests skipped         ]
+[        56 tests started         ]
+[         0 tests aborted         ]
+[        17 tests successful      ]
+[        39 tests failed          ]
+
+
+[exit=1 timeout=False time=3.1s]

@@ -1,0 +1,43 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_11f/target/classes:/work/Cli_11f/target/test-classes -d /work/llm_out/Gemini/Cli_11/classes_f /workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:18: error: cannot find symbol
+        assertEquals("   ", HelpFormatter.DEFAULT_INDENT);
+                                         ^
+  symbol:   variable DEFAULT_INDENT
+  location: class HelpFormatter
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:21: error: cannot find symbol
+        assertEquals("--", HelpFormatter.DEFAULT_LONG_OPT_SEPARATOR);
+                                        ^
+  symbol:   variable DEFAULT_LONG_OPT_SEPARATOR
+  location: class HelpFormatter
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:55: error: OptionComparator has private access in HelpFormatter
+        Comparator<Option> comp = new HelpFormatter.OptionComparator();
+                                                   ^
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:65: error: OptionComparator has private access in HelpFormatter
+        HelpFormatter.OptionComparator comp = new HelpFormatter.OptionComparator();
+                     ^
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:65: error: OptionComparator has private access in HelpFormatter
+        HelpFormatter.OptionComparator comp = new HelpFormatter.OptionComparator();
+                                                               ^
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:167: error: incompatible types: PrintWriter cannot be converted to StringBuffer
+        formatter.renderWrappedText(pw, 30, 5, text);
+                                    ^
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:197: error: cannot find symbol
+        assertEquals("abc", formatter.removeLeadingSpaces(padded));
+                                     ^
+  symbol:   method removeLeadingSpaces(String)
+  location: variable formatter of type HelpFormatter
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:199: error: cannot find symbol
+        assertEquals("", formatter.removeLeadingSpaces(""));
+                                  ^
+  symbol:   method removeLeadingSpaces(String)
+  location: variable formatter of type HelpFormatter
+/workspace/Gemini/TestCode/Cli_11b/HelpFormatterTest.java:200: error: cannot find symbol
+        assertNull(formatter.removeLeadingSpaces(null));
+                            ^
+  symbol:   method removeLeadingSpaces(<null>)
+  location: variable formatter of type HelpFormatter
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors
+
+[exit=1 timeout=False time=1.1s]

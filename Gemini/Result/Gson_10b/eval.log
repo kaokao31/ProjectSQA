@@ -1,0 +1,23 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_10f/target/classes:/work/Gson_10f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar -d /work/llm_out/Gemini/Gson_10/classes_f /workspace/Gemini/TestCode/Gson_10b/ReflectiveTypeAdapterFactoryTest.java
+/workspace/Gemini/TestCode/Gson_10b/ReflectiveTypeAdapterFactoryTest.java:40: error: constructor ReflectiveTypeAdapterFactory in class ReflectiveTypeAdapterFactory cannot be applied to given types;
+        factory = new ReflectiveTypeAdapterFactory(
+                  ^
+  required: ConstructorConstructor,FieldNamingStrategy,Excluder
+  found: ConstructorConstructor,FieldNamingStrategy,Excluder,JsonAdapterAnnotationTypeAdapterFactory
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Gson_10b/ReflectiveTypeAdapterFactoryTest.java:80: error: method getFieldNames in class ReflectiveTypeAdapterFactory cannot be applied to given types;
+        List<String> fieldNames = ReflectiveTypeAdapterFactory.getFieldNames(gson.fieldNamingStrategy(), field);
+                                                              ^
+  required: Field
+  found: FieldNamingStrategy,Field
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Gson_10b/ReflectiveTypeAdapterFactoryTest.java:88: error: method getFieldNames in class ReflectiveTypeAdapterFactory cannot be applied to given types;
+        List<String> fieldNames = ReflectiveTypeAdapterFactory.getFieldNames(gson.fieldNamingStrategy(), field);
+                                                              ^
+  required: Field
+  found: FieldNamingStrategy,Field
+  reason: actual and formal argument lists differ in length
+3 errors
+
+[exit=1 timeout=False time=1.9s]

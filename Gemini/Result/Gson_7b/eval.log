@@ -1,0 +1,148 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_7f/target/classes:/work/Gson_7f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar -d /work/llm_out/Gemini/Gson_7/classes_f /workspace/Gemini/TestCode/Gson_7b/JsonReaderTest.java
+
+[exit=0 timeout=False time=1.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_7b/target/classes:/work/Gson_7b/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar -d /work/llm_out/Gemini/Gson_7/classes_b /workspace/Gemini/TestCode/Gson_7b/JsonReaderTest.java
+
+[exit=0 timeout=False time=1.3s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/Gemini/Gson_7/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Gson_7/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_7f/target/classes:/work/Gson_7f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar --scan-class-path /work/llm_out/Gemini/Gson_7/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Gson_7/rep_f
+veCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+  JUnit Vintage:JsonReaderTest:testEmptyDocument
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testEmptyDocument', methodParameterTypes = '']
+    => java.io.EOFException: End of input at line 1 column 1
+       com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1416)
+       com.google.gson.stream.JsonReader.doPeek(JsonReader.java:553)
+       com.google.gson.stream.JsonReader.peek(JsonReader.java:429)
+       com.google.gson.stream.JsonReaderTest.testEmptyDocument(JsonReaderTest.java:19)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:JsonReaderTest:testUnexpectedEnd
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testUnexpectedEnd', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalStateException> but was<java.io.EOFException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       [...]
+     Caused by: java.io.EOFException: End of input at line 1 column 6
+       com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1416)
+       com.google.gson.stream.JsonReader.doPeek(JsonReader.java:553)
+       com.google.gson.stream.JsonReader.endObject(JsonReader.java:399)
+       com.google.gson.stream.JsonReaderTest.testUnexpectedEnd(JsonReaderTest.java:179)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       [...]
+  JUnit Vintage:JsonReaderTest:testHasNextFalseAtEnd
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testHasNextFalseAtEnd', methodParameterTypes = '']
+    => java.lang.AssertionError
+       org.junit.Assert.fail(Assert.java:87)
+       org.junit.Assert.assertTrue(Assert.java:42)
+       org.junit.Assert.assertFalse(Assert.java:65)
+       org.junit.Assert.assertFalse(Assert.java:75)
+       com.google.gson.stream.JsonReaderTest.testHasNextFalseAtEnd(JsonReaderTest.java:259)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 323 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        13 tests successful      ]
+[         5 tests failed          ]
+
+
+[exit=1 timeout=False time=2.8s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/Gemini/Gson_7/jacoco.exec --classfiles /work/Gson_7f/target/classes --csv /work/llm_out/Gemini/Gson_7/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/Gemini/Gson_7/jacoco.exec.
+[INFO] Analyzing 158 classes.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Gson_7/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_7b/target/classes:/work/Gson_7b/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar --scan-class-path /work/llm_out/Gemini/Gson_7/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Gson_7/rep_b
+veCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+  JUnit Vintage:JsonReaderTest:testEmptyDocument
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testEmptyDocument', methodParameterTypes = '']
+    => java.io.EOFException: End of input at line 1 column 1
+       com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1408)
+       com.google.gson.stream.JsonReader.doPeek(JsonReader.java:553)
+       com.google.gson.stream.JsonReader.peek(JsonReader.java:429)
+       com.google.gson.stream.JsonReaderTest.testEmptyDocument(JsonReaderTest.java:19)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:JsonReaderTest:testUnexpectedEnd
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testUnexpectedEnd', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalStateException> but was<java.io.EOFException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       [...]
+     Caused by: java.io.EOFException: End of input at line 1 column 6
+       com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1408)
+       com.google.gson.stream.JsonReader.doPeek(JsonReader.java:553)
+       com.google.gson.stream.JsonReader.endObject(JsonReader.java:399)
+       com.google.gson.stream.JsonReaderTest.testUnexpectedEnd(JsonReaderTest.java:179)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       [...]
+  JUnit Vintage:JsonReaderTest:testHasNextFalseAtEnd
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testHasNextFalseAtEnd', methodParameterTypes = '']
+    => java.lang.AssertionError
+       org.junit.Assert.fail(Assert.java:87)
+       org.junit.Assert.assertTrue(Assert.java:42)
+       org.junit.Assert.assertFalse(Assert.java:65)
+       org.junit.Assert.assertFalse(Assert.java:75)
+       com.google.gson.stream.JsonReaderTest.testHasNextFalseAtEnd(JsonReaderTest.java:259)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 289 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        13 tests successful      ]
+[         5 tests failed          ]
+
+
+[exit=1 timeout=False time=2.2s]

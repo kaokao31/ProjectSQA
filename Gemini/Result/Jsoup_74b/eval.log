@@ -1,0 +1,38 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Jsoup_74f/target/classes:/opt/defects4j/framework/projects/Jsoup/lib/com/google/code/gson/gson/2.7/gson-2.7.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/work/Jsoup_74f/target/test-classes:/opt/defects4j/framework/projects/Jsoup/lib/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-http/9.2.26.v20180806/jetty-http-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-http/9.2.28.v20190418/jetty-http-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-io/9.2.26.v20180806/jetty-io-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-io/9.2.28.v20190418/jetty-io-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-security/9.2.26.v20180806/jetty-security-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-security/9.2.28.v20190418/jetty-security-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-server/9.2.26.v20180806/jetty-server-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-server/9.2.28.v20190418/jetty-server-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-servlet/9.2.26.v20180806/jetty-servlet-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-servlet/9.2.28.v20190418/jetty-servlet-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-util/9.2.26.v20180806/jetty-util-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-util/9.2.28.v20190418/jetty-util-9.2.28.v20190418.jar -d /work/llm_out/Gemini/Jsoup_74/classes_f /workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:46: error: no suitable method found for join(Integer[],String)
+        assertEquals("1,2,3", StringUtil.join(new Integer[]{1, 2, 3}, ","));
+                                        ^
+    method StringUtil.join(Collection,String) is not applicable
+      (argument mismatch; Integer[] cannot be converted to Collection)
+    method StringUtil.join(Iterator,String) is not applicable
+      (argument mismatch; Integer[] cannot be converted to Iterator)
+    method StringUtil.join(String[],String) is not applicable
+      (argument mismatch; Integer[] cannot be converted to String[])
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:85: error: incompatible types: <null> cannot be converted to int
+        assertFalse(StringUtil.isWhitespace(null));
+                                            ^
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:86: error: incompatible types: String cannot be converted to int
+        assertTrue(StringUtil.isWhitespace(""));
+                                           ^
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:87: error: incompatible types: String cannot be converted to int
+        assertTrue(StringUtil.isWhitespace("   "));
+                                           ^
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:88: error: incompatible types: String cannot be converted to int
+        assertTrue(StringUtil.isWhitespace("\t\n\r"));
+                                           ^
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:89: error: incompatible types: String cannot be converted to int
+        assertFalse(StringUtil.isWhitespace("a"));
+                                            ^
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:90: error: incompatible types: String cannot be converted to int
+        assertFalse(StringUtil.isWhitespace(" a "));
+                                            ^
+/workspace/Gemini/TestCode/Jsoup_74b/StringUtilTest.java:126: error: cannot find symbol
+        StringUtil.appendUrl(new URL("http://example.com"), sb);
+                  ^
+  symbol:   method appendUrl(URL,StringBuilder)
+  location: class StringUtil
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+8 errors
+
+[exit=1 timeout=False time=1.7s]

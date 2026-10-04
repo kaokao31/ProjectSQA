@@ -1,0 +1,30 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_31f/build/classes:/work/Closure_31f/lib/args4j.jar:/work/Closure_31f/lib/guava.jar:/work/Closure_31f/lib/json.jar:/work/Closure_31f/lib/jsr305.jar:/work/Closure_31f/lib/protobuf-java.jar:/work/Closure_31f/build/lib/rhino.jar:/work/Closure_31f/lib/ant.jar:/work/Closure_31f/lib/ant-launcher.jar:/work/Closure_31f/lib/caja-r4314.jar:/work/Closure_31f/lib/jarjar.jar:/work/Closure_31f/build/test -d /work/llm_out/deepseek/Closure_31/classes_f /workspace/deepseek/TestCode/Closure_31b/CompilerTest.java
+/workspace/deepseek/TestCode/Closure_31b/CompilerTest.java:42: error: cannot find symbol
+    assertNotNull(compiler.getJsRoot());
+                          ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/workspace/deepseek/TestCode/Closure_31b/CompilerTest.java:43: error: cannot find symbol
+    assertNotNull(compiler.getExternsRoot());
+                          ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/workspace/deepseek/TestCode/Closure_31b/CompilerTest.java:59: error: cannot find symbol
+    assertEquals(2, error.getLineNumber());
+                         ^
+  symbol:   method getLineNumber()
+  location: variable error of type JSError
+/workspace/deepseek/TestCode/Closure_31b/CompilerTest.java:116: error: incompatible types: SourceFile[] cannot be converted to SourceFile
+    Node root = compiler.parse(files);
+                               ^
+/workspace/deepseek/TestCode/Closure_31b/CompilerTest.java:123: error: getSourceFileByName(String) has private access in Compiler
+    assertNotNull(compiler.getSourceFileByName("test.js"));
+                          ^
+/workspace/deepseek/TestCode/Closure_31b/CompilerTest.java:128: error: getSourceFileByName(String) has private access in Compiler
+    assertNull(compiler.getSourceFileByName("unknown.js"));
+                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors
+
+[exit=1 timeout=False time=2.8s]

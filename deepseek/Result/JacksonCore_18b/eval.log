@@ -1,0 +1,112 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_18f/target/classes:/work/JacksonCore_18f/target/test-classes -d /work/llm_out/deepseek/JacksonCore_18/classes_f /workspace/deepseek/TestCode/JacksonCore_18b/GeneratorBaseTest.java
+
+[exit=0 timeout=False time=1.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_18b/target/classes:/work/JacksonCore_18b/target/test-classes -d /work/llm_out/deepseek/JacksonCore_18/classes_b /workspace/deepseek/TestCode/JacksonCore_18b/GeneratorBaseTest.java
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/JacksonCore_18/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/JacksonCore_18/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_18f/target/classes:/work/JacksonCore_18f/target/test-classes --scan-class-path /work/llm_out/deepseek/JacksonCore_18/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/JacksonCore_18/rep_f
+
+Failures (2):
+  JUnit Vintage:GeneratorBaseTest:testUseDefaultPrettyPrinter
+    MethodSource [className = 'com.fasterxml.jackson.core.base.GeneratorBaseTest', methodName = 'testUseDefaultPrettyPrinter', methodParameterTypes = '']
+    => java.lang.AssertionError: expected same:<com.fasterxml.jackson.core.util.DefaultPrettyPrinter@36f7d7b> was not:<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator@60aec68a>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotSame(Assert.java:829)
+       org.junit.Assert.assertSame(Assert.java:772)
+       org.junit.Assert.assertSame(Assert.java:783)
+       com.fasterxml.jackson.core.base.GeneratorBaseTest.testUseDefaultPrettyPrinter(GeneratorBaseTest.java:72)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:GeneratorBaseTest:testWriteObjectSimpleTypes
+    MethodSource [className = 'com.fasterxml.jackson.core.base.GeneratorBaseTest', methodName = 'testWriteObjectSimpleTypes', methodParameterTypes = '']
+    => java.lang.IllegalStateException: No ObjectCodec defined for the generator, can only serialize simple wrapper types (type passed java.lang.Character)
+       com.fasterxml.jackson.core.JsonGenerator._writeSimpleObject(JsonGenerator.java:1799)
+       com.fasterxml.jackson.core.base.GeneratorBase.writeObject(GeneratorBase.java:369)
+       com.fasterxml.jackson.core.base.GeneratorBaseTest.assertWrittenObject(GeneratorBaseTest.java:36)
+       com.fasterxml.jackson.core.base.GeneratorBaseTest.testWriteObjectSimpleTypes(GeneratorBaseTest.java:123)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+
+Test run finished after 470 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        12 tests found           ]
+[         0 tests skipped         ]
+[        12 tests started         ]
+[         0 tests aborted         ]
+[        10 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=3.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/JacksonCore_18/jacoco.exec --classfiles /work/JacksonCore_18f/target/classes --csv /work/llm_out/deepseek/JacksonCore_18/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/JacksonCore_18/jacoco.exec.
+[INFO] Analyzing 79 classes.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/JacksonCore_18/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_18b/target/classes:/work/JacksonCore_18b/target/test-classes --scan-class-path /work/llm_out/deepseek/JacksonCore_18/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/JacksonCore_18/rep_b
+
+Failures (2):
+  JUnit Vintage:GeneratorBaseTest:testUseDefaultPrettyPrinter
+    MethodSource [className = 'com.fasterxml.jackson.core.base.GeneratorBaseTest', methodName = 'testUseDefaultPrettyPrinter', methodParameterTypes = '']
+    => java.lang.AssertionError: expected same:<com.fasterxml.jackson.core.util.DefaultPrettyPrinter@26794848> was not:<com.fasterxml.jackson.core.json.WriterBasedJsonGenerator@302552ec>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotSame(Assert.java:829)
+       org.junit.Assert.assertSame(Assert.java:772)
+       org.junit.Assert.assertSame(Assert.java:783)
+       com.fasterxml.jackson.core.base.GeneratorBaseTest.testUseDefaultPrettyPrinter(GeneratorBaseTest.java:72)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:GeneratorBaseTest:testWriteObjectSimpleTypes
+    MethodSource [className = 'com.fasterxml.jackson.core.base.GeneratorBaseTest', methodName = 'testWriteObjectSimpleTypes', methodParameterTypes = '']
+    => java.lang.IllegalStateException: No ObjectCodec defined for the generator, can only serialize simple wrapper types (type passed java.lang.Character)
+       com.fasterxml.jackson.core.JsonGenerator._writeSimpleObject(JsonGenerator.java:1799)
+       com.fasterxml.jackson.core.base.GeneratorBase.writeObject(GeneratorBase.java:368)
+       com.fasterxml.jackson.core.base.GeneratorBaseTest.assertWrittenObject(GeneratorBaseTest.java:36)
+       com.fasterxml.jackson.core.base.GeneratorBaseTest.testWriteObjectSimpleTypes(GeneratorBaseTest.java:123)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+
+Test run finished after 357 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        12 tests found           ]
+[         0 tests skipped         ]
+[        12 tests started         ]
+[         0 tests aborted         ]
+[        10 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=2.2s]

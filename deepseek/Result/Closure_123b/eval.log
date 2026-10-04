@@ -1,0 +1,77 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_123f/build/classes:/work/Closure_123f/lib/args4j.jar:/work/Closure_123f/lib/guava.jar:/work/Closure_123f/lib/json.jar:/work/Closure_123f/lib/jsr305.jar:/work/Closure_123f/lib/protobuf-java.jar:/work/Closure_123f/build/lib/rhino.jar:/work/Closure_123f/lib/ant.jar:/work/Closure_123f/lib/ant-launcher.jar:/work/Closure_123f/lib/caja-r4314.jar:/work/Closure_123f/lib/jarjar.jar:/work/Closure_123f/build/test -d /work/llm_out/deepseek/Closure_123/classes_f /workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java
+: error: cannot find symbol
+        String code = CodeGenerator.generateCode(func);
+                                   ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:172: error: no suitable constructor found for Node(int,String)
+        Node callee = new Node(Token.NAME, "f");
+                      ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:174: error: cannot find symbol
+        assertEquals("f()", CodeGenerator.generateCode(call));
+                                         ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:179: error: no suitable constructor found for Node(int,String)
+        Node callee = new Node(Token.NAME, "g");
+                      ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:182: error: cannot find symbol
+        assertEquals("g(10)", CodeGenerator.generateCode(call));
+                                           ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:189: error: no suitable constructor found for Node(int,String)
+        Node name = new Node(Token.NAME, "abc");
+                    ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:190: error: cannot find symbol
+        assertEquals("abc", CodeGenerator.generateCode(name));
+                                         ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:196: error: cannot find symbol
+        assertEquals("this", CodeGenerator.generateCode(thisNode));
+                                          ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:203: error: cannot find symbol
+        CodeGenerator.generateCode(null);
+                     ^
+  symbol:   method generateCode(<null>)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:209: error: cannot find symbol
+        Node unknown = new Node(Token.DEFAULT_VALUE, Node.newNumber(1));
+                                     ^
+  symbol:   variable DEFAULT_VALUE
+  location: class Token
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:211: error: cannot find symbol
+        String code = CodeGenerator.generateCode(unknown);
+                                   ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:222: error: cannot find symbol
+        String result = CodeGenerator.generateCode(add);
+                                     ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+/workspace/deepseek/TestCode/Closure_123b/CodeGeneratorTest.java:232: error: cannot find symbol
+        assertEquals("--5", CodeGenerator.generateCode(outerNeg));
+                                         ^
+  symbol:   method generateCode(Node)
+  location: class CodeGenerator
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+31 errors
+
+[exit=1 timeout=False time=1.8s]

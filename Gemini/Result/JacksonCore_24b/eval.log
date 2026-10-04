@@ -1,0 +1,37 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes -d /work/llm_out/Gemini/JacksonCore_24/classes_f /workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java
+/workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java:202: error: cannot find symbol
+        @Idempotent
+         ^
+  symbol:   class Idempotent
+  location: class ConcreteParserBase
+/workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java:53: error: cannot find symbol
+        parser.textBuffer.resetWith(new char[]{'a', 'b', 'c'}, 0, 3);
+              ^
+  symbol:   variable textBuffer
+  location: variable parser of type ConcreteParserBase
+/workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java:93: error: cannot find symbol
+        parser.intValue = 0; // force re-evaluation or trigger check if any
+              ^
+  symbol:   variable intValue
+  location: variable parser of type ConcreteParserBase
+/workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java:122: error: cannot find symbol
+        parser._currInputCol = 3;
+              ^
+  symbol:   variable _currInputCol
+  location: variable parser of type ConcreteParserBase
+/workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java:134: error: cannot find symbol
+        parser.setCurrentName("testName");
+              ^
+  symbol:   method setCurrentName(String)
+  location: variable parser of type ConcreteParserBase
+/workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java:164: error: incompatible types: String cannot be converted to char
+        parser._textBuffer.resetWith("hello");
+                                     ^
+/workspace/Gemini/TestCode/JacksonCore_24b/ParserBaseTest.java:170: error: ConcreteParserBase is not abstract and does not override abstract method getTextOffset() in ParserMinimalBase
+    private static class ConcreteParserBase extends ParserBase {
+                   ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+7 errors
+
+[exit=1 timeout=False time=1.4s]

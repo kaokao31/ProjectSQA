@@ -1,0 +1,60 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_9f/target/classes:/work/Compress_9f/target/test-classes -d /work/llm_out/Gemini/Compress_9/classes_f /workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java
+       TarArchiveOutputStream tos = new TarArchiveOutputStream(out, "UTF-8");
+                                                                     ^
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:65: error: cannot find symbol
+        tarArchiveOutputStream.setBigNumberMode(TarArchiveOutputStream.BIGNUMBER_POSIX);
+                                                                      ^
+  symbol:   variable BIGNUMBER_POSIX
+  location: class TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:66: error: cannot find symbol
+        assertEquals(TarArchiveOutputStream.BIGNUMBER_POSIX, 
+                                           ^
+  symbol:   variable BIGNUMBER_POSIX
+  location: class TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:119: error: incompatible types: ArchiveEntry cannot be converted to TarArchiveEntry
+        TarArchiveEntry entry = tarArchiveOutputStream.createArchiveEntry(tempFile, "test-entry.tmp");
+                                                                         ^
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:126: error: cannot find symbol
+        tarArchiveOutputStream.setLongFileMode(TarArchiveOutputStream.LONGFILE_POSIX);
+                                                                     ^
+  symbol:   variable LONGFILE_POSIX
+  location: class TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:134: error: cannot find symbol
+        tarArchiveOutputStream.writePaxHeaders(entry, "long/name", paxHeaders);
+                              ^
+  symbol:   method writePaxHeaders(TarArchiveEntry,String,Map<String,String>)
+  location: variable tarArchiveOutputStream of type TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:140: error: cannot find symbol
+        tarArchiveOutputStream.setLongFileMode(TarArchiveOutputStream.LONGFILE_POSIX);
+                                                                     ^
+  symbol:   variable LONGFILE_POSIX
+  location: class TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:147: error: cannot find symbol
+        tarArchiveOutputStream.writePaxHeaders(entry, "star/name", paxHeaders);
+                              ^
+  symbol:   method writePaxHeaders(TarArchiveEntry,String,Map<String,String>)
+  location: variable tarArchiveOutputStream of type TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:175: error: cannot find symbol
+        tarArchiveOutputStream.setBigNumberMode(TarArchiveOutputStream.BIGNUMBER_POSIX);
+                                                                      ^
+  symbol:   variable BIGNUMBER_POSIX
+  location: class TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:179: error: incompatible types: possible lossy conversion from long to int
+        entry.setGroupId(Long.MAX_VALUE);
+                             ^
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:180: error: incompatible types: possible lossy conversion from long to int
+        entry.setUserId(Long.MAX_VALUE);
+                            ^
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:189: error: cannot find symbol
+        tarArchiveOutputStream.setBigNumberMode(TarArchiveOutputStream.BIGNUMBER_ERROR);
+                                                                      ^
+  symbol:   variable BIGNUMBER_ERROR
+  location: class TarArchiveOutputStream
+/workspace/Gemini/TestCode/Compress_9b/TarArchiveOutputStreamTest.java:193: error: incompatible types: possible lossy conversion from long to int
+        entry.setGroupId(Long.MAX_VALUE); // Too large for standard 8-byte octal field
+                             ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+16 errors
+
+[exit=1 timeout=False time=1.6s]

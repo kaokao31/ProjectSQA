@@ -1,0 +1,36 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_32f/target/classes:/work/Mockito_32f/target/test-classes:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar -d /work/llm_out/deepseek/Mockito_32/classes_f /workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:8: error: package org.mockito.plugins does not exist
+import org.mockito.plugins.MockMaker;
+                          ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:81: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Field should be a Mockito spy", MockUtil.isMock(spy));
+                                                            ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:106: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Field should be a Mockito spy", MockUtil.isMock(spy));
+                                                            ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:117: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("list1 should be spy", MockUtil.isMock(field1.get(instance)));
+                                                  ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:118: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("list2 should be spy", MockUtil.isMock(field2.get(instance)));
+                                                  ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:148: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Final field should be spy", MockUtil.isMock(spy));
+                                                        ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:187: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Parent field should be spy", MockUtil.isMock(parentField.get(instance)));
+                                                         ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:188: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Child field should be spy", MockUtil.isMock(childField.get(instance)));
+                                                        ^
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:195: error: Illegal static declaration in inner class WithStaticSpy
+            private static List<String> staticList = new LinkedList<>();
+                                        ^
+  modifier 'static' is only allowed in constant variable declarations
+/workspace/deepseek/TestCode/Mockito_32b/SpyAnnotationEngineTest.java:202: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertFalse("Static field should not be spy", MockUtil.isMock(field.get(null)));
+                                                              ^
+10 errors
+
+[exit=1 timeout=False time=2.8s]

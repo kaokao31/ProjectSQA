@@ -1,0 +1,144 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_28f/target/classes:/work/Cli_28f/target/test-classes -d /work/llm_out/deepseek/Cli_28/classes_f /workspace/deepseek/TestCode/Cli_28b/ParserTest.java
+Note: /workspace/deepseek/TestCode/Cli_28b/ParserTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=1.6s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_28b/target/classes:/work/Cli_28b/target/test-classes -d /work/llm_out/deepseek/Cli_28/classes_b /workspace/deepseek/TestCode/Cli_28b/ParserTest.java
+Note: /workspace/deepseek/TestCode/Cli_28b/ParserTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Cli_28/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Cli_28/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_28f/target/classes:/work/Cli_28f/target/test-classes --scan-class-path /work/llm_out/deepseek/Cli_28/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Cli_28/rep_f
+est:testParseLongOptionValueSeparatedByEquals
+    MethodSource [className = 'org.apache.commons.cli.ParserTest', methodName = 'testParseLongOptionValueSeparatedByEquals', methodParameterTypes = '']
+    => org.apache.commons.cli.UnrecognizedOptionException: Unrecognized option: --option=value
+       org.apache.commons.cli.Parser.processOption(Parser.java:374)
+       org.apache.commons.cli.Parser.parse(Parser.java:210)
+       org.apache.commons.cli.Parser.parse(Parser.java:86)
+       org.apache.commons.cli.ParserTest.testParseLongOptionValueSeparatedByEquals(ParserTest.java:229)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:ParserTest:testParseWithNullOptionsThrowsException
+    MethodSource [className = 'org.apache.commons.cli.ParserTest', methodName = 'testParseWithNullOptionsThrowsException', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.NullPointerException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       [...]
+     Caused by: java.lang.NullPointerException
+       org.apache.commons.cli.Parser.parse(Parser.java:147)
+       org.apache.commons.cli.Parser.parse(Parser.java:86)
+       org.apache.commons.cli.ParserTest.testParseWithNullOptionsThrowsException(ParserTest.java:259)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+  JUnit Vintage:ParserTest:testPropertiesOptionNeedsArgButEmptyValue
+    MethodSource [className = 'org.apache.commons.cli.ParserTest', methodName = 'testPropertiesOptionNeedsArgButEmptyValue', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: org.apache.commons.cli.MissingArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       [...]
+
+Test run finished after 478 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        27 tests found           ]
+[         0 tests skipped         ]
+[        27 tests started         ]
+[         0 tests aborted         ]
+[        22 tests successful      ]
+[         5 tests failed          ]
+
+
+[exit=1 timeout=False time=4.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Cli_28/jacoco.exec --classfiles /work/Cli_28f/target/classes --csv /work/llm_out/deepseek/Cli_28/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Cli_28/jacoco.exec.
+[INFO] Analyzing 22 classes.
+
+[exit=0 timeout=False time=0.5s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Cli_28/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Cli_28b/target/classes:/work/Cli_28b/target/test-classes --scan-class-path /work/llm_out/deepseek/Cli_28/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Cli_28/rep_b
+est:testParseLongOptionValueSeparatedByEquals
+    MethodSource [className = 'org.apache.commons.cli.ParserTest', methodName = 'testParseLongOptionValueSeparatedByEquals', methodParameterTypes = '']
+    => org.apache.commons.cli.UnrecognizedOptionException: Unrecognized option: --option=value
+       org.apache.commons.cli.Parser.processOption(Parser.java:374)
+       org.apache.commons.cli.Parser.parse(Parser.java:210)
+       org.apache.commons.cli.Parser.parse(Parser.java:86)
+       org.apache.commons.cli.ParserTest.testParseLongOptionValueSeparatedByEquals(ParserTest.java:229)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:ParserTest:testParseWithNullOptionsThrowsException
+    MethodSource [className = 'org.apache.commons.cli.ParserTest', methodName = 'testParseWithNullOptionsThrowsException', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.NullPointerException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       [...]
+     Caused by: java.lang.NullPointerException
+       org.apache.commons.cli.Parser.parse(Parser.java:147)
+       org.apache.commons.cli.Parser.parse(Parser.java:86)
+       org.apache.commons.cli.ParserTest.testParseWithNullOptionsThrowsException(ParserTest.java:259)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+  JUnit Vintage:ParserTest:testPropertiesOptionNeedsArgButEmptyValue
+    MethodSource [className = 'org.apache.commons.cli.ParserTest', methodName = 'testPropertiesOptionNeedsArgButEmptyValue', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: org.apache.commons.cli.MissingArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       [...]
+
+Test run finished after 285 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        27 tests found           ]
+[         0 tests skipped         ]
+[        27 tests started         ]
+[         0 tests aborted         ]
+[        22 tests successful      ]
+[         5 tests failed          ]
+
+
+[exit=1 timeout=False time=2.3s]

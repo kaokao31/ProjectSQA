@@ -1,0 +1,38 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_10f/build/classes/java/main:/work/Mockito_10f/build/classes/java/test:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar -d /work/llm_out/deepseek/Mockito_10/classes_f /workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:9: error: MockHandlerImpl is not public in org.mockito.internal.handler; cannot be accessed from outside package
+import org.mockito.internal.handler.MockHandlerImpl;
+                                   ^
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:14: error: cannot find symbol
+import org.mockito.mock.MockCreationValidator;
+                       ^
+  symbol:   class MockCreationValidator
+  location: package org.mockito.mock
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:15: error: cannot find symbol
+import org.mockito.mock.MockSettings;
+                       ^
+  symbol:   class MockSettings
+  location: package org.mockito.mock
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:36: error: cannot find symbol
+    private MockCreationValidator mockCreationValidator;
+            ^
+  symbol:   class MockCreationValidator
+  location: class ReturnsDeepStubsTest
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:42: error: MockHandlerImpl is not public in org.mockito.internal.handler; cannot be accessed from outside package
+    private MockHandlerImpl<?> mockHandler;
+            ^
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:62: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Result should be a mock", MockUtil.isMock(result));
+                                                      ^
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:74: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Result should be a mock", MockUtil.isMock(result));
+                                                      ^
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:148: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Deep stub should be a mock", MockUtil.isMock(deepStub));
+                                                         ^
+/workspace/deepseek/TestCode/Mockito_10b/ReturnsDeepStubsTest.java:172: error: non-static method isMock(Object) cannot be referenced from a static context
+        assertTrue("Result should be a mock", MockUtil.isMock(result));
+                                                      ^
+9 errors
+
+[exit=1 timeout=False time=2.5s]

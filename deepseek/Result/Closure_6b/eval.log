@@ -1,0 +1,61 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_6f/build/classes:/work/Closure_6f/lib/args4j.jar:/work/Closure_6f/lib/guava.jar:/work/Closure_6f/lib/json.jar:/work/Closure_6f/lib/jsr305.jar:/work/Closure_6f/lib/protobuf-java.jar:/work/Closure_6f/build/lib/rhino.jar:/work/Closure_6f/lib/ant.jar:/work/Closure_6f/lib/ant-launcher.jar:/work/Closure_6f/lib/caja-r4314.jar:/work/Closure_6f/lib/jarjar.jar:/work/Closure_6f/build/test -d /work/llm_out/deepseek/Closure_6/classes_f /workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:26: error: <anonymous com.google.javascript.jscomp.TypeValidatorTest$1> is not abstract and does not override abstract method report(CheckLevel,JSError) in ErrorHandler
+    mockErrorHandler = new ErrorHandler() {
+                                          ^
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:27: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:32: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:37: error: incompatible types: ErrorHandler cannot be converted to AbstractCompiler
+    validator = new TypeValidator(mockErrorHandler);
+                                  ^
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:45: error: cannot find symbol
+        validator.isSubtypeOf(null, createDummyObjectType()));
+                 ^
+  symbol:   method isSubtypeOf(<null>,ObjectType)
+  location: variable validator of type TypeValidator
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:51: error: cannot find symbol
+        validator.isSubtypeOf(null, null));
+                 ^
+  symbol:   method isSubtypeOf(<null>,<null>)
+  location: variable validator of type TypeValidator
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:56: error: cannot find symbol
+    JSType unknown = JSType.UNKNOWN_TYPE;
+                           ^
+  symbol:   variable UNKNOWN_TYPE
+  location: class JSType
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:58: error: cannot find symbol
+        validator.isSubtypeOf(unknown, createDummyObjectType()));
+                 ^
+  symbol:   method isSubtypeOf(JSType,ObjectType)
+  location: variable validator of type TypeValidator
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:65: error: cannot find symbol
+        validator.isSubtypeOf(obj, obj));
+                 ^
+  symbol:   method isSubtypeOf(ObjectType,ObjectType)
+  location: variable validator of type TypeValidator
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:73: error: cannot find symbol
+        validator.isSubtypeOf(obj1, obj2));
+                 ^
+  symbol:   method isSubtypeOf(ObjectType,ObjectType)
+  location: variable validator of type TypeValidator
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:94: error: cannot find symbol
+    validator.visitEachObjectType(null, null); // should not throw
+             ^
+  symbol:   method visitEachObjectType(<null>,<null>)
+  location: variable validator of type TypeValidator
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:108: error: cannot find symbol
+      validator.visitEachObjectType(func, new TypeValidator.Visitor() {
+                                                           ^
+  symbol:   class Visitor
+  location: class TypeValidator
+/workspace/deepseek/TestCode/Closure_6b/TypeValidatorTest.java:109: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+13 errors
+
+[exit=1 timeout=False time=1.8s]

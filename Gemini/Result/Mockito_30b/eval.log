@@ -1,0 +1,57 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Mockito_30f/target/classes:/work/Mockito_30f/target/test-classes:/opt/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/opt/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/opt/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/opt/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/opt/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/opt/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar -d /work/llm_out/Gemini/Mockito_30/classes_f /workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java
+:184: error: incompatible types: void cannot be converted to MockitoException
+        MockitoException ex = Reporter.smartNullPointerException("method", null);
+                                                                ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:191: error: non-static method noMoreInteractionsWanted(Invocation,List<VerificationAwareInvocation>) cannot be referenced from a static context
+        NoInteractionsWanted ex = Reporter.noMoreInteractionsWanted(null, null);
+                                          ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:191: error: incompatible types: void cannot be converted to NoInteractionsWanted
+        NoInteractionsWanted ex = Reporter.noMoreInteractionsWanted(null, null);
+                                                                   ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:197: error: non-static method wrongTypeOfReturnValue(String,String,String) cannot be referenced from a static context
+        MockitoException ex = Reporter.wrongTypeOfReturnValue("String", "Integer", "method");
+                                      ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:197: error: incompatible types: void cannot be converted to MockitoException
+        MockitoException ex = Reporter.wrongTypeOfReturnValue("String", "Integer", "method");
+                                                             ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:205: error: cannot find symbol
+        MockitoException ex = Reporter.shortcutOfVoidMethodsInWrongContext();
+                                      ^
+  symbol:   method shortcutOfVoidMethodsInWrongContext()
+  location: class Reporter
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:211: error: incompatible types: <null> cannot be converted to int
+        MockitoException ex = Reporter.invalidUseOfMatchers(1, null);
+                                                               ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:217: error: method unfinishedVerificationException in class Reporter cannot be applied to given types;
+        MockitoException ex = Reporter.unfinishedVerificationException();
+                                      ^
+  required: Location
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:223: error: non-static method unfinishedStubbing(Location) cannot be referenced from a static context
+        MockitoException ex = Reporter.unfinishedStubbing(null);
+                                      ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:223: error: incompatible types: void cannot be converted to MockitoException
+        MockitoException ex = Reporter.unfinishedStubbing(null);
+                                                         ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:229: error: cannot find symbol
+        MockitoException ex = Reporter.writingInspectors();
+                                      ^
+  symbol:   method writingInspectors()
+  location: class Reporter
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:235: error: non-static method missingMethodInvocation() cannot be referenced from a static context
+        MockitoException ex = Reporter.missingMethodInvocation();
+                                      ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:235: error: incompatible types: void cannot be converted to MockitoException
+        MockitoException ex = Reporter.missingMethodInvocation();
+                                                              ^
+/workspace/Gemini/TestCode/Mockito_30b/ReporterTest.java:242: error: cannot find symbol
+        String res = Reporter.join(col);
+                             ^
+  symbol:   method join(Collection<String>)
+  location: class Reporter
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+53 errors
+
+[exit=1 timeout=False time=2.3s]

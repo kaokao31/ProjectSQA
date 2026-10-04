@@ -1,0 +1,21 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_72f/target/classes:/work/Math_72f/target/test-classes -d /work/llm_out/Gemini/Math_72/classes_f /workspace/Gemini/TestCode/Math_72b/BrentSolverTest.java
+/workspace/Gemini/TestCode/Math_72b/BrentSolverTest.java:7: error: package org.apache.commons.math.exception does not exist
+import org.apache.commons.math.exception.MaxIterationsExceededException;
+                                        ^
+/workspace/Gemini/TestCode/Math_72b/BrentSolverTest.java:96: error: cannot find symbol
+    @Test(expected = MaxIterationsExceededException.class)
+                     ^
+  symbol:   class MaxIterationsExceededException
+  location: class BrentSolverTest
+/workspace/Gemini/TestCode/Math_72b/BrentSolverTest.java:17: error: incompatible types: BrentSolver cannot be converted to UnivariateRealFunction
+        UnivariateRealFunction solver = new BrentSolver();
+                                        ^
+/workspace/Gemini/TestCode/Math_72b/BrentSolverTest.java:19: error: cannot find symbol
+        double result = solver.solve(f, 3.0, 4.0);
+                              ^
+  symbol:   method solve(UnivariateRealFunction,double,double)
+  location: variable solver of type UnivariateRealFunction
+4 errors
+
+[exit=1 timeout=False time=1.4s]

@@ -1,0 +1,47 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Jsoup_6f/target/classes:/work/Jsoup_6f/target/test-classes:/opt/defects4j/framework/projects/Jsoup/lib/com/google/code/gson/gson/2.7/gson-2.7.jar:/opt/defects4j/framework/projects/Jsoup/lib/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/opt/defects4j/framework/projects/Jsoup/lib/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-http/9.2.26.v20180806/jetty-http-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-http/9.2.28.v20190418/jetty-http-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-io/9.2.26.v20180806/jetty-io-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-io/9.2.28.v20190418/jetty-io-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-security/9.2.26.v20180806/jetty-security-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-security/9.2.28.v20190418/jetty-security-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-server/9.2.26.v20180806/jetty-server-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-server/9.2.28.v20190418/jetty-server-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-servlet/9.2.26.v20180806/jetty-servlet-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-servlet/9.2.28.v20190418/jetty-servlet-9.2.28.v20190418.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-util/9.2.26.v20180806/jetty-util-9.2.26.v20180806.jar:/opt/defects4j/framework/projects/Jsoup/lib/org/eclipse/jetty/jetty-util/9.2.28.v20190418/jetty-util-9.2.28.v20190418.jar -d /work/llm_out/deepseek/Jsoup_6/classes_f /workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:21: error: incompatible types: CharsetEncoder cannot be converted to Document.OutputSettings
+                Entities.escape("&<>\"", asciiEncoder()));
+                                                     ^
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:26: error: incompatible types: CharsetEncoder cannot be converted to Document.OutputSettings
+        assertEquals("plain text 123", Entities.escape("plain text 123", asciiEncoder()));
+                                                                                     ^
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:31: error: incompatible types: CharsetEncoder cannot be converted to Document.OutputSettings
+        assertEquals("&#4660;", Entities.escape("\u1234", asciiEncoder()));
+                                                                      ^
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:72: error: method unescape in class Entities cannot be applied to given types;
+        assertEquals("\u00bd", Entities.unescape("&frac12;", true));
+                                       ^
+  required: String
+  found: String,boolean
+  reason: actual and formal argument lists differ in length
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:73: error: method unescape in class Entities cannot be applied to given types;
+        assertEquals("&amp", Entities.unescape("&amp", true));
+                                     ^
+  required: String
+  found: String,boolean
+  reason: actual and formal argument lists differ in length
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:94: error: cannot find symbol
+        assertTrue(Entities.isNamedEntity("amp"));
+                           ^
+  symbol:   method isNamedEntity(String)
+  location: class Entities
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:95: error: cannot find symbol
+        assertTrue(Entities.isNamedEntity("frac12"));
+                           ^
+  symbol:   method isNamedEntity(String)
+  location: class Entities
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:96: error: cannot find symbol
+        assertFalse(Entities.isNamedEntity("not-a-real-entity"));
+                            ^
+  symbol:   method isNamedEntity(String)
+  location: class Entities
+/workspace/deepseek/TestCode/Jsoup_6b/EntitiesTest.java:101: error: cannot find symbol
+        assertEquals('\u00bd', Entities.getCharacterByName("frac12"));
+                                       ^
+  symbol:   method getCharacterByName(String)
+  location: class Entities
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors
+
+[exit=1 timeout=False time=1.5s]

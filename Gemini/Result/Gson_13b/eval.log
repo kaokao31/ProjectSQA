@@ -1,0 +1,142 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13f/target/classes:/work/Gson_13f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar -d /work/llm_out/Gemini/Gson_13/classes_f /workspace/Gemini/TestCode/Gson_13b/JsonReaderTest.java
+
+[exit=0 timeout=False time=1.5s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13b/target/classes:/work/Gson_13b/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar -d /work/llm_out/Gemini/Gson_13/classes_b /workspace/Gemini/TestCode/Gson_13b/JsonReaderTest.java
+
+[exit=0 timeout=False time=1.5s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/Gemini/Gson_13/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Gson_13/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13f/target/classes:/work/Gson_13f/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar --scan-class-path /work/llm_out/Gemini/Gson_13/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Gson_13/rep_f
+      [...]
+  JUnit Vintage:JsonReaderTest:testEmptyDocument
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testEmptyDocument', methodParameterTypes = '']
+    => java.io.EOFException: End of input at line 1 column 1 path $
+       com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1407)
+       com.google.gson.stream.JsonReader.consumeNonExecutePrefix(JsonReader.java:1581)
+       com.google.gson.stream.JsonReader.doPeek(JsonReader.java:534)
+       com.google.gson.stream.JsonReader.peek(JsonReader.java:425)
+       com.google.gson.stream.JsonReaderTest.testEmptyDocument(JsonReaderTest.java:20)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:JsonReaderTest:testTypeMismatch
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testTypeMismatch', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalStateException> but was<java.lang.NumberFormatException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       [...]
+     Caused by: java.lang.NumberFormatException: For input string: "notAnInt"
+       java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+       java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+       java.base/java.lang.Double.parseDouble(Double.java:543)
+       com.google.gson.stream.JsonReader.nextInt(JsonReader.java:1207)
+       com.google.gson.stream.JsonReaderTest.testTypeMismatch(JsonReaderTest.java:177)
+       [...]
+  JUnit Vintage:JsonReaderTest:testNumbers
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testNumbers', methodParameterTypes = '']
+    => java.lang.IllegalStateException: Expected an int but was BEGIN_ARRAY at line 1 column 2 path $
+       com.google.gson.stream.JsonReader.nextInt(JsonReader.java:1203)
+       com.google.gson.stream.JsonReaderTest.testNumbers(JsonReaderTest.java:131)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+
+Test run finished after 468 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         4 tests failed          ]
+
+
+[exit=1 timeout=False time=3.3s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/Gemini/Gson_13/jacoco.exec --classfiles /work/Gson_13f/target/classes --csv /work/llm_out/Gemini/Gson_13/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/Gemini/Gson_13/jacoco.exec.
+[INFO] Analyzing 156 classes.
+
+[exit=0 timeout=False time=0.8s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Gson_13/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Gson_13b/target/classes:/work/Gson_13b/target/test-classes:/opt/defects4j/framework/projects/Gson/lib/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar --scan-class-path /work/llm_out/Gemini/Gson_13/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Gson_13/rep_b
+      [...]
+  JUnit Vintage:JsonReaderTest:testEmptyDocument
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testEmptyDocument', methodParameterTypes = '']
+    => java.io.EOFException: End of input at line 1 column 1 path $
+       com.google.gson.stream.JsonReader.nextNonWhitespace(JsonReader.java:1407)
+       com.google.gson.stream.JsonReader.consumeNonExecutePrefix(JsonReader.java:1581)
+       com.google.gson.stream.JsonReader.doPeek(JsonReader.java:534)
+       com.google.gson.stream.JsonReader.peek(JsonReader.java:425)
+       com.google.gson.stream.JsonReaderTest.testEmptyDocument(JsonReaderTest.java:20)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:JsonReaderTest:testTypeMismatch
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testTypeMismatch', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.IllegalStateException> but was<java.lang.NumberFormatException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       [...]
+     Caused by: java.lang.NumberFormatException: For input string: "notAnInt"
+       java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+       java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+       java.base/java.lang.Double.parseDouble(Double.java:543)
+       com.google.gson.stream.JsonReader.nextInt(JsonReader.java:1207)
+       com.google.gson.stream.JsonReaderTest.testTypeMismatch(JsonReaderTest.java:177)
+       [...]
+  JUnit Vintage:JsonReaderTest:testNumbers
+    MethodSource [className = 'com.google.gson.stream.JsonReaderTest', methodName = 'testNumbers', methodParameterTypes = '']
+    => java.lang.IllegalStateException: Expected an int but was BEGIN_ARRAY at line 1 column 2 path $
+       com.google.gson.stream.JsonReader.nextInt(JsonReader.java:1203)
+       com.google.gson.stream.JsonReaderTest.testNumbers(JsonReaderTest.java:131)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+
+Test run finished after 266 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        18 tests found           ]
+[         0 tests skipped         ]
+[        18 tests started         ]
+[         0 tests aborted         ]
+[        14 tests successful      ]
+[         4 tests failed          ]
+
+
+[exit=1 timeout=False time=2.1s]

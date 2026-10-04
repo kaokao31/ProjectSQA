@@ -1,0 +1,36 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_14f/target/classes:/work/Math_14f/target/test-classes -d /work/llm_out/Gemini/Math_14/classes_f /workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java
+/workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java:15: error: ConcreteOptimizer is not abstract and does not override abstract method doOptimize() in BaseOptimizer
+    private static class ConcreteOptimizer extends AbstractLeastSquaresOptimizer {
+                   ^
+/workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java:34: error: weightMatrix has private access in MultivariateVectorOptimizer
+        optimizer.weightMatrix = new org.apache.commons.math3.linear.DiagonalMatrix(weights);
+                 ^
+/workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java:35: error: cannot find symbol
+        optimizer.residuals = residuals;
+                 ^
+  symbol:   variable residuals
+  location: variable optimizer of type ConcreteOptimizer
+/workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java:49: error: cannot find symbol
+        RealMatrix weightSqrt = optimizer.computeWeightMatrixSqrt(weight);
+                                         ^
+  symbol:   method computeWeightMatrixSqrt(Weight)
+  location: variable optimizer of type ConcreteOptimizer
+/workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java:68: error: no suitable constructor found for Weight(double[][])
+        Weight invalidWeight = new Weight(new double[][] {
+                               ^
+    constructor Weight.Weight(double[]) is not applicable
+      (argument mismatch; double[][] cannot be converted to double[])
+    constructor Weight.Weight(RealMatrix) is not applicable
+      (argument mismatch; double[][] cannot be converted to RealMatrix)
+/workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java:73: error: cannot find symbol
+        optimizer.computeWeightMatrixSqrt(invalidWeight);
+                 ^
+  symbol:   method computeWeightMatrixSqrt(Weight)
+  location: variable optimizer of type ConcreteOptimizer
+/workspace/Gemini/TestCode/Math_14b/AbstractLeastSquaresOptimizerTest.java:82: error: computeJacobian(double[]) has protected access in JacobianMultivariateVectorOptimizer
+            optimizer.computeJacobian(params);
+                     ^
+7 errors
+
+[exit=1 timeout=False time=1.8s]

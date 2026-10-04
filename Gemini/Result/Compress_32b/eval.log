@@ -1,0 +1,84 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_32f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32f/target/test-classes -d /work/llm_out/Gemini/Compress_32/classes_f /workspace/Gemini/TestCode/Compress_32b/TarArchiveInputStreamTest.java
+
+[exit=0 timeout=False time=1.3s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_32b/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32b/target/test-classes -d /work/llm_out/Gemini/Compress_32/classes_b /workspace/Gemini/TestCode/Compress_32b/TarArchiveInputStreamTest.java
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/Gemini/Compress_32/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Compress_32/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_32f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32f/target/test-classes --scan-class-path /work/llm_out/Gemini/Compress_32/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Compress_32/rep_f
+
+Failures (1):
+  JUnit Vintage:TarArchiveInputStreamTest:testAvailable
+    MethodSource [className = 'org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest', methodName = 'testAvailable', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<100> but was:<0>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:647)
+       org.junit.Assert.assertEquals(Assert.java:633)
+       org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest.testAvailable(TarArchiveInputStreamTest.java:88)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 379 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         8 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=2.7s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/Gemini/Compress_32/jacoco.exec --classfiles /work/Compress_32f/target/classes --csv /work/llm_out/Gemini/Compress_32/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/Gemini/Compress_32/jacoco.exec.
+[INFO] Analyzing 202 classes.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Compress_32/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_32b/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_32b/target/test-classes --scan-class-path /work/llm_out/Gemini/Compress_32/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Compress_32/rep_b
+
+Failures (1):
+  JUnit Vintage:TarArchiveInputStreamTest:testAvailable
+    MethodSource [className = 'org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest', methodName = 'testAvailable', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<100> but was:<0>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:647)
+       org.junit.Assert.assertEquals(Assert.java:633)
+       org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest.testAvailable(TarArchiveInputStreamTest.java:88)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 245 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[         9 tests found           ]
+[         0 tests skipped         ]
+[         9 tests started         ]
+[         0 tests aborted         ]
+[         8 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=2.0s]

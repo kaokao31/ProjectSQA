@@ -1,0 +1,50 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_33f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_33f/target/test-classes -d /work/llm_out/deepseek/Compress_33/classes_f /workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:18: error: cannot find symbol
+import org.apache.commons.compress.compressors.xz.XzCompressorInputStream;
+                                                 ^
+  symbol:   class XzCompressorInputStream
+  location: package org.apache.commons.compress.compressors.xz
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:66: error: cannot find symbol
+        assertTrue("Should be XzCompressorInputStream", cis instanceof XzCompressorInputStream);
+                                                                       ^
+  symbol:   class XzCompressorInputStream
+  location: class CompressorStreamFactoryTest
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:135: error: cannot find symbol
+        assertTrue(cis instanceof XzCompressorInputStream);
+                                  ^
+  symbol:   class XzCompressorInputStream
+  location: class CompressorStreamFactoryTest
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:170: error: incompatible types: OutputStream cannot be converted to String
+        CompressorOutputStream cos = factory.createCompressorOutputStream(out, "gz");
+                                                                          ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:177: error: incompatible types: OutputStream cannot be converted to String
+        CompressorOutputStream cos = factory.createCompressorOutputStream(out, "bzip2");
+                                                                          ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:184: error: incompatible types: OutputStream cannot be converted to String
+        CompressorOutputStream cos = factory.createCompressorOutputStream(out, "deflate");
+                                                                          ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:191: error: incompatible types: OutputStream cannot be converted to String
+        CompressorOutputStream cos = factory.createCompressorOutputStream(out, "xz");
+                                                                          ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:198: error: incompatible types: OutputStream cannot be converted to String
+        CompressorOutputStream cos = factory.createCompressorOutputStream(out, "lzma");
+                                                                          ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:204: error: incompatible types: String cannot be converted to OutputStream
+        factory.createCompressorOutputStream(null, "gz");
+                                                   ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:210: error: incompatible types: OutputStream cannot be converted to String
+        factory.createCompressorOutputStream(out, null);
+                                             ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:216: error: incompatible types: OutputStream cannot be converted to String
+        factory.createCompressorOutputStream(out, "unknown");
+                                             ^
+/workspace/deepseek/TestCode/Compress_33b/CompressorStreamFactoryTest.java:225: error: cannot find symbol
+        Set<String> names = factory.getCompressorNames();
+                                   ^
+  symbol:   method getCompressorNames()
+  location: variable factory of type CompressorStreamFactory
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+12 errors
+
+[exit=1 timeout=False time=1.9s]

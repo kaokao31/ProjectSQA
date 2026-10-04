@@ -1,0 +1,47 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_143f/build/classes:/work/Closure_143f/lib/ant_deploy.jar:/work/Closure_143f/lib/args4j_deploy.jar:/work/Closure_143f/lib/google_common_deploy.jar:/work/Closure_143f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_143f/lib/protobuf_deploy.jar:/work/Closure_143f/build/test -d /work/llm_out/Gemini/Closure_143/classes_f /workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:52: error: cannot find symbol
+        protected FlagEntry<Bundle> createRootBundleFlag() {
+                  ^
+  symbol:   class FlagEntry
+  location: class TestCommandLineRunner
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:52: error: cannot find symbol
+        protected FlagEntry<Bundle> createRootBundleFlag() {
+                            ^
+  symbol:   class Bundle
+  location: class TestCommandLineRunner
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:14: error: type argument JSSourceFile is not within bounds of type-variable A
+    private static class TestCommandLineRunner extends AbstractCommandLineRunner<JSSourceFile, JSModule> {
+                                                                                 ^
+  where A is a type-variable:
+    A extends Compiler declared in class AbstractCommandLineRunner
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:14: error: TestCommandLineRunner is not abstract and does not override abstract method createOptions() in AbstractCommandLineRunner
+    private static class TestCommandLineRunner extends AbstractCommandLineRunner<JSSourceFile, JSModule> {
+                   ^
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:46: error: createOptions() in TestCommandLineRunner cannot override createOptions() in AbstractCommandLineRunner
+        protected CompilerOptions createOptions() {
+                                  ^
+  return type CompilerOptions is not compatible with JSModule
+  where B is a type-variable:
+    B extends CompilerOptions declared in class AbstractCommandLineRunner
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:35: error: createCompiler() in TestCommandLineRunner cannot override createCompiler() in AbstractCommandLineRunner
+        protected Compiler createCompiler() {
+                           ^
+  return type Compiler is not compatible with JSSourceFile
+  where A is a type-variable:
+    A extends Compiler declared in class AbstractCommandLineRunner
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:34: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:40: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:45: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/workspace/Gemini/TestCode/Closure_143b/AbstractCommandLineRunnerTest.java:51: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+10 errors
+
+[exit=1 timeout=False time=3.0s]

@@ -1,0 +1,55 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_13f/target/classes:/work/Lang_13f/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar -d /work/llm_out/Gemini/Lang_13/classes_f /workspace/Gemini/TestCode/Lang_13b/SerializationUtilsTest.java
+
+[exit=0 timeout=False time=1.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_13b/target/classes:/work/Lang_13b/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar -d /work/llm_out/Gemini/Lang_13/classes_b /workspace/Gemini/TestCode/Lang_13b/SerializationUtilsTest.java
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/Gemini/Lang_13/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Lang_13/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_13f/target/classes:/work/Lang_13f/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar --scan-class-path /work/llm_out/Gemini/Lang_13/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Lang_13/rep_f
+
+[exit=0 timeout=False time=3.0s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/Gemini/Lang_13/jacoco.exec --classfiles /work/Lang_13f/target/classes --csv /work/llm_out/Gemini/Lang_13/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/Gemini/Lang_13/jacoco.exec.
+[INFO] Analyzing 158 classes.
+
+[exit=0 timeout=False time=0.9s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/Gemini/Lang_13/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_13b/target/classes:/work/Lang_13b/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar --scan-class-path /work/llm_out/Gemini/Lang_13/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/Gemini/Lang_13/rep_b
+
+Failures (1):
+  JUnit Vintage:SerializationUtilsTest:testPrimitiveTypeClassSerialization
+    MethodSource [className = 'org.apache.commons.lang3.SerializationUtilsTest', methodName = 'testPrimitiveTypeClassSerialization', methodParameterTypes = '']
+    => org.apache.commons.lang3.SerializationException: ClassNotFoundException while reading cloned object data
+       org.apache.commons.lang3.SerializationUtils.clone(SerializationUtils.java:99)
+       org.apache.commons.lang3.SerializationUtilsTest.testPrimitiveTypeClassSerialization(SerializationUtilsTest.java:159)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       [...]
+     Caused by: java.lang.ClassNotFoundException: byte
+       java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:476)
+       java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:594)
+       java.base/java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:904)
+       java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:527)
+       java.base/java.lang.Class.forName0(Native Method)
+       [...]
+
+Test run finished after 346 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        21 tests found           ]
+[         0 tests skipped         ]
+[        21 tests started         ]
+[         0 tests aborted         ]
+[        20 tests successful      ]
+[         1 tests failed          ]
+
+
+[exit=1 timeout=False time=2.1s]

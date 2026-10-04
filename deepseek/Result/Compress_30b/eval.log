@@ -1,0 +1,137 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_30f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_30f/target/test-classes -d /work/llm_out/deepseek/Compress_30/classes_f /workspace/deepseek/TestCode/Compress_30b/BZip2CompressorInputStreamTest.java
+
+[exit=0 timeout=False time=1.6s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_30b/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_30b/target/test-classes -d /work/llm_out/deepseek/Compress_30/classes_b /workspace/deepseek/TestCode/Compress_30b/BZip2CompressorInputStreamTest.java
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Compress_30/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Compress_30/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_30f/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_30f/target/test-classes --scan-class-path /work/llm_out/deepseek/Compress_30/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Compress_30/rep_f
+ParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.io.IOException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+       [...]
+  JUnit Vintage:BZip2CompressorInputStreamTest:testNullInputStream
+    MethodSource [className = 'org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest', methodName = 'testNullInputStream', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.NullPointerException> but was<java.io.IOException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       [...]
+     Caused by: java.io.IOException: No InputStream
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.init(BZip2CompressorInputStream.java:232)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.<init>(BZip2CompressorInputStream.java:132)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.<init>(BZip2CompressorInputStream.java:109)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest.testNullInputStream(BZip2CompressorInputStreamTest.java:33)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       [...]
+  JUnit Vintage:BZip2CompressorInputStreamTest:testReadOneByte
+    MethodSource [className = 'org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest', methodName = 'testReadOneByte', methodParameterTypes = '']
+    => java.lang.AssertionError: Should read at least 0 bits
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.assertTrue(Assert.java:42)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest.testReadOneByte(BZip2CompressorInputStreamTest.java:57)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+
+Test run finished after 402 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        19 tests found           ]
+[         0 tests skipped         ]
+[        19 tests started         ]
+[         0 tests aborted         ]
+[        16 tests successful      ]
+[         3 tests failed          ]
+
+
+[exit=1 timeout=False time=3.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Compress_30/jacoco.exec --classfiles /work/Compress_30f/target/classes --csv /work/llm_out/deepseek/Compress_30/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Compress_30/jacoco.exec.
+[INFO] Analyzing 200 classes.
+
+[exit=0 timeout=False time=1.2s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Compress_30/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Compress_30b/target/classes:/opt/defects4j/framework/projects/Compress/lib/org/tukaani/xz/1.5/xz-1.5.jar:/work/Compress_30b/target/test-classes --scan-class-path /work/llm_out/deepseek/Compress_30/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Compress_30/rep_b
+return 0 expected:<0> but was:<-1>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:647)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest.testReadZeroBytes(BZip2CompressorInputStreamTest.java:170)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       [...]
+  JUnit Vintage:BZip2CompressorInputStreamTest:testNullInputStream
+    MethodSource [className = 'org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest', methodName = 'testNullInputStream', methodParameterTypes = '']
+    => java.lang.Exception: Unexpected exception, expected<java.lang.NullPointerException> but was<java.io.IOException>
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:30)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       [...]
+     Caused by: java.io.IOException: No InputStream
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.init(BZip2CompressorInputStream.java:229)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.<init>(BZip2CompressorInputStream.java:132)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream.<init>(BZip2CompressorInputStream.java:109)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest.testNullInputStream(BZip2CompressorInputStreamTest.java:33)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       [...]
+  JUnit Vintage:BZip2CompressorInputStreamTest:testReadOneByte
+    MethodSource [className = 'org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest', methodName = 'testReadOneByte', methodParameterTypes = '']
+    => java.lang.AssertionError: Should read at least 0 bits
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.assertTrue(Assert.java:42)
+       org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest.testReadOneByte(BZip2CompressorInputStreamTest.java:57)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       [...]
+
+Test run finished after 296 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        19 tests found           ]
+[         0 tests skipped         ]
+[        19 tests started         ]
+[         0 tests aborted         ]
+[        15 tests successful      ]
+[         4 tests failed          ]
+
+
+[exit=1 timeout=False time=2.2s]

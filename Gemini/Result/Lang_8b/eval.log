@@ -1,0 +1,33 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Lang_8f/target/classes:/work/Lang_8f/target/tests:/opt/defects4j/framework/projects/Lang/lib/easymock.jar:/opt/defects4j/framework/projects/Lang/lib/commons-io.jar:/opt/defects4j/framework/projects/Lang/lib/cglib.jar:/opt/defects4j/framework/projects/Lang/lib/asm.jar -d /work/llm_out/Gemini/Lang_8/classes_f /workspace/Gemini/TestCode/Lang_8b/FastDatePrinterTest.java
+/workspace/Gemini/TestCode/Lang_8b/FastDatePrinterTest.java:73: error: no suitable method found for format(Date,StringBuilder)
+        assertEquals("2023-03-15", printer.format(testDate, sbuilder).toString());
+                                          ^
+    method FastDatePrinter.format(long,StringBuffer) is not applicable
+      (argument mismatch; Date cannot be converted to long)
+    method FastDatePrinter.format(Date,StringBuffer) is not applicable
+      (argument mismatch; StringBuilder cannot be converted to StringBuffer)
+    method FastDatePrinter.format(Calendar,StringBuffer) is not applicable
+      (argument mismatch; Date cannot be converted to Calendar)
+/workspace/Gemini/TestCode/Lang_8b/FastDatePrinterTest.java:404: error: no suitable method found for format(Date,StringBuilder)
+        Appendable result = printer.format(testDate, sb);
+                                   ^
+    method FastDatePrinter.format(long,StringBuffer) is not applicable
+      (argument mismatch; Date cannot be converted to long)
+    method FastDatePrinter.format(Date,StringBuffer) is not applicable
+      (argument mismatch; StringBuilder cannot be converted to StringBuffer)
+    method FastDatePrinter.format(Calendar,StringBuffer) is not applicable
+      (argument mismatch; Date cannot be converted to Calendar)
+/workspace/Gemini/TestCode/Lang_8b/FastDatePrinterTest.java:412: error: no suitable method found for format(long,StringBuilder)
+        Appendable result3 = printer.format(testDate.getTime(), sbMillis);
+                                    ^
+    method FastDatePrinter.format(long,StringBuffer) is not applicable
+      (argument mismatch; StringBuilder cannot be converted to StringBuffer)
+    method FastDatePrinter.format(Date,StringBuffer) is not applicable
+      (argument mismatch; long cannot be converted to Date)
+    method FastDatePrinter.format(Calendar,StringBuffer) is not applicable
+      (argument mismatch; long cannot be converted to Calendar)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors
+
+[exit=1 timeout=False time=1.8s]

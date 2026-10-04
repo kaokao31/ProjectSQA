@@ -1,0 +1,140 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes -d /work/llm_out/deepseek/JacksonCore_24/classes_f /workspace/deepseek/TestCode/JacksonCore_24b/ParserBaseTest.java
+
+[exit=0 timeout=False time=1.7s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24b/target/classes:/work/JacksonCore_24b/target/test-classes -d /work/llm_out/deepseek/JacksonCore_24/classes_b /workspace/deepseek/TestCode/JacksonCore_24b/ParserBaseTest.java
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/JacksonCore_24/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/JacksonCore_24/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24f/target/classes:/work/JacksonCore_24f/target/test-classes --scan-class-path /work/llm_out/deepseek/JacksonCore_24/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/JacksonCore_24/rep_f
+ackson.core.base.ParserBaseTest', methodName = 'testParseLongOverflow', methodParameterTypes = '']
+    => com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (9223372036854775808) out of range of long (-9223372036854775808 - 9223372036854775807)
+ at [Source: (String)"9223372036854775808"; line: 1, column: 39]
+       com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:601)
+       com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowLong(ParserMinimalBase.java:591)
+       com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowLong(ParserMinimalBase.java:586)
+       com.fasterxml.jackson.core.base.ParserBase._reportTooLongIntegral(ParserBase.java:872)
+       com.fasterxml.jackson.core.base.ParserBase._parseSlowInt(ParserBase.java:849)
+       com.fasterxml.jackson.core.base.ParserBase._parseNumericValue(ParserBase.java:775)
+       com.fasterxml.jackson.core.base.ParserBase.getLongValue(ParserBase.java:660)
+       com.fasterxml.jackson.core.base.ParserBaseTest.testParseLongOverflow(ParserBaseTest.java:132)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       [...]
+  JUnit Vintage:ParserBaseTest:testParseDoublePositive
+    MethodSource [className = 'com.fasterxml.jackson.core.base.ParserBaseTest', methodName = 'testParseDoublePositive', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected JsonParseException for non-integer
+       org.junit.Assert.fail(Assert.java:89)
+       com.fasterxml.jackson.core.base.ParserBaseTest.testParseDoublePositive(ParserBaseTest.java:178)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+  JUnit Vintage:ParserBaseTest:testParseDoubleWithExponent
+    MethodSource [className = 'com.fasterxml.jackson.core.base.ParserBaseTest', methodName = 'testParseDoubleWithExponent', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<100000.0> but was:<1E+5>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       com.fasterxml.jackson.core.base.ParserBaseTest.testParseDoubleWithExponent(ParserBaseTest.java:213)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 598 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        56 tests found           ]
+[         0 tests skipped         ]
+[        56 tests started         ]
+[         0 tests aborted         ]
+[        47 tests successful      ]
+[         9 tests failed          ]
+
+
+[exit=1 timeout=False time=3.4s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/JacksonCore_24/jacoco.exec --classfiles /work/JacksonCore_24f/target/classes --csv /work/llm_out/deepseek/JacksonCore_24/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/JacksonCore_24/jacoco.exec.
+[INFO] Analyzing 103 classes.
+
+[exit=0 timeout=False time=1.0s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/JacksonCore_24/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_24b/target/classes:/work/JacksonCore_24b/target/test-classes --scan-class-path /work/llm_out/deepseek/JacksonCore_24/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/JacksonCore_24/rep_b
+pl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:ParserBaseTest:testGetValueAsIntWithDefaultOnFloat
+    MethodSource [className = 'com.fasterxml.jackson.core.base.ParserBaseTest', methodName = 'testGetValueAsIntWithDefaultOnFloat', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<0> but was:<3>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:647)
+       org.junit.Assert.assertEquals(Assert.java:633)
+       com.fasterxml.jackson.core.base.ParserBaseTest.testGetValueAsIntWithDefaultOnFloat(ParserBaseTest.java:379)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:ParserBaseTest:testParseDoublePositive
+    MethodSource [className = 'com.fasterxml.jackson.core.base.ParserBaseTest', methodName = 'testParseDoublePositive', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected JsonParseException for non-integer
+       org.junit.Assert.fail(Assert.java:89)
+       com.fasterxml.jackson.core.base.ParserBaseTest.testParseDoublePositive(ParserBaseTest.java:178)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+       org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+       org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+       [...]
+  JUnit Vintage:ParserBaseTest:testParseDoubleWithExponent
+    MethodSource [className = 'com.fasterxml.jackson.core.base.ParserBaseTest', methodName = 'testParseDoubleWithExponent', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<100000.0> but was:<1E+5>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:120)
+       org.junit.Assert.assertEquals(Assert.java:146)
+       com.fasterxml.jackson.core.base.ParserBaseTest.testParseDoubleWithExponent(ParserBaseTest.java:213)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+
+Test run finished after 379 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        56 tests found           ]
+[         0 tests skipped         ]
+[        56 tests started         ]
+[         0 tests aborted         ]
+[        50 tests successful      ]
+[         6 tests failed          ]
+
+
+[exit=1 timeout=False time=2.3s]

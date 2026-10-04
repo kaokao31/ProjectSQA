@@ -1,0 +1,66 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_14f/target/classes:/work/JacksonCore_14f/target/test-classes -d /work/llm_out/Gemini/JacksonCore_14/classes_f /workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:13: error: cannot find symbol
+    private ContentReference contentRef;
+            ^
+  symbol:   class ContentReference
+  location: class IOContextTest
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:19: error: cannot find symbol
+        contentRef = ContentReference.unknownRef();
+                     ^
+  symbol:   variable ContentReference
+  location: class IOContextTest
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:32: error: cannot find symbol
+        assertNotNull(context.getSourceRef());
+                             ^
+  symbol:   method getSourceRef()
+  location: variable context of type IOContext
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:34: error: cannot find symbol
+        assertSame(recycler, context.getAllocationTracker());
+                                    ^
+  symbol:   method getAllocationTracker()
+  location: variable context of type IOContext
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:39: error: constructor IOContext in class IOContext cannot be applied to given types;
+        IOContext defaultRefContext = new IOContext(recycler, false);
+                                      ^
+  required: BufferRecycler,Object,boolean
+  found: BufferRecycler,boolean
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:40: error: cannot find symbol
+        assertNotNull(defaultRefContext.getSourceRef());
+                                       ^
+  symbol:   method getSourceRef()
+  location: variable defaultRefContext of type IOContext
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:53: error: cannot find symbol
+        assertSame(contentRef, context.contentReference());
+                                      ^
+  symbol:   method contentReference()
+  location: variable context of type IOContext
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:55: error: cannot find symbol
+        ContentReference newRef = ContentReference.construct(true, "test-content");
+        ^
+  symbol:   class ContentReference
+  location: class IOContextTest
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:55: error: cannot find symbol
+        ContentReference newRef = ContentReference.construct(true, "test-content");
+                                  ^
+  symbol:   variable ContentReference
+  location: class IOContextTest
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:58: error: cannot find symbol
+        assertNotNull(context.getSourceRef());
+                             ^
+  symbol:   method getSourceRef()
+  location: variable context of type IOContext
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:107: error: cannot find symbol
+        IOContext customContext = new IOContext(customRecycler, ContentReference.rawReference("some-data"), true);
+                                                                ^
+  symbol:   variable ContentReference
+  location: class IOContextTest
+/workspace/Gemini/TestCode/JacksonCore_14b/IOContextTest.java:109: error: cannot find symbol
+        assertSame(customRecycler, customContext.getAllocationTracker());
+                                                ^
+  symbol:   method getAllocationTracker()
+  location: variable customContext of type IOContext
+12 errors
+
+[exit=1 timeout=False time=1.3s]

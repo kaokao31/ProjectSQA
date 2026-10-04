@@ -1,0 +1,128 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_11f/build/classes:/work/Collections_11f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar -d /work/llm_out/deepseek/Collections_11/classes_f /workspace/deepseek/TestCode/Collections_11b/MultiKeyTest.java
+
+[exit=0 timeout=False time=1.8s]
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_11b/build/classes:/work/Collections_11b/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar -d /work/llm_out/deepseek/Collections_11/classes_b /workspace/deepseek/TestCode/Collections_11b/MultiKeyTest.java
+
+[exit=0 timeout=False time=1.7s]
+
+$ java -Djava.awt.headless=true -Xmx768m -javaagent:/opt/jacoco/lib/jacocoagent.jar=destfile=/work/llm_out/deepseek/Collections_11/jacoco.exec -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Collections_11/classes_f:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_11f/build/classes:/work/Collections_11f/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar --scan-class-path /work/llm_out/deepseek/Collections_11/classes_f --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Collections_11/rep_f
+
+Failures (2):
+  JUnit Vintage:MultiKeyTest:testEmptyArrayConstructorThrows
+    MethodSource [className = 'org.apache.commons.collections.keyvalue.MultiKeyTest', methodName = 'testEmptyArrayConstructorThrows', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+       [...]
+  JUnit Vintage:MultiKeyTest:testEmptyArrayConstructorWithMakeCloneThrows
+    MethodSource [className = 'org.apache.commons.collections.keyvalue.MultiKeyTest', methodName = 'testEmptyArrayConstructorWithMakeCloneThrows', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+       [...]
+
+Test run finished after 525 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        30 tests found           ]
+[         0 tests skipped         ]
+[        30 tests started         ]
+[         0 tests aborted         ]
+[        28 tests successful      ]
+[         2 tests failed          ]
+
+
+[exit=1 timeout=False time=3.9s]
+
+$ java -jar /opt/jacoco/lib/jacococli.jar report /work/llm_out/deepseek/Collections_11/jacoco.exec --classfiles /work/Collections_11f/build/classes --csv /work/llm_out/deepseek/Collections_11/jacoco.csv
+[INFO] Loading execution data file /work/llm_out/deepseek/Collections_11/jacoco.exec.
+[INFO] Analyzing 420 classes.
+
+[exit=0 timeout=False time=1.6s]
+
+$ java -Djava.awt.headless=true -Xmx768m -jar /workspace/lib/jqwik/junit-platform-console-standalone-1.9.3.jar --disable-banner --details none --class-path /work/llm_out/deepseek/Collections_11/classes_b:/opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Collections_11b/build/classes:/work/Collections_11b/build/tests:/opt/defects4j/framework/projects/Collections/lib/easymock-2.0.jar --scan-class-path /work/llm_out/deepseek/Collections_11/classes_b --include-classname .* --include-engine junit-vintage --reports-dir /work/llm_out/deepseek/Collections_11/rep_b
+orImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:MultiKeyTest:testSerializationRoundTripWithNullKeys
+    MethodSource [className = 'org.apache.commons.collections.keyvalue.MultiKeyTest', methodName = 'testSerializationRoundTripWithNullKeys', methodParameterTypes = '']
+    => java.lang.AssertionError: expected:<98> but was:<0>
+       org.junit.Assert.fail(Assert.java:89)
+       org.junit.Assert.failNotEquals(Assert.java:835)
+       org.junit.Assert.assertEquals(Assert.java:647)
+       org.junit.Assert.assertEquals(Assert.java:633)
+       org.apache.commons.collections.keyvalue.MultiKeyTest.testSerializationRoundTripWithNullKeys(MultiKeyTest.java:223)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:566)
+       org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+       [...]
+  JUnit Vintage:MultiKeyTest:testEmptyArrayConstructorThrows
+    MethodSource [className = 'org.apache.commons.collections.keyvalue.MultiKeyTest', methodName = 'testEmptyArrayConstructorThrows', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+       [...]
+  JUnit Vintage:MultiKeyTest:testEmptyArrayConstructorWithMakeCloneThrows
+    MethodSource [className = 'org.apache.commons.collections.keyvalue.MultiKeyTest', methodName = 'testEmptyArrayConstructorWithMakeCloneThrows', methodParameterTypes = '']
+    => java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+       org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+       org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+       org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+       org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+       org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+       org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+       org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+       org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+       org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+       [...]
+
+Test run finished after 374 ms
+[         2 containers found      ]
+[         0 containers skipped    ]
+[         2 containers started    ]
+[         0 containers aborted    ]
+[         2 containers successful ]
+[         0 containers failed     ]
+[        30 tests found           ]
+[         0 tests skipped         ]
+[        30 tests started         ]
+[         0 tests aborted         ]
+[        26 tests successful      ]
+[         4 tests failed          ]
+
+
+[exit=1 timeout=False time=2.7s]

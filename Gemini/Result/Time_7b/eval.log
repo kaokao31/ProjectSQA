@@ -1,0 +1,56 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Time_7f/target/classes:/opt/defects4j/framework/projects/Time/lib/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/work/Time_7f/target/test-classes -d /work/llm_out/Gemini/Time_7/classes_f /workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java
+/workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java:110: error: no suitable method found for print(StringBuffer,long)
+        formatter.print(sb, 2023L);
+                 ^
+    method DateTimeFormatter.print(ReadableInstant) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(ReadablePartial) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java:114: error: no suitable method found for print(StringBuilder,long)
+        formatter.print(sbuild, 2023L);
+                 ^
+    method DateTimeFormatter.print(ReadableInstant) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(ReadablePartial) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java:118: error: no suitable method found for print(StringWriter,long)
+        formatter.print(out, 2023L);
+                 ^
+    method DateTimeFormatter.print(ReadableInstant) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(ReadablePartial) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java:127: error: no suitable method found for print(StringBuffer,ReadableInstant)
+        formatter.print(sb, instant);
+                 ^
+    method DateTimeFormatter.print(ReadableInstant) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method DateTimeFormatter.print(ReadablePartial) is not applicable
+      (actual and formal argument lists differ in length)
+/workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java:186: error: incompatible types: DateTime cannot be converted to ReadWritableInstant
+        ReadWritableInstant instant = new DateTime(0L);
+                                      ^
+/workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java:196: error: method parseInto in class DateTimeFormatter cannot be applied to given types;
+        int newPos = formatter.parseInto(null, instant, "2023-05-10", 0);
+                              ^
+  required: ReadWritableInstant,String,int
+  found: <null>,long,String,int
+  reason: actual and formal argument lists differ in length
+/workspace/Gemini/TestCode/Time_7b/DateTimeFormatterTest.java:203: error: method parseInto in class DateTimeFormatter cannot be applied to given types;
+        int pos = formatter.parseInto(null, 0L, "abcd", 0);
+                           ^
+  required: ReadWritableInstant,String,int
+  found: <null>,long,String,int
+  reason: actual and formal argument lists differ in length
+7 errors
+
+[exit=1 timeout=False time=1.7s]

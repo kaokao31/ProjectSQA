@@ -1,0 +1,17 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/JacksonCore_12f/target/classes:/work/JacksonCore_12f/target/test-classes -d /work/llm_out/Gemini/JacksonCore_12/classes_f /workspace/Gemini/TestCode/JacksonCore_12b/ReaderBasedJsonParserTest.java
+/workspace/Gemini/TestCode/JacksonCore_12b/ReaderBasedJsonParserTest.java:98: error: cannot find symbol
+        byte[] bytes = parser.getBinaryValue(Base64Variant.getDefaultVariant());
+                                                          ^
+  symbol:   method getDefaultVariant()
+  location: class Base64Variant
+/workspace/Gemini/TestCode/JacksonCore_12b/ReaderBasedJsonParserTest.java:211: error: no suitable method found for releaseBuffered(StringReader)
+        parser.releaseBuffered(new StringReader(""));
+              ^
+    method JsonParser.releaseBuffered(OutputStream) is not applicable
+      (argument mismatch; StringReader cannot be converted to OutputStream)
+    method ReaderBasedJsonParser.releaseBuffered(Writer) is not applicable
+      (argument mismatch; StringReader cannot be converted to Writer)
+2 errors
+
+[exit=1 timeout=False time=1.7s]

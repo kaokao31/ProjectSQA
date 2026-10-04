@@ -1,0 +1,19 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Chart_11f/build:/work/Chart_11f/lib/servlet.jar:/work/Chart_11f/build-tests -d /work/llm_out/Gemini/Chart_11/classes_f /workspace/Gemini/TestCode/Chart_11b/ShapeUtilitiesTest.java
+/workspace/Gemini/TestCode/Chart_11b/ShapeUtilitiesTest.java:41: error: reference to equal is ambiguous
+        assertTrue(ShapeUtilities.equal(null, null));
+                                 ^
+  both method equal(Polygon,Polygon) in ShapeUtilities and method equal(GeneralPath,GeneralPath) in ShapeUtilities match
+/workspace/Gemini/TestCode/Chart_11b/ShapeUtilitiesTest.java:141: error: cannot find symbol
+        Point2D p = ShapeUtilities.calculateAlignedPoint(r, 10.0, 10.0, RectangleAnchor.CENTER);
+                                  ^
+  symbol:   method calculateAlignedPoint(Rectangle2D,double,double,RectangleAnchor)
+  location: class ShapeUtilities
+/workspace/Gemini/TestCode/Chart_11b/ShapeUtilitiesTest.java:159: error: cannot find symbol
+        Line2D l = ShapeUtilities.createLine(new Rectangle2D.Double(0, 0, 10, 10), RectangleAnchor.TOP_LEFT, RectangleAnchor.BOTTOM_RIGHT);
+                                 ^
+  symbol:   method createLine(Double,RectangleAnchor,RectangleAnchor)
+  location: class ShapeUtilities
+3 errors
+
+[exit=1 timeout=False time=1.4s]

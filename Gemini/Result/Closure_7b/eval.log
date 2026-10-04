@@ -1,0 +1,67 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_7f/build/classes:/work/Closure_7f/lib/args4j.jar:/work/Closure_7f/lib/guava.jar:/work/Closure_7f/lib/json.jar:/work/Closure_7f/lib/jsr305.jar:/work/Closure_7f/lib/protobuf-java.jar:/work/Closure_7f/build/lib/rhino.jar:/work/Closure_7f/lib/ant.jar:/work/Closure_7f/lib/ant-launcher.jar:/work/Closure_7f/lib/caja-r4314.jar:/work/Closure_7f/lib/jarjar.jar:/work/Closure_7f/build/test -d /work/llm_out/Gemini/Closure_7/classes_f /workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java
+ol
+            return getRestrictedBoth(originalType, restrictedType);
+                   ^
+  symbol:   method getRestrictedBoth(JSType,JSType)
+  location: class DummyChainableReverseAbstractInterpreter
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:54: error: incompatible types: int cannot be converted to JSTypeNative
+            return getNativeType(nativeTypeId);
+                                 ^
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:60: error: cannot find symbol
+        registry = new JSTypeRegistry(new SimpleRegistry());
+                                          ^
+  symbol:   class SimpleRegistry
+  location: class ChainableReverseAbstractInterpreterTest
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:69: error: cannot find symbol
+        SemanticAbstractInterpreter nextInterpreter = new DummyChainableReverseAbstractInterpreter(convention, registry);
+        ^
+  symbol:   class SemanticAbstractInterpreter
+  location: class ChainableReverseAbstractInterpreterTest
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:83: error: cannot find symbol
+        assertNull(interpreter.getNext());
+                              ^
+  symbol:   method getNext()
+  location: variable interpreter of type DummyChainableReverseAbstractInterpreter
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:85: error: cannot find symbol
+        SemanticAbstractInterpreter nextInterpreter = new DummyChainableReverseAbstractInterpreter(convention, registry);
+        ^
+  symbol:   class SemanticAbstractInterpreter
+  location: class ChainableReverseAbstractInterpreterTest
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:87: error: cannot find symbol
+        assertSame(nextInterpreter, interpreter.getNext());
+                                               ^
+  symbol:   method getNext()
+  location: variable interpreter of type DummyChainableReverseAbstractInterpreter
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:92: error: cannot find symbol
+        JSType stringType = registry.getNativeType(JSTypeRegistry.DATA_TYPE); // Just a native type
+                                                                 ^
+  symbol:   variable DATA_TYPE
+  location: class JSTypeRegistry
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:93: error: cannot find symbol
+        JSType numberType = registry.getNativeType(JSTypeRegistry.NUMBER_TYPE);
+                                                                 ^
+  symbol:   variable NUMBER_TYPE
+  location: class JSTypeRegistry
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:108: error: cannot find symbol
+        JSType nativeType = interpreter.getNativeTypeHelper(JSTypeRegistry.VOID_TYPE);
+                                                                          ^
+  symbol:   variable VOID_TYPE
+  location: class JSTypeRegistry
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:126: error: cannot find symbol
+        Node node = new Node(Token.BLOCK);
+                             ^
+  symbol:   variable Token
+  location: class ChainableReverseAbstractInterpreterTest
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:127: error: FlowScope is abstract; cannot be instantiated
+        FlowScope scope = new FlowScope();
+                          ^
+/workspace/Gemini/TestCode/Closure_7b/ChainableReverseAbstractInterpreterTest.java:129: error: cannot find symbol
+        interpreter.setScopes(node, scope, scope);
+                   ^
+  symbol:   method setScopes(Node,FlowScope,FlowScope)
+  location: variable interpreter of type DummyChainableReverseAbstractInterpreter
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+20 errors
+
+[exit=1 timeout=False time=1.9s]

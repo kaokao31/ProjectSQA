@@ -1,0 +1,65 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Closure_75f/build/classes:/work/Closure_75f/lib/args4j.jar:/work/Closure_75f/lib/guava.jar:/work/Closure_75f/lib/json.jar:/work/Closure_75f/lib/jsr305.jar:/work/Closure_75f/lib/libtrunk_rhino_parser_jarjared.jar:/work/Closure_75f/lib/protobuf-java.jar:/work/Closure_75f/lib/ant.jar:/work/Closure_75f/lib/ant-launcher.jar:/work/Closure_75f/lib/caja-r4314.jar:/work/Closure_75f/build/test -d /work/llm_out/deepseek/Closure_75/classes_f /workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java
+eepseek/TestCode/Closure_75b/NodeUtilTest.java:517: error: no suitable constructor found for Node(int,String)
+        Node getProp = new Node(Token.GETPROP, new Node(Token.NAME, "o"), Node.newString("p"));
+                                               ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:518: error: no suitable constructor found for Node(int,String)
+        Node getElem = new Node(Token.GETELEM, new Node(Token.NAME, "o"), Node.newString("p"));
+                                               ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:519: error: cannot find symbol
+        assertTrue("GETPROP is property access", NodeUtil.isPropertyAccess(getProp));
+                                                         ^
+  symbol:   method isPropertyAccess(Node)
+  location: class NodeUtil
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:520: error: cannot find symbol
+        assertTrue("GETELEM is property access", NodeUtil.isPropertyAccess(getElem));
+                                                         ^
+  symbol:   method isPropertyAccess(Node)
+  location: class NodeUtil
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:521: error: no suitable constructor found for Node(int,String)
+        assertFalse("NAME is not property access", new Node(Token.NAME, "x"));
+                                                   ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:531: error: no suitable constructor found for Node(int,String)
+                    new Node(Token.NAME, "Foo"),
+                    ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:538: error: no suitable constructor found for Node(int,String)
+        Node simpleAssign = new Node(Token.ASSIGN, new Node(Token.NAME, "x"), Node.newNumber(1));
+                                                   ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:558: error: no suitable constructor found for Node(int,String)
+        Node nameX = new Node(Token.NAME, "x");
+                     ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/workspace/deepseek/TestCode/Closure_75b/NodeUtilTest.java:559: error: no suitable constructor found for Node(int,String)
+        Node nameXConst = new Node(Token.NAME, "X");
+                          ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+98 errors
+
+[exit=1 timeout=False time=2.4s]

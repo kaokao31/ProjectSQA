@@ -1,0 +1,69 @@
+
+$ javac -nowarn -encoding UTF-8 -cp /opt/defects4j/framework/projects/lib/junit-4.12-hamcrest-1.3.jar:/work/Math_87f/target/classes:/work/Math_87f/target/test-classes -d /work/llm_out/Gemini/Math_87/classes_f /workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java
+Math_87b/SimplexTableauTest.java:36: error: cannot find symbol
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1e-6);
+                                                                    ^
+  symbol:   variable GoalType
+  location: class SimplexTableauTest
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:47: error: cannot find symbol
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MINIMIZE, false, 1e-6);
+                                                                    ^
+  symbol:   variable GoalType
+  location: class SimplexTableauTest
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:50: error: cannot find symbol
+        Assert.assertEquals(1, tableau.getSlackVariableCount());
+                                      ^
+  symbol:   method getSlackVariableCount()
+  location: variable tableau of type SimplexTableau
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:51: error: cannot find symbol
+        Assert.assertEquals(0, tableau.getArtificialVariableCount());
+                                      ^
+  symbol:   method getArtificialVariableCount()
+  location: variable tableau of type SimplexTableau
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:53: error: incompatible types: RealPointValuePair cannot be converted to RealVector
+        RealVector solution = tableau.getSolution();
+                                                 ^
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:63: error: cannot find symbol
+        SimplexTableau t1 = new SimplexTableau(f1, c1, GoalType.MAXIMIZE, false, 1e-6);
+                                                       ^
+  symbol:   variable GoalType
+  location: class SimplexTableauTest
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:64: error: cannot find symbol
+        SimplexTableau t2 = new SimplexTableau(f1, c1, GoalType.MAXIMIZE, false, 1e-6);
+                                                       ^
+  symbol:   variable GoalType
+  location: class SimplexTableauTest
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:65: error: cannot find symbol
+        SimplexTableau t3 = new SimplexTableau(f1, c1, GoalType.MINIMIZE, false, 1e-6);
+                                                       ^
+  symbol:   variable GoalType
+  location: class SimplexTableauTest
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:86: error: cannot find symbol
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, false, 1e-6);
+                                                                    ^
+  symbol:   variable GoalType
+  location: class SimplexTableauTest
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:90: error: getBasicRow(int) has private access in SimplexTableau
+            tableau.getBasicRow(i);
+                   ^
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:93: error: incompatible types: RealPointValuePair cannot be converted to RealVector
+        RealVector sol = tableau.getSolution();
+                                            ^
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:103: error: cannot find symbol
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, false, 1e-6);
+                                                                    ^
+  symbol:   variable GoalType
+  location: class SimplexTableauTest
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:105: error: cannot find symbol
+        if (tableau.getArtificialVariableCount() > 0) {
+                   ^
+  symbol:   method getArtificialVariableCount()
+  location: variable tableau of type SimplexTableau
+/workspace/Gemini/TestCode/Math_87b/SimplexTableauTest.java:107: error: cannot find symbol
+            Assert.assertNotNull(tableau.getTableau());
+                                        ^
+  symbol:   method getTableau()
+  location: variable tableau of type SimplexTableau
+20 errors
+
+[exit=1 timeout=False time=1.9s]
