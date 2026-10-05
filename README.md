@@ -8,7 +8,7 @@
 
 | เทคนิค | ประเภท | Configuration ที่ทดลอง |
 |---|---|---|
-| EvoSuite 1.2.0 | Search-Based Software Testing (อัลกอริทึมเริ่มต้นของ EvoSuite 1.2.0 คือ DynaMOSA) | Search Budget 60 และ 120 วินาที, seed 1 |
+| EvoSuite 1.2.0 | Search-Based Software Testing (SBST) โหมด Whole Test Suite Generation โดยใช้ Monotonic GA (`MONOTONIC_GA`) ซึ่งเป็นค่าเริ่มต้นของโหมด `-generateSuite` เมื่อไม่ได้ระบุ `-Dalgorithm` | Search Budget 60 และ 120 วินาที, seed 1 |
 | jqwik 1.7.4 + ตัวสร้าง property อัตโนมัติที่กลุ่มพัฒนา | Property-Based Testing | 200 และ 1,000 tries, seeds 1, 2, 3 |
 | Gemini | Generative AI (LLM) | เก็บ Test Class ฉบับล่าสุดต่อ bug; บาง bug มีการสร้างซ้ำ |
 | DeepSeek | Generative AI (LLM) | เก็บ Test Class ฉบับล่าสุดต่อ bug; บาง bug มีการสร้างซ้ำ |
@@ -46,21 +46,21 @@
 
 ## 2. สิ่งที่ส่งและหลักฐานตามข้อกำหนดรอบที่ 2
 
-| ข้อกำหนด (หัวข้อ 2.2) | หลักฐานใน repository | สถานะ |
-|---|---|---|
-| (1) พัฒนาอัลกอริทึม 2 ตัว รันกับ Defects4J ทุกรายการ บันทึกผล วัด Coverage | EvoSuite: [`scripts/run_evosuite.py`](scripts/run_evosuite.py), [`scripts/run_benchmark.py`](scripts/run_benchmark.py), [`EvoSuite/`](EvoSuite/), [`results/evosuite_results.csv`](results/evosuite_results.csv) <br> jqwik: [`scripts/run_jqwik.py`](scripts/run_jqwik.py), [`jqwik/Harness/`](jqwik/Harness/), [`jqwik/Auto/`](jqwik/Auto/), [`results/jqwik_auto.csv`](results/jqwik_auto.csv) | มีผลประเมินครบ 854 bugs ทุก configuration |
-| (2) ใช้ Prompt สร้าง Test ด้วย AI 2 ตัว รันและวัดผล | [`scripts/run_llm_testgen.py`](scripts/run_llm_testgen.py), [`scripts/run_llm_eval.py`](scripts/run_llm_eval.py), [`Gemini/`](Gemini/), [`deepseek/`](deepseek/), [`results/llm_results.csv`](results/llm_results.csv) | มีผลประเมินครบ 854 bugs ต่อโมเดล |
-| (3) เปรียบเทียบ วิเคราะห์ สรุปสิ่งที่เรียนรู้และปัญหา | [`scripts/summarize_all.py`](scripts/summarize_all.py), [`results/comparison_overall.csv`](results/comparison_overall.csv), [`results/comparison_projects.csv`](results/comparison_projects.csv), หัวข้อ [10](#10-ผลการทดลอง)–[12](#12-ปัญหาที่พบและสิ่งที่เรียนรู้) ของไฟล์นี้ | มี |
-| (4) รายงานฉบับสมบูรณ์ | [`report/ProjectSQA_Report_final.pdf`](report/ProjectSQA_Report_final.pdf) | ระบุลิงก์แล้ว; ยังไม่ได้ยืนยันการเข้าถึงไฟล์บน GitHub ในการตรวจครั้งนี้ |
-| (4) Source code | [`scripts/`](scripts/), [`jqwik/Harness/src/`](jqwik/Harness/src/), [`docker/`](docker/) | มี |
-| (4) Test code | [`EvoSuite/Test/`](EvoSuite/Test/), [`jqwik/Auto/`](jqwik/Auto/), [`Gemini/TestCode/`](Gemini/TestCode/), [`deepseek/TestCode/`](deepseek/TestCode/) | มี (รายละเอียดในหัวข้อ 3) |
-| (4) ผลการทดสอบ | [`results/`](results/), `EvoSuite/Result_Round*/`, `jqwik/Result_auto_Round*/`, `Gemini/Result/`, `deepseek/Result/` | มี |
-| (4) ภาพประกอบ/Diagram | Diagram ในหัวข้อ [4](#4-ภาพรวม-pipeline) ของไฟล์นี้ | มีเฉพาะ Diagram นี้ กราฟผลทดลองอยู่ในรายงาน ไม่ได้เก็บเป็นไฟล์ใน repository |
-| (4) Prompt | [`Gemini/Prompt/master_prompt.md`](Gemini/Prompt/master_prompt.md), [`deepseek/Prompt/master_prompt.md`](deepseek/Prompt/master_prompt.md) (เนื้อหาเหมือนกัน) และ Prompt จริงราย bug ใน `Gemini/Prompt/<Project>_<Bug>b/`, `deepseek/Prompt/<Project>_<Bug>b/` | มีครบ 854 ไฟล์ต่อโมเดล |
-| (4) Configuration | [`docker/Dockerfile`](docker/Dockerfile), [`docker/docker-compose.yml`](docker/docker-compose.yml), [`.env.example`](.env.example), `EvoSuite/Result_Round*/<Project>_<Bug>/budget*_seed1/config.json`, หัวข้อ [5](#5-สภาพแวดล้อมและ-configuration) | มีค่าที่ใช้ในสคริปต์และ config.json; โฟลเดอร์ Configuration แยกยังว่าง แต่ไม่ใช่ข้อกำหนดว่าต้องเก็บซ้ำในโฟลเดอร์นั้น |
-| (4) Presentation | — | **ยังไม่มีใน repository** |
-| (4) Demo | ขั้นตอนในหัวข้อ [13](#13-ขั้นตอน-demo) | มีขั้นตอนสำหรับนำเสนอ ยังต้องทดลอง Demo จริงก่อนนำเสนอ; วิดีโอเป็นหลักฐานเสริม ไม่ได้ระบุว่าบังคับใน PDF |
-| ชื่อ รหัสสมาชิก และคำอธิบายใน README | หัวข้อ [1](#1-สมาชิกกลุ่ม) | มี |
+| ลำดับ | ข้อกำหนด (หัวข้อ 2.2) | หลักฐานใน repository | สถานะ |
+|---:|---|---|---|
+| 1 | พัฒนาอัลกอริทึม 2 ตัว รันกับ Defects4J ทุกรายการ บันทึกผล วัด Coverage | EvoSuite: [`scripts/run_evosuite.py`](scripts/run_evosuite.py), [`scripts/run_benchmark.py`](scripts/run_benchmark.py), [`EvoSuite/`](EvoSuite/), [`results/evosuite_results.csv`](results/evosuite_results.csv) <br> jqwik: [`scripts/run_jqwik.py`](scripts/run_jqwik.py), [`jqwik/Harness/`](jqwik/Harness/), [`jqwik/Auto/`](jqwik/Auto/), [`results/jqwik_auto.csv`](results/jqwik_auto.csv) | มีผลประเมินครบ 854 bugs ทุก configuration |
+| 2 | ใช้ Prompt สร้าง Test ด้วย AI 2 ตัว รันและวัดผล | [`scripts/run_llm_testgen.py`](scripts/run_llm_testgen.py), [`scripts/run_llm_eval.py`](scripts/run_llm_eval.py), [`Gemini/`](Gemini/), [`deepseek/`](deepseek/), [`results/llm_results.csv`](results/llm_results.csv) | มีผลประเมินครบ 854 bugs ต่อโมเดล |
+| 3 | เปรียบเทียบ วิเคราะห์ สรุปสิ่งที่เรียนรู้และปัญหา | [`scripts/summarize_all.py`](scripts/summarize_all.py), [`results/comparison_overall.csv`](results/comparison_overall.csv), [`results/comparison_projects.csv`](results/comparison_projects.csv), หัวข้อ [10](#10-ผลการทดลอง)–[12](#12-ปัญหาที่พบและสิ่งที่เรียนรู้) ของไฟล์นี้ | มี |
+| 4 | รายงานฉบับสมบูรณ์ | [`report/ProjectSQA_Report_final.pdf`](report/ProjectSQA_Report_final.pdf) | ระบุลิงก์แล้ว; ยังไม่ได้ยืนยันการเข้าถึงไฟล์บน GitHub ในการตรวจครั้งนี้ |
+| 5 | Source code | [`scripts/`](scripts/), [`jqwik/Harness/src/`](jqwik/Harness/src/), [`docker/`](docker/) | มี |
+| 6 | Test code | [`EvoSuite/Test/`](EvoSuite/Test/), [`jqwik/Auto/`](jqwik/Auto/), [`Gemini/TestCode/`](Gemini/TestCode/), [`deepseek/TestCode/`](deepseek/TestCode/) | มี (รายละเอียดในหัวข้อ 3) |
+| 7 | ผลการทดสอบ | [`results/`](results/), `EvoSuite/Result_Round*/`, `jqwik/Result_auto_Round*/`, `Gemini/Result/`, `deepseek/Result/` | มี |
+| 8 | ภาพประกอบ/Diagram | Diagram ในหัวข้อ [4](#4-ภาพรวม-pipeline) ของไฟล์นี้ | มีเฉพาะ Diagram นี้ กราฟผลทดลองอยู่ในรายงาน ไม่ได้เก็บเป็นไฟล์ใน repository |
+| 9 | Prompt | [`Gemini/Prompt/master_prompt.md`](Gemini/Prompt/master_prompt.md), [`deepseek/Prompt/master_prompt.md`](deepseek/Prompt/master_prompt.md) (เนื้อหาเหมือนกัน) และ Prompt จริงราย bug ใน `Gemini/Prompt/<Project>_<Bug>b/`, `deepseek/Prompt/<Project>_<Bug>b/` | มีครบ 854 ไฟล์ต่อโมเดล |
+| 10 | Configuration | [`docker/Dockerfile`](docker/Dockerfile), [`docker/docker-compose.yml`](docker/docker-compose.yml), [`.env.example`](.env.example), `EvoSuite/Result_Round*/<Project>_<Bug>/budget*_seed1/config.json`, หัวข้อ [5](#5-สภาพแวดล้อมและ-configuration) | มีค่าที่ใช้ในสคริปต์และ config.json; โฟลเดอร์ Configuration แยกยังว่าง แต่ไม่ใช่ข้อกำหนดว่าต้องเก็บซ้ำในโฟลเดอร์นั้น |
+| 11 | Presentation | — | **ยังไม่มีใน repository** |
+| 12 | Demo | ขั้นตอนในหัวข้อ [13](#13-ขั้นตอน-demo) | มีขั้นตอนสำหรับนำเสนอ ยังต้องทดลอง Demo จริงก่อนนำเสนอ; วิดีโอเป็นหลักฐานเสริม ไม่ได้ระบุว่าบังคับใน PDF |
+| 13 | ชื่อ รหัสสมาชิก และคำอธิบายใน README | หัวข้อ [1](#1-สมาชิกกลุ่ม) | มี |
 
 ต้องจัดทำ Presentation และนำเสนอ Demo ตามข้อกำหนดรอบที่ 2 README นี้ใช้แทนสองรายการนั้นไม่ได้ PDF ไม่ได้กำหนดว่าต้องส่งวิดีโอ Demo หรือสร้างโฟลเดอร์ Configuration แยก หากเก็บค่าที่ใช้ไว้ในไฟล์อื่นครบและอ้างอิงได้ ก็ใช้เป็นหลักฐานการทำซ้ำได้
 
@@ -180,13 +180,21 @@ flowchart TD
 
 | เทคนิค | ค่าที่ใช้ | ที่มา |
 |---|---|---|
-| EvoSuite | `-Dcriterion=LINE:BRANCH:EXCEPTION`, `-Dsearch_budget=60` (Round 1) และ `120` (Round 2), `-seed 1`, ไม่ระบุ `-Dalgorithm` (CSV บันทึกเป็น `default`), JaCoCo โหมด offline, ใช้ `--evo-jvm-cp` กับทุก project ยกเว้น Lang | `run_evosuite.py`, `run_benchmark.py`, `config.json` ราย bug |
+| EvoSuite | `-Dcriterion=LINE:BRANCH:EXCEPTION`, `-Dsearch_budget=60` (Round 1) และ `120` (Round 2), `-seed 1`, โหมด `-generateSuite` (Whole Test Suite Generation), ไม่ระบุ `-Dalgorithm` จึงใช้ Monotonic GA ซึ่งเป็นค่าเริ่มต้นของโหมดนี้ (CSV บันทึกเป็น `default`), JaCoCo โหมด offline, ใช้ `--evo-jvm-cp` กับทุก project ยกเว้น Lang | `run_evosuite.py`, `run_benchmark.py`, `config.json` ราย bug |
 | EvoSuite timeout | สร้าง Test ต่อคลาส: `budget × 3 + 300` วินาที, คอมไพล์และรัน Test แต่ละขั้น: 600 วินาที | `run_evosuite.py` |
 | jqwik | Round 1: `--tries 200`, Round 2: `--tries 1000`, `--seeds 1,2,3`, `--prop-budget 5` (วินาทีต่อ property), `--max-methods 150` (property ต่อคลาส), `--timeout 600` (วินาทีต่อ JVM บวก 5 วินาทีต่อ property) | `run_jqwik_auto_all.sh`, `run_jqwik.py` |
 | Gemini / DeepSeek (สร้าง) | `temperature 0.2`, system prompt คงที่, timeout 180 วินาทีต่อคำขอ, ไม่มี seed | `run_llm_testgen.py` |
 | Gemini / DeepSeek (ประเมิน) | `--timeout 180` วินาทีต่อ JVM, รันด้วย engine `junit-vintage` | `run_llm_eval.py` |
 | Target Classes | `classes_modified` ใน `dataset/defects4j/<Project>_metadata.csv` EvoSuite และ jqwik ใช้ทุกคลาส ส่วน AI ใช้เฉพาะคลาสแรก (127 bugs มีมากกว่า 1 คลาส) | สคริปต์ทั้งสามชุด |
 | ขอบเขต Coverage | JaCoCo เฉพาะคลาสใน `classes_modified` (รวม inner class) วัดขณะรันบน Fixed Version | `jacoco_coverage()` |
+
+**อัลกอริทึมของ EvoSuite ที่ใช้ในการทดลอง**
+
+- การทดลองใช้ EvoSuite 1.2.0 ในโหมด Whole Test Suite Generation ผ่านคำสั่ง `-generateSuite` โดยใช้ **Monotonic GA (`MONOTONIC_GA`)** ไม่ใช่ DynaMOSA
+- `scripts/run_evosuite.py` เรียก `-generateSuite` (บรรทัด 220) ตัวเลือก `--algorithm` มีค่าเริ่มต้นเป็น `None` (บรรทัด 357) และเพิ่ม `-Dalgorithm` เฉพาะเมื่อผู้ใช้ระบุ (บรรทัด 224–225) ส่วน `scripts/run_benchmark.py` ไม่ส่งตัวเลือกอัลกอริทึม และ `config.json` ของทุกการรันที่เก็บไว้บันทึก `"algorithm": null`
+- ใน EvoSuite 1.2.0 ([`TestGeneration.java`](https://github.com/EvoSuite/evosuite/blob/v1.2.0/master/src/main/java/org/evosuite/executionmode/TestGeneration.java)) โหมด `-generateSuite` เลือก `Strategy.EVOSUITE` และเพิ่ม `-Dalgorithm=Monotonic_GA` เมื่อไม่มีการระบุ `-Dalgorithm` ส่วน DynaMOSA เป็นค่าเริ่มต้นของโหมด `-generateMOSuite` ซึ่งการทดลองนี้ไม่ได้ใช้
+- `results/evosuite_results.csv` บันทึก `algorithm=default` ทุกแถว เพราะสคริปต์ไม่ได้ระบุอัลกอริทึมโดยตรง และไม่ได้บันทึกชื่ออัลกอริทึมที่ EvoSuite เลือกภายใน `run.log` ที่เก็บไว้ก็ไม่มีชื่ออัลกอริทึม
+- ข้อความนี้เป็นการแก้คำอธิบายให้ตรงกับการตั้งค่าที่ใช้เดิม ไม่ใช่การเปลี่ยนอัลกอริทึมหรือการรันทดลองใหม่ ตัวเลขผลทดลองไม่เปลี่ยน
 
 ### 5.4 บริการ AI
 
