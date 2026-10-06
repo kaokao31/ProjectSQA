@@ -58,7 +58,7 @@
 | 8 | ภาพประกอบ/Diagram | Diagram ในหัวข้อ [4](#4-ภาพรวม-pipeline) ของไฟล์นี้ | มีเฉพาะ Diagram นี้ กราฟผลทดลองอยู่ในรายงาน ไม่ได้เก็บเป็นไฟล์ใน repository |
 | 9 | Prompt | [`Gemini/Prompt/master_prompt.md`](Gemini/Prompt/master_prompt.md), [`deepseek/Prompt/master_prompt.md`](deepseek/Prompt/master_prompt.md) (เนื้อหาเหมือนกัน) และ Prompt จริงราย bug ใน `Gemini/Prompt/<Project>_<Bug>b/`, `deepseek/Prompt/<Project>_<Bug>b/` | มีครบ 854 ไฟล์ต่อโมเดล |
 | 10 | Configuration | [`docker/Dockerfile`](docker/Dockerfile), [`docker/docker-compose.yml`](docker/docker-compose.yml), [`.env.example`](.env.example), `EvoSuite/Result_Round*/<Project>_<Bug>/budget*_seed1/config.json`, หัวข้อ [5](#5-สภาพแวดล้อมและ-configuration) | มีค่าที่ใช้ในสคริปต์และ config.json; โฟลเดอร์ Configuration แยกยังว่าง แต่ไม่ใช่ข้อกำหนดว่าต้องเก็บซ้ำในโฟลเดอร์นั้น |
-| 11 | Presentation | — | **ยังไม่มีใน repository** |
+| 11 | Presentation | [`presentation/`](presentation/) (ไฟล์ PDF) | มี |
 | 12 | Demo | ขั้นตอนในหัวข้อ [13](#13-ขั้นตอน-demo) | มีขั้นตอนสำหรับนำเสนอ ยังต้องทดลอง Demo จริงก่อนนำเสนอ; วิดีโอเป็นหลักฐานเสริม ไม่ได้ระบุว่าบังคับใน PDF |
 | 13 | ชื่อ รหัสสมาชิก และคำอธิบายใน README | หัวข้อ [1](#1-สมาชิกกลุ่ม) | มี |
 
